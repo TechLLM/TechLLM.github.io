@@ -198,3 +198,43 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+.post-entry {
+  position: relative;
+  overflow: hidden;
+}
+
+.post-entry::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(124,92,255,0.10), rgba(41,198,255,0.06));
+  opacity: 0;
+  transition: opacity .2s ease;
+  pointer-events: none;
+}
+
+.post-entry:hover::before {
+  opacity: 1;
+}
+
+.post-entry .entry-header h2 {
+  font-size: 1.18rem;
+  font-weight: 800;
+}
+
+.post-entry .entry-content {
+  font-size: .98rem;
+  line-height: 1.75;
+}
+
+.post-entry .entry-footer,
+.post-entry .entry-meta {
+  font-size: .85rem;
+  color: var(--secondary);
+}
+
+.post-entry tag,
+.post-entry .post-tags a {
+  border-radius: 999px;
+}
