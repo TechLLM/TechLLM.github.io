@@ -90,3 +90,6 @@ enableRobotsTXT = true
     name = '소개'
     url = '/about/'
     weight = 50
+
+[params.seo]
+  images = ['/images/og-default.png']

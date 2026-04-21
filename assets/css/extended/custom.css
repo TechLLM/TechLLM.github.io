@@ -238,3 +238,48 @@ body {
 .post-entry .post-tags a {
   border-radius: 999px;
 }
+
+.custom-footer {
+  margin-top: 56px;
+  padding: 28px 0 8px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-brand {
+  max-width: 520px;
+}
+
+.footer-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.footer-brand p {
+  color: var(--secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.footer-links a {
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
