@@ -1,0 +1,136 @@
+:root {
+  --gap: 24px;
+}
+
+.main {
+  max-width: 1080px;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(112, 87, 255, 0.12), transparent 28%),
+    radial-gradient(circle at top right, rgba(0, 200, 255, 0.10), transparent 24%),
+    var(--theme);
+}
+
+.first-entry {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 34px;
+  background: linear-gradient(135deg, rgba(20,20,30,0.9), rgba(30,30,50,0.75));
+  box-shadow: 0 20px 60px rgba(0,0,0,.12);
+}
+
+.techllm-hero .entry-header h1 {
+  font-size: 2.7rem;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.hero-badge {
+  display: inline-block;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  color: #8ab4ff;
+  margin-bottom: 12px;
+}
+
+.techllm-hero .entry-content p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #d0d6e0;
+}
+
+.techllm-hero .entry-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.techllm-hero .button {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255,255,255,0.04);
+}
+
+.techllm-hero .button.primary {
+  background: linear-gradient(90deg, #7c5cff, #40c4ff);
+  border: none;
+}
+
+.hero-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.hero-keywords span {
+  font-size: .9rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.05);
+  color: #d7def5;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.hero-panel {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 16px 18px;
+  background: rgba(255,255,255,0.04);
+}
+
+.panel-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.hero-panel ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #d0d6e0;
+}
+
+.post-entry {
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(6px);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.post-entry:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(0,0,0,.08);
+  border-color: #7c5cff;
+}
+
+.logo a,
+.nav a {
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .techllm-hero .entry-header h1 {
+    font-size: 2rem;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .first-entry {
+    padding: 24px;
+  }
+}

@@ -1,0 +1,92 @@
+baseURL = 'https://techllm.github.io/'
+languageCode = 'ko'
+defaultContentLanguage = 'ko'
+title = 'TechLLM'
+theme = 'PaperMod'
+summaryLength = 28
+enableRobotsTXT = true
+
+[pagination]
+  pagerSize = 9
+
+[taxonomies]
+  tag = 'tags'
+  category = 'categories'
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+
+[params]
+  env = 'production'
+  author = 'TechLLM'
+  description = 'LLM, AI 에이전트, 자동화, OpenClaw, Claude, 제품화 관점의 실전 기술 블로그'
+  keywords = ['LLM', 'AI Agent', 'Claude', 'OpenClaw', 'Automation', 'Tech Blog']
+  defaultTheme = 'auto'
+  disableThemeToggle = false
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
+  ShowRssButtonInSectionTermList = true
+  ShowToc = true
+  TocOpen = false
+  ShowAllPagesInArchive = true
+  mainSections = ['posts']
+
+  [params.profileMode]
+    enabled = true
+    title = 'TechLLM'
+    subtitle = 'LLM, AI 에이전트, 자동화, 제품화 관점의 기술 블로그'
+    imageUrl = '/images/techllm-mark.svg'
+    imageTitle = 'TechLLM'
+    imageWidth = 120
+    imageHeight = 120
+
+    [[params.profileMode.buttons]]
+      name = '글 보기'
+      url = '/posts/'
+    [[params.profileMode.buttons]]
+      name = '검색'
+      url = '/search/'
+    [[params.profileMode.buttons]]
+      name = '아카이브'
+      url = '/archives/'
+
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    location = 0
+    distance = 1000
+    threshold = 0.35
+    minMatchCharLength = 2
+    limit = 10
+    keys = ['title', 'permalink', 'summary', 'content']
+
+[menu]
+  [[menu.main]]
+    identifier = 'posts'
+    name = '글목록'
+    url = '/posts/'
+    weight = 10
+  [[menu.main]]
+    identifier = 'archives'
+    name = '아카이브'
+    url = '/archives/'
+    weight = 20
+  [[menu.main]]
+    identifier = 'search'
+    name = '검색'
+    url = '/search/'
+    weight = 30
+  [[menu.main]]
+    identifier = 'tags'
+    name = '태그'
+    url = '/tags/'
+    weight = 40
+  [[menu.main]]
+    identifier = 'about'
+    name = '소개'
+    url = '/about/'
+    weight = 50
