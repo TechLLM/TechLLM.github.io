@@ -4,8 +4,8 @@ date: 2026-04-22T01:41:48+09:00
 draft: false
 description: "Artificial Analysis의 Kimi K2.6 분석 글을 바탕으로, 왜 이 모델이 오픈 웨이트 진영에서 주목받는지 한국어로 정리했습니다. 성능, 비용, 포지셔닝, 실전 의미를 함께 봅니다."
 cover:
-  image: "/images/thumb-default.png"
-  alt: "TechLLM article cover"
+  image: "/images/kimi-k2-6-cover.jpg"
+  alt: "Kimi K2.6 Artificial Analysis chart"
   caption: ""
 tags:
   - Kimi K2.6
