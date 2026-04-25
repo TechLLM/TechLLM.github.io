@@ -35,8 +35,12 @@ enableRobotsTXT = true
   ShowAllPagesInArchive = true
   mainSections = ['posts']
 
+  [params.homeInfoParams]
+    Title = 'TechLLM'
+    Content = 'LLM, AI 에이전트, 자동화, 제품화 관점의 기술 블로그'
+
   [params.profileMode]
-    enabled = true
+    enabled = false
     title = 'TechLLM'
     subtitle = 'LLM, AI 에이전트, 자동화, 제품화 관점의 기술 블로그'
     imageUrl = '/images/profile-techllm.png'
