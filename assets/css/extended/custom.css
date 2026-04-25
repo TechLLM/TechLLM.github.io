@@ -827,3 +827,68 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Light theme contrast fixes for TechLLM homepage */
+:root:not([data-theme="dark"]) .techllm-hero .entry-content p {
+  color: #334155;
+}
+
+:root:not([data-theme="dark"]) .hero-note {
+  color: #475569;
+}
+
+:root:not([data-theme="dark"]) .hero-badge,
+:root:not([data-theme="dark"]) .home-panel-label,
+:root:not([data-theme="dark"]) .home-feature-card span {
+  color: #4f46e5;
+}
+
+:root:not([data-theme="dark"]) .techllm-hero .button {
+  color: #1e293b;
+  border-color: #dbe3ef;
+  background: #ffffff;
+}
+
+:root:not([data-theme="dark"]) .techllm-hero .button.primary {
+  color: #ffffff;
+  border-color: transparent;
+  background: linear-gradient(90deg, #6d5dfc, #0284c7);
+}
+
+:root:not([data-theme="dark"]) .hero-keywords span {
+  color: #334155;
+  background: #eef2ff;
+  border: 1px solid #dbe3ef;
+}
+
+:root:not([data-theme="dark"]) .home-hero-panel,
+:root:not([data-theme="dark"]) .stat-card,
+:root:not([data-theme="dark"]) .hero-panel,
+:root:not([data-theme="dark"]) .home-feature-card {
+  border-color: #dbe3ef;
+  background:
+    radial-gradient(circle at top right, rgba(124,92,255,0.10), transparent 44%),
+    #ffffff;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.05);
+}
+
+:root:not([data-theme="dark"]) .home-panel-title,
+:root:not([data-theme="dark"]) .stat-value,
+:root:not([data-theme="dark"]) .panel-title {
+  color: #0f172a;
+}
+
+:root:not([data-theme="dark"]) .home-hero-panel p,
+:root:not([data-theme="dark"]) .stat-desc,
+:root:not([data-theme="dark"]) .hero-panel ul,
+:root:not([data-theme="dark"]) .home-feature-card p {
+  color: #475569;
+}
+
+:root:not([data-theme="dark"]) .stat-label {
+  color: #64748b;
+}
+
+:root:not([data-theme="dark"]) .hero-panel a {
+  color: #1d4ed8;
+}
