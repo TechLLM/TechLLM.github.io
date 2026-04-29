@@ -6,6 +6,11 @@ theme = 'PaperMod'
 summaryLength = 28
 enableRobotsTXT = true
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [pagination]
   pagerSize = 9
 
