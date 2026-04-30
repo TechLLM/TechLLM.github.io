@@ -54,11 +54,11 @@ Mem0 문서 기준 공식 통합은 21개입니다. LangChain, LangGraph, LlamaI
 
 벡터 저장소도 19개까지 넓어졌습니다. Qdrant, Chroma, Weaviate, Milvus, PGVector, Redis, Elasticsearch, Pinecone, Azure AI Search, Neptune Analytics, MongoDB 등이 포함됩니다. 이건 시장이 하나의 벡터 DB로 수렴하지 않았다는 뜻이기도 합니다.
 
-## 우리 시스템에 적용하면 좋은 점
+## 실무자가 볼 포인트
 
-TechLLM/OpenClaw 관점에서 중요한 건 memory scope입니다. Mem0는 `user_id`, `agent_id`, `session_id`, `app_id/org_id` 같은 범위를 나눠 기억을 저장합니다. 이 구조는 우리에게도 바로 필요합니다. 개인 선호, 특정 에이전트의 작업 방식, 한 번의 실행에서만 유효한 임시 맥락, 팀 공통 지식은 섞이면 안 됩니다.
+에이전트 메모리를 설계할 때 가장 먼저 정해야 할 것은 memory scope입니다. Mem0는 `user_id`, `agent_id`, `session_id`, `app_id/org_id` 같은 범위를 나눠 기억을 저장합니다. 개인 선호, 특정 에이전트의 작업 맥락, 한 번의 실행에서만 유효한 임시 정보, 조직 공통 지식이 뒤섞이면 나중에 디버깅하기 어렵습니다.
 
-또 하나는 procedural memory입니다. “무엇을 안다”가 아니라 “어떻게 한다”를 저장하는 기억입니다. 예를 들어 블로그 작성 규칙, 리뷰 순서, 배포 전 확인 절차는 단순 사실이 아니라 반복해야 할 작업 방식입니다. 이런 기억은 에이전트 품질을 꾸준히 끌어올리는 데 더 직접적입니다.
+또 하나는 procedural memory입니다. “무엇을 안다”가 아니라 “어떻게 한다”를 저장하는 기억입니다. 예를 들어 팀의 PR 작성 방식, 테스트 순서, 배포 전 확인 절차는 단순 사실이 아니라 반복해야 할 작업 방식입니다. 이런 기억은 에이전트가 매번 같은 실수를 줄이고, 팀의 작업 방식을 더 일관되게 따르게 만드는 데 유용합니다.
 
 ## 정리
 
