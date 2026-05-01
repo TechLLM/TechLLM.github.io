@@ -4,7 +4,7 @@ date: 2026-05-01T17:20:00+09:00
 draft: false
 description: "Anthropic Claude on Vertex AI 워크숍 영상을 바탕으로, 프로토타입 에이전트를 운영 가능한 프로덕션 시스템으로 만들기 위한 Google Cloud 에이전트 스택을 정리한다."
 cover:
-  image: "/images/vertex-ai-agent-stack-hero.svg"
+  image: "/images/vertex-ai-agent-stack-hero.png"
   alt: "Production AI Agent Stack illustration"
   caption: "Source: Ionuț Dogariu / YouTube"
 tags:
@@ -32,7 +32,7 @@ categories:
 
 핵심 메시지는 분명합니다. 에이전트 개발의 어려움은 모델 호출이 아니라 **표준화, 도구 연결, 에이전트 간 통신, 배포, 관측 가능성, 거버넌스**에 있습니다. Google Cloud는 이를 위해 ADK, MCP, Agent Engine, A2A라는 네 가지 축을 제시합니다.
 
-![Vertex AI Agent Stack](/images/vertex-ai-agent-stack-hero.svg)
+![Vertex AI Agent Stack](/images/vertex-ai-agent-stack-hero.png)
 
 ## 기: 에이전트 프로토타입은 쉽지만, 운영은 어렵다
 
