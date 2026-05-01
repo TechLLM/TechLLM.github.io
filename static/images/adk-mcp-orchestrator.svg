@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#0b1020"/>
+  <text x="600" y="75" text-anchor="middle" font-family="Arial" font-size="40" fill="#fff" font-weight="800">ADK Multi-Agent Orchestration</text>
+  <circle cx="600" cy="330" r="95" fill="#172554" stroke="#60a5fa" stroke-width="4"/>
+  <text x="600" y="322" text-anchor="middle" font-family="Arial" font-size="27" fill="#dbeafe" font-weight="700">Orchestrator</text>
+  <text x="600" y="358" text-anchor="middle" font-family="Arial" font-size="17" fill="#93c5fd">routes requests</text>
+  <g font-family="Arial" text-anchor="middle" font-weight="700">
+    <rect x="115" y="185" width="260" height="90" rx="22" fill="#064e3b" stroke="#34d399" stroke-width="3"/><text x="245" y="240" font-size="24" fill="#d1fae5">Birthday Agent</text>
+    <rect x="825" y="185" width="260" height="90" rx="22" fill="#3b0764" stroke="#c084fc" stroke-width="3"/><text x="955" y="240" font-size="24" fill="#f3e8ff">Calendar Agent</text>
+    <rect x="470" y="510" width="260" height="90" rx="22" fill="#4a1d1d" stroke="#fb7185" stroke-width="3"/><text x="600" y="565" font-size="24" fill="#ffe4e6">MCP Server</text>
+  </g>
+  <g stroke="#e2e8f0" stroke-width="4" fill="none" stroke-dasharray="8 9" opacity=".72"><path d="M375 230 C450 250 500 280 525 310"/><path d="M825 230 C750 250 700 280 675 310"/><path d="M600 425 V510"/></g>
+</svg>

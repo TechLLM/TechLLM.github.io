@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#07111f"/><stop offset="1" stop-color="#1b2b5a"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <text x="600" y="80" text-anchor="middle" font-family="Arial" font-size="42" font-weight="800" fill="#f8fafc">Production AI Agent Stack</text>
+  <text x="600" y="122" text-anchor="middle" font-family="Arial" font-size="22" fill="#bfdbfe">ADK · MCP · Agent Engine · A2A</text>
+  <g font-family="Arial" text-anchor="middle" font-weight="700">
+    <rect x="120" y="190" width="220" height="110" rx="24" fill="#172554" stroke="#60a5fa" stroke-width="4" filter="url(#glow)"/><text x="230" y="255" font-size="28" fill="#dbeafe">ADK</text><text x="230" y="282" font-size="16" fill="#93c5fd">build & evaluate</text>
+    <rect x="365" y="190" width="220" height="110" rx="24" fill="#064e3b" stroke="#34d399" stroke-width="4"/><text x="475" y="255" font-size="28" fill="#d1fae5">MCP</text><text x="475" y="282" font-size="16" fill="#86efac">tools & context</text>
+    <rect x="610" y="190" width="220" height="110" rx="24" fill="#3b0764" stroke="#c084fc" stroke-width="4"/><text x="720" y="255" font-size="28" fill="#f3e8ff">Engine</text><text x="720" y="282" font-size="16" fill="#d8b4fe">deploy & observe</text>
+    <rect x="855" y="190" width="220" height="110" rx="24" fill="#4a1d1d" stroke="#fb7185" stroke-width="4"/><text x="965" y="255" font-size="28" fill="#ffe4e6">A2A</text><text x="965" y="282" font-size="16" fill="#fecdd3">agent protocol</text>
+  </g>
+  <rect x="230" y="430" width="740" height="95" rx="30" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/>
+  <text x="600" y="468" text-anchor="middle" font-family="Arial" font-size="28" fill="#e0f2fe" font-weight="800">Claude on Vertex AI</text>
+  <text x="600" y="503" text-anchor="middle" font-family="Arial" font-size="20" fill="#93c5fd">from prototype to governed production agents</text>
+  <g stroke="#7dd3fc" stroke-width="4" opacity=".7"><path d="M340 245 H365"/><path d="M585 245 H610"/><path d="M830 245 H855"/><path d="M600 300 V430"/></g>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#07111f"/>
+  <text x="600" y="78" text-anchor="middle" font-family="Arial" font-size="40" fill="#fff" font-weight="800">Agent Engine: Production Operations</text>
+  <rect x="110" y="130" width="980" height="420" rx="28" fill="#0f172a" stroke="#334155" stroke-width="3"/>
+  <g font-family="Arial" fill="#e2e8f0" font-size="22" font-weight="700">
+    <text x="170" y="190">Queries</text><text x="420" y="190">Latency</text><text x="650" y="190">CPU / Memory</text><text x="920" y="190">Sessions</text>
+  </g>
+  <g fill="none" stroke-width="5"><polyline points="170,405 250,380 330,390 410,320 490,335" stroke="#60a5fa"/><polyline points="420,420 500,410 580,360 660,370 740,300" stroke="#34d399"/><polyline points="650,430 730,390 810,420 890,330 970,350" stroke="#c084fc"/></g>
+  <g font-family="Arial" fill="#94a3b8" font-size="18"><text x="170" y="500">managed deployment</text><text x="420" y="500">logging</text><text x="650" y="500">monitoring</text><text x="920" y="500">evaluation loop</text></g>
+  <text x="600" y="620" text-anchor="middle" font-family="Arial" font-size="24" fill="#cbd5e1">Production agents need operations, not just prompts.</text>
+</svg>
