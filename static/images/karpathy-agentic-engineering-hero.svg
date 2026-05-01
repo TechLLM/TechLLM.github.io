@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#08111f"/><stop offset="1" stop-color="#24113d"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="600" cy="340" r="95" fill="#0e2238" stroke="#7dd3fc" stroke-width="3" filter="url(#glow)"/>
+  <text x="600" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#e0f2fe" font-weight="700">Human</text>
+  <text x="600" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#bae6fd">judgment · taste · specs</text>
+  <g font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#f8fafc">
+    <g><rect x="110" y="115" rx="26" width="245" height="110" fill="#172554" stroke="#60a5fa"/><text x="232" y="178" text-anchor="middle">Code Agent</text></g>
+    <g><rect x="845" y="115" rx="26" width="245" height="110" fill="#3b0764" stroke="#c084fc"/><text x="968" y="178" text-anchor="middle">Research Agent</text></g>
+    <g><rect x="110" y="450" rx="26" width="245" height="110" fill="#064e3b" stroke="#34d399"/><text x="232" y="513" text-anchor="middle">Test Agent</text></g>
+    <g><rect x="845" y="450" rx="26" width="245" height="110" fill="#4a1d1d" stroke="#fb7185"/><text x="968" y="513" text-anchor="middle">Review Agent</text></g>
+  </g>
+  <g stroke="#38bdf8" stroke-width="3" opacity=".75" fill="none" stroke-dasharray="8 10"><path d="M355 170 C455 190 510 250 555 300"/><path d="M845 170 C745 190 690 250 645 300"/><path d="M355 505 C455 480 510 430 555 380"/><path d="M845 505 C745 480 690 430 645 380"/></g>
+  <text x="600" y="620" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#ffffff" font-weight="800">Agentic Engineering</text>
+</svg>

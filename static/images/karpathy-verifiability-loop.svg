@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#07111f"/>
+  <text x="600" y="78" text-anchor="middle" font-family="Arial" font-size="40" fill="#fff" font-weight="800">Verifiability accelerates automation</text>
+  <g font-family="Arial" font-size="25" text-anchor="middle" font-weight="700">
+    <circle cx="260" cy="335" r="105" fill="#172554" stroke="#60a5fa" stroke-width="4"/><text x="260" y="328" fill="#dbeafe">Task</text><text x="260" y="363" fill="#93c5fd" font-size="18">code · math · tests</text>
+    <circle cx="600" cy="335" r="105" fill="#064e3b" stroke="#34d399" stroke-width="4"/><text x="600" y="328" fill="#d1fae5">Verifier</text><text x="600" y="363" fill="#86efac" font-size="18">tests · score · feedback</text>
+    <circle cx="940" cy="335" r="105" fill="#4a1d1d" stroke="#fb7185" stroke-width="4"/><text x="940" y="328" fill="#ffe4e6">Model</text><text x="940" y="363" fill="#fecdd3" font-size="18">learns through loops</text>
+  </g>
+  <g stroke="#e2e8f0" stroke-width="5" fill="none" opacity=".75"><path d="M365 335 H495"/><path d="M705 335 H835"/><path d="M930 445 C780 565 420 565 270 445"/></g>
+  <text x="600" y="610" text-anchor="middle" font-family="Arial" font-size="25" fill="#cbd5e1">Where outputs can be checked, agents improve faster.</text>
+</svg>
