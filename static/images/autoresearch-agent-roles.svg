@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#0b1020"/>
+  <text x="600" y="76" text-anchor="middle" font-family="Arial" font-size="40" fill="#fff" font-weight="800">Role-Specialized Research Loop</text>
+  <g font-family="Arial" text-anchor="middle">
+    <g><circle cx="220" cy="330" r="92" fill="#172554" stroke="#60a5fa" stroke-width="4"/><text x="220" y="322" font-size="26" fill="#dbeafe" font-weight="700">Researcher</text><text x="220" y="356" font-size="17" fill="#93c5fd">papers → hypotheses</text></g>
+    <g><circle cx="460" cy="330" r="92" fill="#064e3b" stroke="#34d399" stroke-width="4"/><text x="460" y="322" font-size="26" fill="#d1fae5" font-weight="700">Planner</text><text x="460" y="356" font-size="17" fill="#86efac">queue → priorities</text></g>
+    <g><circle cx="700" cy="330" r="92" fill="#3b0764" stroke="#c084fc" stroke-width="4"/><text x="700" y="322" font-size="26" fill="#f3e8ff" font-weight="700">Workers</text><text x="700" y="356" font-size="17" fill="#d8b4fe">patch → train</text></g>
+    <g><circle cx="940" cy="330" r="92" fill="#4a1d1d" stroke="#fb7185" stroke-width="4"/><text x="940" y="322" font-size="26" fill="#ffe4e6" font-weight="700">Reporter</text><text x="940" y="356" font-size="17" fill="#fecdd3">metrics → learnings</text></g>
+  </g>
+  <g stroke="#e2e8f0" stroke-width="5" opacity=".65"><path d="M312 330 H368"/><path d="M552 330 H608"/><path d="M792 330 H848"/></g>
+  <text x="600" y="590" text-anchor="middle" font-family="Arial" font-size="25" fill="#cbd5e1">Splitting roles can make open-source models viable for long-running research.</text>
+</svg>

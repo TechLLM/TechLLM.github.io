@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#08111f"/>
+  <text x="600" y="72" text-anchor="middle" font-family="Arial" font-size="40" fill="#fff" font-weight="800">Observable AutoResearch</text>
+  <rect x="115" y="125" width="970" height="430" rx="28" fill="#0f172a" stroke="#334155" stroke-width="3"/>
+  <g fill="none" stroke="#1e293b" stroke-width="2"><path d="M170 500 H1030"/><path d="M170 410 H1030"/><path d="M170 320 H1030"/><path d="M170 230 H1030"/></g>
+  <polyline points="170,430 260,420 350,390 440,350 530,330 620,280 710,260 800,235 890,238 980,232 1030,230" fill="none" stroke="#34d399" stroke-width="7" stroke-linecap="round"/>
+  <polyline points="170,280 260,310 350,250 440,360 530,300 620,375 710,315 800,390 890,330 980,420 1030,360" fill="none" stroke="#fb7185" stroke-width="4" stroke-dasharray="9 9"/>
+  <g font-family="Arial" fill="#cbd5e1" font-size="20"><text x="170" y="585">best delta vs master</text><text x="720" y="585">failed / cancelled / active jobs</text></g>
+  <circle cx="980" cy="232" r="12" fill="#34d399"/><text x="600" y="630" text-anchor="middle" font-family="Arial" font-size="24" fill="#e2e8f0">Metrics are the memory of a multi-agent lab.</text>
+</svg>
