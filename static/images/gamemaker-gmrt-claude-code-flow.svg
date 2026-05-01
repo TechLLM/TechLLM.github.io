@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="720" viewBox="0 0 1400 720" role="img" aria-labelledby="title desc">
+  <title id="title">GM-CLI Claude Code development flow</title>
+  <desc id="desc">A workflow diagram from natural language prompt to GM-CLI, project files, GMRT runtime and game builds.</desc>
+  <rect width="1400" height="720" rx="36" fill="#0b1120"/>
+  <text x="70" y="80" fill="#f8fafc" font-family="Inter, Pretendard, Arial" font-size="42" font-weight="800">Claude Code가 GameMaker 워크플로우에 들어가는 위치</text>
+  <text x="70" y="124" fill="#94a3b8" font-family="Inter, Pretendard, Arial" font-size="22">자연어 요청이 CLI 자동화와 런타임 구조로 이어지는 흐름</text>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2 2 L10 6 L2 10" fill="#38bdf8"/>
+    </marker>
+  </defs>
+  <g font-family="Inter, Pretendard, Arial">
+    <g transform="translate(80 230)">
+      <rect width="250" height="150" rx="24" fill="#111827" stroke="#6366f1" stroke-width="3"/>
+      <text x="30" y="58" fill="#fff" font-size="28" font-weight="700">Prompt</text>
+      <text x="30" y="98" fill="#cbd5e1" font-size="20">버그 찾아줘</text>
+      <text x="30" y="126" fill="#cbd5e1" font-size="20">빌드 설정 바꿔줘</text>
+    </g>
+    <g transform="translate(420 230)">
+      <rect width="250" height="150" rx="24" fill="#0f172a" stroke="#22d3ee" stroke-width="3"/>
+      <text x="30" y="58" fill="#fff" font-size="28" font-weight="700">Claude Code</text>
+      <text x="30" y="100" fill="#cbd5e1" font-size="20">프로젝트 구조 이해</text>
+      <text x="30" y="128" fill="#cbd5e1" font-size="20">수정/진단 제안</text>
+    </g>
+    <g transform="translate(760 230)">
+      <rect width="250" height="150" rx="24" fill="#111827" stroke="#3b82f6" stroke-width="3"/>
+      <text x="30" y="58" fill="#fff" font-size="28" font-weight="700">GM-CLI</text>
+      <text x="30" y="100" fill="#cbd5e1" font-size="20">텍스트 프로젝트</text>
+      <text x="30" y="128" fill="#cbd5e1" font-size="20">Git/CI 자동화</text>
+    </g>
+    <g transform="translate(1090 230)">
+      <rect width="250" height="150" rx="24" fill="#111827" stroke="#10b981" stroke-width="3"/>
+      <text x="30" y="58" fill="#fff" font-size="28" font-weight="700">GMRT</text>
+      <text x="30" y="100" fill="#cbd5e1" font-size="20">새 런타임</text>
+      <text x="30" y="128" fill="#cbd5e1" font-size="20">빌드/실행 기반</text>
+    </g>
+  </g>
+  <g stroke="#38bdf8" stroke-width="5" fill="none" marker-end="url(#arrow)">
+    <path d="M335 305 H410"/>
+    <path d="M675 305 H750"/>
+    <path d="M1015 305 H1080"/>
+  </g>
+  <g transform="translate(140 500)" font-family="Inter, Pretendard, Arial">
+    <rect width="1120" height="110" rx="26" fill="#020617" stroke="#334155"/>
+    <text x="36" y="48" fill="#e2e8f0" font-size="24" font-weight="700">핵심 변화</text>
+    <text x="36" y="82" fill="#94a3b8" font-size="21">IDE 중심 엔진에서 CLI·텍스트 파일·AI 보조·자동화가 가능한 개발 파이프라인으로 이동</text>
+  </g>
+</svg>
