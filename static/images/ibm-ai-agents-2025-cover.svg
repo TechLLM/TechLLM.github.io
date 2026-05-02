@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AI Agents 2025: Expectations vs Reality</title>
+  <desc id="desc">Editorial cover comparing AI agent expectations with enterprise reality.</desc>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#17315a"/>
+      <stop offset="48%" stop-color="#0b1629"/>
+      <stop offset="100%" stop-color="#050711"/>
+    </radialGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8cc8ff"/>
+      <stop offset="1" stop-color="#0f62fe"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7cf7b6"/>
+      <stop offset="1" stop-color="#24a148"/>
+    </linearGradient>
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="20" stdDeviation="22" flood-color="#000" flood-opacity=".5"/>
+    </filter>
+    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0V56" fill="none" stroke="#fff" stroke-opacity=".045"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <g transform="translate(120 115)">
+    <text x="0" y="0" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="34" font-weight="800" letter-spacing="3" fill="#8cc8ff">ENTERPRISE AI</text>
+    <text x="0" y="88" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="82" font-weight="900" fill="#ffffff">AI Agents 2025</text>
+    <text x="0" y="154" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="42" font-weight="750" fill="#d8e8ff">Expectations vs Reality</text>
+    <rect x="0" y="190" width="560" height="4" rx="2" fill="url(#blue)"/>
+    <text x="0" y="240" font-family="Inter, SF Pro Text, Arial, sans-serif" font-size="27" fill="#bdd0e8">Strategy · Governance · Human-in-the-loop</text>
+  </g>
+
+  <g transform="translate(150 455)" filter="url(#shadow)">
+    <rect x="0" y="0" width="560" height="270" rx="34" fill="#0f1f36" stroke="#8cc8ff" stroke-opacity=".45" stroke-width="2"/>
+    <text x="52" y="72" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="850" fill="#ffffff">Expectation</text>
+    <text x="52" y="123" font-family="Inter, Arial, sans-serif" font-size="26" fill="#cfe3ff">Autonomous agents</text>
+    <text x="52" y="163" font-family="Inter, Arial, sans-serif" font-size="26" fill="#cfe3ff">Multi-agent orchestration</text>
+    <text x="52" y="203" font-family="Inter, Arial, sans-serif" font-size="26" fill="#cfe3ff">Work transformed overnight</text>
+    <circle cx="470" cy="132" r="52" fill="url(#blue)" opacity=".9"/>
+    <path d="M440 132h60M470 102v60" stroke="#06111f" stroke-width="10" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(890 455)" filter="url(#shadow)">
+    <rect x="0" y="0" width="560" height="270" rx="34" fill="#0f1f36" stroke="#7cf7b6" stroke-opacity=".45" stroke-width="2"/>
+    <text x="52" y="72" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="850" fill="#ffffff">Reality</text>
+    <text x="52" y="123" font-family="Inter, Arial, sans-serif" font-size="26" fill="#d7ffe9">APIs and data readiness</text>
+    <text x="52" y="163" font-family="Inter, Arial, sans-serif" font-size="26" fill="#d7ffe9">Audit logs and rollback</text>
+    <text x="52" y="203" font-family="Inter, Arial, sans-serif" font-size="26" fill="#d7ffe9">Clear ROI and governance</text>
+    <circle cx="470" cy="132" r="52" fill="url(#green)" opacity=".9"/>
+    <path d="M444 134l18 20 42-54" fill="none" stroke="#06111f" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g opacity=".45" fill="none" stroke="#f4f8ff" stroke-width="3">
+    <path d="M710 590C770 545 830 545 890 590"/>
+    <path d="M710 636C770 681 830 681 890 636"/>
+  </g>
+  <g opacity=".25" fill="none" stroke="#8cc8ff" stroke-width="2">
+    <path d="M180 350C430 260 650 385 800 305S1160 140 1420 245"/>
+    <path d="M250 780C470 710 590 800 760 730S1130 600 1390 690"/>
+  </g>
+</svg>
