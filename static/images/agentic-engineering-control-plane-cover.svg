@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Agentic engineering control plane</title>
+  <desc id="desc">A dark editorial illustration of a leader agent coordinating multiple worker agents across software delivery pipelines.</desc>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#16352f"/>
+      <stop offset="45%" stop-color="#0b1723"/>
+      <stop offset="100%" stop-color="#050812"/>
+    </radialGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#54f3b3"/>
+      <stop offset="1" stop-color="#1aa37a"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#83b7ff"/>
+      <stop offset="1" stop-color="#4c6fff"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity=".45"/>
+    </filter>
+    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0V56" fill="none" stroke="#ffffff" stroke-opacity=".045" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <g opacity=".18" stroke="#54f3b3" stroke-width="2" fill="none">
+    <path d="M170 740C400 520 560 650 750 430S1070 190 1430 270"/>
+    <path d="M210 190C420 330 520 250 720 360S1060 660 1400 560"/>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="535" y="220" width="530" height="330" rx="42" fill="#0d1d2a" stroke="#54f3b3" stroke-opacity=".48" stroke-width="2"/>
+    <rect x="575" y="268" width="450" height="52" rx="16" fill="#112c38" stroke="#54f3b3" stroke-opacity=".28"/>
+    <rect x="575" y="344" width="200" height="126" rx="22" fill="#08131f" stroke="#83b7ff" stroke-opacity=".22"/>
+    <rect x="825" y="344" width="200" height="126" rx="22" fill="#08131f" stroke="#83b7ff" stroke-opacity=".22"/>
+    <text x="800" y="305" text-anchor="middle" font-family="Inter, Apple SD Gothic Neo, sans-serif" font-size="25" font-weight="700" fill="#dfffee">Leader Agent Control Plane</text>
+    <text x="675" y="402" text-anchor="middle" font-family="Inter, sans-serif" font-size="22" fill="#d6e9ff">Memory</text>
+    <text x="925" y="402" text-anchor="middle" font-family="Inter, sans-serif" font-size="22" fill="#d6e9ff">Observability</text>
+  </g>
+  <g stroke="#54f3b3" stroke-opacity=".58" stroke-width="3" fill="none">
+    <path d="M535 385H360"/><path d="M1065 385h175"/><path d="M800 550v120"/><path d="M630 550 440 675"/><path d="M970 550l190 125"/>
+  </g>
+  <g filter="url(#glow)">
+    <circle cx="360" cy="385" r="62" fill="#102936" stroke="url(#green)" stroke-width="3"/>
+    <circle cx="1240" cy="385" r="62" fill="#102936" stroke="url(#green)" stroke-width="3"/>
+    <circle cx="800" cy="690" r="62" fill="#102936" stroke="url(#green)" stroke-width="3"/>
+    <circle cx="440" cy="675" r="52" fill="#0f2232" stroke="url(#blue)" stroke-width="2"/>
+    <circle cx="1160" cy="675" r="52" fill="#0f2232" stroke="url(#blue)" stroke-width="2"/>
+  </g>
+  <g font-family="Inter, Apple SD Gothic Neo, sans-serif" font-weight="700" fill="#eefcff" text-anchor="middle">
+    <text x="360" y="377" font-size="21">Dev</text><text x="360" y="405" font-size="21">Agent</text>
+    <text x="1240" y="377" font-size="21">Test</text><text x="1240" y="405" font-size="21">Agent</text>
+    <text x="800" y="682" font-size="21">Ops</text><text x="800" y="710" font-size="21">Agent</text>
+    <text x="440" y="682" font-size="18">Review</text>
+    <text x="1160" y="682" font-size="18">Deploy</text>
+  </g>
+  <g transform="translate(150 120)">
+    <text font-family="Inter, Apple SD Gothic Neo, sans-serif" font-size="66" font-weight="800" fill="#ffffff">Agentic Engineering</text>
+    <text y="58" font-family="Inter, Apple SD Gothic Neo, sans-serif" font-size="28" fill="#a9f5d5">AI agents as coordinated software teams</text>
+  </g>
+  <g transform="translate(1160 120)" opacity=".9">
+    <rect width="260" height="96" rx="24" fill="#08131f" stroke="#54f3b3" stroke-opacity=".35"/>
+    <text x="130" y="40" text-anchor="middle" font-family="Inter, sans-serif" font-size="19" fill="#dfffee">plan → work → verify</text>
+    <text x="130" y="70" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#83b7ff">traceable delivery</text>
+  </g>
+</svg>
