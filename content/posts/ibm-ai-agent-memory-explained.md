@@ -4,8 +4,8 @@ date: 2026-05-02T23:10:00+09:00
 draft: false
 description: "IBM의 AI agent memory 설명을 바탕으로, 에이전트 메모리의 개념과 단기·장기·에피소드·의미·절차 기억의 실무적 의미를 정리한다."
 cover:
-  image: "/images/ibm-ai-agent-memory-cover.svg"
-  alt: "English cover reading AI Agent Memory with short-term, long-term, episodic, semantic and procedural memory"
+  image: "/images/ibm-ai-agent-memory-cover.png"
+  alt: "English cover reading AI Agent Memory with short-term, long-term, episodic, semantic and procedural memory modules"
   caption: "TechLLM editorial illustration"
 tags:
   - AIAgent
