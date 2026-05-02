@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">5 Heavy Lifts for AI Agents</title>
+  <desc id="desc">Editorial cover image with five pillars labeled Data, Validation, ROI, Drift, and Governance for AI agent deployment.</desc>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="78%">
+      <stop offset="0%" stop-color="#1c3442"/>
+      <stop offset="45%" stop-color="#0b1724"/>
+      <stop offset="100%" stop-color="#04070e"/>
+    </radialGradient>
+    <linearGradient id="pillar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f7efe4"/>
+      <stop offset="100%" stop-color="#bfc9d8"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff6b5f"/>
+      <stop offset="55%" stop-color="#6ee7ff"/>
+      <stop offset="100%" stop-color="#7cf7b6"/>
+    </linearGradient>
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="22" stdDeviation="22" flood-color="#000" flood-opacity=".5"/>
+    </filter>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="grid" width="52" height="52" patternUnits="userSpaceOnUse">
+      <path d="M52 0H0V52" fill="none" stroke="#ffffff" stroke-opacity=".045"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <circle cx="1260" cy="190" r="210" fill="#ff6b5f" opacity=".08"/>
+  <circle cx="360" cy="690" r="260" fill="#6ee7ff" opacity=".07"/>
+
+  <g opacity=".34" fill="none" stroke="url(#accent)" stroke-width="3">
+    <path d="M180 640C390 510 520 600 720 455S1030 250 1410 340"/>
+    <path d="M220 292C410 405 575 305 745 415S1055 650 1375 540"/>
+  </g>
+
+  <g transform="translate(120 105)">
+    <text x="0" y="0" font-family="Inter, SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="34" letter-spacing="3" font-weight="700" fill="#7cf7b6" opacity=".95">AI AGENT DEPLOYMENT</text>
+    <text x="0" y="82" font-family="Inter, SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="76" font-weight="850" fill="#fff7ee">5 Heavy Lifts</text>
+    <text x="0" y="150" font-family="Inter, SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="44" font-weight="760" fill="#dce8f5">for AI Agents</text>
+    <rect x="0" y="184" width="540" height="4" rx="2" fill="url(#accent)"/>
+    <text x="0" y="235" font-family="Inter, SF Pro Text, Helvetica Neue, Arial, sans-serif" font-size="27" font-weight="500" fill="#b8c8d8">Data · Validation · ROI · Drift · Governance</text>
+  </g>
+
+  <g transform="translate(260 395)" filter="url(#shadow)">
+    <g transform="translate(0 60)">
+      <rect x="0" y="0" width="170" height="250" rx="24" fill="#111c2a" stroke="#6ee7ff" stroke-opacity=".55" stroke-width="2"/>
+      <rect x="22" y="24" width="126" height="126" rx="20" fill="url(#pillar)" opacity=".95"/>
+      <path d="M53 86h64M53 111h64M53 61h64" stroke="#0e1a26" stroke-width="9" stroke-linecap="round"/>
+      <text x="85" y="205" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800" fill="#eef8ff">Data</text>
+    </g>
+    <g transform="translate(210 15)">
+      <rect x="0" y="0" width="170" height="295" rx="24" fill="#111c2a" stroke="#7cf7b6" stroke-opacity=".55" stroke-width="2"/>
+      <rect x="22" y="24" width="126" height="150" rx="20" fill="url(#pillar)" opacity=".95"/>
+      <path d="M52 99l24 24 48-61" fill="none" stroke="#0e1a26" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="85" y="246" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#eef8ff">Validation</text>
+    </g>
+    <g transform="translate(420 -25)">
+      <rect x="0" y="0" width="170" height="335" rx="24" fill="#111c2a" stroke="#ffdf7a" stroke-opacity=".6" stroke-width="2"/>
+      <rect x="22" y="24" width="126" height="175" rx="20" fill="url(#pillar)" opacity=".95"/>
+      <path d="M85 69v84M57 97h56c20 0 28 11 28 27s-9 27-28 27H57" fill="none" stroke="#0e1a26" stroke-width="11" stroke-linecap="round"/>
+      <text x="85" y="285" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800" fill="#eef8ff">ROI</text>
+    </g>
+    <g transform="translate(630 15)">
+      <rect x="0" y="0" width="170" height="295" rx="24" fill="#111c2a" stroke="#b697ff" stroke-opacity=".58" stroke-width="2"/>
+      <rect x="22" y="24" width="126" height="150" rx="20" fill="url(#pillar)" opacity=".95"/>
+      <path d="M48 122c28-58 48 58 76 0" fill="none" stroke="#0e1a26" stroke-width="12" stroke-linecap="round"/>
+      <text x="85" y="246" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800" fill="#eef8ff">Drift</text>
+    </g>
+    <g transform="translate(840 60)">
+      <rect x="0" y="0" width="190" height="250" rx="24" fill="#111c2a" stroke="#ff6b5f" stroke-opacity=".62" stroke-width="2"/>
+      <rect x="32" y="24" width="126" height="126" rx="20" fill="url(#pillar)" opacity=".95"/>
+      <path d="M95 52l44 18v32c0 32-20 55-44 66-24-11-44-34-44-66V70z" fill="none" stroke="#0e1a26" stroke-width="10" stroke-linejoin="round"/>
+      <text x="95" y="205" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="800" fill="#eef8ff">Governance</text>
+    </g>
+  </g>
+
+  <g filter="url(#glow)">
+    <circle cx="820" cy="744" r="7" fill="#7cf7b6"/>
+    <circle cx="895" cy="723" r="5" fill="#6ee7ff"/>
+    <circle cx="965" cy="750" r="6" fill="#ff6b5f"/>
+    <path d="M820 744L895 723L965 750" fill="none" stroke="#d9f8ff" stroke-opacity=".62" stroke-width="2"/>
+  </g>
+</svg>
