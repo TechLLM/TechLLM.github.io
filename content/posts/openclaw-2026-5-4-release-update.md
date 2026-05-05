@@ -4,9 +4,9 @@ date: 2026-05-05T23:30:00+09:00
 draft: false
 description: "OpenClaw 2026.5.4가 출시됐다. Twilio 다이얼인과 Gemini 음성 브리지를 통한 Google Meet 실시간 음성 에이전트 개선이 핵심 하이라이트다. Gateway 성능 최적화, Control UI 개편, 채널별 안정성 강화까지 100여 개가 넘는 변경사항을 정리한다."
 cover:
-  image: ""
-  alt: ""
-  caption: ""
+  image: /images/4panel-gemini-meet.png
+  alt: "Google Meet/Voice Call 개선 - 4컷 만화"
+  caption: "Google Meet/Voice Call 개선 4컷 만화"
 tags:
   - OpenClaw
   - Release
