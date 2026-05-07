@@ -1,6 +1,6 @@
 ---
 title: "중국 AI 연구자들은 어떻게 일하는가 — 현장 방문기"
-date: 2026-05-08T10:00:00+09:00
+date: 2026-05-07T23:00:00+09:00
 draft: false
 description: "Interconnects AI의 Nathan Lambert가 중국 주요 AI 연구소를 직접 방문해 얻은 인사이트. 연구 문화, 산업 구조, 서방과의 차이점을 정리했다."
 tags:
