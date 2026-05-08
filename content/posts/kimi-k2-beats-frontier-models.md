@@ -4,7 +4,7 @@ date: 2026-05-03T19:55:00+09:00
 draft: false
 description: "Moonshot AI의 Kimi K2.6이 실시간 프로그래밍 챌린지에서 서방 프론티어 랩 모델을 모두 제쳤다. TCP 서버 연결과 실시간 의사결정을 요구한 슬라이딩 타일 퍼즐에서 벌어진 일."
 cover:
-  image: "/images/kimi-k2-beats-frontier-models.jpg"
+  image: "/images/kimi-k2-cover.jpg"
   alt: "Open-weights AI model defeating frontier models in coding challenge"
   caption: "Generated illustration"
 tags: ["LLM", "오픈웨이트", "Kimi", "벤치마크", "코딩챌린지", "중국AI"]
