@@ -4,7 +4,7 @@ date: 2026-05-07T21:00:00+09:00
 draft: false
 description: "에이전틱 AI 밋업 2025 Q1에서 테디노트가 발표한 LangGraph 실전 활용법. Advanced RAG의 한계, 라우팅 두 가지 방식, 메모리(단기/장기), Human-in-the-Loop, 멀티에이전트 슈퍼바이저 패턴까지 핵심만 정리했다."
 cover:
-  image: "/images/langgraph-agentic-ai-cover.png"
+  image: "/images/langgraph-agentic-ai-cover.jpg"
   alt: "LangGraph Agentic AI 시스템 구축"
   caption: "에이전틱 AI 밋업 2025 Q1 — 테디노트 발표"
 tags:
