@@ -1,154 +1,144 @@
 ---
 title: "NVIDIA Nemotron 3 Nano Omni: 문서·오디오·비디오를 한 번에 처리하는 멀티모달 AI"
-date: 2026-05-07T20:17:00+09:00
+date: 2026-05-10T11:00:00+09:00
 draft: false
-description: "NVIDIA가 공개한 Nemotron 3 Nano Omni는 30B 파라미터(활성 3B) 구조로 문서 분석, 음성 인식, 영상 이해, GUI 에이전트까지 단일 모델로 처리한다. 동급 오픈 모델 대비 처리량 9배, 주요 벤치마크에서 Qwen3-Omni 30B를 전 영역에서 앞선다."
+description: "NVIDIA가 공개한 Nemotron 3 Nano Omni 30B는 문서 분석, 음성 인식, 장시간 영상 이해, 에이전틱 컴퓨터 사용을 하나의 모델로 처리한다. 멀티문서 작업에서 7.4배, 비디오 작업에서 9.2배 처리량 우위를 보인다."
 cover:
-  image: "/images/nemotron-omni-throughput.png"
-  alt: "Nemotron 3 Nano Omni vs 경쟁 모델 처리량 비교"
-  caption: "멀티문서·비디오 유스케이스에서 동급 오픈 모델 대비 7.4~9.2배 높은 시스템 처리량"
-tags:
-  - NVIDIA
-  - Nemotron
-  - 멀티모달
-  - LLM
-  - 오픈웨이트
-  - MoE
-  - 문서AI
-  - 음성인식
-categories:
-  - AI 인프라
-  - LLM 소식
-summary: "NVIDIA Nemotron 3 Nano Omni는 Mamba-Transformer-MoE 백본에 비전·오디오 인코더를 결합한 30B-A3B 옴니모달 모델이다. 문서, 음성, 영상, GUI 에이전트 4개 영역에서 Qwen3-Omni 30B를 앞서며, 동급 대비 최대 9.2배 처리량을 제공한다."
+  image: "/images/nemotron-omni-cover.png"
+  alt: "NVIDIA Nemotron 3 Nano Omni 모델 아키텍처 — 비전·오디오·텍스트 통합 멀티모달 AI"
+  caption: "NVIDIA Nemotron 3 Nano Omni 30B-A3B 아키텍처 (출처: NVIDIA / HuggingFace)"
+tags: ["NVIDIA", "멀티모달AI", "LLM", "Nemotron", "오디오AI", "비디오이해", "문서분석"]
+categories: ["AI 모델"]
 ---
+
+문서를 읽고, 목소리를 듣고, 영상을 보고, 화면을 조작한다 — 이 모든 걸 단일 모델 하나로. NVIDIA가 공개한 **Nemotron 3 Nano Omni 30B-A3B**는 기존 비전-언어 모델의 경계를 텍스트·이미지·비디오·오디오 전체로 확장한 옴니모달 모델이다.
+
 
 ## 핵심 요약
 
-NVIDIA가 2026년 4월 28일 **Nemotron 3 Nano Omni 30B-A3B**를 공개했습니다. 기존 Nemotron Nano V2 VL(비전-언어 모델)을 확장해 텍스트·이미지·비디오·오디오를 단일 모델에서 처리하는 완전한 옴니모달 시스템으로 진화했습니다.
-
-핵심 숫자:
-- **30B 파라미터, 활성 3B** (Mixture-of-Experts 구조)
-- 동급 오픈 옴니 모델 대비 멀티문서 **7.4배**, 비디오 **9.2배** 높은 시스템 처리량
-- MMLongBench-Doc **57.5** (Qwen3-Omni 30B 49.5 대비 +8p)
-- VoiceBench **89.4**, HF Open ASR WER **5.95**
+- **옴니모달 통합**: 문서·이미지·비디오·오디오·텍스트를 단일 아키텍처에서 공동 처리
+- **문서 이해 1위**: MMlongbench-Doc 57.5점, OCRBenchV2 65.8점으로 동급 최고
+- **처리 효율**: 멀티문서 7.4배, 비디오 9.2배 시스템 처리량 (경쟁 오픈 옴니 모델 대비)
+- **아키텍처**: Mamba-Transformer-MoE 백본 + C-RADIOv4-H 비전 인코더 + Parakeet 오디오 인코더
+- **오픈웨이트**: BF16·FP8·NVFP4 체크포인트 HuggingFace 공개
 
 ---
 
-## 5가지 핵심 활용 영역
+## 무엇을 위해 만들었나
 
-### 1. 장문 문서 분석
+Nemotron 3 Nano Omni가 겨냥하는 5가지 워크로드:
 
-100페이지 이상의 계약서, 기술 논문, 재무 보고서, 규제 문서를 단일 컨텍스트에서 처리합니다. 레이아웃, 표, 수식, 페이지 간 상호참조까지 이해하는 OCR 수준을 넘은 **문서 이해**가 목표입니다.
+### 1. 실세계 문서 분석
 
-### 2. 음성 인식 (ASR)
+단순 OCR을 넘어선다. 레이아웃·표·수식·섹션 구조·페이지 간 참조가 복잡하게 얽힌 100페이지 이상의 계약서, 기술 논문, 컴플라이언스 문서를 처리한다.
 
-Parakeet-TDT-0.6B-v2 오디오 인코더를 내장해 다양한 화자, 억양, 배경 소음 조건에서 장문 오디오를 전사합니다. 단순 텍스트 변환이 아니라 오디오 토큰을 비전·텍스트 토큰과 함께 처리해 멀티모달 추론에 바로 연결됩니다.
+### 2. 자동 음성 인식(ASR)
+
+Parakeet-TDT-0.6B-v2 인코더를 통해 다양한 화자·억양·배경 소음이 섞인 장시간 오디오를 고품질로 전사한다. HF Open ASR 리더보드에서 WER 5.95%로 Qwen3-Omni(6.55%)를 앞선다.
 
 ### 3. 장시간 오디오-비디오 이해
 
-회의 녹화, 교육 영상, 화면 녹화, 제품 데모 등 음성과 영상이 섞인 복합 콘텐츠를 함께 이해합니다. 오디오 조건에서 LLM 최대 컨텍스트는 **5시간 이상**을 지원합니다.
+화면 녹화, 회의록, 교육 영상처럼 음성과 시각 정보가 동시에 흐르는 콘텐츠를 시간축 위에서 함께 추론한다. WorldSense 55.4점, DailyOmni 74.1점으로 모두 1위.
 
-### 4. GUI 에이전트 (Agentic Computer Use)
+### 4. 에이전틱 컴퓨터 사용
 
-스크린샷을 해석하고 UI 상태를 추적해 작업 흐름 자동화를 지원합니다. OSWorld 벤치마크에서 **47.4%**로 Qwen3-Omni(29.0%)를 크게 앞섭니다.
+GUI 환경에서 화면을 해석하고, UI 상태를 파악하고, 행동을 선택한다. OSWorld 47.4점(Qwen3-Omni 29.0점 대비 큰 격차)으로 에이전트 작업 능력을 입증했다.
 
 ### 5. 범용 멀티모달 추론
 
-텍스트, 이미지, 표, 오디오를 조합한 복합 추론, 다단계 계산, 구조화/반구조화 데이터 분석을 지원합니다.
+텍스트·이미지·표·오디오 신호를 긴 컨텍스트 창에서 종합해 다단계 추론, 계산, 구조적 추론을 수행한다.
 
 ---
 
-## 벤치마크 비교
+## 벤치마크 성능
 
-| 태스크 | 벤치마크 | Nemotron 3 Nano Omni | Nemotron V2 VL | Qwen3-Omni 30B |
-|--------|----------|----------------------|----------------|----------------|
+| 태스크 | 벤치마크 | Nemotron 3 Nano Omni | Nemotron Nano V2 VL | Qwen3-Omni 30B |
+|--------|---------|---------------------|--------------------|--------------:|
 | 문서 이해 | OCRBenchV2-En | **65.8** | 61.2 | — |
 | 문서 이해 | MMLongBench-Doc | **57.5** | 38.0 | 49.5 |
-| 차트 추론 | CharXiv | **63.6** | 41.3 | 61.1 |
+| 문서 이해 | CharXiv Reasoning | **63.6** | 41.3 | 61.1 |
 | GUI | ScreenSpot-Pro | 57.8 | 5.5 | **59.7** |
 | GUI | OSWorld | **47.4** | 11.0 | 29.0 |
-| 비디오 이해 | Video-MME | **72.2** | 63.0 | 70.5 |
+| 비디오 | Video-MME | **72.2** | 63.0 | 70.5 |
 | 비디오+오디오 | WorldSense | **55.4** | — | 54.0 |
 | 비디오+오디오 | DailyOmni | **74.1** | — | 73.6 |
 | 음성 | VoiceBench | **89.4** | — | 88.8 |
-| ASR (낮을수록 좋음) | HF Open ASR WER | **5.95** | — | 6.55 |
+| ASR | HF Open ASR ↓ | **5.95** | — | 6.55 |
 
-GUI(ScreenSpot-Pro) 한 항목을 제외하면 전 영역에서 Qwen3-Omni 30B를 앞섭니다.
+### 처리 효율 비교
 
----
-
-## 아키텍처: Mamba + MoE + 비전 + 오디오
-
-![Nemotron 3 Nano Omni 아키텍처](/images/nemotron-omni-architecture.png)
-
-### 언어 백본: Hybrid Mamba-Transformer-MoE
-
-세 가지 레이어를 조합한 구조입니다:
-
-- **Mamba SSM 23개**: 효율적인 장문 컨텍스트 처리
-- **MoE 23개**: 전문가 128개, top-6 라우팅 + 공유 전문가 — 조건부 용량 확보
-- **GQA(그룹 쿼리 어텐션) 6개**: 글로벌 표현력 유지
-
-Mamba의 효율성과 어텐션의 표현력을 MoE로 확장하는 설계입니다.
-
-### 비전: 동적 해상도 처리
-
-V2 모델의 타일링 전략을 대체해 원본 종횡비 그대로 처리합니다. 이미지당 1,024~13,312 패치(16×16)를 사용하며, 최대 1840×1840 해상도에 해당합니다. OCR 문서, 재무 표, GUI 스크린샷처럼 세부 내용과 전체 구조를 함께 이해해야 하는 입력에 유리합니다.
-
-### 비디오: Conv3D + EVS
-
-- **Conv3D Tubelet 임베딩**: 연속 2프레임을 하나의 토큰으로 압축 → 비전 토큰 수 절반으로 감소
-- **EVS(Efficient Video Sampling)**: 비전 인코더 이후 중복 정적 프레임 토큰 제거 — 정확도 유지하면서 지연 감소
-
-두 기법을 조합해 동일 토큰 예산에서 2배 많은 프레임을 처리할 수 있습니다.
-
-### 오디오: 네이티브 처리
-
-Parakeet-TDT-0.6B-v2를 2-레이어 MLP 프로젝터로 백본에 연결합니다. 16kHz 샘플링, 최대 1,200초(20분) 입력 훈련, LLM 컨텍스트 기준 5시간 이상 지원. 오디오 토큰을 텍스트·비전 토큰과 동일 시퀀스에서 처리해 진정한 멀티모달 추론이 가능합니다.
+![Nemotron 3 Nano Omni — 멀티문서·비디오 시스템 처리량 비교](/images/nemotron-omni-throughput.png)
+*Figure 1: 고정된 사용자당 상호작용 임계값에서 멀티문서·비디오 사용 사례별 총 시스템 처리량. Nemotron 3 Nano Omni가 멀티문서 7.4배, 비디오 9.2배 우위를 보인다. (출처: NVIDIA)*
 
 ---
 
-## 처리량 비교
+## 아키텍처 핵심 혁신
 
-![처리량 비교](/images/nemotron-omni-throughput.png)
+![NVIDIA Nemotron 3 Nano Omni 30B-A3B 모델 아키텍처](/images/nemotron-omni-architecture.png)
+*Figure 2: 통합 인코더-프로젝터-디코더 설계. 언어 백본, 비전 인코더, 오디오 인코더가 경량 프로젝터로 연결된다. (출처: NVIDIA)*
 
-동급 인터랙티브 오픈 옴니 모델 대비:
-- 멀티문서 유스케이스: **7.4배** 높은 시스템 처리량
-- 비디오 유스케이스: **9.2배** 높은 시스템 처리량
+### 하이브리드 Mamba-Transformer-MoE 백본
 
-MoE(활성 파라미터 3B)와 EVS·Conv3D의 토큰 압축이 효율성의 핵심입니다.
+세 요소를 인터리빙한 백본이 장시간 멀티모달 컨텍스트를 처리한다:
+- **Mamba SSM 레이어 23개**: 긴 시퀀스를 효율적으로 처리
+- **MoE 레이어 23개**: 전문가 128개, top-6 라우팅, 공유 전문가
+- **GQA 레이어 6개**: 글로벌 상호작용과 표현력 보존
 
----
+### 동적 해상도 비전 처리
 
-## 훈련 스택
+기존 v2 모델의 타일링 방식을 **네이티브 종횡비 동적 해상도**로 교체했다. 이미지당 16×16 패치를 최소 1,024개(512×512 등가)에서 최대 13,312개(1840×1840 등가)까지 가변 할당해 OCR 문서, 금융 표, 연구 그래프, GUI 레이아웃의 세밀한 디테일을 포착한다.
 
-- **SFT**: NVIDIA H100, 32~128 노드, Megatron-LM + Transformer Engine + Megatron Energon
-- **강화학습**: NeMo-RL + NeMo Gym, B200/H100 혼합 클러스터, Ray 분산 설정
-- **합성 데이터**: NeMo Data Designer로 실제 PDF에서 약 1,140만 개 합성 QA 쌍(~45B 토큰) 생성 → MMLongBench-Doc 정확도 2.19배 향상
+### Conv3D 시간적 압축
 
-훈련 코드 일부와 [9개의 실행 가능한 파이프라인 레시피](https://github.com/NVIDIA-NeMo/DataDesigner/tree/main/docs/assets/recipes/vlm_long_doc)가 오픈소스로 공개됩니다.
+비디오 처리에 전용 Conv3D 튜블릿 임베딩을 도입했다. 인접한 두 프레임을 ViT 이전에 하나의 "튜블릿"으로 융합해 언어 모델이 처리할 비전 토큰을 절반으로 줄인다. 동일 토큰 예산으로 프레임을 2배 처리하거나, 동일 프레임 수로 토큰을 절반 사용할 수 있다.
 
----
+### EVS — 효율적 비디오 샘플링
 
-## 다운로드 및 리소스
+추론 시 활성화하는 **EVS**는 비전 인코더 이후 중복 비디오 토큰을 제거한다. 첫 프레임을 완전히 유지하고, 이후 프레임에서 변화가 있는 "동적" 토큰만 보존해 정적 토큰을 삭제한다. Conv3D와 결합하면 압축 효율이 배가된다.
 
-| 형식 | 링크 |
-|------|------|
-| BF16 체크포인트 | [HuggingFace](https://huggingface.co/nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16) |
-| FP8 체크포인트 | [HuggingFace](https://huggingface.co/nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-FP8) |
-| NVFP4 체크포인트 | [HuggingFace](https://huggingface.co/nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-NVFP4) |
-| 기술 리포트 | [arXiv 2604.24954](https://arxiv.org/abs/2604.24954) |
+### 네이티브 오디오 입력
+
+Parakeet-TDT-0.6B-v2를 독립 오디오 인코더로 연결했다. 16kHz 샘플링, 최대 1,200초(20분) 훈련, LLM 최대 컨텍스트는 5시간 이상을 지원한다. 전통적인 VLM처럼 텍스트 전사본을 거치지 않고 오디오 토큰을 비전·텍스트 토큰과 함께 직접 처리한다.
 
 ---
 
-## 실무자가 볼 포인트
+## 실제 활용 예시
 
-- **비용 효율**: MoE로 30B 파라미터를 유지하면서 활성 파라미터는 3B — 추론 비용이 동급 Dense 모델 대비 낮음
-- **문서 AI**: 100페이지 이상 문서를 단일 컨텍스트에서 처리하는 능력은 계약서 검토, 규제 컴플라이언스, 기술 문서 파싱에 바로 적용 가능
-- **GUI 에이전트**: OSWorld 47.4%는 실제 컴퓨터 사용 자동화 에이전트 구축에 충분한 수준
-- **오픈웨이트**: BF16/FP8/NVFP4 세 가지 정밀도로 공개 — 온프레미스 배포와 양자화 옵션 모두 지원
-- **경쟁 관계**: Qwen3-Omni 30B와 같은 규모에서 대부분 벤치마크를 앞서지만, GUI(ScreenSpot-Pro)는 Qwen3-Omni가 소폭 우위
+### 예시 1: 100페이지 문서 분석
+
+![MMLongBench-Doc 벤치마크 — 다중 페이지 문서에서 수치 추출 예시](/images/nemotron-omni-doc-example.png)
+*Figure 3: 100페이지 이상 재무 보고서에서 여러 수치를 추출해 계산하는 예시. 레이아웃 이해, 표/차트 읽기, 페이지 간 참조를 한 번에 처리한다. (출처: NVIDIA)*
+
+### 예시 2: 비디오+오디오 복합 추론
+
+노트르담 대성당 화재 영상에서 "(1) 화재 중인 구조물과 보수 예산은? (2) 목격자 증언 시점의 화면은?"을 동시에 질의하면, 시각과 음성을 교차해 정확한 답변을 생성한다.
+
+### 예시 3: 에이전틱 컴퓨터 사용
+
+GUI 에이전트로 동작해 스크린샷을 해석하고, 링크·탭·메뉴를 클릭하며 운전면허 자격요건 페이지를 탐색하는 전체 과정을 자율 수행한다.
 
 ---
 
-**원문**: [Introducing NVIDIA Nemotron 3 Nano Omni](https://huggingface.co/blog/nvidia/nemotron-3-nano-omni-multimodal-intelligence) (Hugging Face Blog, 2026-04-28)
+## 학습 인프라
+
+- **SFT**: NVIDIA H100, 32~128노드, Megatron-LM + Transformer Engine
+- **RL**: NeMo-RL + NeMo Gym, Ray 기반 B200·H100 클러스터
+- **합성 데이터**: 실세계 PDF에서 약 1,140만 개 QA 쌍(~45B 토큰) 생성 → MMLongBench-Doc 2.19배 향상
+
+---
+
+## 실무자가 볼 핵심 포인트
+
+1. **문서 파이프라인 대체 검토** — MMLongBench-Doc 57.5점은 동급 최상위. 100페이지 이상 계약서·보고서 자동 분석에 실질적 대안이다.
+
+2. **오디오-비디오 파이프라인 통합** — 전사 API + VLM을 별도로 연결하던 구조를 단일 모델로 대체 가능. 회의록, 강의 영상, 고객 지원 녹화 분석에서 유리하다.
+
+3. **처리량이 핵심** — 정확도가 비슷해도 멀티문서 7.4배, 비디오 9.2배 처리량은 프로덕션 배포 비용을 직접 낮춘다.
+
+4. **에이전트 GUI 작업** — OSWorld 47.4점 vs Qwen3-Omni 29.0점. 브라우저 자동화, RPA 대체 시나리오에서 가장 강력한 오픈웨이트 옵션 중 하나다.
+
+5. **세 가지 정밀도 옵션** — BF16·FP8·NVFP4 체크포인트를 제공해 인프라 환경에 맞게 선택할 수 있다.
+
+---
+
+*원문 출처: [Introducing NVIDIA Nemotron 3 Nano Omni](https://huggingface.co/blog/nvidia/nemotron-3-nano-omni-multimodal-intelligence) — NVIDIA, HuggingFace Blog (2026. 4. 28)*
