@@ -4,9 +4,9 @@ date: 2026-05-10T11:00:00+09:00
 draft: false
 description: "NVIDIA가 공개한 Nemotron 3 Nano Omni 30B는 문서 분석, 음성 인식, 장시간 영상 이해, 에이전틱 컴퓨터 사용을 하나의 모델로 처리한다. 멀티문서 작업에서 7.4배, 비디오 작업에서 9.2배 처리량 우위를 보인다."
 cover:
-  image: "/images/nemotron-omni-cover.png"
-  alt: "NVIDIA Nemotron 3 Nano Omni 모델 아키텍처 — 비전·오디오·텍스트 통합 멀티모달 AI"
-  caption: "NVIDIA Nemotron 3 Nano Omni 30B-A3B 아키텍처 (출처: NVIDIA / HuggingFace)"
+  image: "/images/nemotron-omni-cover.jpg"
+  alt: "NVIDIA Nemotron 3 Nano Omni 멀티모달 AI — 문서·오디오·비디오 통합 처리"
+  caption: "NVIDIA Nemotron 3 Nano Omni 30B-A3B (출처: NVIDIA / HuggingFace)"
 tags: ["NVIDIA", "멀티모달AI", "LLM", "Nemotron", "오디오AI", "비디오이해", "문서분석"]
 categories: ["AI 모델"]
 ---
