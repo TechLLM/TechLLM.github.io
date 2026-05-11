@@ -3,7 +3,7 @@ title: "외부 라이브러리 없이 RAG를 직접 만들어보자 — Python +
 date: 2026-05-12T07:01:00+09:00
 draft: false
 description: "벡터 DB, 임베딩, 코사인 유사도까지 — RAG의 핵심 구성 요소를 외부 프레임워크 없이 Python으로 직접 구현하는 방법을 단계별로 살펴본다."
-tags: ["RAG", "LLM", "Python", "임베딩", "벡터데이터베이스", "ollama", "llama"]
+tags: ["RAG", "LLM", "Python", "임베딩", "벡터데이터베이스", "ollama", "Llama-3.2"]
 categories: ["AI 개발"]
 cover:
   image: "/images/build-rag-from-scratch-cover.png"
