@@ -17,8 +17,8 @@ tags:
   - LLM
   - 음성인터페이스
 categories:
-  - AI 산업
-  - LLM 소식
+  - AI 트렌드 & 산업
+  - LLM & 모델
 summary: "GPT-Realtime-2(GPT-5급 추론), GPT-Realtime-Translate(70개 언어 동시통역), GPT-Realtime-Whisper(스트리밍 전사). 2026년 5월 7일 OpenAI가 실시간 음성 API에 세 가지 신모델을 출시했다. 음성 인터페이스가 단순 응답을 넘어 실제 업무를 처리하는 에이전트 수준으로 올라간다."
 ---
 

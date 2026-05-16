@@ -12,8 +12,8 @@ tags:
   - LLM프레임워크
   - 파이썬
 categories:
-  - AI 인프라
-  - LLM 소식
+  - AI 개발 & 인프라
+  - LLM & 모델
 summary: "LangChain은 선형 체인 파이프라인, LangGraph는 에이전트가 흐름을 동적으로 결정하는 비선형 그래프다. RAG·정보 추출처럼 순서가 고정된 작업은 LangChain, 다음 행동을 AI가 판단해야 하는 멀티에이전트 시스템은 LangGraph가 적합하다."
 ---
 

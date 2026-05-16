@@ -15,8 +15,9 @@ tags:
   - AI 윤리
   - agentic commerce
 categories:
-  - AI
-  - 정책
+  - 기술 인사이트
+  - AI 안전 & 보안
+
 ---
 
 ## 핵심 요약

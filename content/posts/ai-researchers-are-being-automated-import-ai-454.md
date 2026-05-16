@@ -18,8 +18,9 @@ tags:
   - 로봇전쟁
   - TechLLM
 categories:
-  - AI Research
-  - AI Safety
+  - 기술 인사이트
+  - AI 안전 & 보안
+
 ---
 
 출처: Import AI 454  

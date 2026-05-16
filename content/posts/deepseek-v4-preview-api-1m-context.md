@@ -16,8 +16,9 @@ tags:
   - 중국AI
   - AI모델업데이트
 categories:
-  - AI 모델
-  - AI API
+  - LLM & 모델
+  - AI 개발 & 인프라
+
 ---
 
 # DeepSeek V4 Preview 공개: 1M 컨텍스트를 전면에 내세운 AI 모델 업데이트

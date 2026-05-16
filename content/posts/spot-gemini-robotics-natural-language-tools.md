@@ -16,8 +16,9 @@ tags:
   - Tool Use
   - Embodied AI
 categories:
-  - AI
-  - 로보틱스
+  - 기술 인사이트
+  - AI 트렌드 & 산업
+
 ---
 
 ## 핵심 요약

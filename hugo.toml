@@ -80,6 +80,47 @@ enableRobotsTXT = true
     url = '/posts/'
     weight = 10
   [[menu.main]]
+    identifier = 'categories'
+    name = '카테고리'
+    url = '/categories/'
+    weight = 15
+  [[menu.main]]
+    identifier = 'cat-ai-agent'
+    name = 'AI Agent'
+    url = '/categories/ai-agent/'
+    parent = 'categories'
+    weight = 1
+  [[menu.main]]
+    identifier = 'cat-llm-model'
+    name = 'LLM & 모델'
+    url = '/categories/llm-모델/'
+    parent = 'categories'
+    weight = 2
+  [[menu.main]]
+    identifier = 'cat-dev-infra'
+    name = 'AI 개발 & 인프라'
+    url = '/categories/ai-개발-인프라/'
+    parent = 'categories'
+    weight = 3
+  [[menu.main]]
+    identifier = 'cat-trend'
+    name = 'AI 트렌드 & 산업'
+    url = '/categories/ai-트렌드-산업/'
+    parent = 'categories'
+    weight = 4
+  [[menu.main]]
+    identifier = 'cat-safety'
+    name = 'AI 안전 & 보안'
+    url = '/categories/ai-안전-보안/'
+    parent = 'categories'
+    weight = 5
+  [[menu.main]]
+    identifier = 'cat-insight'
+    name = '기술 인사이트'
+    url = '/categories/기술-인사이트/'
+    parent = 'categories'
+    weight = 6
+  [[menu.main]]
     identifier = 'archives'
     name = '아카이브'
     url = '/archives/'

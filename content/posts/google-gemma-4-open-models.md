@@ -16,8 +16,9 @@ tags:
   - LocalAI
   - TechLLM
 categories:
-  - AI 모델
+  - LLM & 모델
   - 기술 인사이트
+
 ---
 
 ## 핵심 요약

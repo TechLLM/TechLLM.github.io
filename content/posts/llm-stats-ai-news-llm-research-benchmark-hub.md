@@ -17,8 +17,8 @@ tags:
   - 모델비교
   - AI리서치
 categories:
-  - 서비스 해설
-  - AI 리서치
+  - 기술 인사이트
+
 ---
 
 출처: TechLLM  

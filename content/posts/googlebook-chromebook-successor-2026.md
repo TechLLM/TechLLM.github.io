@@ -14,7 +14,8 @@ tags:
   - "Android"
   - "Gemini AI"
 categories:
-  - "AI 트렌드"
+  - AI 트렌드 & 산업
+
 ---
 
 구글이 크롬북을 내려놓을 준비를 시작했다. 이름하여 **구글북(Googlebook)** — 2026년 가을 출시를 예고한 이 새 노트북 플랫폼은, 안드로이드와 ChromeOS를 하나로 합친 신규 OS 위에서 동작하며 Gemini AI를 기기 전반에 녹여냈다.

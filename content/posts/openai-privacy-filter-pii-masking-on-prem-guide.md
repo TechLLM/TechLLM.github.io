@@ -17,8 +17,9 @@ tags:
   - 온프레미스
   - 비식별화
 categories:
-  - 모델 해설
-  - AI 보안
+  - LLM & 모델
+  - AI 안전 & 보안
+
 ---
 
 출처: TechLLM  

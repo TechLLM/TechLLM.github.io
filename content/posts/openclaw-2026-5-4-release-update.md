@@ -18,8 +18,9 @@ tags:
   - Gateway
   - TechLLM
 categories:
-  - 릴리스 노트
-  - AI 인프라
+  - 기술 인사이트
+  - AI 개발 & 인프라
+
 ---
 
 # OpenClaw 2026.5.4: Google Meet 음성 에이전트가 달라졌다

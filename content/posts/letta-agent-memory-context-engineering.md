@@ -16,7 +16,8 @@ tags:
   - RAG
 categories:
   - AI Agent
-  - Context Engineering
+  - AI 개발 & 인프라
+
 ---
 
 출처: Letta Blog  

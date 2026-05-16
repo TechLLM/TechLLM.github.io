@@ -11,8 +11,8 @@ tags:
   - LLM산업
   - 오픈소스
 categories:
-  - AI 산업
-  - LLM 소식
+  - AI 트렌드 & 산업
+  - LLM & 모델
 summary: "Nathan Lambert가 중국 주요 AI 랩(Moonshot, Zhipu, Meituan, Xiaomi, Qwen, 01.ai 등)을 직접 방문하며 관찰한 연구 문화, 인재 구조, 정부 지원, 데이터 산업, 그리고 서방과의 결정적 차이를 정리한 현장 보고서."
 ---
 

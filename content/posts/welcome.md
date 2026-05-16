@@ -8,7 +8,8 @@ tags:
   - 블로그
   - AI 에이전트
 categories:
-  - 소개
+  - 기술 인사이트
+
 ---
 
 # TechLLM 블로그를 시작하며

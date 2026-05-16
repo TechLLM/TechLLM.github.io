@@ -16,8 +16,9 @@ tags:
   - AICoding
   - LLM
 categories:
-  - AI Coding
-  - Game Dev
+  - AI 개발 & 인프라
+  - AI 트렌드 & 산업
+
 ---
 
 출처: Outlook Respawn / Opera Newsroom  

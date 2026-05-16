@@ -17,8 +17,9 @@ tags:
   - 개발환경분리
   - AI인프라
 categories:
-  - 기능 해설
-  - AI 운영
+  - 기술 인사이트
+  - AI 개발 & 인프라
+
 ---
 
 출처: TechLLM  

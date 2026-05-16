@@ -17,7 +17,8 @@ tags:
   - ResearchAutomation
 categories:
   - AI Agent
-  - 연구 자동화
+  - 기술 인사이트
+
 ---
 
 출처: MahlerLab YouTube  

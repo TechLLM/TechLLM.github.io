@@ -17,8 +17,8 @@ tags:
   - 브라우저자동화
   - 이미지생성
 categories:
-  - OpenClaw
-  - 릴리스 해설
+  - 기술 인사이트
+
 ---
 
 출처: TechLLM  

@@ -17,8 +17,9 @@ tags:
   - OpenClaw
   - ClaudeCode
 categories:
-  - 모델 분석
-  - 코딩 에이전트
+  - LLM & 모델
+  - AI 개발 & 인프라
+
 ---
 
 출처: TechLLM  

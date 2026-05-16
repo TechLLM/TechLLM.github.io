@@ -17,8 +17,9 @@ tags:
   - AI안전
   - TechLLM
 categories:
-  - AI Security
+  - AI 안전 & 보안
   - AI Agent
+
 ---
 
 출처: Anthropic  

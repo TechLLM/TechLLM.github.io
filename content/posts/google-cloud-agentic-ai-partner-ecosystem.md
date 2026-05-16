@@ -15,8 +15,8 @@ tags:
   - AI파트너생태계
   - AI도입전략
 categories:
-  - AI 전략
-  - 기업 AI
+  - AI 트렌드 & 산업
+
 ---
 
 # Google Cloud의 7억 5천만 달러 베팅: Agentic AI 경쟁은 이제 모델보다 실행 생태계다

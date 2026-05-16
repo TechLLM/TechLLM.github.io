@@ -12,9 +12,9 @@ tags:
   - ReasoningEffort
   - TechLLM
 categories:
-  - AI 개발
-  - AI 코딩
-  - 번역
+  - AI 개발 & 인프라
+  - 기술 인사이트
+
 ---
 
 # Claude Code가 정말 나빠졌던 이유: Anthropic이 밝힌 세 가지 원인

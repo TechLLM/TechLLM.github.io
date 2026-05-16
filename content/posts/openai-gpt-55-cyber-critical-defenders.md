@@ -14,8 +14,9 @@ tags:
   - AIDefense
   - AI안전
 categories:
-  - AI Security
+  - AI 안전 & 보안
   - 기술 인사이트
+
 ---
 
 출처: Let's Data Science  

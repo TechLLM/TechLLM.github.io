@@ -18,7 +18,8 @@ tags:
   - VPS
 categories:
   - AI Agent
-  - 자동화
+  - AI 개발 & 인프라
+
 ---
 
 출처: Metics Media YouTube  

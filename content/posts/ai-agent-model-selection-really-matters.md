@@ -18,7 +18,8 @@ tags:
   - 생산성
 categories:
   - AI Agent
-  - 실무 가이드
+  - AI 개발 & 인프라
+
 ---
 
 출처: TechLLM  

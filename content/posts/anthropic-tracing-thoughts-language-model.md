@@ -16,8 +16,8 @@ tags:
   - Reasoning
   - Hallucination
 categories:
-  - AI Research
   - 기술 인사이트
+
 ---
 
 출처: Anthropic  
