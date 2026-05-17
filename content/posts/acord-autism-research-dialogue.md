@@ -3,6 +3,9 @@ title: "연구자와 당사자 사이, 좁힐 수 있을까?"
 date: 2026-05-17T09:53:00+09:00
 draft: false
 description: "UC Berkeley의 ACORD 워크숍은 기초 신경과학자와 자폐인 커뮤니티가 만나는 장을 만들어냈다. 그 교훈은 다른 분야에도 시사하는 바가 있다."
+cover:
+  image: "/images/acord-autism-research-hero.jpg"
+  alt: "ACORD workshop - researchers and autism community dialogue"
 tags:
   - Science
   - Autism

@@ -3,6 +3,9 @@ title: "월 $20~30 내고 AI 영상 플랫폼 쓸 겨? — 200개 모델 무료 
 date: 2026-05-17T08:57:00+09:00
 draft: false
 description: "Flux, Midjourney, Kling, Sora, Veo 등 200개가 넘는 AI 모델을 무료로, 로컬에서, 필터 없이 쓸 수 있는 오픈소스 스튜디오 'Open Generative AI'를 소개한다."
+cover:
+  image: "/images/open-generative-ai-hero.jpg"
+  alt: "Open Generative AI - 200+ free open source AI studio"
 tags:
   - AI
   - OpenSource

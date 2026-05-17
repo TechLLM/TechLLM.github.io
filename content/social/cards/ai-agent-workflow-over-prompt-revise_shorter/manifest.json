@@ -1,0 +1,18 @@
+{
+  "slug": "ai-agent-workflow-over-prompt-revise_shorter",
+  "created_at": "2026-04-28T12:19:14+09:00",
+  "source_blog_url": "https://techllm.github.io/posts/ai-agent-workflow-over-prompt/",
+  "theme": "techllm-dark",
+  "size": "1080x1350",
+  "renderer": "pillow",
+  "cover_background_image": "/Users/noah/.openclaw/workspace-ImageMaker/outputs/2026-04-28-ai-agent-workflow-over-prompt-cardnews_cover_background_1024x1536.png",
+  "status": "draft",
+  "approval_required": true,
+  "cards": [
+    "card-01.png",
+    "card-02.png",
+    "card-03.png",
+    "card-04.png",
+    "card-05.png"
+  ]
+}
