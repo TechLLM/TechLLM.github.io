@@ -1,0 +1,9 @@
+신경과학 논문 50만 편을 AI로 지도 만들었더니, 충격적인 사실이 나왔다.
+
+베이지안 뇌, 자유 에너지 원리, 예측 코딩 — 수천 편이 인용하는 이론들인데, 그 어떤 이론도 자신을 중심으로 연구자 커뮤니티를 형성하지 못했다. 175개 클러스터 중 이론 중심 클러스터는 단 0개.
+
+우리는 충분한 종류의 사고를 하고 있는 걸까?
+
+👉 https://techllm.github.io/posts/techllm_neuroscience_bibliometrics_map/
+
+#AI #Neuroscience #Research #Science #Bibliometrics
