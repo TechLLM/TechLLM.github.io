@@ -3,7 +3,7 @@ title: "코딩 에이전트의 6가지 핵심 구성 요소"
 description: "Claude Code나 Codex CLI가 단순 챗봇보다 훨씬 강한 이유 — LLM을 실전 코딩 강자로 만드는 에이전트 하네스의 6가지 핵심 컴포넌트를 Sebastian Raschka 박사의 분석으로 정리했다."
 date: 2026-05-20T05:15:00+09:00
 draft: false
-tags: ["코딩에이전트", "LLM", "에이전트하네스", "AI개발도구", "Claude Code"]
+tags: ["코딩에이전트", "LLM", "에이전트하네스", "AI코딩도구", "Claude Code", "Codex CLI"]
 cover:
   image: /images/coding-agent-components-cover.png
   alt: "코딩 에이전트 6가지 구성 요소 시각화"
