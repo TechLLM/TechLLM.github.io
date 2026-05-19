@@ -16,9 +16,9 @@ tags:
   - SkillsBench
   - OpenClaw
   - ClaudeCode
-categories:
   - LLM & 모델
   - AI 개발 & 인프라
+categories: ["AI-LLM"]
 
 ---
 

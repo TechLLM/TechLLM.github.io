@@ -4,6 +4,7 @@ date: 2026-05-17T05:14:00+09:00
 draft: false
 description: "1,000명 이상 참가, 2,000건 이상 제출. OpenAI의 파라미터 골프 챌린지가 AI 코딩 에이전트 시대의 머신러닝 연구 경쟁이 어떻게 달라지는지 보여준 8주간의 실험."
 tags: ["OpenAI", "머신러닝", "AI에이전트", "파라미터골프", "FineWeb", "연구챌린지"]
+categories: ["AI-LLM"]
 cover:
   image: /images/openai-parameter-golf-lessons-cover.png
   alt: "파라미터 골프 챌린지 - AI 에이전트 시대의 머신러닝 경쟁"

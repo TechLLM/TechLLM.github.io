@@ -8,7 +8,7 @@ cover:
   alt: "NVIDIA Nemotron 3 Nano Omni 멀티모달 AI — 문서·오디오·비디오 통합 처리"
   caption: "NVIDIA Nemotron 3 Nano Omni 30B-A3B (출처: NVIDIA / HuggingFace)"
 tags: ["NVIDIA", "멀티모달AI", "LLM", "Nemotron", "오디오AI", "비디오이해", "문서분석"]
-categories: ["AI 모델"]
+categories: ["AI-LLM"]
 ---
 
 문서를 읽고, 목소리를 듣고, 영상을 보고, 화면을 조작한다 — 이 모든 걸 단일 모델 하나로. NVIDIA가 공개한 **Nemotron 3 Nano Omni 30B-A3B**는 기존 비전-언어 모델의 경계를 텍스트·이미지·비디오·오디오 전체로 확장한 옴니모달 모델이다.

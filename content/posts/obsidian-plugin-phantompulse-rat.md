@@ -8,7 +8,7 @@ cover:
   alt: "Obsidian 볼트를 통해 침투하는 PHANTOMPULSE RAT 해킹 공격 일러스트"
   caption: ""
 tags: ["보안", "악성코드", "Obsidian", "RAT", "소셜엔지니어링", "암호화폐"]
-categories: ["Security"]
+categories: ["기타"]
 ---
 
 ## 핵심 요약

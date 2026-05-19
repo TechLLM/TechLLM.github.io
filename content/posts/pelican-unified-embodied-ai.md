@@ -8,6 +8,7 @@ cover:
   alt: "Pelican-Unified 구현체 AI 모델"
   caption: "Generated illustration"
 tags: ["구현체AI", "로봇AI", "멀티모달", "확산모델", "VLA", "파운데이션모델", "LLM"]
+categories: ["로봇공학-우주"]
 ---
 
 ## 개요

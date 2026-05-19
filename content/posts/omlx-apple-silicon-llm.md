@@ -8,6 +8,7 @@ cover:
   alt: "oMLX Apple Silicon LLM 서버"
   caption: "Generated illustration"
 tags: ["LLM추론", "AppleSilicon", "로컬LLM", "KV캐시", "연속배칭", "mlx", "오픈소스"]
+categories: ["AI-LLM"]
 ---
 
 ## 개요

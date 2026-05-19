@@ -16,9 +16,9 @@ tags:
   - 프롬프트엔지니어링
   - 워크플로우
   - 생산성
-categories:
   - AI Agent
   - AI 개발 & 인프라
+categories: ["AI-LLM"]
 
 ---
 

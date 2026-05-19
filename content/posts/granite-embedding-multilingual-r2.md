@@ -8,6 +8,7 @@ cover:
   alt: "Granite Embedding Multilingual R2 다국어 임베딩 모델"
   caption: "Generated illustration"
 tags: ["임베딩모델", "다국어검색", "RAG", "IBM그래나이트", "ModernBERT", "오픈소스LLM", "MTEB"]
+categories: ["AI-LLM"]
 ---
 
 ## 개요

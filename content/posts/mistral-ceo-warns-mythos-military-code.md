@@ -15,9 +15,9 @@ tags:
   - Europe
   - Military
   - TechPolicy
-categories:
   - AI Industry
   - Policy
+categories: ["AI-LLM"]
 
 ---
 

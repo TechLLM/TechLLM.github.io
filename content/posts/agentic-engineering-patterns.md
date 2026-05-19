@@ -3,7 +3,7 @@ title: "Agentic Engineering Patterns: AI 에이전트 시대의 소프트웨어 
 date: 2026-05-05
 draft: false
 tags: ["AI", "Agentic Engineering", "Software Development", "Claude Code", "TDD"]
-categories: ["AI Insights"]
+categories: ["AI-LLM"]
 cover:
   image: "images/agentic-engineering-patterns-cover.jpg"
   alt: "Agentic Engineering Patterns - 4-panel comic showing AI-assisted development workflow"

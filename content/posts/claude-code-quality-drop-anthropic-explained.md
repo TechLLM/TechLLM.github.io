@@ -11,9 +11,9 @@ tags:
   - ClaudeOpus
   - ReasoningEffort
   - TechLLM
-categories:
   - AI 개발 & 인프라
   - 기술 인사이트
+categories: ["AI-LLM"]
 
 ---
 

@@ -12,9 +12,9 @@ tags:
   - ArXiv
   - TechPolicy
   - AIRegulation
-categories:
   - AI Industry
   - Policy
+categories: ["AI-LLM"]
 
 ---
 

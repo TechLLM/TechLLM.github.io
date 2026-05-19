@@ -8,7 +8,7 @@ cover:
   alt: "VLA 모델의 비동기 추론에서 발생하는 관측 stale 문제와 네 가지 보정 방법을 표현한 일러스트"
   caption: ""
 tags: ["VLA", "VisionLanguageAction", "로보틱스", "비동기추론", "A2C2", "LIBERO", "Kinetix", "로봇제어"]
-categories: ["Robotics"]
+categories: ["로봇공학-우주"]
 ---
 
 ## 핵심 요약

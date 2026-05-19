@@ -15,9 +15,9 @@ tags:
   - EdgeAI
   - LocalAI
   - TechLLM
-categories:
   - LLM & 모델
   - 기술 인사이트
+categories: ["AI-LLM"]
 
 ---
 

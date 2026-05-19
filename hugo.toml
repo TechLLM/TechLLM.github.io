@@ -85,41 +85,29 @@ enableRobotsTXT = true
     url = '/categories/'
     weight = 15
   [[menu.main]]
-    identifier = 'cat-ai-agent'
-    name = 'AI Agent'
-    url = '/categories/ai-agent/'
+    identifier = 'cat-ai-llm'
+    name = 'AI · LLM'
+    url = '/categories/ai-llm/'
     parent = 'categories'
     weight = 1
   [[menu.main]]
-    identifier = 'cat-llm-model'
-    name = 'LLM & 모델'
-    url = '/categories/llm-모델/'
+    identifier = 'cat-science'
+    name = '수학 · 과학 · 물리학'
+    url = '/categories/수학-과학-물리학/'
     parent = 'categories'
     weight = 2
   [[menu.main]]
-    identifier = 'cat-dev-infra'
-    name = 'AI 개발 & 인프라'
-    url = '/categories/ai-개발-인프라/'
+    identifier = 'cat-robotics-space'
+    name = '로봇공학 · 우주'
+    url = '/categories/로봇공학-우주/'
     parent = 'categories'
     weight = 3
   [[menu.main]]
-    identifier = 'cat-trend'
-    name = 'AI 트렌드 & 산업'
-    url = '/categories/ai-트렌드-산업/'
+    identifier = 'cat-etc'
+    name = '기타'
+    url = '/categories/기타/'
     parent = 'categories'
     weight = 4
-  [[menu.main]]
-    identifier = 'cat-safety'
-    name = 'AI 안전 & 보안'
-    url = '/categories/ai-안전-보안/'
-    parent = 'categories'
-    weight = 5
-  [[menu.main]]
-    identifier = 'cat-insight'
-    name = '기술 인사이트'
-    url = '/categories/기술-인사이트/'
-    parent = 'categories'
-    weight = 6
   [[menu.main]]
     identifier = 'archives'
     name = '아카이브'

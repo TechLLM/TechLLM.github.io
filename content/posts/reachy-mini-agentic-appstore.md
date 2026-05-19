@@ -4,7 +4,7 @@ date: 2026-05-11T09:30:00+09:00
 draft: false
 description: "Hugging Face가 오픈소스 데스크톱 로봇 Reachy Mini용 에이전틱 앱스토어를 출시했다. 자연어로 설명하면 AI 에이전트가 코드를 작성·테스트·배포한다. 78세 비개발자도 앱을 만든 시대가 됐다."
 tags: ["로봇", "에이전틱AI", "오픈소스", "HuggingFace", "ReachyMini"]
-categories: ["AI 연구"]
+categories: ["로봇공학-우주"]
 cover:
   image: "/images/reachy-mini-appstore-cover.png"
   alt: "Reachy Mini 에이전틱 앱스토어 — 자연어로 로봇 앱 제작"

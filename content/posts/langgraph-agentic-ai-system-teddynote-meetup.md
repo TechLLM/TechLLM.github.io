@@ -15,9 +15,9 @@ tags:
   - 테디노트
   - LLM
   - AI에이전트
-categories:
   - AI 개발 & 인프라
   - LLM & 모델
+categories: ["AI-LLM"]
 summary: "테디노트가 에이전틱 AI 밋업 2025 Q1에서 발표한 LangGraph 실전 가이드. Advanced RAG 한계 → LangGraph 핵심 기능 → 라우팅 두 방식 → 메모리/Human-in-the-Loop → 멀티에이전트 슈퍼바이저 패턴까지 실무 중심으로 정리."
 ---
 

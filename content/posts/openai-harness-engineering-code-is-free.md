@@ -14,9 +14,9 @@ tags:
   - AgentWorkflow
   - CodeIsFree
   - Codex
-categories:
   - AI Agent
   - 기술 인사이트
+categories: ["AI-LLM"]
 summary: "OpenAI 엔지니어 Ryan Lopopolo가 9개월간 에디터를 금지하고 에이전트만으로 개발하며 터득한 하네스 엔지니어링 원칙. '코드는 무료다'라는 선언에서 시작해 티켓→에이전트→스킬 워크플로우, 금요일 가비지 컬렉션 데이, 리뷰어 에이전트까지 실전 노하우를 정리한다."
 ---
 

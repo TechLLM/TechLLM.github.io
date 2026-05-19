@@ -4,7 +4,7 @@ date: 2026-05-13T09:00:00+09:00
 description: "Mantic가 gpt-oss-120b를 RL fine-tuning하여 세계 사건 예측 성능을 대폭 향상시킨 연구를 분석합니다."
 author: "TechLLM"
 tags: ["LLM", "예측", "RL fine-tuning", "Mantic", "Metaculus"]
-categories: ["기술 분석", "인공지능"]
+categories: ["AI-LLM"]
 image: "/images/llm-world-events-prediction-cover.jpg"
 ---
 

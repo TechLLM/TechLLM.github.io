@@ -5,7 +5,7 @@ draft: false
 description: "Claude Code의 /goal 명령은 완료 조건을 설정하고 그 조건이 충족될 때까지 매 턴마다 자동으로 일을 이어 가는 슬래시 커맨드입니다. /loop, Stop hook, auto mode와의 차이부터 좋은 조건을 어떻게 작성해야 하는지까지 정리합니다."
 author: "TechLLM"
 tags: ["Claude Code", "AI 자동화", "에이전트", "goal", "Anthropic", "워크플로", "개발 도구", "Stop hook"]
-categories: ["AI·개발 도구", "기술 분석"]
+categories: ["AI-LLM"]
 image: "/images/claude-code-goal-cover.png"
 ---
 

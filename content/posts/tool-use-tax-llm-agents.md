@@ -8,7 +8,7 @@ cover:
   alt: "LLM 에이전트의 툴 사용 세금 — Factorized Intervention Framework 분석"
   caption: "Figure 1: 툴 사용 세금을 분해하는 인수분해 개입 프레임워크 (Zhang et al., 2026)"
 tags: ["LLM", "에이전트", "CoT", "툴사용", "추론", "벤치마크", "AI연구"]
-categories: ["AI 연구"]
+categories: ["AI-LLM"]
 ---
 
 AI 에이전트에 툴을 붙이면 무조건 더 좋아진다는 건 상식처럼 받아들여졌다. 계산기, 검색, 코드 실행 — 외부 툴이 LLM의 한계를 보완한다는 논리는 당연해 보인다.

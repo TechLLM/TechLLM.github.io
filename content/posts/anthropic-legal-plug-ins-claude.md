@@ -5,7 +5,7 @@ draft: false
 description: "Anthropic이 Claude에 법률 실무 영역에 특화된 12개 플러그인을 공개하며 LegalTech 시장 공략을 본격화했다. 계약 검토, 판례 리서치, 분쟁 분석 등 핵심 워크플로를 자동화한 이번 발표가 법무 업계에 미칠 영향을 정리한다."
 author: "TechLLM"
 tags: ["LLM", "법무", "Anthropic", "Claude", "LegalTech", "플러그인", "ClaudeCowork"]
-categories: ["AI·법무", "기술 분석"]
+categories: ["AI-LLM"]
 image: "/images/anthropic-legal-plugins-social.jpg"
 ---
 

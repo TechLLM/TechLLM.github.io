@@ -13,9 +13,9 @@ tags:
   - Cybersecurity
   - AIDefense
   - AI안전
-categories:
   - AI 안전 & 보안
   - 기술 인사이트
+categories: ["AI-LLM"]
 
 ---
 

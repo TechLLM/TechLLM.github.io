@@ -15,9 +15,9 @@ tags:
   - 서버리스AI
   - DeepSeek
   - API
-categories:
   - AI 개발 & 인프라
   - LLM & 모델
+categories: ["AI-LLM"]
 summary: "DeepInfra가 Hugging Face Inference Provider로 합류했다. HF 토큰 하나로 DeepSeek V4 Pro, Kimi-K2.6 등 100개 이상의 오픈웨이트 모델을 OpenAI 호환 API로 호출할 수 있으며, PRO 플랜은 매월 $2 크레딧을 전체 Provider에서 공유 사용한다."
 ---
 

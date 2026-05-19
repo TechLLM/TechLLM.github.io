@@ -5,7 +5,7 @@ draft: false
 description: "Anthropic이 4월 초에 차단했던 OpenClaw·서드파티 에이전트의 Claude 구독 사용을 다시 허용했습니다. 단 일반 구독 풀이 아니라 'Agent SDK Credit'이라는 별도 풀에서 차감되고, rollover 없이 매월 소멸합니다. compute arbitrage 시대의 종결을 정확히 정리합니다."
 author: "TechLLM"
 tags: ["Anthropic", "Claude", "OpenClaw", "Agent SDK", "AI 정책", "Claude 구독", "프로그래매틱 AI", "AI 인프라"]
-categories: ["AI·정책", "기술 분석"]
+categories: ["AI-LLM"]
 image: "/images/anthropic-claude-agent-sdk-credit-cover.png"
 ---
 

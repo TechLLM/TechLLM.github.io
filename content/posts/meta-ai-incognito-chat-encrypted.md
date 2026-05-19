@@ -5,7 +5,7 @@ draft: false
 description: "Meta가 종단간 암호화된 Incognito Chat을 공개했습니다. 메시지가 서버에 저장되지 않고 세션이 끝나면 사라지며, Meta 자신도 대화를 못 본다고 강조합니다. 다른 AI 챗봇의 임시 모드와 무엇이 다른지, 그리고 왜 지금 이 모드가 나왔는지 정리합니다."
 author: "TechLLM"
 tags: ["Meta", "AI 챗봇", "Incognito Chat", "WhatsApp", "프라이버시", "종단간 암호화", "Private Processing", "AI 정책"]
-categories: ["AI·프라이버시", "기술 분석"]
+categories: ["AI-LLM"]
 image: "/images/meta-ai-incognito-cover.png"
 ---
 

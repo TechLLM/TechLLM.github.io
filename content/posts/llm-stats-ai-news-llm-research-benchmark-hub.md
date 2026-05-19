@@ -16,8 +16,8 @@ tags:
   - SWEBench
   - 모델비교
   - AI리서치
-categories:
   - 기술 인사이트
+categories: ["AI-LLM"]
 
 ---
 

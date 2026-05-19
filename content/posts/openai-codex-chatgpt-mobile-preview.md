@@ -14,9 +14,9 @@ tags:
   - AI Coding Agent
   - Claude Code
   - 모바일 에이전트
-categories:
   - 기술 인사이트
   - AI 개발 & 인프라
+categories: ["AI-LLM"]
 
 ---
 

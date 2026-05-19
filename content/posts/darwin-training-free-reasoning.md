@@ -8,6 +8,7 @@ cover:
   alt: "Darwin Family 학습 없는 추론 모델"
   caption: "Generated illustration"
 tags: ["LLM추론", "모델머지", "오픈소스LLM", "GPQA", "가중치재조합", "Darwin", "훈련비용"]
+categories: ["AI-LLM"]
 ---
 
 ## 개요

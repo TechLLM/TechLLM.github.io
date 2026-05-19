@@ -4,7 +4,7 @@ date: 2026-05-11T09:00:00+09:00
 draft: false
 description: "AI가 논문 생산을 자동화하면서 피어 리뷰 시스템이 한계에 도달했다. 연구자들이 던지는 질문은 '어떻게 고칠까'가 아니라 '논문이라는 형식 자체를 교체할 때가 됐는가'로 바뀌고 있다."
 tags: ["과학출판", "AI", "피어리뷰", "오픈사이언스", "신경과학"]
-categories: ["AI 연구"]
+categories: ["AI-LLM"]
 cover:
   image: "/images/scientific-paper-ai-cover.png"
   alt: "과학 논문의 미래 — AI 시대의 지식 단위 재설계"

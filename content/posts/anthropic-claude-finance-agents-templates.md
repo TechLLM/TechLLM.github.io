@@ -8,7 +8,7 @@ cover:
   alt: "Anthropic이 공개한 금융 서비스용 Claude 에이전트 템플릿 10종을 표현한 일러스트"
   caption: ""
 tags: ["Claude", "Anthropic", "AI에이전트", "금융AI", "ManagedAgents", "KYC", "재무모델링", "Excel"]
-categories: ["AI"]
+categories: ["AI-LLM"]
 ---
 
 ## 핵심 요약

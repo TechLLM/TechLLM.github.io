@@ -5,7 +5,7 @@ draft: false
 description: "agentic evolution을 인터랙티브 환경으로 재정식화하고, 메타 에이전트가 다음 후보가 아니라 미래 진화를 통제하는 procedure/agent context를 직접 편집하게 한 AEvo 프레임워크. 동일 iteration 예산으로 5개 baseline 대비 26% 상대 향상, 3개 open-ended task SOTA."
 author: "TechLLM"
 tags: ["Agentic Evolution", "AEvo", "Meta-Agent", "Self-Modifying AI", "LLM Search", "Open-Ended Optimization", "DeepWisdom", "AlphaEvolve"]
-categories: ["AI·연구", "기술 분석"]
+categories: ["AI-LLM"]
 image: "/images/harnessing-agentic-evolution-aevo-cover.jpg"
 ---
 

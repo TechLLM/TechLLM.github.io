@@ -5,7 +5,7 @@ draft: false
 description: "NVIDIA가 공개한 Video Search and Summarization(VSS) 블루프린트는 비전 에이전트와 AI 영상 분석 애플리케이션을 만드는 레퍼런스 아키텍처입니다. NIM 마이크로서비스 위에 실시간 인텔리전스, 다운스트림 분석, 에이전트/오프라인 처리 3개 레이어를 쌓아 검색·Q&A·요약·알람 검증을 자연어로 수행하는 구조를 정리합니다."
 author: "TechLLM"
 tags: ["NVIDIA", "VSS", "Video Search", "Video Summarization", "Vision Language Model", "AI Blueprint", "NIM", "MCP", "Cosmos-Reason2", "Nemotron"]
-categories: ["AI·연구", "기술 분석"]
+categories: ["AI-LLM"]
 image: "/images/nvidia-vss-video-search-summarization-architecture.png"
 ---
 

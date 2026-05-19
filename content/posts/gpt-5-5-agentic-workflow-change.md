@@ -16,9 +16,9 @@ tags:
   - ComputerUse
   - AI업무자동화
   - TechLLM
-categories:
   - LLM & 모델
   - AI 트렌드 & 산업
+categories: ["AI-LLM"]
 
 ---
 

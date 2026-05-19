@@ -3,6 +3,7 @@ title: "AI 에이전트 팀을 제대로 구성하는 법"
 description: "에이전트 하나론 한계가 있다. Netflix, Harvey, Shopify가 프로덕션에서 쓰는 멀티에이전트 아키텍처 — 3가지 핵심 패턴과 7단계 구축법을 정리했다."
 date: 2026-05-16T03:36:00+09:00
 tags: ["멀티에이전트", "AI에이전트", "Claude", "Anthropic", "LLM운영"]
+categories: ["AI-LLM"]
 cover:
   image: /images/multi-agent-ai-team-build-guide-cover.png
   alt: "AI 에이전트 팀 구성 가이드"

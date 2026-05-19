@@ -7,8 +7,8 @@ tags:
   - TechLLM
   - 블로그
   - AI 에이전트
-categories:
   - 기술 인사이트
+categories: ["기타"]
 
 ---
 

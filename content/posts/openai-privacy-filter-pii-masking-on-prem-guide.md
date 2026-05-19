@@ -16,9 +16,9 @@ tags:
   - LLMOps
   - 온프레미스
   - 비식별화
-categories:
   - LLM & 모델
   - AI 안전 & 보안
+categories: ["AI-LLM"]
 
 ---
 

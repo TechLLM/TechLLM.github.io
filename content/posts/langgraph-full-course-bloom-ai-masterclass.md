@@ -15,9 +15,9 @@ tags:
   - LLM
   - 실습
   - 튜토리얼
-categories:
   - AI 개발 & 인프라
   - LLM & 모델
+categories: ["AI-LLM"]
 summary: "LangGraph V1 대규모 업데이트를 기반으로 한 Bloom AI 9시간 마스터클래스 전체 분석. 기초 문법부터 Memory, Multi-Agent 아키텍처까지 섹션별 핵심을 정리하고 실무 적용 포인트를 추가했다."
 ---
 

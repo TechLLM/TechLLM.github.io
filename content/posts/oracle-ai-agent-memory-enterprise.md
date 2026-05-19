@@ -15,9 +15,9 @@ tags:
   - VectorSearch
   - Governance
   - TechLLM
-categories:
   - AI Agent
   - 기술 인사이트
+categories: ["AI-LLM"]
 
 ---
 

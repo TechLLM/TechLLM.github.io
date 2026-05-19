@@ -4,7 +4,7 @@ date: 2026-05-10T09:00:00+09:00
 draft: false
 description: "HAL 리더보드는 9개 모델 평가에 4만 달러를 썼다. PaperBench 1회 실행 비용은 9,500달러. AI 평가 비용이 학계와 안전 기관이 감당할 수 없는 수준에 도달했다."
 tags: ["AI평가", "벤치마크", "에이전트", "LLM", "RAG", "MLOps", "AI안전", "HuggingFace"]
-categories: ["AI 연구"]
+categories: ["AI-LLM"]
 cover:
   image: "/images/eval-costs-bottleneck-cover.png"
   alt: "HAL 벤치마크별 에이전트 평가 비용 분포 — 일부 벤치마크는 1회 실행에 $1,000 이상"

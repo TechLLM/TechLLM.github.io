@@ -8,6 +8,7 @@ cover:
   alt: "2028년 AI 패권 시나리오"
   caption: "Generated illustration"
 tags: ["AI정책", "미중경쟁", "Anthropic", "AI안전", "수출통제", "Claude", "LLM운영"]
+categories: ["AI-LLM"]
 ---
 
 ## 개요

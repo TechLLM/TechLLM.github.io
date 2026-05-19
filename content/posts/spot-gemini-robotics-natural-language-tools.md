@@ -15,9 +15,9 @@ tags:
   - 로봇공학
   - Tool Use
   - Embodied AI
-categories:
   - 기술 인사이트
   - AI 트렌드 & 산업
+categories: ["로봇공학-우주"]
 
 ---
 

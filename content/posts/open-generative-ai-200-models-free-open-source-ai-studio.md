@@ -16,9 +16,9 @@ tags:
   - OpenGenerativeAI
   - AIPipeline
   - WorkflowAutomation
-categories:
   - AI Tools
   - Open Source
+categories: ["AI-LLM"]
 
 ---
 

@@ -13,8 +13,8 @@ tags:
   - MCP
   - ClaudeCode
   - 영구메모리
-categories:
   - AI Agent
+categories: ["AI-LLM"]
 ---
 
 매 세션마다 같은 아키텍처를 재설명하고, 같은 버그를 다시 발견하고, 같은 코딩 컨벤션을 재학습시키는 데 질려본 사람이라면 주목할 만한 프로젝트가 나왔다. **agentmemory** — Claude Code, Cursor, Codex CLI, Gemini CLI 등 모든 AI 코딩 에이전트에 영구 메모리를 붙여주는 오픈소스 엔진이다. 출시 직후 GitHub 10K 스타를 넘겼고, Karpathy의 LLM Wiki 패턴을 확신 점수·수명 주기·지식 그래프·하이브리드 검색으로 확장한 구현체로 평가받고 있다.

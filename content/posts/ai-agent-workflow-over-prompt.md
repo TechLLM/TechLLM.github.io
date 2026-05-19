@@ -15,9 +15,9 @@ tags:
   - 생산성
   - AgenticWorkflow
   - TechLLM
-categories:
   - AI Agent
   - AI 개발 & 인프라
+categories: ["AI-LLM"]
 
 ---
 

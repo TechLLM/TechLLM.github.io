@@ -8,7 +8,7 @@ cover:
   alt: "transformers에서 MLX로 모델을 포팅하는 AI 에이전트 스킬 개념도"
   caption: "HuggingFace transformers-to-mlx 스킬 — 에이전트 시대의 오픈소스 기여 (출처: HuggingFace Blog)"
 tags: ["MLX", "HuggingFace", "오픈소스", "AI에이전트", "LLM", "transformers", "AppleSilicon"]
-categories: ["AI 연구"]
+categories: ["AI-LLM"]
 ---
 
 에이전트가 코드를 짜고, 이슈를 찾고, PR까지 열어준다. 좋아 보인다. 그런데 오픈소스 메인테이너들은 지금 곤혹스럽다. PR이 10배 늘었는데, 대부분 쓸 수 없는 것들이다.

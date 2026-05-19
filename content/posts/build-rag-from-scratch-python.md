@@ -4,7 +4,7 @@ date: 2026-05-12T07:01:00+09:00
 draft: false
 description: "벡터 DB, 임베딩, 코사인 유사도까지 — RAG의 핵심 구성 요소를 외부 프레임워크 없이 Python으로 직접 구현하는 방법을 단계별로 살펴본다."
 tags: ["RAG", "LLM", "Python", "임베딩", "벡터데이터베이스", "ollama", "Llama-3.2"]
-categories: ["AI 개발"]
+categories: ["AI-LLM"]
 cover:
   image: "/images/build-rag-from-scratch-cover.png"
   alt: "RAG 시스템 구조 — 검색과 생성의 연결"

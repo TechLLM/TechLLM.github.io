@@ -14,9 +14,9 @@ tags:
   - MemGPT
   - Letta
   - RAG
-categories:
   - AI Agent
   - AI 개발 & 인프라
+categories: ["AI-LLM"]
 
 ---
 

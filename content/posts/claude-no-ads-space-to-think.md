@@ -14,9 +14,9 @@ tags:
   - 광고
   - AI 윤리
   - agentic commerce
-categories:
   - 기술 인사이트
   - AI 안전 & 보안
+categories: ["AI-LLM"]
 
 ---
 

@@ -13,8 +13,8 @@ tags:
   - "오픈 웨이트 모델"
   - "AI 에이전트"
   - "LLM 인프라"
-categories:
   - AI 트렌드 & 산업
+categories: ["AI-LLM"]
 
 ---
 

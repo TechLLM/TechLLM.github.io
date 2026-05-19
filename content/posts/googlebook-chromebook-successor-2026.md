@@ -13,8 +13,8 @@ tags:
   - "ChromeOS"
   - "Android"
   - "Gemini AI"
-categories:
   - AI 트렌드 & 산업
+categories: ["기타"]
 
 ---
 

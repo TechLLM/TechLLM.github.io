@@ -14,9 +14,9 @@ tags:
   - ScientificR&D
   - 2030
   - Report
-categories:
   - AI Research
   - Industry Analysis
+categories: ["AI-LLM"]
 
 ---
 

@@ -16,8 +16,8 @@ tags:
   - Slack
   - 브라우저자동화
   - 이미지생성
-categories:
   - 기술 인사이트
+categories: ["기타"]
 
 ---
 

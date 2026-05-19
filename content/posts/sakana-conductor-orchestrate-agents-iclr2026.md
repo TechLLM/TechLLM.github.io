@@ -15,8 +15,8 @@ tags:
   - ICLR2026
   - ReinforcementLearning
   - LLM
-categories:
   - 기술 인사이트
+categories: ["AI-LLM"]
 summary: "Sakana AI의 Conductor는 7B RL 모델이 자연어로 다중 AI 에이전트를 동적 오케스트레이션하는 시스템이다. 단순 질문엔 단일 모델, 복잡한 코딩엔 플래너-코더-검증기 파이프라인을 자율 구성한다."
 ---
 

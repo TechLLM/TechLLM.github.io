@@ -17,8 +17,8 @@ tags:
   - 한국스타트업
   - 시리즈B
   - CUDA대항마
-categories:
   - AI 트렌드 & 산업
+categories: ["AI-LLM"]
 summary: "엔비디아 CUDA를 대체하겠다는 한국 AI 소프트웨어 스타트업 모레(Moreh)가 AMD·KT로부터 2,200만 달러 시리즈 B를 유치했다. AMD MI250으로 Nvidia A100 대비 GPU 처리량 116% 우위를 주장하며, 2,110억 파라미터 한국어 LLM 훈련도 완료했다."
 ---
 

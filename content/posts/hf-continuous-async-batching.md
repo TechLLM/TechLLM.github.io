@@ -8,6 +8,7 @@ cover:
   alt: "비동기 연속 배칭 커버 이미지"
   caption: "Generated illustration"
 tags: ["LLM추론", "GPU최적화", "CUDA", "배칭", "HuggingFace", "연속배칭", "추론최적화"]
+categories: ["AI-LLM"]
 ---
 
 ## 개요

@@ -16,9 +16,9 @@ tags:
   - ZeroDay
   - AI안전
   - TechLLM
-categories:
   - AI 안전 & 보안
   - AI Agent
+categories: ["AI-LLM"]
 
 ---
 

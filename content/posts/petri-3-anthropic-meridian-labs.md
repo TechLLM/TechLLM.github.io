@@ -15,9 +15,9 @@ tags:
   - Petri
   - Anthropic
   - Meridian Labs
-categories:
   - AI 안전 & 보안
   - LLM & 모델
+categories: ["AI-LLM"]
 
 ---
 

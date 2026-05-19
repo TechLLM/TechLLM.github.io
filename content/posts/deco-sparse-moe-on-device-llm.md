@@ -8,7 +8,7 @@ cover:
   alt: "DECO 아키텍처가 온디바이스 환경에서 sparse MoE로 dense 성능을 따라잡는 모습을 표현한 일러스트"
   caption: ""
 tags: ["MoE", "MixtureOfExperts", "온디바이스AI", "DECO", "LLM최적화", "NormSiLU", "ReLURouting"]
-categories: ["AI"]
+categories: ["AI-LLM"]
 ---
 
 ## 핵심 요약

@@ -4,7 +4,7 @@ date: 2026-05-10T23:30:00+09:00
 draft: false
 description: "구글이 Gemini API File Search에 세 가지 업데이트를 추가했다. 멀티모달 검색, 커스텀 메타데이터 필터링, 페이지 단위 출처 표시로 검증 가능한 프로덕션급 RAG 구축이 가능해졌다."
 tags: ["Gemini", "RAG", "멀티모달", "GeminiAPI", "벡터검색", "LLM", "Google", "개발도구"]
-categories: ["AI 연구"]
+categories: ["AI-LLM"]
 cover:
   image: "/images/gemini-file-search-multimodal-cover.jpg"
   alt: "Gemini API File Search 멀티모달 RAG — 이미지와 텍스트를 함께 검색하는 인터페이스"

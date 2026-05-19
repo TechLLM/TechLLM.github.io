@@ -14,9 +14,9 @@ tags:
   - CalciumImaging
   - Autism
   - Brain
-categories:
   - Neuroscience Research
   - Brain Science
+categories: ["수학-과학-물리학"]
 
 ---
 

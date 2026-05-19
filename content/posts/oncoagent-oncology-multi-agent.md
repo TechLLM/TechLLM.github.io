@@ -4,7 +4,7 @@ date: 2026-05-10T18:30:00+09:00
 draft: false
 description: "온코에이전트는 70개 이상의 NCCN·ESMO 가이드라인에 기반한 8노드 LangGraph 멀티에이전트 시스템으로, AMD MI300X에서 56배 처리량 향상을 달성하면서 Zero-PHI 정책으로 환자 데이터를 완전 보호한다."
 tags: ["의료AI", "멀티에이전트", "LangGraph", "RAG", "QLoRA", "종양학", "LLM", "AMD"]
-categories: ["AI 연구"]
+categories: ["AI-LLM"]
 ---
 
 병원 AI가 환자 기록을 외부 클라우드로 전송한다면? 의사는 이 시스템을 쓸 수 없다. 개인정보 보호법이 막고, 윤리 위원회가 막고, 환자가 막는다.

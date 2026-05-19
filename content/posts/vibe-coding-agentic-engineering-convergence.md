@@ -13,8 +13,8 @@ tags:
   - "AI코딩"
   - "Claude Code"
   - "LLM"
-categories:
   - AI 트렌드 & 산업
+categories: ["AI-LLM"]
 
 ---
 

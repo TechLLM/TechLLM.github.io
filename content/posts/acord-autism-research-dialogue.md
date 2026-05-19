@@ -13,8 +13,8 @@ tags:
   - Ethics
   - Research
   - ScienceCommunication
-categories:
   - Science & Society
+categories: ["수학-과학-물리학"]
 
 ---
 

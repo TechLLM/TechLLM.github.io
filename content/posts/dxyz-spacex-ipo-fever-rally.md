@@ -5,7 +5,7 @@ draft: false
 description: "Destiny Tech100(DXYZ)이 한 주에 21% 급등하며 2년 만의 최고 주간 성과를 냈습니다. 발화점은 SpaceX의 6월 IPO 가시성과 Brad Gerstner의 'AI 인프라 ace card 연 5B 추가 매출' 발언. NAV $19.97 대비 시가 $54.60이라는 큰 프리미엄이 무엇을 의미하는지 정리합니다."
 author: "TechLLM"
 tags: ["DXYZ", "Destiny Tech100", "SpaceX", "IPO", "사적 시장", "주식 분석", "Brad Gerstner", "Altimeter Capital"]
-categories: ["투자·시장 분석", "기술 분석"]
+categories: ["기타"]
 image: "/images/dxyz-spacex-ipo-rally-cover.png"
 ---
 

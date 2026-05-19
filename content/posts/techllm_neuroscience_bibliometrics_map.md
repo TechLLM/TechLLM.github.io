@@ -13,8 +13,8 @@ tags:
   - "Bibliometrics"
   - "Research"
   - "Theory"
-categories:
   - 기술 인사이트
+categories: ["수학-과학-물리학"]
 
 ---
 

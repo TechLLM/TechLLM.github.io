@@ -14,8 +14,8 @@ tags:
   - EnterpriseAI
   - AI파트너생태계
   - AI도입전략
-categories:
   - AI 트렌드 & 산업
+categories: ["AI-LLM"]
 
 ---
 

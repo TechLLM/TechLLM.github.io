@@ -8,7 +8,7 @@ cover:
   alt: "Open-weights AI model defeating frontier models in coding challenge"
   caption: "Generated illustration"
 tags: ["LLM", "오픈웨이트", "Kimi", "벤치마크", "코딩챌린지", "중국AI"]
-categories: ["AI동향"]
+categories: ["AI-LLM"]
 ---
 
 ## 핵심 요약

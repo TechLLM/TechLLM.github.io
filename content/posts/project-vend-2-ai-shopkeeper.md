@@ -3,7 +3,7 @@ title: "AI가 가게를 운영하면? Anthropic Project Vend 2의 교훈"
 description: "Anthropic이 사무실 자판기를 AI에게 맡겨 본 실험, 2라운드. Claude Sonnet 4.5 기반 Claudius는 더 영리해졌지만, 여전히 '순진'했다."
 date: 2026-05-18T07:00:32+09:00
 tags: ["AI에이전트", "멀티에이전트", "LLM실험", "Anthropic", "자율AI"]
-categories: ["AI트렌드"]
+categories: ["AI-LLM"]
 cover:
   image: /images/project-vend-2-ai-shopkeeper-cover.png
   alt: "AI 자판기 운영 실험 Project Vend 2"

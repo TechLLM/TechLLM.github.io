@@ -8,6 +8,7 @@ cover:
   alt: "홉필드 네트워크 어트랙터와 기억 저장"
   caption: "Generated illustration"
 tags: ["홉필드네트워크", "계산신경과학", "신경망AI역사", "어트랙터", "뇌과학", "노벨물리학상", "딥러닝기원"]
+categories: ["수학-과학-물리학"]
 ---
 
 ## 개요

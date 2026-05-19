@@ -13,9 +13,9 @@ tags:
   - Moonshot AI
   - LLM
   - AI 에이전트
-categories:
   - LLM & 모델
   - 기술 인사이트
+categories: ["AI-LLM"]
 
 ---
 

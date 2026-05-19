@@ -15,9 +15,9 @@ tags:
   - GameDev
   - AICoding
   - LLM
-categories:
   - AI 개발 & 인프라
   - AI 트렌드 & 산업
+categories: ["AI-LLM"]
 
 ---
 

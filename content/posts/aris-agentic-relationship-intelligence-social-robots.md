@@ -15,9 +15,9 @@ tags:
   - RAG
   - HumanRobotInteraction
   - MonashUniversity
-categories:
   - AI Research
   - Robotics
+categories: ["로봇공학-우주"]
 
 ---
 

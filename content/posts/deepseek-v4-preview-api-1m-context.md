@@ -15,9 +15,9 @@ tags:
   - ReasoningModel
   - 중국AI
   - AI모델업데이트
-categories:
   - LLM & 모델
   - AI 개발 & 인프라
+categories: ["AI-LLM"]
 
 ---
 

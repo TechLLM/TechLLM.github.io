@@ -8,7 +8,7 @@ cover:
   alt: "Thinking Machines 인터랙션 모델이 사용자와 AI가 실시간으로 양방향 협업하는 모습을 표현한 일러스트"
   caption: ""
 tags: ["ThinkingMachines", "InteractionModels", "멀티모달AI", "실시간AI", "HumanAICollaboration", "FullDuplex", "TML"]
-categories: ["AI"]
+categories: ["AI-LLM"]
 ---
 
 ## 핵심 요약

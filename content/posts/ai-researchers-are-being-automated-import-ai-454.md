@@ -17,9 +17,9 @@ tags:
   - Kimi
   - 로봇전쟁
   - TechLLM
-categories:
   - 기술 인사이트
   - AI 안전 & 보안
+categories: ["AI-LLM"]
 
 ---
 

@@ -13,6 +13,7 @@ tags:
   - "Siri"
   - "Privacy"
   - "Gemini"
+categories: ["기타"]
 ---
 
 솔직히 말하면, Siri를 마지막으로 진지하게 쓴 게 언제였는지 기억이 잘 안 난다. "Hey Siri, 타이머 3분" 정도가 고작이었다. 그 사이 ChatGPT가 터지고, Gemini가 등장하고, AI 어시스턴트 시장은 완전히 뒤바뀌었다. Apple이 뒤처졌다는 건 누구나 아는 사실이었다.

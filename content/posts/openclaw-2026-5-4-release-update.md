@@ -17,9 +17,9 @@ tags:
   - AIAgent
   - Gateway
   - TechLLM
-categories:
   - 기술 인사이트
   - AI 개발 & 인프라
+categories: ["기타"]
 
 ---
 

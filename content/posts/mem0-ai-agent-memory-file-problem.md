@@ -14,9 +14,9 @@ tags:
   - LLMOps
   - Memory
   - Database
-categories:
   - AI Agent
   - 기술 인사이트
+categories: ["AI-LLM"]
 
 ---
 
