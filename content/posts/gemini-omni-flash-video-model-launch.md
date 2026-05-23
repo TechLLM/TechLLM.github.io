@@ -13,6 +13,10 @@ cover:
 
 2026년 5월 19일, Google은 I/O 개발자 컨퍼런스에서 **Gemini Omni Flash**를 전격 출시했다. 단순한 영상 생성 모델 업데이트가 아니다. 텍스트·이미지·오디오·영상을 한꺼번에 입력으로 받아 하나의 일관된 영상으로 만들어내는, Gemini 지식 기반 위에 세워진 완전히 새로운 멀티모달 아키텍처다.
 
+![Google의 AI 생성 콘텐츠 라벨 예시 이미지](/images/gemini-omni-flash-original-verge-ai-label.png)
+
+*원문에서 함께 제공된 이미지. 출처: The Verge / Let’s Data Science 원문 페이지*
+
 ---
 
 ## 📌 핵심 요약
