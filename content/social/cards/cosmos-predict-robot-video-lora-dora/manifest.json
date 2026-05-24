@@ -1,0 +1,19 @@
+{
+  "slug": "cosmos-predict-robot-video-lora-dora",
+  "created_at": "2026-05-24T21:14:56+09:00",
+  "source_blog_url": "https://techllm.github.io/posts/cosmos-predict-robot-video-lora-dora/",
+  "theme": "techllm-dark",
+  "size": "1080x1350",
+  "renderer": "pillow",
+  "cover_background_image": "/Users/noah/.openclaw/workspace-techllm/static/images/cosmos-predict-robot-video-lora-dora-cover.png",
+  "status": "draft",
+  "approval_required": true,
+  "cards": [
+    "card-01.png",
+    "card-02.png",
+    "card-03.png",
+    "card-04.png",
+    "card-05.png",
+    "card-06.png"
+  ]
+}
