@@ -1,3 +1,10 @@
+---
+title: "Cosmos Predict 2.5 로봇 영상 LoRA/DoRA SNS 콘텐츠"
+date: 2026-05-24T21:39:06+09:00
+draft: false
+description: "Cosmos Predict 2.5 로봇 영상 LoRA/DoRA 글을 위한 Threads 문안과 Instagram 카드뉴스 구성"
+---
+
 # SNS Content — Cosmos Predict Robot Video LoRA/DoRA
 
 블로그 URL: https://techllm.github.io/posts/cosmos-predict-robot-video-lora-dora/
