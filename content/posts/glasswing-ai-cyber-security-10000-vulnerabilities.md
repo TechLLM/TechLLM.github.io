@@ -3,7 +3,7 @@ title: "글래스윙 첫 성과 — Claude Mythos Preview, 한 달 만에 치명
 date: 2026-05-26T23:18:00+09:00
 draft: false
 description: "Anthropic의 Project Glasswing이 한 달 만에 주요 소프트웨어에서 1만 개 이상의 고위험 취약점을 발견했다. 취약점 탐지 속도는 10배 이상 빨라졌지만, 이제 병목은 패치다."
-tags: ["Anthropic", "AI보안", "Claude", "사이버보안", "프로젝트글래스윙", "취약점", "오픈소스보안", "MythosPreview"]
+tags: ["Anthropic", "AI보안", "Claude", "사이버보안", "ProjectGlasswing", "취약점", "오픈소스보안", "MythosPreview", "제로데이", "wolfSSL"]
 cover:
   image: /images/glasswing-ai-cyber-security-10000-vulnerabilities-cover.png
   alt: "AI가 코드 취약점을 탐지하는 핸드드로잉 스타일 일러스트"
@@ -18,8 +18,8 @@ Anthropic이 지난 달 출범한 **Project Glasswing**의 첫 번째 성과 보
 ## 핵심 요약
 
 - **10,000+** 고위험·치명적 취약점 발견 (파트너사 합산, 한 달 만)
-- 오픈소스 프로젝트 스캔: 6,202개 고위험 취약점 중 **90.6% 실제 취약점** 확인
-- Mozilla Firefox에서 271개 취약점 발견 (이전 모델 대비 **10배 이상**)
+- 오픈소스 프로젝트 스캔: 6,202개 고위험 취약점 표본 검증(1,752개) 시 **90.6%(1,587개) 진양성** 확인
+- Mozilla Firefox 150에서 271개 취약점 발견 (Firefox 148 대비 **10배 이상**)
 - wolfSSL에서 **인증서 위조** 가능 제로데이 취약점 발견 및 패치 완료
 - 병목은 탐지가 아닌 **패치**: 고위험 취약점 패치에 평균 2주 소요
 
