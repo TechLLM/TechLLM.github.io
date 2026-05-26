@@ -1,7 +1,7 @@
 ---
 title: "LLM 학습 최적화 완전 정복 — 데이터 타입부터 양자화까지"
 description: "GPT-2 1.5B 모델에 왜 GPU 메모리 24GB가 필요한가? 데이터 타입, 메모리 소비 구조, 양자화 원리를 단계별로 풀어낸 딥러닝 최적화 종합 가이드."
-date: 2026-05-26T20:58:00+09:00
+date: 2026-05-26T20:10:00+09:00
 tags: ["딥러닝 최적화", "LLM 학습", "양자화", "메모리 최적화", "BFloat16", "혼합 정밀도 학습", "GPU 메모리"]
 cover:
   image: /images/efficient-deep-learning-optimization-guide-cover.png
