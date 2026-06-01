@@ -9,6 +9,25 @@ OBSIDIAN_ROOT = Path("/Users/noah/Noah-Wiki/Noah-Wiki")
 VAULT_BLOG = OBSIDIAN_ROOT / "30-blog" / "techllm"
 VAULT_IMAGES = VAULT_BLOG / "images"
 
+def normalize_image_path(path: str) -> str:
+    return path.split("#", 1)[0].split("?", 1)[0]
+
+def collect_images(text: str) -> list[str]:
+    patterns = [
+        r'image:\s*["\']?(/images/[^"\'\s]+)["\']?',
+        r'!\[[^\]]*\]\((/images/[^)\s]+)[^)]*\)',
+        r'{{<\s*figure\b[^>]*\bsrc=["\'](/images/[^"\']+)["\'][^>]*>}}',
+    ]
+    images = []
+    seen = set()
+    for pattern in patterns:
+        for match in re.finditer(pattern, text):
+            img = normalize_image_path(match.group(1)).removeprefix("/images/")
+            if img not in seen:
+                seen.add(img)
+                images.append(img)
+    return images
+
 def sync(post_path: str):
     src = Path(post_path)
     if not src.exists():
@@ -18,9 +37,7 @@ def sync(post_path: str):
     text = src.read_text()
 
     # Collect referenced images
-    images = []
-    for m in re.finditer(r'(?:image:\s*"|!\[.*?\]\()(/images/([^")]+))', text):
-        images.append(m.group(2))
+    images = collect_images(text)
 
     # Copy images
     VAULT_IMAGES.mkdir(parents=True, exist_ok=True)

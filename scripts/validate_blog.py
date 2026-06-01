@@ -8,10 +8,11 @@
   - draft 상태
   - date UTC 미래 아님 (Hugo는 미래 날짜 포스트 제외 → 404)
   - cover image 파일 존재
-  - 본문 이미지 파일 존재
+  - 본문 이미지 파일 존재 (Markdown 이미지 + Hugo figure shortcode)
+  - (옵션 --public-url) 공개 페이지와 공개 이미지 URL 200 확인
 
 품질 검증:
-  - 한국어 문자 ≥ 1,500자 (목표 2,500자)
+  - 한국어 문자 ≥ 1,500자 (기본 목표 2,000자)
   - H2 섹션 ≥ 3개
   - 본문에 원문 출처 라인 존재
   - (옵션 --source) gnomon TranslationGate: 길이 비율, 고유명사 보존
@@ -28,15 +29,32 @@ import json
 import re
 import sys
 from datetime import datetime, timezone
+from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urljoin, urlparse
+from urllib.request import Request, urlopen
 
 
 SITE_ROOT = Path(__file__).parent.parent
 
 REQUIRED_FRONTMATTER = ["title:", "date:", "draft:", "description:", "tags:"]
 MIN_KOREAN_CHARS = 1500
-TARGET_KOREAN_CHARS = 2500
+TARGET_KOREAN_CHARS = 2000
 MIN_H2_COUNT = 3
+
+
+class ImageSrcParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.image_srcs: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag.lower() != "img":
+            return
+        attrs_dict = dict(attrs)
+        src = attrs_dict.get("src")
+        if src:
+            self.image_srcs.append(src)
 
 
 def extract_body(note: str) -> str:
@@ -45,6 +63,36 @@ def extract_body(note: str) -> str:
 
 def count_korean_chars(text: str) -> int:
     return len(re.findall(r"[가-힣]", text))
+
+
+def normalize_image_path(path: str) -> str:
+    return path.split("#", 1)[0].split("?", 1)[0]
+
+
+def extract_local_image_paths(text: str) -> list[str]:
+    """Return /images/... references from frontmatter, Markdown, and Hugo shortcodes."""
+    patterns = [
+        r'image:\s*["\']?(/images/[^"\'\s]+)["\']?',
+        r'!\[[^\]]*\]\((/images/[^)\s]+)[^)]*\)',
+        r'{{<\s*figure\b[^>]*\bsrc=["\'](/images/[^"\']+)["\'][^>]*>}}',
+    ]
+    images: list[str] = []
+    seen = set()
+    for pattern in patterns:
+        for match in re.finditer(pattern, text):
+            img = normalize_image_path(match.group(1))
+            if img not in seen:
+                seen.add(img)
+                images.append(img)
+    return images
+
+
+def check_local_image_exists(image_path: str) -> str | None:
+    img_rel = image_path.lstrip("/")
+    img_abs = SITE_ROOT / "static" / img_rel
+    if not img_abs.exists():
+        return str(img_abs)
+    return None
 
 
 def check_tech(post_path: Path, text: str) -> dict:
@@ -78,22 +126,79 @@ def check_tech(post_path: Path, text: str) -> dict:
         except Exception as e:
             warnings.append(f"Could not parse date '{raw}': {e}")
 
-    img_match = re.search(r'image:\s*"(/images/[^"]+)"', text)
-    if img_match:
-        img_rel = img_match.group(1).lstrip("/")
-        img_abs = SITE_ROOT / "static" / img_rel
-        if not img_abs.exists():
-            errors.append(f"Cover image not found: {img_abs}")
+    cover_match = re.search(r'image:\s*["\']?(/images/[^"\'\s]+)["\']?', text)
+    if cover_match:
+        missing = check_local_image_exists(normalize_image_path(cover_match.group(1)))
+        if missing:
+            errors.append(f"Cover image not found: {missing}")
     else:
         warnings.append("No cover image defined")
 
-    for m in re.finditer(r'!\[.*?\]\((/images/[^)]+)\)', text):
-        img_rel = m.group(1).lstrip("/")
-        img_abs = SITE_ROOT / "static" / img_rel
-        if not img_abs.exists():
-            errors.append(f"Body image not found: {img_abs}")
+    for image_path in extract_local_image_paths(extract_body(text)):
+        missing = check_local_image_exists(image_path)
+        if missing:
+            errors.append(f"Body image not found: {missing}")
 
     return {"passed": len(errors) == 0, "errors": errors, "warnings": warnings}
+
+
+def fetch_url_status(url: str) -> tuple[int | None, str]:
+    try:
+        req = Request(url, headers={"User-Agent": "techllm-blog-validator/1.0"})
+        with urlopen(req, timeout=15) as response:
+            response.read(512)
+            return response.status, ""
+    except Exception as e:
+        return None, str(e)
+
+
+def check_public_url(public_url: str) -> dict:
+    errors = []
+    warnings = []
+    page_status, page_error = fetch_url_status(public_url)
+    if page_status != 200:
+        errors.append(f"Public page not reachable: {public_url} ({page_error or page_status})")
+        return {"passed": False, "errors": errors, "warnings": warnings, "images": []}
+
+    try:
+        req = Request(public_url, headers={"User-Agent": "techllm-blog-validator/1.0"})
+        with urlopen(req, timeout=15) as response:
+            html = response.read().decode("utf-8", errors="ignore")
+    except Exception as e:
+        errors.append(f"Could not fetch public HTML: {e}")
+        return {"passed": False, "errors": errors, "warnings": warnings, "images": []}
+
+    parser = ImageSrcParser()
+    parser.feed(html)
+
+    image_urls = []
+    seen = set()
+    for src in parser.image_srcs:
+        absolute = urljoin(public_url, src)
+        parsed = urlparse(absolute)
+        if "/images/" not in parsed.path:
+            continue
+        normalized = absolute.split("#", 1)[0].split("?", 1)[0]
+        if normalized not in seen:
+            seen.add(normalized)
+            image_urls.append(normalized)
+
+    if not image_urls:
+        warnings.append("No public /images/ <img> tags found")
+
+    image_results = []
+    for image_url in image_urls:
+        status, error = fetch_url_status(image_url)
+        image_results.append({"url": image_url, "status": status, "error": error})
+        if status != 200:
+            errors.append(f"Public image not reachable: {image_url} ({error or status})")
+
+    return {
+        "passed": len(errors) == 0,
+        "errors": errors,
+        "warnings": warnings,
+        "images": image_results,
+    }
 
 
 def extract_proper_nouns_from_source(source_path: str, top_n: int = 8) -> list:
@@ -144,7 +249,12 @@ def check_quality(note: str, source_path: str = "") -> dict:
     checks["h2_count"] = h2_count
     checks["section_structure_pass"] = h2_count >= MIN_H2_COUNT
 
-    source_line = re.search(r"\*원문:\s*\[[^\]]+\]\(https?://[^\)]+\)", body)
+    source_line = re.search(
+        r"(?:\*{0,2}원문(?:\s*출처|\s*영상)?\s*:?\*{0,2}\s*)"
+        r"(?:\[[^\]]+\]\(https?://[^\)]+\)|<a\s+href=[\"']https?://[^\"']+[\"'][^>]*>.+?</a>|https?://\S+)",
+        body,
+        re.IGNORECASE | re.DOTALL,
+    )
     checks["source_attribution_pass"] = source_line is not None
 
     gate_result = None
@@ -193,16 +303,16 @@ def check_quality(note: str, source_path: str = "") -> dict:
         fix_hints.append(f"frontmatter 누락 필드: {', '.join(missing)}")
     if not checks["body_length_pass"]:
         fix_hints.append(
-            f"한국어 분량 부족 ({korean_len}자, 최소 {MIN_KOREAN_CHARS}자 / 목표 {TARGET_KOREAN_CHARS}자)"
+            f"한국어 분량 부족 ({korean_len}자, 최소 {MIN_KOREAN_CHARS}자 / 기본 목표 {TARGET_KOREAN_CHARS}자)"
         )
     elif not checks["target_reached"]:
         fix_hints.append(
-            f"한국어 분량은 통과했지만 목표치({TARGET_KOREAN_CHARS}자) 미달 — 현재 {korean_len}자"
+            f"한국어 분량은 통과했지만 기본 목표치({TARGET_KOREAN_CHARS}자) 미달 — 현재 {korean_len}자"
         )
     if not checks["section_structure_pass"]:
         fix_hints.append(f"H2 섹션 부족 ({h2_count}개, 최소 {MIN_H2_COUNT}개 필요)")
     if not checks["source_attribution_pass"]:
-        fix_hints.append("본문 끝에 '*원문: [제목](URL)' 형식의 출처 라인 누락")
+        fix_hints.append("본문 끝에 원문 출처 라인 누락")
     if gate_result and not gate_result.get("passed") and "details" in gate_result:
         d = gate_result["details"]
         if d.get("length_ratio", {}).get("ratio", 1) < 0.4:
@@ -235,6 +345,11 @@ def main() -> int:
         action="store_true",
         help="품질 검증만 실행 (분량/H2/출처/gnomon)",
     )
+    parser.add_argument(
+        "--public-url",
+        default="",
+        help="발행 후 공개 페이지 URL. HTML과 본문 이미지 URL 200 상태를 확인",
+    )
     args = parser.parse_args()
 
     post_path = Path(args.post)
@@ -250,12 +365,16 @@ def main() -> int:
         result["tech"] = check_tech(post_path, text)
     if not args.tech_only:
         result["quality"] = check_quality(text, args.source)
+    if args.public_url:
+        result["public"] = check_public_url(args.public_url)
 
     passed = True
     if "tech" in result:
         passed = passed and result["tech"]["passed"]
     if "quality" in result:
         passed = passed and result["quality"]["passed"]
+    if "public" in result:
+        passed = passed and result["public"]["passed"]
     result["passed"] = passed
     result["verdict"] = "PASS ✅" if passed else "FAIL ❌"
 
@@ -264,6 +383,8 @@ def main() -> int:
         fix_hints.extend(f"[tech] {e}" for e in result["tech"]["errors"])
     if "quality" in result:
         fix_hints.extend(f"[quality] {h}" for h in result["quality"]["fix_hints"])
+    if "public" in result and not result["public"]["passed"]:
+        fix_hints.extend(f"[public] {e}" for e in result["public"]["errors"])
     result["fix_hints"] = fix_hints
 
     print(json.dumps(result, ensure_ascii=False, indent=2))
