@@ -4,8 +4,10 @@ date: 2026-06-08T02:37:00+09:00
 draft: false
 description: "OpenAI 고위 임원이 '챗봇은 죽었다'고 선언했다. ChatGPT는 2022년 출시 이후 가장 큰 개편을 거쳐 코딩·에이전트·Canva·Booking 연동까지 묶은 슈퍼앱으로 재설계되고, ChatGPT·Codex 조직은 CPO Thibault Sottiaux 아래로 통합됐다."
 tags: ["OpenAI", "ChatGPT", "AI에이전트", "슈퍼앱", "Codex", "ThibaultSottiaux", "Canva", "Booking", "에이전트AI"]
+categories: ["AI · LLM"]
+source_url: "https://www.indiatoday.in/technology/news/story/openai-prepping-huge-chatgpt-update-plans-to-turn-it-into-a-superapp-ahead-of-ipo-2923127-2026-06-07"
 cover:
-  image: /images/openai-chat-is-dead-chatgpt-superapp-agent-cover.png
+  image: /images/openai-chat-is-dead-chatgpt-superapp-agent/openai-chat-is-dead-chatgpt-superapp-agent-cover.png
   alt: "ChatGPT 슈퍼앱·에이전트 전환을 표현한 핸드드로잉 일러스트"
   caption: "Generated illustration"
 ---
@@ -56,4 +58,4 @@ Sottiaux는 FT에 이렇게 말했다. "표면을 뛰어넘는 형태가 될 것
 
 ## 원문 출처
 
-*원문: [OpenAI says "chat is dead" and plans to rebuild ChatGPT as a full-blown agent app](https://the-decoder.com/openai-says-chat-is-dead-and-plans-to-rebuild-chatgpt-as-a-full-blown-agent-app/) — Matthias Bastian, THE DECODER (2026-06-07)*
+*원문: [OpenAI prepping huge ChatGPT update, plans to turn it into a superapp ahead of IPO](https://www.indiatoday.in/technology/news/story/openai-prepping-huge-chatgpt-update-plans-to-turn-it-into-a-superapp-ahead-of-ipo-2923127-2026-06-07) — India Today Tech (2026-06-07)*
