@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 990 380" font-family="'Lausanne','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" style="display:block;width:100%;height:auto">
+
+  <rect width="990" height="380" fill="#030710"/>
+
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#6B8299" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#7FC8FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- NODE 1: User invokes -->
+  <rect x="20" y="135" width="160" height="60" rx="8" fill="#1A2A0A" stroke="#6E8900" stroke-width="1.5"/>
+  <text x="100" y="159" text-anchor="middle" font-size="12" font-weight="600" fill="#E3FF8F">User invokes</text>
+  <text x="100" y="177" text-anchor="middle" font-size="12" font-weight="600" fill="#E3FF8F">with rubric</text>
+
+  <line x1="180" y1="165" x2="218" y2="165" stroke="#6B8299" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- NODE 2: Deep agent -->
+  <rect x="220" y="135" width="140" height="60" rx="8" fill="#0B1A2E" stroke="#185FA5" stroke-width="1.5"/>
+  <text x="290" y="159" text-anchor="middle" font-size="12" font-weight="600" fill="#E5F4FF">Deep</text>
+  <text x="290" y="177" text-anchor="middle" font-size="12" font-weight="600" fill="#E5F4FF">agent</text>
+
+  <!-- Arrow: end at x=418, diamond left point at x=420 -->
+  <line x1="360" y1="165" x2="418" y2="165" stroke="#6B8299" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- NODE 3: Grader verdict diamond — center (500,165), horiz span ±80, vert span ±40 -->
+  <polygon points="500,125 580,165 500,205 420,165" fill="#1A1530" stroke="#7E65AE" stroke-width="1.5"/>
+  <text x="500" y="159" text-anchor="middle" font-size="12" font-weight="600" fill="#D5C3F7">Grader</text>
+  <text x="500" y="177" text-anchor="middle" font-size="12" font-weight="600" fill="#D5C3F7">verdict</text>
+
+  <!-- Arrow grader right → Done -->
+  <line x1="580" y1="165" x2="788" y2="165" stroke="#6B8299" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="685" y="150" text-anchor="middle" font-size="10" fill="#C8DDF0">satisfied / failed /</text>
+  <text x="685" y="163" text-anchor="middle" font-size="10" fill="#C8DDF0">grader_error</text>
+
+  <!-- NODE 4: Done -->
+  <rect x="790" y="135" width="160" height="60" rx="8" fill="#0D0F14" stroke="#1A2740" stroke-width="1.5"/>
+  <text x="870" y="159" text-anchor="middle" font-size="12" font-weight="600" fill="#6B8299">Finish</text>
+  <text x="870" y="177" text-anchor="middle" font-size="12" font-weight="600" fill="#6B8299">execution</text>
+
+  <!-- needs revision: bottom of grader (y=205) → down to y=240, right to x=600, down to iterations top (y=268) -->
+  <path d="M500 205 L500 240 L600 240 L600 268" fill="none" stroke="#7FC8FF" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+  <text x="516" y="233" text-anchor="start" font-size="10" fill="#C8DDF0">needs_revision</text>
+
+  <!-- NODE 5: Iterations diamond — center (600,308), horiz ±110, vert ±40 -->
+  <polygon points="600,268 710,308 600,348 490,308" fill="#1A1530" stroke="#7E65AE" stroke-width="1.5"/>
+  <text x="600" y="302" text-anchor="middle" font-size="11" font-weight="600" fill="#D5C3F7">Iterations</text>
+  <text x="600" y="318" text-anchor="middle" font-size="10" fill="#D5C3F7">&lt; max_iterations?</text>
+
+  <!-- no → right then up to Done -->
+  <path d="M710 308 L870 308 L870 195" fill="none" stroke="#6B8299" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="880" y="255" text-anchor="start" font-size="10" fill="#C8DDF0">no</text>
+
+  <!-- yes → left to Inject -->
+  <line x1="490" y1="308" x2="448" y2="308" stroke="#7FC8FF" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+  <text x="469" y="298" text-anchor="middle" font-size="10" fill="#C8DDF0">yes</text>
+
+  <!-- NODE 6: Re-prompt — vertically centered on iterations diamond center y=308 -->
+  <rect x="200" y="278" width="245" height="60" rx="8" fill="#0B1A2E" stroke="#185FA5" stroke-width="1.5"/>
+  <text x="322" y="302" text-anchor="middle" font-size="12" font-weight="600" fill="#E5F4FF">Re-prompt deep agent</text>
+  <text x="322" y="320" text-anchor="middle" font-size="11" fill="#7FC8FF">with per-criterion feedback</text>
+
+  <!-- Loop back: Inject top → Agent -->
+  <path d="M290 278 L290 195" fill="none" stroke="#7FC8FF" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+
+</svg>
