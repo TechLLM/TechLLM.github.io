@@ -1,0 +1,19 @@
+task: Build a cited synthesis note
+rules:
+  required_created_notes:
+    - synthesis.md
+  required_modified_notes:
+    - index.md
+  required_frontmatter_fields:
+    - title
+    - evidence_status
+  required_sections:
+    - Summary
+    - Evidence
+  required_output_fields:
+    - Decision
+  required_evidence_nodes:
+    - sources/paper-a.md
+  min_new_wikilinks: 2
+  max_broken_links: 0
+  max_unsupported_claims: 0
