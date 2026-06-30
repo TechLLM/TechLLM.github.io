@@ -1,0 +1,9 @@
+question,document,label,source_domain,document_type,question_type
+What notice is required before terminating a lease?,"The lease requires written notice 30 days before termination.",1,legal,contract,policy
+What notice is required before terminating a lease?,"A password reset email expires after 15 minutes.",0,legal,contract,policy
+Which lab value indicates elevated glucose?,"The metabolic panel shows glucose at 188 mg/dL, above the reference range.",1,health,clinical_note,factual
+Which lab value indicates elevated glucose?,"The lease addendum defines quiet hours and parking fees.",0,health,clinical_note,factual
+When does the refund window close?,"Customers may request a refund within 14 days of purchase.",1,commerce,policy_page,short_factual
+When does the refund window close?,"The audit log records access attempts and IP addresses.",0,commerce,policy_page,short_factual
+What caused the quarterly margin change?,"Quarterly margin improved after lower shipping costs and higher renewal rates.",1,finance,earnings_note,causal
+What caused the quarterly margin change?,"The clinical note recommends hydration and follow-up testing.",0,finance,earnings_note,causal
