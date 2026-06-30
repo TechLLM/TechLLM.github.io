@@ -1,0 +1,3 @@
+Passage ranking is a coarse-to-fine retrieval stage.
+
+First rank collections, then rank documents, then split top documents into small passages. This keeps the final context focused on high-signal evidence.
