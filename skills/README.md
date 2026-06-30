@@ -6,3 +6,4 @@
 ## Index
 
 - **[failwise-worst-case-token-budget-tuning-for-llm-agents](failwise-worst-case-token-budget-tuning-for-llm-agents/)** — Tune LLM agent token budgets, retrieval depth, and retry policies against worst-case failure slices; use for Failwise, token budget tuning, agent regression analysis, Pareto policy ranking, and worst-slice reliability reviews.
+- **[lexipilot-bm25-query-plan-compiler-for-llm-guided-retrieval](lexipilot-bm25-query-plan-compiler-for-llm-guided-retrieval/)** — Compile natural-language questions into BM25-friendly retrieval plans for local Markdown or text corpora; use for LexiPilot, BM25, lexical retrieval, query planning, sparse identifiers, wikilinks, arXiv IDs, technical docs, and LLM-guided retrieval.

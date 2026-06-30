@@ -1,0 +1,1 @@
+Which notes compare BM25, SPLADE, and HyDE for exact identifiers like arXiv:2305.10403 while avoiding generic embedding-only advice?
