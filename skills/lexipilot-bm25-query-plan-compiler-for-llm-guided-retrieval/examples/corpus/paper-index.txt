@@ -1,0 +1,5 @@
+Paper index
+
+SPLADE is a sparse lexical and expansion model.
+HyDE is hypothetical document expansion for retrieval.
+arXiv:2305.10403 appears in experiments that compare lexical and dense search.
