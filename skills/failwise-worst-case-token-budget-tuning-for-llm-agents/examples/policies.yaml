@@ -1,0 +1,19 @@
+policies:
+  - name: lean
+    max_tokens: 2800
+    retrieval_depth: 2
+    tool_retries: 1
+    token_cost_per_1k: 0.002
+    latency_penalty_ms: 80
+  - name: balanced
+    max_tokens: 5200
+    retrieval_depth: 4
+    tool_retries: 2
+    token_cost_per_1k: 0.002
+    latency_penalty_ms: 160
+  - name: resilient
+    max_tokens: 9000
+    retrieval_depth: 6
+    tool_retries: 4
+    token_cost_per_1k: 0.002
+    latency_penalty_ms: 320
