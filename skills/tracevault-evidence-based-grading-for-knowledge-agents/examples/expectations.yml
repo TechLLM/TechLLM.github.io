@@ -1,0 +1,23 @@
+created_files:
+  - notes/agent-evaluation.md
+modified_files:
+  - notes/index.md
+forbidden_edits:
+  - notes/source.md
+required_links:
+  - from: notes/agent-evaluation.md
+    to: notes/source.md
+  - from: notes/agent-evaluation.md
+    to: notes/index.md
+required_citations:
+  - file: notes/agent-evaluation.md
+    contains: "[[source]]"
+frontmatter:
+  notes/agent-evaluation.md:
+    status: reviewed
+    tags:
+      contains:
+        - benchmark
+    aliases:
+      contains:
+        - Knowledge Agent QA
