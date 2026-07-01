@@ -1,0 +1,45 @@
+{
+  "required_evidence": [
+    {
+      "doc_id": "kb:return-policy",
+      "passage_id": "p1"
+    },
+    {
+      "doc_id": "kb:warranty",
+      "passage_id": "p3"
+    }
+  ],
+  "expected_actions": [
+    {
+      "type": "tool_call",
+      "tool": "record.update",
+      "target": "records/customer-123.json",
+      "operation": "update",
+      "contains": "eligible_for_return"
+    }
+  ],
+  "expected_diffs": [
+    {
+      "target": "records/customer-123.json",
+      "path": "status",
+      "after": "eligible_for_return"
+    },
+    {
+      "target": "workspace/answer.md",
+      "contains": "30-day return window"
+    }
+  ],
+  "answer_requirements": {
+    "must_include": [
+      "30 days",
+      "12-month warranty"
+    ],
+    "must_cite": [
+      "kb:return-policy",
+      "kb:warranty"
+    ],
+    "must_not_include": [
+      "lifetime warranty"
+    ]
+  }
+}
