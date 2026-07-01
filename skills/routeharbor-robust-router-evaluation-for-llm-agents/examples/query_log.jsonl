@@ -1,0 +1,12 @@
+{"id":"q1","query":"Find the refund policy in the docs.","expected_route":"search","modality":"text","intent":"retrieval","cluster":"support"}
+{"id":"q2","query":"Run this SQL-like aggregation over the attached CSV.","expected_route":"code_interpreter","modality":"code","intent":"analysis","cluster":"data"}
+{"id":"q3","query":"What objects are visible in this product image?","expected_route":"image_analyzer","modality":"image","intent":"vision","cluster":"catalog"}
+{"id":"q4","query":"Transcribe this short customer voicemail.","expected_route":"audio_transcriber","modality":"audio","intent":"transcription","cluster":"support"}
+{"id":"q5","query":"Use the calendar tool to schedule a follow-up.","expected_route":"tool_planner","modality":"tool-use","intent":"action","cluster":"operations"}
+{"id":"q6","query":"Explain why this Python function raises an exception.","expected_route":"code_interpreter","modality":"code","intent":"debugging","cluster":"developer"}
+{"id":"q7","query":"Compare this screenshot to the design spec.","expected_route":"image_analyzer","modality":"image","intent":"vision","cluster":"design"}
+{"id":"q8","query":"Search the knowledge base, then draft a response.","expected_route":"search","modality":"mixed-intent","intent":"retrieval","cluster":"support"}
+{"id":"q9","query":"Call the CRM lookup tool and summarize account status.","expected_route":"tool_planner","modality":"tool-use","intent":"action","cluster":"sales"}
+{"id":"q10","query":"Detect the spoken language in this uploaded recording.","expected_route":"audio_transcriber","modality":"audio","intent":"classification","cluster":"research"}
+{"id":"q11","query":"Plan a multi-step workflow using search and a ticketing tool.","expected_route":"tool_planner","modality":"mixed-intent","intent":"action","cluster":"operations"}
+{"id":"q12","query":"Generate a chart from these numbers and explain the trend.","expected_route":"code_interpreter","modality":"code","intent":"analysis","cluster":"data"}
