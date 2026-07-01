@@ -1,0 +1,44 @@
+{
+  "keyword_router": {
+    "q1": "search",
+    "q2": "code_interpreter",
+    "q3": "search",
+    "q4": "audio_transcriber",
+    "q5": "tool_planner",
+    "q6": "code_interpreter",
+    "q7": "search",
+    "q8": "search",
+    "q9": "search",
+    "q10": "audio_transcriber",
+    "q11": "search",
+    "q12": "code_interpreter"
+  },
+  "semantic_router": {
+    "q1": "search",
+    "q2": "code_interpreter",
+    "q3": "image_analyzer",
+    "q4": "audio_transcriber",
+    "q5": "tool_planner",
+    "q6": "code_interpreter",
+    "q7": "image_analyzer",
+    "q8": "tool_planner",
+    "q9": "tool_planner",
+    "q10": "audio_transcriber",
+    "q11": "tool_planner",
+    "q12": "search"
+  },
+  "multimodal_router": {
+    "q1": "search",
+    "q2": "code_interpreter",
+    "q3": "image_analyzer",
+    "q4": "audio_transcriber",
+    "q5": "tool_planner",
+    "q6": "code_interpreter",
+    "q7": "image_analyzer",
+    "q8": "search",
+    "q9": "tool_planner",
+    "q10": "audio_transcriber",
+    "q11": "tool_planner",
+    "q12": "code_interpreter"
+  }
+}
