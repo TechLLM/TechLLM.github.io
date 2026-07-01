@@ -1,0 +1,11 @@
+Run the built-in sample:
+
+python scripts/run.py
+
+Run against the included files:
+
+python scripts/run.py --previous examples/previous.md --current examples/current.md --graph examples/link-graph.json --note-title "Project Alpha" --format report
+
+Generate JSON:
+
+python scripts/run.py --previous examples/previous.md --current examples/current.md --graph examples/link-graph.json --note-title "Project Alpha" --format json

@@ -1,0 +1,18 @@
+{
+  "Project Alpha": {
+    "links": ["Roadmap", "Risk Register"],
+    "backlinks": ["Research Inbox", "Team Plan"]
+  },
+  "Roadmap": {
+    "links": ["Project Alpha"],
+    "backlinks": ["Project Alpha"]
+  },
+  "Risk Register": {
+    "links": [],
+    "backlinks": ["Project Alpha"]
+  },
+  "Research Notes": {
+    "links": ["Project Alpha"],
+    "backlinks": []
+  }
+}
