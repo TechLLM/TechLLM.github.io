@@ -1,0 +1,34 @@
+[
+  {
+    "id": "reranker_monitoring",
+    "title": "Reranker Monitoring",
+    "metadata": {
+      "topic": "retrieval",
+      "label": "monitoring"
+    },
+    "summary": "Reranker audits can track ranking instability after controlled document perturbations.",
+    "sections": [
+      {
+        "heading": "Ranking stability",
+        "body": "Score variance across masked variants can identify brittle relevance decisions."
+      },
+      {
+        "heading": "CI checks",
+        "body": "Continuous integration can fail a regression when irrelevant masks create large ranking changes."
+      }
+    ]
+  },
+  {
+    "id": "dashboard_notes",
+    "title": "Dashboard Design Notes",
+    "metadata": {
+      "topic": "interface",
+      "label": "product"
+    },
+    "summary": "Operational dashboards should make repeated workflows easy to scan.",
+    "body": [
+      "Dense tables, filters, and predictable controls help users compare records quickly.",
+      "This note is about interface design, not retrieval evaluation or relevance gates."
+    ]
+  }
+]
