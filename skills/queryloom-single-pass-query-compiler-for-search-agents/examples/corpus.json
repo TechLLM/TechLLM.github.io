@@ -1,0 +1,18 @@
+[
+  {
+    "id": "doc-1",
+    "text": "BM25 works well when a query includes rare, discriminative terms from the local corpus. Search agents often waste calls when the first query is too broad."
+  },
+  {
+    "id": "doc-2",
+    "text": "Query expansion can add aliases such as lexical search, keyword ranking, retrieval query, and document lookup. These terms improve recall without requiring repeated rewrites."
+  },
+  {
+    "id": "doc-3",
+    "text": "Vector search and embedding retrieval are useful for semantic similarity, but they can miss exact identifiers, uncommon terminology, and negative constraints."
+  },
+  {
+    "id": "doc-4",
+    "text": "Agent orchestration benefits from focused subqueries, boosted terms, exclusions, and rate-limit aware retrieval plans that reduce latency and context churn."
+  }
+]
