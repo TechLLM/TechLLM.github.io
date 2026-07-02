@@ -1,0 +1,271 @@
+{
+  "aliases": [
+    {
+      "aliases": [
+        "retrieval",
+        "lookup",
+        "document search"
+      ],
+      "corpus_hits": [
+        "retrieval",
+        "lookup"
+      ],
+      "source": "search"
+    },
+    {
+      "aliases": [
+        "assistants",
+        "orchestrators",
+        "agent workflows",
+        "agent"
+      ],
+      "corpus_hits": [
+        "agent"
+      ],
+      "source": "agents"
+    },
+    {
+      "aliases": [
+        "lexical search",
+        "keyword ranking",
+        "sparse retrieval"
+      ],
+      "corpus_hits": [
+        "lexical search",
+        "keyword ranking"
+      ],
+      "source": "bm25"
+    },
+    {
+      "aliases": [
+        "search",
+        "lookup",
+        "document retrieval"
+      ],
+      "corpus_hits": [
+        "search",
+        "lookup"
+      ],
+      "source": "retrieval"
+    },
+    {
+      "aliases": [
+        "call"
+      ],
+      "corpus_hits": [
+        "call"
+      ],
+      "source": "calls"
+    },
+    {
+      "aliases": [
+        "embedding",
+        "semantic search",
+        "dense retrieval"
+      ],
+      "corpus_hits": [
+        "embedding"
+      ],
+      "source": "vector"
+    },
+    {
+      "aliases": [
+        "search string",
+        "retrieval query",
+        "keyword query"
+      ],
+      "corpus_hits": [
+        "retrieval query"
+      ],
+      "source": "query"
+    }
+  ],
+  "diagnostics": {
+    "api_key_env_present": false,
+    "external_api_used": false,
+    "idf_terms": 57,
+    "tokenized_question_terms": [
+      "search",
+      "agents",
+      "reduce",
+      "wasted",
+      "bm25",
+      "retrieval",
+      "calls",
+      "relying",
+      "vector"
+    ]
+  },
+  "exclusions": [
+    "vector search",
+    "vector"
+  ],
+  "focused_subqueries": [
+    {
+      "name": "high_precision",
+      "purpose": "Favor discriminative corpus terms and boosted exact vocabulary.",
+      "query": "agents bm25 calls reduce",
+      "terms": [
+        "agents",
+        "bm25",
+        "calls",
+        "reduce"
+      ]
+    },
+    {
+      "name": "recall_expansion",
+      "purpose": "Broaden recall with aliases and spelling variants.",
+      "query": "search agents reduce wasted retrieval lookup assistants orchestrators lexical search keyword ranking",
+      "terms": [
+        "search",
+        "agents",
+        "reduce",
+        "wasted",
+        "retrieval",
+        "lookup",
+        "assistants",
+        "orchestrators",
+        "lexical search",
+        "keyword ranking"
+      ]
+    },
+    {
+      "name": "exclusion_aware",
+      "purpose": "Apply negative constraints extracted from the question.",
+      "query": "agents bm25 calls reduce search query -\"vector search\" -vector",
+      "terms": [
+        "agents",
+        "bm25",
+        "calls",
+        "reduce",
+        "search",
+        "query",
+        "-\"vector search\"",
+        "-vector"
+      ]
+    }
+  ],
+  "input": {
+    "corpus_source": "examples/corpus.json",
+    "documents": 4,
+    "question": "How can search agents reduce wasted BM25 retrieval calls without relying only on vector search?"
+  },
+  "mode": "local-standard-library",
+  "primary_query": "agents bm25 calls reduce search query retrieval broad lookup assistants orchestrators lexical search keyword ranking -\"vector search\" -vector",
+  "rare_terms": [
+    {
+      "idf": 1.204,
+      "term": "agents",
+      "weight": 5.0
+    },
+    {
+      "idf": 1.204,
+      "term": "bm25",
+      "weight": 5.0
+    },
+    {
+      "idf": 1.204,
+      "term": "calls",
+      "weight": 5.0
+    },
+    {
+      "idf": 1.204,
+      "term": "reduce",
+      "weight": 4.19
+    },
+    {
+      "idf": 0.3567,
+      "term": "search",
+      "weight": 3.52
+    },
+    {
+      "idf": 0.6931,
+      "term": "query",
+      "weight": 3.38
+    },
+    {
+      "idf": 0.3567,
+      "term": "retrieval",
+      "weight": 3.28
+    },
+    {
+      "idf": 1.204,
+      "term": "broad",
+      "weight": 2.63
+    },
+    {
+      "idf": 1.204,
+      "term": "corpus",
+      "weight": 2.63
+    },
+    {
+      "idf": 1.204,
+      "term": "discriminative",
+      "weight": 2.63
+    }
+  ],
+  "tool": "queryloom",
+  "version": "0.1.0",
+  "weighted_terms": [
+    {
+      "idf": 1.204,
+      "reason": "question term found in relevant corpus documents",
+      "term": "agents",
+      "weight": 5.0
+    },
+    {
+      "idf": 1.204,
+      "reason": "question term found in relevant corpus documents",
+      "term": "bm25",
+      "weight": 5.0
+    },
+    {
+      "idf": 1.204,
+      "reason": "question term found in relevant corpus documents",
+      "term": "calls",
+      "weight": 5.0
+    },
+    {
+      "idf": 1.204,
+      "reason": "question term found in relevant corpus documents",
+      "term": "reduce",
+      "weight": 4.19
+    },
+    {
+      "idf": 0.3567,
+      "reason": "question term found in relevant corpus documents",
+      "term": "search",
+      "weight": 3.52
+    },
+    {
+      "idf": 0.6931,
+      "reason": "corpus rare term from matching documents",
+      "term": "query",
+      "weight": 3.38
+    },
+    {
+      "idf": 0.3567,
+      "reason": "question term found in relevant corpus documents",
+      "term": "retrieval",
+      "weight": 3.28
+    },
+    {
+      "idf": 1.204,
+      "reason": "corpus rare term from matching documents",
+      "term": "broad",
+      "weight": 2.63
+    },
+    {
+      "idf": 1.204,
+      "reason": "corpus rare term from matching documents",
+      "term": "corpus",
+      "weight": 2.63
+    },
+    {
+      "idf": 1.204,
+      "reason": "corpus rare term from matching documents",
+      "term": "discriminative",
+      "weight": 2.63
+    }
+  ]
+}
