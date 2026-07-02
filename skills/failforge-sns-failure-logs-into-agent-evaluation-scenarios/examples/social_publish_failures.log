@@ -1,0 +1,5 @@
+{"timestamp":"2026-06-30T10:15:05Z","platform":"instagram","level":"ERROR","request_id":"req_sample_auth_001","account_id":"acct_123456","status_code":401,"error":"OAuthException: Error validating access token: Session has expired","headers":{"Authorization":"Bearer sample_access_token_abc123"}}
+2026-06-30T10:20:11Z platform=tiktok request_id=req_sample_rate_002 status=429 error="Rate limit exceeded; retry after 60 seconds" account_id=acct_789000
+2026-06-30T10:22:40Z platform=facebook request_id=req_sample_media_003 status=400 error="Media container is not ready for publishing; please retry later" media_container_id=container_555
+[DRY-RUN] 2026-06-30T10:25:09Z platform=linkedin request_id=req_sample_dry_004 would publish post_url=https://example.invalid account_id=acct_111222
+2026-06-30T10:27:31Z platform=x request_id=req_sample_timeout_005 error="Network timeout while calling publish endpoint after 30 seconds"
