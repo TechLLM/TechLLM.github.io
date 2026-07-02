@@ -1,0 +1,13 @@
+id,query,task,intent,difficulty,cohort,perturbation,rare_case,selected_router,correct_router,score_fast,score_balanced,score_deep
+1,Reset my password,account,password_reset,easy,consumer,none,false,fast,fast,0.92,0.80,0.66
+2,Find my invoice,billing,invoice_lookup,easy,consumer,none,false,fast,fast,0.88,0.82,0.70
+3,Explain a contract indemnity clause,legal,contract_analysis,hard,enterprise,paraphrase,true,balanced,deep,0.48,0.74,0.91
+4,Diagnose API latency spike,ops,incident_debug,hard,enterprise,typo,true,fast,deep,0.55,0.70,0.89
+5,Route a refund exception,billing,refund_exception,medium,small_business,none,false,balanced,balanced,0.63,0.84,0.78
+6,Classify unknown webhook failure,ops,webhook_debug,rare,enterprise,paraphrase,true,balanced,deep,0.40,0.69,0.90
+7,Summarize product feedback,support,feedback_summary,easy,consumer,none,false,fast,fast,0.85,0.77,0.64
+8,Handle payroll compliance edge case,hr,compliance_edge,rare,enterprise,adversarial,true,balanced,deep,0.38,0.65,0.88
+9,Triage account takeover signal,security,account_takeover,hard,enterprise,typo,true,balanced,deep,0.44,0.72,0.93
+10,Answer shipping status,support,shipping_status,easy,consumer,none,false,fast,fast,0.90,0.79,0.68
+11,Resolve SSO setup issue,account,sso_setup,medium,enterprise,paraphrase,false,balanced,balanced,0.61,0.83,0.80
+12,Investigate unusual billing pattern,billing,anomaly_review,hard,small_business,adversarial,true,fast,deep,0.51,0.71,0.86
