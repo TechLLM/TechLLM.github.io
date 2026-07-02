@@ -1,0 +1,10 @@
+{
+  "text": "dense_text_retriever",
+  "table": "markdown_table_parser",
+  "code": "syntax_aware_code_indexer",
+  "math": "equation_extractor",
+  "citation": "citation_graph_builder",
+  "benchmark": "benchmark_metric_router",
+  "log": "timeline_log_parser",
+  "mixed": "mixed_modality_router"
+}
