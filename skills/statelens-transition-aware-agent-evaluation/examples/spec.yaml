@@ -1,0 +1,23 @@
+task_id: demo-note-update
+allow_unlisted_changes: false
+required_paths_exist:
+  - notes/summary.md
+required_changes:
+  - path: notes/summary.md
+    contains:
+      - 'Decision: keep SQLite for the prototype.'
+    regex:
+      - 'Status:\s+approved'
+structured_assertions:
+  - path: metadata.json
+    type: json
+    equals:
+      owner: agent
+      status: approved
+forbidden_changes:
+  - notes/source.md
+evidence_required:
+  - notes/source.md
+allowed_changes:
+  - notes/summary.md
+  - metadata.json

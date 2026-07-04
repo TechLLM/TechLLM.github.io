@@ -1,0 +1,96 @@
+{
+  "task_id": "demo-note-update",
+  "pass": true,
+  "summary": {
+    "confidence": "high",
+    "checks_passed": 10,
+    "checks_failed": 0,
+    "files_added": 0,
+    "files_deleted": 0,
+    "files_modified": 2,
+    "unexpected_changes": 0
+  },
+  "checks": [
+    {
+      "name": "required_path_exists",
+      "pass": true,
+      "path": "notes/summary.md",
+      "details": "exists in post-task directory"
+    },
+    {
+      "name": "required_change",
+      "pass": true,
+      "path": "notes/summary.md",
+      "details": "file is added or modified"
+    },
+    {
+      "name": "required_contains",
+      "pass": true,
+      "path": "notes/summary.md",
+      "details": "found required string"
+    },
+    {
+      "name": "required_regex",
+      "pass": true,
+      "path": "notes/summary.md",
+      "details": "matched required regex"
+    },
+    {
+      "name": "structured_json_parse",
+      "pass": true,
+      "path": "metadata.json",
+      "details": "valid JSON document"
+    },
+    {
+      "name": "structured_json_equals",
+      "pass": true,
+      "path": "metadata.json",
+      "field": "owner",
+      "details": "value matched expected JSON path"
+    },
+    {
+      "name": "structured_json_equals",
+      "pass": true,
+      "path": "metadata.json",
+      "field": "status",
+      "details": "value matched expected JSON path"
+    },
+    {
+      "name": "forbidden_change",
+      "pass": true,
+      "path": "notes/source.md",
+      "details": "file unchanged"
+    },
+    {
+      "name": "evidence_read",
+      "pass": true,
+      "path": "notes/source.md",
+      "details": "required evidence path was read"
+    },
+    {
+      "name": "allowed_change_scope",
+      "pass": true,
+      "details": "all changed files are allowed"
+    }
+  ],
+  "diffs": {
+    "added": [],
+    "deleted": [],
+    "modified": [
+      "metadata.json",
+      "notes/summary.md"
+    ],
+    "file_diffs": [
+      {
+        "path": "metadata.json",
+        "binary": false,
+        "diff": "--- before/metadata.json\n+++ after/metadata.json\n@@ -1 +1 @@\n-{\"owner\":\"agent\",\"status\":\"draft\"}\n+{\"owner\":\"agent\",\"status\":\"approved\"}"
+      },
+      {
+        "path": "notes/summary.md",
+        "binary": false,
+        "diff": "--- before/notes/summary.md\n+++ after/notes/summary.md\n@@ -1,2 +1,2 @@\n-Status: draft\n-Decision: undecided.\n+Status: approved\n+Decision: keep SQLite for the prototype."
+      }
+    ]
+  }
+}
