@@ -1,0 +1,118 @@
+{
+  "edges": [
+    {
+      "properties": {},
+      "source": "artifact-ec121d629e",
+      "target": "failure-9c24fc25d3",
+      "type": "CONTAINS"
+    },
+    {
+      "properties": {},
+      "source": "command-2e31e9acf0",
+      "target": "failure-9c24fc25d3",
+      "type": "RECOVERED_FROM"
+    },
+    {
+      "properties": {},
+      "source": "command-4f0696b5c7",
+      "target": "failure-9c24fc25d3",
+      "type": "FAILED_WITH"
+    },
+    {
+      "properties": {},
+      "source": "failure-9c24fc25d3",
+      "target": "outcome-26cf9476bd",
+      "type": "ENDED_AS"
+    },
+    {
+      "properties": {},
+      "source": "failure-9c24fc25d3",
+      "target": "cause-024bc59036",
+      "type": "HAS_CAUSE"
+    },
+    {
+      "properties": {},
+      "source": "failure-9c24fc25d3",
+      "target": "checkpoint-4f0696b5c7",
+      "type": "RESUMED_AT"
+    }
+  ],
+  "failures": [
+    {
+      "error_signature": "ModuleNotFoundError: No module named 'yaml'",
+      "evidence": [
+        "[10:00] ERROR ModuleNotFoundError: No module named 'yaml'",
+        "[10:02] CHECKPOINT resume from step parse-config",
+        "[10:03] SUCCESS completed job"
+      ],
+      "failed_command": "python worker.py",
+      "id": "failure-9c24fc25d3",
+      "likely_cause": "missing_dependency",
+      "outcome": "recovered",
+      "recovery_command": "python -m pip install pyyaml",
+      "resume_point": "python worker.py"
+    }
+  ],
+  "markdown": "---\ntrace_id: trace-9a91737d3a76\nsource: sample-trace.txt\nfailure_count: 1\noutcome: recovered\ntags:\n  - traceloom\n  - failure-recovery\n---\n\n# TraceLoom Recovery Note\n\n## Recovery Summary\nRecovered 1 of 1 detected failure(s). Main pattern: missing_dependency repaired with python -m pip install pyyaml.\n\n### Failure 1\n- Failure: `ModuleNotFoundError: No module named 'yaml'`\n- Likely cause: `missing_dependency`\n- Failed command: `python worker.py`\n- Recovery command: `python -m pip install pyyaml`\n- Resume point: `python worker.py`\n- Outcome: `recovered`\n\n## Wikilink Candidates\n- [[TraceLoom]]\n- [[failure recovery]]\n- [[missing dependency]]\n- [[python worker.py]]\n- [[recovery command]]\n- [[resume point]]\n\n## Graph Edges\n- `artifact-ec121d629e` -CONTAINS-> `failure-9c24fc25d3`\n- `command-2e31e9acf0` -RECOVERED_FROM-> `failure-9c24fc25d3`\n- `command-4f0696b5c7` -FAILED_WITH-> `failure-9c24fc25d3`\n- `failure-9c24fc25d3` -ENDED_AS-> `outcome-26cf9476bd`\n- `failure-9c24fc25d3` -HAS_CAUSE-> `cause-024bc59036`\n- `failure-9c24fc25d3` -RESUMED_AT-> `checkpoint-4f0696b5c7`\n\n## Evidence\n> [10:00] ERROR ModuleNotFoundError: No module named 'yaml'\n> [10:02] CHECKPOINT resume from step parse-config\n> [10:03] SUCCESS completed job\n",
+  "nodes": [
+    {
+      "id": "artifact-ec121d629e",
+      "label": "sample-trace.txt",
+      "properties": {},
+      "type": "artifact"
+    },
+    {
+      "id": "cause-024bc59036",
+      "label": "missing_dependency",
+      "properties": {},
+      "type": "cause"
+    },
+    {
+      "id": "checkpoint-4f0696b5c7",
+      "label": "python worker.py",
+      "properties": {},
+      "type": "checkpoint"
+    },
+    {
+      "id": "command-2e31e9acf0",
+      "label": "python -m pip install pyyaml",
+      "properties": {
+        "fingerprint": "python -m pip install pyyaml"
+      },
+      "type": "command"
+    },
+    {
+      "id": "command-4f0696b5c7",
+      "label": "python worker.py",
+      "properties": {
+        "fingerprint": "python worker.py"
+      },
+      "type": "command"
+    },
+    {
+      "id": "failure-9c24fc25d3",
+      "label": "ModuleNotFoundError: No module named 'yaml'",
+      "properties": {
+        "likely_cause": "missing_dependency"
+      },
+      "type": "failure"
+    },
+    {
+      "id": "outcome-26cf9476bd",
+      "label": "recovered",
+      "properties": {},
+      "type": "outcome"
+    }
+  ],
+  "source": "sample-trace.txt",
+  "summary": "Recovered 1 of 1 detected failure(s). Main pattern: missing_dependency repaired with python -m pip install pyyaml.",
+  "trace_id": "trace-9a91737d3a76",
+  "wikilinks": [
+    "[[TraceLoom]]",
+    "[[failure recovery]]",
+    "[[missing dependency]]",
+    "[[python worker.py]]",
+    "[[recovery command]]",
+    "[[resume point]]"
+  ]
+}

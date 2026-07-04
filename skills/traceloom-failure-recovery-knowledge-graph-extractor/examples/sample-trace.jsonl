@@ -1,0 +1,6 @@
+{"event":"run","command":"python worker.py"}
+{"level":"error","error":"ModuleNotFoundError: No module named 'yaml'"}
+{"event":"repair","command":"python -m pip install pyyaml"}
+{"event":"checkpoint","message":"resume from step parse-config"}
+{"event":"run","command":"python worker.py"}
+{"event":"success","message":"completed job","status":0}
