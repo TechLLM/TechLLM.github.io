@@ -1,0 +1,21 @@
+evaluation_id: sample-benefits-rag
+required_documents:
+  - id: policy-2026
+    type: policy
+    domain: benefits
+    must_cite: true
+    required_passages:
+      - P4
+  - id: faq-2026
+    type: faq
+    domain: benefits
+    must_cite: true
+    required_passages:
+      - P1
+forbidden_sources:
+  - deprecated-wiki-2020
+post_state_assertions:
+  - id: audit-log-written
+    event: tool_call
+    tool: audit_log.create
+    status: success

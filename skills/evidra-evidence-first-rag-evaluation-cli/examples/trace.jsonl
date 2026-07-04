@@ -1,0 +1,5 @@
+{"event":"retrieval","query_id":"q1","document_id":"policy-2026","passage_id":"P4","domain":"benefits","document_type":"policy","rank":1,"score":0.93}
+{"event":"retrieval","query_id":"q1","document_id":"faq-2026","passage_id":"P1","domain":"benefits","document_type":"faq","rank":2,"score":0.88}
+{"event":"citation","document_id":"policy-2026","passage_id":"P4"}
+{"event":"citation","document_id":"faq-2026","passage_id":"P1"}
+{"event":"tool_call","tool":"audit_log.create","status":"success","name":"post_state_check"}
