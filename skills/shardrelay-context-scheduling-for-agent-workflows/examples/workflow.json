@@ -1,0 +1,20 @@
+{
+  "stages": [
+    {
+      "id": "stage_001",
+      "title": "Plan shard index",
+      "task": "Plan a workflow DAG parser and memory shard index for context scheduling.",
+      "budget": 230,
+      "priority_terms": ["workflow", "dag", "shard"],
+      "required_shards": ["project_brief"]
+    },
+    {
+      "id": "stage_002",
+      "title": "Emit review handoff",
+      "task": "Create deterministic manifest output and handoff context for the next agent.",
+      "depends_on": ["stage_001"],
+      "budget": 230,
+      "priority_terms": ["manifest", "handoff", "deterministic"]
+    }
+  ]
+}

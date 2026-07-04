@@ -1,0 +1,19 @@
+{
+  "selftest": "passed",
+  "stages": [
+    {
+      "id": "stage_001",
+      "selected_shards": [
+        "project_brief",
+        "dag_notes"
+      ]
+    },
+    {
+      "id": "stage_002",
+      "selected_shards": [
+        "handoff_log",
+        "project_brief"
+      ]
+    }
+  ]
+}
