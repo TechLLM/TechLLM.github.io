@@ -1,0 +1,6 @@
+[10:00] RUN $ python worker.py
+[10:00] ERROR ModuleNotFoundError: No module named 'yaml'
+[10:01] $ python -m pip install pyyaml
+[10:02] CHECKPOINT resume from step parse-config
+[10:02] $ python worker.py
+[10:03] SUCCESS completed job
