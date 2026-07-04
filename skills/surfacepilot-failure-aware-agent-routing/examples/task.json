@@ -1,0 +1,25 @@
+{
+  "task": "Update the billing migration script, call Stripe sandbox to verify invoices, and summarize the changed rows.",
+  "tools": [
+    {
+      "name": "repo_read",
+      "surfaces": ["retrieval"],
+      "risk": "low"
+    },
+    {
+      "name": "apply_patch",
+      "surfaces": ["file_edit"],
+      "risk": "high"
+    },
+    {
+      "name": "stripe_sandbox",
+      "surfaces": ["service_call"],
+      "risk": "medium"
+    },
+    {
+      "name": "pytest",
+      "surfaces": ["state_verification"],
+      "risk": "low"
+    }
+  ]
+}

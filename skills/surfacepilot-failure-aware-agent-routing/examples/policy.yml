@@ -1,0 +1,20 @@
+thresholds:
+  cautious_execution: 0.30
+  verification_first: 0.50
+  sandboxing: 0.60
+  human_review: 0.75
+surfaces:
+  service_call:
+    keywords:
+      - api
+      - service
+      - deploy
+      - stripe
+      - call
+      - sandbox
+  data_transform:
+    keywords:
+      - migration
+      - summarize
+      - rows
+      - schema
