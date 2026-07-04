@@ -1,0 +1,108 @@
+{
+  "tool": "ShardRelay",
+  "version": "0.1.0",
+  "default_budget": 120,
+  "soft_limit_ratio": 0.85,
+  "stages": [
+    {
+      "id": "stage_001",
+      "title": "Plan shard index",
+      "depends_on": [],
+      "budget": 230,
+      "soft_limit": 195,
+      "estimated_tokens": 183,
+      "output_file": "stage_001_context.md",
+      "selected_shards": [
+        {
+          "id": "project_brief",
+          "title": "Project brief",
+          "score": 89.68,
+          "estimated_tokens": 75,
+          "reasons": [
+            "explicitly required",
+            "matches: context, memory, workflow",
+            "high priority: 5",
+            "source type: brief",
+            "recent shard"
+          ]
+        },
+        {
+          "id": "dag_notes",
+          "title": "DAG notes",
+          "score": 30.34,
+          "estimated_tokens": 70,
+          "reasons": [
+            "matches: dag, workflow",
+            "high priority: 4",
+            "recent shard"
+          ]
+        }
+      ],
+      "omitted_shards": [
+        {
+          "id": "handoff_log",
+          "score": 17.0,
+          "estimated_tokens": 63,
+          "reason": "over hard limit"
+        },
+        {
+          "id": "unrelated_note",
+          "score": 12.5,
+          "estimated_tokens": 46,
+          "reason": "below selected candidates or over soft limit"
+        }
+      ]
+    },
+    {
+      "id": "stage_002",
+      "title": "Emit review handoff",
+      "depends_on": [
+        "stage_001"
+      ],
+      "budget": 230,
+      "soft_limit": 195,
+      "estimated_tokens": 185,
+      "output_file": "stage_002_context.md",
+      "selected_shards": [
+        {
+          "id": "handoff_log",
+          "title": "Handoff log",
+          "score": 50.0,
+          "estimated_tokens": 77,
+          "reasons": [
+            "matches: agent, deterministic, handoff, manifest, output, review",
+            "high priority: 4",
+            "recent shard"
+          ]
+        },
+        {
+          "id": "project_brief",
+          "title": "Project brief",
+          "score": 34.68,
+          "estimated_tokens": 71,
+          "reasons": [
+            "matches: context",
+            "dependency continuity",
+            "high priority: 5",
+            "source type: brief",
+            "recent shard"
+          ]
+        }
+      ],
+      "omitted_shards": [
+        {
+          "id": "dag_notes",
+          "score": 22.34,
+          "estimated_tokens": 67,
+          "reason": "over hard limit"
+        },
+        {
+          "id": "unrelated_note",
+          "score": 8.5,
+          "estimated_tokens": 44,
+          "reason": "below selected candidates or over soft limit"
+        }
+      ]
+    }
+  ]
+}
