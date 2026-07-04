@@ -1,0 +1,16 @@
+{
+  "events": [
+    {
+      "action": "read",
+      "path": "notes/source.md"
+    },
+    {
+      "action": "write",
+      "path": "notes/summary.md"
+    },
+    {
+      "action": "write",
+      "path": "metadata.json"
+    }
+  ]
+}
