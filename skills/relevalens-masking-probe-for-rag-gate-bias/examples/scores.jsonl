@@ -1,0 +1,12 @@
+{"query_id":"q1","candidate_id":"d1","score":0.92,"mask":"none"}
+{"query_id":"q1","candidate_id":"d2","score":0.71,"mask":"none"}
+{"query_id":"q1","candidate_id":"d3","score":0.20,"mask":"none"}
+{"query_id":"q1","candidate_id":"d1","score":0.38,"mask":"keyword_mask"}
+{"query_id":"q1","candidate_id":"d2","score":0.68,"mask":"keyword_mask"}
+{"query_id":"q1","candidate_id":"d3","score":0.18,"mask":"keyword_mask"}
+{"query_id":"q1","candidate_id":"d1","score":0.64,"mask":"field_mask"}
+{"query_id":"q1","candidate_id":"d2","score":0.40,"mask":"field_mask"}
+{"query_id":"q1","candidate_id":"d3","score":0.16,"mask":"field_mask"}
+{"query_id":"q1","candidate_id":"d1","score":0.52,"mask":"position_mask"}
+{"query_id":"q1","candidate_id":"d2","score":0.75,"mask":"position_mask"}
+{"query_id":"q1","candidate_id":"d3","score":0.18,"mask":"position_mask"}
