@@ -1,0 +1,93 @@
+{
+  "tool": "biaslens-rag",
+  "version": "0.1.0",
+  "summary": {
+    "cases": 2,
+    "correct_evidence_absent": 1,
+    "reranker_instability_or_bias": 1,
+    "no_failure_signal": 0,
+    "mean_selection_stability": 0.75,
+    "mean_position_bias_score": 0.5
+  },
+  "cases": [
+    {
+      "query_id": "q_absent",
+      "failure_category": "correct_evidence_absent",
+      "selected_doc_ids": [
+        "billing_faq"
+      ],
+      "relevant_doc_ids": [
+        "refund_policy"
+      ],
+      "correct_evidence_present": false,
+      "selection_stability": 1.0,
+      "position_bias_score": 0.0,
+      "masking_trials": 2,
+      "unstable_alternatives": [
+        "shipping_notice"
+      ],
+      "keyword_attraction": [
+        {
+          "term": "billing",
+          "score": 1.0
+        },
+        {
+          "term": "charges",
+          "score": 1.0
+        },
+        {
+          "term": "invoices",
+          "score": 1.0
+        },
+        {
+          "term": "upgrade",
+          "score": 1.0
+        }
+      ],
+      "signals": [
+        "relevant evidence absent from candidates"
+      ]
+    },
+    {
+      "query_id": "q_present_biased",
+      "failure_category": "reranker_instability_or_bias",
+      "selected_doc_ids": [
+        "billing_faq"
+      ],
+      "relevant_doc_ids": [
+        "refund_policy"
+      ],
+      "correct_evidence_present": true,
+      "selection_stability": 0.5,
+      "position_bias_score": 1.0,
+      "masking_trials": 3,
+      "unstable_alternatives": [
+        "refund_policy"
+      ],
+      "keyword_attraction": [
+        {
+          "term": "billing",
+          "score": 1.0
+        },
+        {
+          "term": "charges",
+          "score": 1.0
+        },
+        {
+          "term": "invoices",
+          "score": 1.0
+        },
+        {
+          "term": "upgrade",
+          "score": 1.0
+        }
+      ],
+      "signals": [
+        "relevant evidence present but not selected",
+        "selection changed under masking",
+        "selected document benefits from early position",
+        "selected document has overrepresented terms"
+      ]
+    }
+  ]
+}
