@@ -1,0 +1,149 @@
+{
+  "baseline_ranking": [
+    {
+      "id": "kb-001",
+      "rank": 1,
+      "score": 0.98
+    },
+    {
+      "id": "kb-003",
+      "rank": 2,
+      "score": 0.368
+    },
+    {
+      "id": "kb-002",
+      "rank": 3,
+      "score": 0.2329
+    },
+    {
+      "id": "kb-004",
+      "rank": 4,
+      "score": 0.1911
+    }
+  ],
+  "candidate_count": 4,
+  "diagnostics": [
+    {
+      "baseline_score": 0.98,
+      "coverage": 1.0,
+      "diagnostic_label": "precision-bias",
+      "id": "kb-001",
+      "keyword_reliance": 0.98,
+      "matched_terms": [
+        "reset",
+        "contractor",
+        "mfa",
+        "device",
+        "approvals"
+      ],
+      "mean_perturbed_score": 0.5365,
+      "missing_terms": [],
+      "notes": [
+        "Score drops sharply when surface query terms are masked.",
+        "Partial-document samples produce unstable relevance scores.",
+        "Candidate ordering can materially change the prior-adjusted score."
+      ],
+      "original_position": 1,
+      "partial_evidence_volatility": 0.0846,
+      "position_sensitivity": 0.06,
+      "score_drop": 0.4435,
+      "score_stddev": 0.279
+    },
+    {
+      "baseline_score": 0.368,
+      "coverage": 0.4,
+      "diagnostic_label": "stable-evidence",
+      "id": "kb-003",
+      "keyword_reliance": 0.368,
+      "matched_terms": [
+        "mfa",
+        "approvals"
+      ],
+      "mean_perturbed_score": 0.1703,
+      "missing_terms": [
+        "reset",
+        "contractor",
+        "device"
+      ],
+      "notes": [
+        "Score drops sharply when surface query terms are masked.",
+        "Partial-document samples produce unstable relevance scores."
+      ],
+      "original_position": 3,
+      "partial_evidence_volatility": 0.177,
+      "position_sensitivity": 0.02,
+      "score_drop": 0.1977,
+      "score_stddev": 0.1615
+    },
+    {
+      "baseline_score": 0.2329,
+      "coverage": 0.2,
+      "diagnostic_label": "knowledge-gap",
+      "id": "kb-002",
+      "keyword_reliance": 0.2329,
+      "matched_terms": [
+        "reset"
+      ],
+      "mean_perturbed_score": 0.1458,
+      "missing_terms": [
+        "contractor",
+        "mfa",
+        "device",
+        "approvals"
+      ],
+      "notes": [
+        "Low query-term coverage after retrieval.",
+        "Partial-document samples produce unstable relevance scores."
+      ],
+      "original_position": 2,
+      "partial_evidence_volatility": 0.1287,
+      "position_sensitivity": 0.02,
+      "score_drop": 0.0871,
+      "score_stddev": 0.1239
+    },
+    {
+      "baseline_score": 0.1911,
+      "coverage": 0.2,
+      "diagnostic_label": "knowledge-gap",
+      "id": "kb-004",
+      "keyword_reliance": 0.1911,
+      "matched_terms": [
+        "device"
+      ],
+      "mean_perturbed_score": 0.0448,
+      "missing_terms": [
+        "reset",
+        "contractor",
+        "mfa",
+        "approvals"
+      ],
+      "notes": [
+        "Low query-term coverage after retrieval.",
+        "Partial-document samples produce unstable relevance scores.",
+        "Candidate ordering can materially change the prior-adjusted score."
+      ],
+      "original_position": 4,
+      "partial_evidence_volatility": 0.1056,
+      "position_sensitivity": 0.06,
+      "score_drop": 0.1463,
+      "score_stddev": 0.0896
+    }
+  ],
+  "failure_modes": {
+    "ambiguity_bias": false,
+    "knowledge_gap": false,
+    "position_bias": true,
+    "precision_bias": true
+  },
+  "metadata": {
+    "engine": "biaslens-rag-lexical-probe",
+    "position_prior": 0.06,
+    "version": "0.1.0"
+  },
+  "query": "How do I reset contractor MFA device approvals?",
+  "recommendations": [
+    "Require answer-bearing evidence beyond keyword overlap for candidates: kb-001.",
+    "Evaluate reranking with shuffled candidate order and reduce any fixed position prior."
+  ],
+  "trials_per_candidate": 5
+}
