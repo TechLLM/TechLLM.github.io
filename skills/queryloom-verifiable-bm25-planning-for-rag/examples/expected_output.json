@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "planner": {
+    "name": "queryloom-local-heuristic",
+    "mode": "local",
+    "external_llm_used": false
+  },
+  "question": "How can QueryLoom reduce RAG retrieval failures with BM25 planning?",
+  "corpus": {
+    "document_count": 1,
+    "token_count": 58,
+    "vocabulary_size": 48,
+    "top_k": 5
+  },
+  "rare_term_candidates": [
+    {
+      "term": "retrieval",
+      "tf_idf": 0.069,
+      "document_frequency": 1
+    },
+    {
+      "term": "bm25",
+      "tf_idf": 0.0345,
+      "document_frequency": 1
+    },
+    {
+      "term": "queryloom",
+      "tf_idf": 0.0345,
+      "document_frequency": 1
+    },
+    {
+      "term": "corpus",
+      "tf_idf": 0.0345,
+      "document_frequency": 1
+    },
+    {
+      "term": "evidence",
+      "tf_idf": 0.0345,
+      "document_frequency": 1
+    },
+    {
+      "term": "failures",
+      "tf_idf": 0.0172,
+      "document_frequency": 1
+    },
+    {
+      "term": "rag",
+      "tf_idf": 0.0172,
+      "document_frequency": 1
+    },
+    {
+      "term": "search",
+      "tf_idf": 0.0345,
+      "document_frequency": 1
+    }
+  ],
+  "synonym_slots": [
+    {
+      "slot": "rag",
+      "terms": [
+        "rag",
+        "retrieval augmented generation",
+        "grounded generation"
+      ]
+    },
+    {
+      "slot": "retrieval",
+      "terms": [
+        "retrieval",
+        "search",
+        "lookup"
+      ]
+    },
+    {
+      "slot": "bm25",
+      "terms": [
+        "bm25",
+        "lexical search",
+        "sparse retrieval"
+      ]
+    },
+    {
+      "slot": "planning",
+      "terms": [
+        "planning",
+        "strategy",
+        "control plane"
+      ]
+    },
+    {
+      "slot": "failure",
+      "terms": [
+        "failure",
+        "miss",
+        "retrieval error"
+      ]
+    },
+    {
+      "slot": "evidence",
+      "terms": [
+        "evidence",
+        "citation",
+        "supporting passage"
+      ]
+    }
+  ],
+  "subqueries": [
+    {
+      "id": "q1",
+      "intent": "How can QueryLoom reduce RAG retrieval failures with BM25 planning",
+      "bm25_query": "+queryloom +rag +retrieval +failures (rag OR \"retrieval augmented generation\" OR \"grounded generation\") (retrieval OR search OR lookup) (bm25 OR \"lexical search\" OR \"sparse retrieval\") bm25 corpus evidence search -embedding-only -answer-generation-only",
+      "required_terms": [
+        "queryloom",
+        "rag",
+        "retrieval",
+        "failures"
+      ],
+      "optional_terms": [
+        "bm25",
+        "corpus",
+        "evidence",
+        "search"
+      ],
+      "exclusion_terms": [
+        "embedding-only",
+        "answer-generation-only"
+      ],
+      "evidence_requirements": [
+        "Passage must explicitly support: How can QueryLoom reduce RAG retrieval failures with BM25 planning",
+        "Passage should mention at least one required term: queryloom, rag, retrieval",
+        "Passage should describe retrieval planning behavior, not only final answer synthesis."
+      ]
+    }
+  ]
+}
