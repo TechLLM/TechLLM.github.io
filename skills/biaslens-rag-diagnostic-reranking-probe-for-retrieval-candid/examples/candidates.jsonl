@@ -1,0 +1,4 @@
+{"id":"kb-001","text":"Contractor MFA device reset procedure: open Admin Identity, find the contractor account, revoke old device approvals, then send a new enrollment link."}
+{"id":"kb-002","text":"Employee password reset guide: verify the user, reset the temporary password, and remind them to update recovery details."}
+{"id":"kb-003","text":"MFA enrollment policy overview for contractors: approvals expire after thirty days and devices must be registered through the identity portal."}
+{"id":"kb-004","text":"Facilities badge access changes are handled by office operations and do not change identity provider device settings."}
