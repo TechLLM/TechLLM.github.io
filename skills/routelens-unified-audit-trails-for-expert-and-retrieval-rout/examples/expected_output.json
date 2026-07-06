@@ -1,0 +1,197 @@
+{
+  "schema_version": "routelens.audit.v1",
+  "summary": {
+    "total_queries": 6,
+    "successes": 3,
+    "failures": 3,
+    "fallback_used": 3,
+    "average_quality_score": 0.715,
+    "average_subset_quality_gap": 0.14
+  },
+  "domain_failure_rates": [
+    {
+      "domain": "support",
+      "total": 2,
+      "failures": 2,
+      "failure_rate": 1.0,
+      "fallback_used": 1,
+      "fallback_coverage": 0.5
+    },
+    {
+      "domain": "billing",
+      "total": 2,
+      "failures": 1,
+      "failure_rate": 0.5,
+      "fallback_used": 1,
+      "fallback_coverage": 1.0
+    },
+    {
+      "domain": "security",
+      "total": 2,
+      "failures": 0,
+      "failure_rate": 0.0,
+      "fallback_used": 1,
+      "fallback_coverage": 0.0
+    }
+  ],
+  "routing_confusion_matrix": [
+    {
+      "intended_domain": "billing",
+      "selected_index": "billing_faq",
+      "selected_model_path": "expert:billing-lite",
+      "outcome": "success",
+      "count": 1
+    },
+    {
+      "intended_domain": "billing",
+      "selected_index": "general_docs",
+      "selected_model_path": "expert:general-lite",
+      "outcome": "failure",
+      "count": 1
+    },
+    {
+      "intended_domain": "security",
+      "selected_index": "security_runbook",
+      "selected_model_path": "expert:security-lite",
+      "outcome": "success",
+      "count": 1
+    },
+    {
+      "intended_domain": "security",
+      "selected_index": "security_runbook",
+      "selected_model_path": "full-model",
+      "outcome": "success",
+      "count": 1
+    },
+    {
+      "intended_domain": "support",
+      "selected_index": "product_docs",
+      "selected_model_path": "expert:support-lite",
+      "outcome": "failure",
+      "count": 1
+    },
+    {
+      "intended_domain": "support",
+      "selected_index": "support_kb",
+      "selected_model_path": "expert:support-lite",
+      "outcome": "failure",
+      "count": 1
+    }
+  ],
+  "subset_vs_full_model_gaps": [
+    {
+      "selected_model_path": "expert:general-lite",
+      "samples": 1,
+      "average_full_model_score": 0.84,
+      "average_selected_path_score": 0.5,
+      "average_gap": 0.34
+    },
+    {
+      "selected_model_path": "expert:support-lite",
+      "samples": 2,
+      "average_full_model_score": 0.775,
+      "average_selected_path_score": 0.59,
+      "average_gap": 0.185
+    },
+    {
+      "selected_model_path": "expert:security-lite",
+      "samples": 1,
+      "average_full_model_score": 0.9,
+      "average_selected_path_score": 0.82,
+      "average_gap": 0.08
+    },
+    {
+      "selected_model_path": "expert:billing-lite",
+      "samples": 1,
+      "average_full_model_score": 0.93,
+      "average_selected_path_score": 0.88,
+      "average_gap": 0.05
+    },
+    {
+      "selected_model_path": "full-model",
+      "samples": 1,
+      "average_full_model_score": 0.78,
+      "average_selected_path_score": 0.78,
+      "average_gap": 0.0
+    }
+  ],
+  "index_model_quality": [
+    {
+      "selected_index": "billing_faq",
+      "selected_model_path": "expert:billing-lite",
+      "queries": 1,
+      "average_quality_score": 0.91,
+      "failure_rate": 0.0,
+      "degradation_flag": false
+    },
+    {
+      "selected_index": "general_docs",
+      "selected_model_path": "expert:general-lite",
+      "queries": 1,
+      "average_quality_score": 0.52,
+      "failure_rate": 1.0,
+      "degradation_flag": true
+    },
+    {
+      "selected_index": "product_docs",
+      "selected_model_path": "expert:support-lite",
+      "queries": 1,
+      "average_quality_score": 0.58,
+      "failure_rate": 1.0,
+      "degradation_flag": true
+    },
+    {
+      "selected_index": "security_runbook",
+      "selected_model_path": "expert:security-lite",
+      "queries": 1,
+      "average_quality_score": 0.86,
+      "failure_rate": 0.0,
+      "degradation_flag": false
+    },
+    {
+      "selected_index": "security_runbook",
+      "selected_model_path": "full-model",
+      "queries": 1,
+      "average_quality_score": 0.78,
+      "failure_rate": 0.0,
+      "degradation_flag": false
+    },
+    {
+      "selected_index": "support_kb",
+      "selected_model_path": "expert:support-lite",
+      "queries": 1,
+      "average_quality_score": 0.64,
+      "failure_rate": 1.0,
+      "degradation_flag": true
+    }
+  ],
+  "degradation_reports": [
+    {
+      "selected_index": "general_docs",
+      "selected_model_path": "expert:general-lite",
+      "queries": 1,
+      "average_quality_score": 0.52,
+      "failure_rate": 1.0,
+      "degradation_flag": true,
+      "reason": "average quality below threshold; failure rate above 25%"
+    },
+    {
+      "selected_index": "product_docs",
+      "selected_model_path": "expert:support-lite",
+      "queries": 1,
+      "average_quality_score": 0.58,
+      "failure_rate": 1.0,
+      "degradation_flag": true,
+      "reason": "average quality below threshold; failure rate above 25%"
+    },
+    {
+      "selected_index": "support_kb",
+      "selected_model_path": "expert:support-lite",
+      "queries": 1,
+      "average_quality_score": 0.64,
+      "failure_rate": 1.0,
+      "degradation_flag": true,
+      "reason": "average quality below threshold; failure rate above 25%"
+    }
+  ]
+}
