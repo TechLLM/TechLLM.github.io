@@ -1,0 +1,24 @@
+{
+  "question": "What changed in the 2024 VectorDB retention policy?",
+  "answer": "The 2024 VectorDB retention policy changed audit log retention from 30 days to 90 days [policy-2024]. Customer content logs stay disabled by default [policy-2024].",
+  "documents": [
+    {
+      "id": "policy-2024",
+      "title": "VectorDB Retention Policy 2024",
+      "date": "2024-05-15",
+      "text": "In 2024, VectorDB changed audit log retention from 30 days to 90 days. Customer content logs remain disabled by default. The update applies to enterprise workspaces."
+    },
+    {
+      "id": "faq-2023",
+      "title": "VectorDB Data FAQ",
+      "date": "2023-09-10",
+      "text": "Before the 2024 update, audit logs were retained for 30 days. Workspace billing exports are retained for 365 days."
+    }
+  ],
+  "config": {
+    "evaluation_date": "2026-01-01",
+    "freshness_window_days": 900,
+    "min_claim_overlap": 0.25,
+    "citation_pattern": "\\[([A-Za-z0-9_.:-]+)\\]"
+  }
+}
