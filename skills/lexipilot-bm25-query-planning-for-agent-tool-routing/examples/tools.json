@@ -1,0 +1,31 @@
+[
+  {
+    "id": "lexical-router",
+    "name": "Lexical Tool Router",
+    "description": "Routes agent tools with transparent BM25 lexical ranking, audit logs, and explicit exclusions.",
+    "capabilities": [
+      "routing",
+      "bm25",
+      "audit",
+      "planning"
+    ]
+  },
+  {
+    "id": "email-sender",
+    "name": "Email Sender",
+    "description": "Sends email messages and tracks delivery logs for outreach workflows.",
+    "capabilities": [
+      "email",
+      "delivery"
+    ]
+  },
+  {
+    "id": "embedding-router",
+    "name": "Embedding Router",
+    "description": "Selects tools through semantic embeddings and vector similarity for broad routing.",
+    "capabilities": [
+      "routing",
+      "embeddings"
+    ]
+  }
+]
