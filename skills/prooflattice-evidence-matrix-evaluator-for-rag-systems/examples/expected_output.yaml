@@ -1,0 +1,157 @@
+checklist:
+  evaluation_id: "35cc9128cd73"
+  overall_status: "pass"
+  overall_score: 0.978
+  principles:
+    -
+      name: "directness"
+      status: "pass"
+      score: 1.000
+      rationale: "Answer terms cover the main question terms."
+      signals:
+        matched_question_terms:
+          - "2024"
+          - "changed"
+          - "policy"
+          - "retention"
+          - "vectordb"
+        missing_question_terms: []
+    -
+      name: "evidence_coverage"
+      status: "pass"
+      score: 1.000
+      rationale: "Answer claims have source sentences above the overlap threshold."
+      signals:
+        supported_claims: 2
+        total_claims: 2
+        min_claim_overlap: 0.250
+    -
+      name: "citation_support"
+      status: "pass"
+      score: 1.000
+      rationale: "Claim citations resolve to retrieved document IDs with supporting text."
+      signals:
+        valid_citation_ids:
+          - "policy-2024"
+        invalid_citation_ids: []
+        claims_with_citations: 2
+    -
+      name: "omission_risk"
+      status: "pass"
+      score: 1.000
+      rationale: "Lower risk when the answer covers the key terms from the question."
+      signals:
+        missing_question_terms: []
+    -
+      name: "freshness"
+      status: "pass"
+      score: 1.000
+      rationale: "Supporting documents fall within the configured freshness window."
+      signals:
+        evaluation_date: "2026-01-01"
+        freshness_window_days: 900
+        dated_supports_checked: 2
+    -
+      name: "factual_alignment"
+      status: "pass"
+      score: 0.867
+      rationale: "Average claim-to-source overlap across answer claims."
+      signals:
+        average_best_overlap: 0.867
+  claims_reviewed: 2
+  recommendations: []
+evidence_map:
+  evaluation_id: "35cc9128cd73"
+  claim_nodes:
+    -
+      id: "C1"
+      text: "The 2024 VectorDB retention policy changed audit log retention from 30 days to 90 days."
+      citations:
+        - "policy-2024"
+      valid_citations:
+        - "policy-2024"
+      invalid_citations: []
+      supported: true
+      citation_supported: true
+      best_support:
+        document_id: "policy-2024"
+        title: "VectorDB Retention Policy 2024"
+        date: "2024-05-15"
+        sentence: "In 2024, VectorDB changed audit log retention from 30 days to 90 days."
+        overlap_score: 0.900
+        overlap_terms:
+          - "2024"
+          - "30"
+          - "90"
+          - "audit"
+          - "changed"
+          - "days"
+          - "log"
+          - "retention"
+          - "vectordb"
+    -
+      id: "C2"
+      text: "Customer content logs stay disabled by default."
+      citations:
+        - "policy-2024"
+      valid_citations:
+        - "policy-2024"
+      invalid_citations: []
+      supported: true
+      citation_supported: true
+      best_support:
+        document_id: "policy-2024"
+        title: "VectorDB Retention Policy 2024"
+        date: "2024-05-15"
+        sentence: "Customer content logs remain disabled by default."
+        overlap_score: 0.833
+        overlap_terms:
+          - "content"
+          - "customer"
+          - "default"
+          - "disabled"
+          - "logs"
+  document_nodes:
+    -
+      id: "policy-2024"
+      title: "VectorDB Retention Policy 2024"
+      date: "2024-05-15"
+      sentence_count: 3
+    -
+      id: "faq-2023"
+      title: "VectorDB Data FAQ"
+      date: "2023-09-10"
+      sentence_count: 2
+  edges:
+    -
+      claim_id: "C1"
+      document_id: "policy-2024"
+      relationship: "supports"
+      overlap_score: 0.900
+      overlap_terms:
+        - "2024"
+        - "30"
+        - "90"
+        - "audit"
+        - "changed"
+        - "days"
+        - "log"
+        - "retention"
+        - "vectordb"
+      citation_ids:
+        - "policy-2024"
+      sentence: "In 2024, VectorDB changed audit log retention from 30 days to 90 days."
+    -
+      claim_id: "C2"
+      document_id: "policy-2024"
+      relationship: "supports"
+      overlap_score: 0.833
+      overlap_terms:
+        - "content"
+        - "customer"
+        - "default"
+        - "disabled"
+        - "logs"
+      citation_ids:
+        - "policy-2024"
+      sentence: "Customer content logs remain disabled by default."

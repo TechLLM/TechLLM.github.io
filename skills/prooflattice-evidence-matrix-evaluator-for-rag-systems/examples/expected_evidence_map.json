@@ -1,0 +1,117 @@
+{
+  "claim_nodes": [
+    {
+      "best_support": {
+        "date": "2024-05-15",
+        "document_id": "policy-2024",
+        "overlap_score": 0.9,
+        "overlap_terms": [
+          "2024",
+          "30",
+          "90",
+          "audit",
+          "changed",
+          "days",
+          "log",
+          "retention",
+          "vectordb"
+        ],
+        "sentence": "In 2024, VectorDB changed audit log retention from 30 days to 90 days.",
+        "title": "VectorDB Retention Policy 2024"
+      },
+      "citation_supported": true,
+      "citations": [
+        "policy-2024"
+      ],
+      "id": "C1",
+      "invalid_citations": [],
+      "supported": true,
+      "text": "The 2024 VectorDB retention policy changed audit log retention from 30 days to 90 days.",
+      "valid_citations": [
+        "policy-2024"
+      ]
+    },
+    {
+      "best_support": {
+        "date": "2024-05-15",
+        "document_id": "policy-2024",
+        "overlap_score": 0.833,
+        "overlap_terms": [
+          "content",
+          "customer",
+          "default",
+          "disabled",
+          "logs"
+        ],
+        "sentence": "Customer content logs remain disabled by default.",
+        "title": "VectorDB Retention Policy 2024"
+      },
+      "citation_supported": true,
+      "citations": [
+        "policy-2024"
+      ],
+      "id": "C2",
+      "invalid_citations": [],
+      "supported": true,
+      "text": "Customer content logs stay disabled by default.",
+      "valid_citations": [
+        "policy-2024"
+      ]
+    }
+  ],
+  "document_nodes": [
+    {
+      "date": "2024-05-15",
+      "id": "policy-2024",
+      "sentence_count": 3,
+      "title": "VectorDB Retention Policy 2024"
+    },
+    {
+      "date": "2023-09-10",
+      "id": "faq-2023",
+      "sentence_count": 2,
+      "title": "VectorDB Data FAQ"
+    }
+  ],
+  "edges": [
+    {
+      "citation_ids": [
+        "policy-2024"
+      ],
+      "claim_id": "C1",
+      "document_id": "policy-2024",
+      "overlap_score": 0.9,
+      "overlap_terms": [
+        "2024",
+        "30",
+        "90",
+        "audit",
+        "changed",
+        "days",
+        "log",
+        "retention",
+        "vectordb"
+      ],
+      "relationship": "supports",
+      "sentence": "In 2024, VectorDB changed audit log retention from 30 days to 90 days."
+    },
+    {
+      "citation_ids": [
+        "policy-2024"
+      ],
+      "claim_id": "C2",
+      "document_id": "policy-2024",
+      "overlap_score": 0.833,
+      "overlap_terms": [
+        "content",
+        "customer",
+        "default",
+        "disabled",
+        "logs"
+      ],
+      "relationship": "supports",
+      "sentence": "Customer content logs remain disabled by default."
+    }
+  ],
+  "evaluation_id": "35cc9128cd73"
+}
