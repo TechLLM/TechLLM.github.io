@@ -1,0 +1,31 @@
+documents:
+  - id: doc_text_pricing
+    domain: product_docs
+    modality: text
+    document_type: note
+    corruption: clean
+    context_condition: complete
+  - id: doc_table_eval
+    domain: research_notes
+    modality: academic_table
+    document_type: experiment
+    corruption: clean
+    context_condition: complete
+  - id: doc_code_api
+    domain: engineering_logs
+    modality: code
+    document_type: snippet
+    corruption: clean
+    context_condition: complete
+  - id: doc_wiki_link
+    domain: knowledge_base
+    modality: wiki_link
+    document_type: linked_page
+    corruption: clean
+    context_condition: complete
+  - id: doc_policy_table
+    domain: policies
+    modality: table
+    document_type: reference
+    corruption: truncated
+    context_condition: partial
