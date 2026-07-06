@@ -1,0 +1,22 @@
+{
+  "invalid_record_count": 0,
+  "record_count": 6,
+  "seed": 7,
+  "splits": {
+    "test": [
+      "ex-002"
+    ],
+    "train": [
+      "ex-001",
+      "ex-003",
+      "ex-004",
+      "ex-005",
+      "ex-006"
+    ],
+    "validation": []
+  },
+  "tool": "RouteLedger",
+  "valid_record_count": 6,
+  "version": "0.1.0",
+  "weak_slices": []
+}
