@@ -1,0 +1,6 @@
+query_id,query,gold_doc_ids,retrieved_doc_ids,accepted_doc_ids
+q1,What plan includes audit logs?,doc_text_pricing,doc_text_pricing|doc_code_api,doc_text_pricing
+q2,Which model won the benchmark result table?,doc_table_eval,doc_wiki_link|doc_text_pricing,doc_wiki_link
+q3,How do I call the SDK retry helper?,doc_code_api,doc_code_api|doc_text_pricing,doc_code_api|doc_text_pricing
+q4,Where is the incident runbook linked?,doc_wiki_link,doc_wiki_link|doc_text_pricing,doc_wiki_link
+q5,What policy row covers exemption expiry?,doc_policy_table,doc_wiki_link|doc_text_pricing,doc_wiki_link
