@@ -1,0 +1,6 @@
+{"id":"ex-001","task":"Summarize a support ticket and select the reply agent.","modality":"text","domain":"support","selected_tool":"ticket_summarizer","task_type":"summarization","outcome":"success"}
+{"id":"ex-002","task":"Summarize a refund ticket for escalation.","modality":"text","domain":"support","selected_tool":"ticket_summarizer","task_type":"summarization","outcome":"success"}
+{"id":"ex-003","task":"Extract invoice fields from a receipt image.","modality":"image","domain":"finance","selected_tool":"ocr_invoice","task_type":"extraction","outcome":"success"}
+{"id":"ex-004","task":"Route a blurred invoice photo to an extraction path.","modality":"image","domain":"finance","selected_tool":"ocr_invoice","task_type":"extraction","outcome":"failure"}
+{"id":"ex-005","task":"Classify a sales call transcript for CRM routing.","modality":"audio","domain":"sales","selected_tool":"call_classifier","task_type":"classification","outcome":"success"}
+{"id":"ex-006","task":"Classify a churn-risk call and choose the next action.","modality":"audio","domain":"sales","selected_tool":"call_classifier","task_type":"classification","outcome":"failure"}
