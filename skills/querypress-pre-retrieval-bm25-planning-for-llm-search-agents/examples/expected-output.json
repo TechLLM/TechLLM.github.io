@@ -1,0 +1,290 @@
+{
+  "corpus": {
+    "average_document_length": 19.0,
+    "documents": 3,
+    "tokens": 57,
+    "top_terms": [
+      {
+        "corpus_frequency": 4,
+        "document_frequency": 3,
+        "term": "retrieval"
+      },
+      {
+        "corpus_frequency": 3,
+        "document_frequency": 3,
+        "term": "search"
+      },
+      {
+        "corpus_frequency": 2,
+        "document_frequency": 2,
+        "term": "evidence"
+      },
+      {
+        "corpus_frequency": 2,
+        "document_frequency": 2,
+        "term": "query"
+      },
+      {
+        "corpus_frequency": 1,
+        "document_frequency": 1,
+        "term": "add"
+      },
+      {
+        "corpus_frequency": 1,
+        "document_frequency": 1,
+        "term": "agents"
+      },
+      {
+        "corpus_frequency": 1,
+        "document_frequency": 1,
+        "term": "anchors"
+      },
+      {
+        "corpus_frequency": 1,
+        "document_frequency": 1,
+        "term": "audience"
+      }
+    ]
+  },
+  "execution_notes": [
+    "Run decomposed_queries in order against a BM25-compatible backend.",
+    "Treat rare_term_anchors as precision boosters, not mandatory proof.",
+    "Review exclusion_terms before applying them to strict search syntax."
+  ],
+  "plan": {
+    "decomposed_queries": [
+      {
+        "exclude_terms": [
+          "evidence",
+          "query"
+        ],
+        "id": "q1",
+        "optional_terms": [
+          "improve",
+          "llm",
+          "noisy",
+          "planning",
+          "first-pass"
+        ],
+        "purpose": "Anchor rare corpus-matching terms from the user question.",
+        "query": "agents bm25 improve llm noisy planning first-pass",
+        "required_terms": [
+          "agents",
+          "bm25"
+        ]
+      },
+      {
+        "exclude_terms": [
+          "evidence",
+          "query"
+        ],
+        "id": "q2",
+        "optional_terms": [
+          "planning",
+          "agents",
+          "improve"
+        ],
+        "purpose": "Test phrase-like candidate: bm25 planning",
+        "query": "bm25 planning agents improve",
+        "required_terms": [
+          "bm25"
+        ]
+      },
+      {
+        "exclude_terms": [
+          "evidence",
+          "query"
+        ],
+        "id": "q3",
+        "optional_terms": [
+          "planning",
+          "improve",
+          "agents"
+        ],
+        "purpose": "Test phrase-like candidate: bm25 planning improve",
+        "query": "bm25 planning improve agents",
+        "required_terms": [
+          "bm25"
+        ]
+      },
+      {
+        "exclude_terms": [
+          "evidence",
+          "query"
+        ],
+        "id": "q4",
+        "optional_terms": [
+          "planning",
+          "improve",
+          "first-pass",
+          "retrieval",
+          "llm",
+          "search",
+          "agents"
+        ],
+        "purpose": "Retrieve evidence for one decomposed question clause.",
+        "query": "bm25 planning improve first-pass retrieval llm search agents",
+        "required_terms": [
+          "bm25"
+        ]
+      }
+    ],
+    "exclusion_terms": [
+      "evidence",
+      "query"
+    ],
+    "ngram_candidates": [
+      {
+        "ngram": "bm25 planning",
+        "score": 0.981,
+        "terms": [
+          "bm25",
+          "planning"
+        ]
+      },
+      {
+        "ngram": "bm25 planning improve",
+        "score": 0.981,
+        "terms": [
+          "bm25",
+          "planning",
+          "improve"
+        ]
+      },
+      {
+        "ngram": "noisy tool",
+        "score": 0.981,
+        "terms": [
+          "noisy",
+          "tool"
+        ]
+      },
+      {
+        "ngram": "noisy tool retries",
+        "score": 0.981,
+        "terms": [
+          "noisy",
+          "tool",
+          "retries"
+        ]
+      },
+      {
+        "ngram": "planning improve",
+        "score": 0.981,
+        "terms": [
+          "planning",
+          "improve"
+        ]
+      },
+      {
+        "ngram": "tool retries",
+        "score": 0.981,
+        "terms": [
+          "tool",
+          "retries"
+        ]
+      }
+    ],
+    "rare_term_anchors": [
+      {
+        "document_frequency": 1,
+        "idf": 0.981,
+        "term": "agents"
+      },
+      {
+        "document_frequency": 1,
+        "idf": 0.981,
+        "term": "bm25"
+      },
+      {
+        "document_frequency": 1,
+        "idf": 0.981,
+        "term": "improve"
+      },
+      {
+        "document_frequency": 1,
+        "idf": 0.981,
+        "term": "llm"
+      },
+      {
+        "document_frequency": 1,
+        "idf": 0.981,
+        "term": "noisy"
+      },
+      {
+        "document_frequency": 1,
+        "idf": 0.981,
+        "term": "planning"
+      },
+      {
+        "document_frequency": 1,
+        "idf": 0.981,
+        "term": "retries"
+      },
+      {
+        "document_frequency": 1,
+        "idf": 0.981,
+        "term": "tool"
+      }
+    ],
+    "synonym_slots": [
+      {
+        "alternatives": [
+          "lexical ranking",
+          "term scoring"
+        ],
+        "term": "bm25"
+      },
+      {
+        "alternatives": [
+          "query planning",
+          "retrieval planning"
+        ],
+        "term": "planning"
+      },
+      {
+        "alternatives": [
+          "initial retrieval",
+          "first retrieval"
+        ],
+        "term": "first-pass"
+      },
+      {
+        "alternatives": [
+          "search",
+          "lookup"
+        ],
+        "term": "retrieval"
+      },
+      {
+        "alternatives": [
+          "language model",
+          "AI model"
+        ],
+        "term": "llm"
+      },
+      {
+        "alternatives": [
+          "retrieval",
+          "lookup"
+        ],
+        "term": "search"
+      },
+      {
+        "alternatives": [
+          "assistants",
+          "workers"
+        ],
+        "term": "agents"
+      },
+      {
+        "alternatives": [
+          "search tool",
+          "retriever"
+        ],
+        "term": "tool"
+      }
+    ]
+  },
+  "question": "How can BM25 planning improve first-pass retrieval for LLM search agents and reduce noisy tool retries?"
+}
