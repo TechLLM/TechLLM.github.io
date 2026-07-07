@@ -1,0 +1,279 @@
+{
+  "metadata": {
+    "tool": "ClaimWeaver",
+    "version": "0.1.0",
+    "evaluator": "rule",
+    "claim_count": 7,
+    "accepted": 5,
+    "needs_review": 0,
+    "rejected": 2
+  },
+  "task": "Merge agent findings about a prototype reducer.",
+  "principles": [
+    {
+      "id": "grounded",
+      "description": "Prefer claims tied to evidence or concrete implementation details.",
+      "weight": 0.4
+    },
+    {
+      "id": "actionable",
+      "description": "Prefer claims that are specific enough to audit or reuse.",
+      "weight": 0.35
+    },
+    {
+      "id": "cautious",
+      "description": "Penalize unsupported absolutes and speculation.",
+      "weight": 0.25
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "cw-001",
+      "status": "accepted",
+      "confidence": 0.98,
+      "text": "The reducer extracts claims from Markdown bullets and plain sentences.",
+      "rationale": "Selected trace scored 0.98, met acceptance threshold 0.62, with 1 supporting source passage(s).",
+      "supporting_agents": [
+        "agent-alpha"
+      ],
+      "supporting_sources": [
+        {
+          "agent": "agent-alpha",
+          "passage": "The reducer extracts claims from Markdown bullets and plain sentences. Source: design-note.md"
+        }
+      ],
+      "principle_scores": [
+        {
+          "id": "grounded",
+          "score": 0.99,
+          "rationale": "positive: source; evidence marker present"
+        },
+        {
+          "id": "actionable",
+          "score": 0.95,
+          "rationale": "positive: extracts, markdown; evidence marker present"
+        },
+        {
+          "id": "cautious",
+          "score": 0.99,
+          "rationale": "positive: source; evidence marker present"
+        }
+      ]
+    },
+    {
+      "claim_id": "cw-002",
+      "status": "accepted",
+      "confidence": 0.91,
+      "text": "The reducer uses only the Python standard library for the deterministic path.",
+      "rationale": "Selected trace scored 0.91, met acceptance threshold 0.62, with 1 supporting source passage(s).",
+      "supporting_agents": [
+        "agent-alpha"
+      ],
+      "supporting_sources": [
+        {
+          "agent": "agent-alpha",
+          "passage": "The reducer uses only the Python standard library for the deterministic path."
+        }
+      ],
+      "principle_scores": [
+        {
+          "id": "grounded",
+          "score": 0.95,
+          "rationale": "positive: deterministic, standard library, uses"
+        },
+        {
+          "id": "actionable",
+          "score": 0.9,
+          "rationale": "positive: standard library, uses"
+        },
+        {
+          "id": "cautious",
+          "score": 0.84,
+          "rationale": "positive: deterministic"
+        }
+      ]
+    },
+    {
+      "claim_id": "cw-003",
+      "status": "rejected",
+      "confidence": 0.2,
+      "text": "The cache setting probably improves speed.",
+      "rationale": "Selected trace scored 0.20, fell below acceptance threshold 0.62, with 2 supporting source passage(s).",
+      "supporting_agents": [
+        "agent-alpha",
+        "agent-beta"
+      ],
+      "supporting_sources": [
+        {
+          "agent": "agent-alpha",
+          "passage": "The cache setting probably improves speed."
+        },
+        {
+          "agent": "agent-beta",
+          "passage": "The cache setting probably improves speed."
+        }
+      ],
+      "principle_scores": [
+        {
+          "id": "grounded",
+          "score": 0.2,
+          "rationale": "negative: probably"
+        },
+        {
+          "id": "actionable",
+          "score": 0.2,
+          "rationale": "negative: improves"
+        },
+        {
+          "id": "cautious",
+          "score": 0.2,
+          "rationale": "negative: probably"
+        }
+      ]
+    },
+    {
+      "claim_id": "cw-004",
+      "status": "accepted",
+      "confidence": 1.0,
+      "text": "Claim extraction supports Markdown bullet lines, plain text sentences, and JSON claim lists.",
+      "rationale": "Selected trace scored 1.00, met acceptance threshold 0.62, with 1 supporting source passage(s).",
+      "supporting_agents": [
+        "agent-beta"
+      ],
+      "supporting_sources": [
+        {
+          "agent": "agent-beta",
+          "passage": "Claim extraction supports Markdown bullet lines, plain text sentences, and JSON claim lists. Source: agent-beta-report.md"
+        }
+      ],
+      "principle_scores": [
+        {
+          "id": "grounded",
+          "score": 1.0,
+          "rationale": "positive: source, supports; evidence marker present"
+        },
+        {
+          "id": "actionable",
+          "score": 1.0,
+          "rationale": "positive: json, markdown, supports; evidence marker present"
+        },
+        {
+          "id": "cautious",
+          "score": 0.99,
+          "rationale": "positive: source; evidence marker present"
+        }
+      ]
+    },
+    {
+      "claim_id": "cw-005",
+      "status": "accepted",
+      "confidence": 0.88,
+      "text": "The deterministic reducer can run without API keys.",
+      "rationale": "Selected trace scored 0.88, met acceptance threshold 0.62, with 1 supporting source passage(s).",
+      "supporting_agents": [
+        "agent-beta"
+      ],
+      "supporting_sources": [
+        {
+          "agent": "agent-beta",
+          "passage": "The deterministic reducer can run without API keys."
+        }
+      ],
+      "principle_scores": [
+        {
+          "id": "grounded",
+          "score": 0.9,
+          "rationale": "positive: deterministic, without api keys"
+        },
+        {
+          "id": "actionable",
+          "score": 0.84,
+          "rationale": "positive: run"
+        },
+        {
+          "id": "cautious",
+          "score": 0.9,
+          "rationale": "positive: can, deterministic"
+        }
+      ]
+    },
+    {
+      "claim_id": "cw-006",
+      "status": "accepted",
+      "confidence": 0.98,
+      "text": "An optional evaluator interface lets teams plug in local or hosted model scorers.",
+      "rationale": "Selected trace scored 0.98, met acceptance threshold 0.62, with 1 supporting source passage(s).",
+      "supporting_agents": [
+        "agent-gamma"
+      ],
+      "supporting_sources": [
+        {
+          "agent": "agent-gamma",
+          "passage": "An optional evaluator interface lets teams plug in local or hosted model scorers. Evidence: Architecture note says evaluators are swappable."
+        }
+      ],
+      "principle_scores": [
+        {
+          "id": "grounded",
+          "score": 1.0,
+          "rationale": "positive: architecture, evidence; evidence marker present"
+        },
+        {
+          "id": "actionable",
+          "score": 0.95,
+          "rationale": "positive: interface, plug; evidence marker present"
+        },
+        {
+          "id": "cautious",
+          "score": 0.99,
+          "rationale": "positive: optional; evidence marker present"
+        }
+      ]
+    },
+    {
+      "claim_id": "cw-007",
+      "status": "rejected",
+      "confidence": 0.15,
+      "text": "All agent outputs are always correct.",
+      "rationale": "Selected trace scored 0.15, fell below acceptance threshold 0.62, with 1 supporting source passage(s).",
+      "supporting_agents": [
+        "agent-gamma"
+      ],
+      "supporting_sources": [
+        {
+          "agent": "agent-gamma",
+          "passage": "All agent outputs are always correct."
+        }
+      ],
+      "principle_scores": [
+        {
+          "id": "grounded",
+          "score": 0.2,
+          "rationale": "negative: always"
+        },
+        {
+          "id": "actionable",
+          "score": 0.2,
+          "rationale": "negative: correct"
+        },
+        {
+          "id": "cautious",
+          "score": 0.0,
+          "rationale": "negative: always"
+        }
+      ]
+    }
+  ],
+  "accepted": [
+    "cw-001",
+    "cw-002",
+    "cw-004",
+    "cw-005",
+    "cw-006"
+  ],
+  "needs_review": [],
+  "rejected": [
+    "cw-003",
+    "cw-007"
+  ]
+}

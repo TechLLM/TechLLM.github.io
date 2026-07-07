@@ -1,0 +1,16 @@
+principles:
+  - id: grounded
+    description: Prefer claims tied to evidence or concrete implementation details.
+    weight: 0.4
+    positive_keywords: [source, evidence, supports, uses, deterministic, without api keys, standard library, architecture]
+    negative_keywords: [probably, maybe, always, never]
+  - id: actionable
+    description: Prefer claims that are specific enough to audit or reuse.
+    weight: 0.35
+    positive_keywords: [extracts, supports, uses, run, interface, plug, markdown, json, standard library]
+    negative_keywords: [correct, improves]
+  - id: cautious
+    description: Penalize unsupported absolutes and speculation.
+    weight: 0.25
+    positive_keywords: [optional, deterministic, can, source]
+    negative_keywords: [probably, always, never, guaranteed]

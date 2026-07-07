@@ -1,0 +1,27 @@
+{
+  "task": "Merge agent findings about a prototype reducer.",
+  "agents": [
+    {
+      "id": "agent-alpha",
+      "output": "- The reducer extracts claims from Markdown bullets and plain sentences. Source: design-note.md\n- The reducer uses only the Python standard library for the deterministic path.\n- The cache setting probably improves speed."
+    },
+    {
+      "id": "agent-beta",
+      "output": "- Claim extraction supports Markdown bullet lines, plain text sentences, and JSON claim lists. Source: agent-beta-report.md\n- The deterministic reducer can run without API keys.\n- The cache setting probably improves speed."
+    },
+    {
+      "id": "agent-gamma",
+      "output": {
+        "claims": [
+          {
+            "text": "An optional evaluator interface lets teams plug in local or hosted model scorers.",
+            "evidence": "Architecture note says evaluators are swappable."
+          },
+          {
+            "text": "All agent outputs are always correct."
+          }
+        ]
+      }
+    }
+  ]
+}
