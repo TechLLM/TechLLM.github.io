@@ -1,0 +1,4 @@
+{"query_id":"q-001","query":"How should we evaluate a RAG retriever from product traces?","run_id":"run-001","rank":1,"doc_id":"rag-handbook","chunk_id":"intro","score":0.92}
+{"query_id":"q-001","query":"How should we evaluate a RAG retriever from product traces?","run_id":"run-001","rank":2,"doc_id":"unused-overview","chunk_id":"overview","score":0.81}
+{"query_id":"q-001","query":"How should we evaluate a RAG retriever from product traces?","run_id":"run-001","rank":3,"doc_id":"support-notes","chunk_id":"trace-signals","score":0.76}
+{"query_id":"q-001","query":"How should we evaluate a RAG retriever from product traces?","run_id":"run-001","rank":4,"doc_id":"weak-match","chunk_id":"draft","score":0.41}
