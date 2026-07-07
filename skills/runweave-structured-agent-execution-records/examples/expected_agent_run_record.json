@@ -1,0 +1,120 @@
+{
+  "schema_version": "runweave.agent_run_record.v1",
+  "run_id": "sample-run",
+  "generated_at": "1970-01-01T00:00:00Z",
+  "source": {
+    "log": "examples/sample_log.txt",
+    "plan": "examples/sample_plan.yaml"
+  },
+  "summary": {
+    "planned_steps": 2,
+    "executed_steps": 2,
+    "matched_steps": 2,
+    "failed_steps": 1,
+    "missing_planned_steps": 0,
+    "repair_candidates": 1
+  },
+  "planned_steps": [
+    {
+      "id": "lint",
+      "command": "python -m py_compile scripts/run.py",
+      "expect": "success",
+      "status": "completed",
+      "matched_executed_step_id": "exec-001"
+    },
+    {
+      "id": "test",
+      "command": "python scripts/test.py",
+      "expect": "success",
+      "status": "failed",
+      "matched_executed_step_id": "exec-002"
+    }
+  ],
+  "executed_steps": [
+    {
+      "id": "exec-001",
+      "command": "python -m py_compile scripts/run.py",
+      "planned_step_id": "lint",
+      "exit_code": 0,
+      "status": "completed",
+      "failure_signals": [],
+      "stdout_excerpt": [
+        "compiled scripts/run.py"
+      ],
+      "stderr_excerpt": []
+    },
+    {
+      "id": "exec-002",
+      "command": "python scripts/test.py",
+      "planned_step_id": "test",
+      "exit_code": 1,
+      "status": "failed",
+      "failure_signals": [
+        "exit_code:1",
+        "pattern:\\bAssertionError\\b"
+      ],
+      "stdout_excerpt": [],
+      "stderr_excerpt": [
+        "AssertionError: missing field agent_run_record"
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "phase": "plan",
+      "step_id": "lint",
+      "status": "completed",
+      "message": "Planned command: python -m py_compile scripts/run.py"
+    },
+    {
+      "phase": "plan",
+      "step_id": "test",
+      "status": "failed",
+      "message": "Planned command: python scripts/test.py"
+    },
+    {
+      "phase": "execute",
+      "step_id": "exec-001",
+      "status": "completed",
+      "message": "Executed command: python -m py_compile scripts/run.py"
+    },
+    {
+      "phase": "execute",
+      "step_id": "exec-002",
+      "status": "failed",
+      "message": "Executed command: python scripts/test.py"
+    },
+    {
+      "phase": "repair",
+      "step_id": "exec-002",
+      "status": "candidate",
+      "message": "inspect the failing assertion or traceback, patch the code, then rerun: python scripts/test.py"
+    }
+  ],
+  "failures": [
+    {
+      "executed_step_id": "exec-002",
+      "planned_step_id": "test",
+      "command": "python scripts/test.py",
+      "exit_code": 1,
+      "signals": [
+        "exit_code:1",
+        "pattern:\\bAssertionError\\b"
+      ],
+      "stderr_excerpt": [
+        "AssertionError: missing field agent_run_record"
+      ]
+    }
+  ],
+  "repair_candidates": [
+    {
+      "id": "repair-001",
+      "failure_step_id": "exec-002",
+      "command_template": "inspect the failing assertion or traceback, patch the code, then rerun: python scripts/test.py",
+      "environment_hints": [],
+      "confidence": 0.62,
+      "rationale": "The log indicates a code-level test or runtime failure."
+    }
+  ],
+  "environment_hints": []
+}
