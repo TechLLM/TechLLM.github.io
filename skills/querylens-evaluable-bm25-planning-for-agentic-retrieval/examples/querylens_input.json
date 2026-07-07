@@ -1,0 +1,17 @@
+{
+  "question": "How can hybrid retrieval evaluation run on a local corpus without external APIs?",
+  "documents": [
+    {
+      "id": "doc-1",
+      "text": "Hybrid retrieval combines BM25 lexical search with vector search. Evaluation should keep a local corpus and repeatable relevance checks."
+    },
+    {
+      "id": "doc-2",
+      "text": "BM25 scoring uses term frequency and inverse document frequency to rank documents for keyword queries."
+    },
+    {
+      "id": "doc-3",
+      "text": "Offline research assistants avoid external APIs by planning query terms, exclusions, and verification checklists before search."
+    }
+  ]
+}
