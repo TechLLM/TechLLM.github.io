@@ -1,0 +1,153 @@
+{
+  "corpus": {
+    "document_count": 3,
+    "source": "examples/querylens_input.json"
+  },
+  "diagnostics": {
+    "corpus_top_rare_terms": [
+      "apis planning query",
+      "assistants avoid external",
+      "avoid external apis",
+      "bm25 lexical search",
+      "bm25 scoring uses",
+      "checklists before search",
+      "combines bm25 lexical",
+      "corpus repeatable relevance",
+      "document frequency rank",
+      "documents keyword queries"
+    ],
+    "question_terms_considered": [
+      "apis",
+      "corpus",
+      "corpus without",
+      "corpus without external",
+      "evaluation",
+      "evaluation run",
+      "evaluation run local",
+      "external",
+      "external apis",
+      "hybrid",
+      "hybrid retrieval",
+      "hybrid retrieval evaluation",
+      "local",
+      "local corpus",
+      "local corpus without",
+      "retrieval",
+      "retrieval evaluation",
+      "retrieval evaluation run",
+      "run",
+      "run local",
+      "run local corpus",
+      "without",
+      "without external",
+      "without external apis"
+    ]
+  },
+  "plan": {
+    "bm25_query": "\"hybrid retrieval\" \"local corpus\" corpus evaluation hybrid local retrieval -\"external apis\" -external -apis",
+    "exclusion_terms": [
+      "external apis",
+      "external",
+      "apis"
+    ],
+    "include_terms": [
+      {
+        "idf": 1.980829,
+        "kind": "bigram",
+        "reason": "rare question term found in corpus",
+        "term": "hybrid retrieval"
+      },
+      {
+        "idf": 1.980829,
+        "kind": "bigram",
+        "reason": "rare question term found in corpus",
+        "term": "local corpus"
+      },
+      {
+        "idf": 1.980829,
+        "kind": "unigram",
+        "reason": "rare question term found in corpus",
+        "term": "corpus"
+      },
+      {
+        "idf": 1.980829,
+        "kind": "unigram",
+        "reason": "rare question term found in corpus",
+        "term": "evaluation"
+      },
+      {
+        "idf": 1.980829,
+        "kind": "unigram",
+        "reason": "rare question term found in corpus",
+        "term": "hybrid"
+      },
+      {
+        "idf": 1.980829,
+        "kind": "unigram",
+        "reason": "rare question term found in corpus",
+        "term": "local"
+      },
+      {
+        "idf": 1.980829,
+        "kind": "unigram",
+        "reason": "rare question term found in corpus",
+        "term": "retrieval"
+      }
+    ],
+    "optional_expansion_terms": [
+      {
+        "for": "corpus",
+        "source": "template",
+        "term": "document collection"
+      },
+      {
+        "for": "evaluation",
+        "source": "template",
+        "term": "verification"
+      },
+      {
+        "for": "evaluation",
+        "source": "template",
+        "term": "assessment"
+      },
+      {
+        "for": "local",
+        "source": "template",
+        "term": "offline"
+      },
+      {
+        "for": "retrieval",
+        "source": "template",
+        "term": "search"
+      },
+      {
+        "for": "retrieval",
+        "source": "template",
+        "term": "document ranking"
+      }
+    ],
+    "preserved_constraints": [
+      {
+        "constraint": "without external apis",
+        "type": "negation"
+      },
+      {
+        "constraint": "hybrid retrieval",
+        "type": "key_phrase"
+      },
+      {
+        "constraint": "local corpus",
+        "type": "key_phrase"
+      }
+    ],
+    "verification_checklist": [
+      "Confirm the top include terms are central to the user's question.",
+      "Run BM25 with the quoted phrases preserved exactly where supported.",
+      "Filter or down-rank documents dominated by the exclusion terms.",
+      "Verify every preserved constraint is still represented after query rewriting.",
+      "Check at least one retrieved document contains a high-IDF include term or phrase.",
+      "Record misses and revise include or expansion terms before answer generation."
+    ]
+  },
+  "question": "How can hybrid retrieval evaluation run on a local corpus without external APIs?"
+}
