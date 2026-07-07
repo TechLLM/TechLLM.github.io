@@ -1,0 +1,18 @@
+{
+  "query": "reset user password admin console",
+  "correct_id": "tool-password-reset",
+  "candidates": [
+    {
+      "id": "tool-user-search",
+      "text": "Find users in the admin console by email, name, or account status."
+    },
+    {
+      "id": "tool-billing-reset",
+      "text": "Reset billing cycle settings, invoices, and plan access."
+    },
+    {
+      "id": "tool-password-reset",
+      "text": "Reset a user's password from the admin console and send a temporary login link."
+    }
+  ]
+}

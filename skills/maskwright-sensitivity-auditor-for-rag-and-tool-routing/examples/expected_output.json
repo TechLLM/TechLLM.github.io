@@ -1,0 +1,26 @@
+{
+  "artifacts": {},
+  "base_correct_rank": 1,
+  "base_entropy": 1.059277,
+  "base_margin": 0.45581,
+  "base_top_id": "tool-password-reset",
+  "correct_id": "tool-password-reset",
+  "failure_labels": [
+    "keyword-overreliance"
+  ],
+  "most_sensitive_candidate": {
+    "entropy_change": -0.416189,
+    "failure_signal": "low-impact",
+    "margin_change": 0.193583,
+    "removed_candidate_id": "tool-user-search"
+  },
+  "most_sensitive_span": {
+    "candidate_id": "tool-user-search",
+    "candidate_score_delta": -0.361333,
+    "failure_signal": "keyword-overreliance",
+    "span_end": 8,
+    "span_start": 4,
+    "span_text": "admin console by email"
+  },
+  "query": "reset user password admin console"
+}
