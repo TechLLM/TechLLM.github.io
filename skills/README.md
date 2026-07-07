@@ -5,4 +5,6 @@
 
 ## Index
 
+- **[contextmender-agent-context-ablation-benchmark](contextmender-agent-context-ablation-benchmark/)** — 
 - **[failwise-worst-case-token-budget-tuning-for-llm-agents](failwise-worst-case-token-budget-tuning-for-llm-agents/)** — Tune LLM agent token budgets, retrieval depth, and retry policies against worst-case failure slices; use for Failwise, token budget tuning, agent regression analysis, Pareto policy ranking, and worst-slice reliability reviews.
+- **[tracebloom-positive-trace-dataset-builder-for-rag-evaluation](tracebloom-positive-trace-dataset-builder-for-rag-evaluation/)** — Build positive-trace JSONL datasets from cited answers and retrieval logs for RAG evaluation, reranker training, hard-negative review, retriever audits, and Gate 2 relevance scoring; use for trigger keywords TraceBloom, positive traces, RAG evaluation, retrieval logs, citations, implicit negatives.
