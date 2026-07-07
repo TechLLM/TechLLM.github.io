@@ -1,0 +1,6 @@
+$ python -m py_compile scripts/run.py
+stdout: compiled scripts/run.py
+exit code: 0
+$ python scripts/test.py
+stderr: AssertionError: missing field agent_run_record
+exit code: 1
