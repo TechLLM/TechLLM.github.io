@@ -1,0 +1,94 @@
+{
+  "agents": [
+    {
+      "id": "research-agent",
+      "name": "Research Agent",
+      "description": "Finds web evidence, compares sources, summarizes current information, competitors, and market research.",
+      "capabilities": [
+        "internet research",
+        "source comparison",
+        "fact checking",
+        "market analysis"
+      ],
+      "keywords": [
+        "research",
+        "sources",
+        "evidence",
+        "competitors",
+        "market",
+        "web"
+      ],
+      "synonyms": {
+        "look up": [
+          "research"
+        ],
+        "compare": [
+          "comparison",
+          "evidence"
+        ]
+      },
+      "exclude_terms": [
+        "code",
+        "deploy",
+        "database"
+      ],
+      "term_weights": {
+        "evidence": 1.4,
+        "competitors": 1.25
+      }
+    },
+    {
+      "id": "coding-agent",
+      "name": "Coding Agent",
+      "description": "Writes and edits code, fixes bugs, runs tests, and updates software repositories.",
+      "capabilities": [
+        "python implementation",
+        "bug fixing",
+        "test repair",
+        "repository changes"
+      ],
+      "keywords": [
+        "code",
+        "python",
+        "bug",
+        "tests",
+        "repository",
+        "implementation"
+      ],
+      "exclude_terms": [
+        "advertising",
+        "market"
+      ],
+      "term_weights": {
+        "tests": 1.3,
+        "code": 1.2
+      }
+    },
+    {
+      "id": "finance-agent",
+      "name": "Finance Agent",
+      "description": "Reviews financial filings, market indicators, forecasts, risk, and investment context.",
+      "capabilities": [
+        "financial analysis",
+        "market indicators",
+        "risk review",
+        "forecast summaries"
+      ],
+      "keywords": [
+        "finance",
+        "filings",
+        "market",
+        "risk",
+        "forecast"
+      ],
+      "exclude_terms": [
+        "code",
+        "ui"
+      ],
+      "term_weights": {
+        "market": 1.2,
+        "risk": 1.25
+      }
+    }
+  ]
+}

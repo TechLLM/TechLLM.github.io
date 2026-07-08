@@ -1,0 +1,164 @@
+{
+  "version": "0.1.0",
+  "request": "Research competitors and summarize current market evidence",
+  "query_terms": [
+    "competitors",
+    "current",
+    "evidence",
+    "market",
+    "research",
+    "summarize"
+  ],
+  "idf": {
+    "agent_count": 3,
+    "average_document_length": 35.67
+  },
+  "ranked_agents": [
+    {
+      "agent_id": "research-agent",
+      "name": "Research Agent",
+      "score": 7.6549,
+      "matched_terms": [
+        {
+          "term": "competitors",
+          "idf": 0.9808,
+          "tf": 2
+        },
+        {
+          "term": "current",
+          "idf": 0.9808,
+          "tf": 1
+        },
+        {
+          "term": "evidence",
+          "idf": 0.9808,
+          "tf": 3
+        },
+        {
+          "term": "research",
+          "idf": 0.9808,
+          "tf": 6
+        },
+        {
+          "term": "market",
+          "idf": 0.47,
+          "tf": 3
+        }
+      ],
+      "rare_terms": [
+        {
+          "term": "competitors",
+          "idf": 0.9808
+        },
+        {
+          "term": "current",
+          "idf": 0.9808
+        },
+        {
+          "term": "evidence",
+          "idf": 0.9808
+        },
+        {
+          "term": "research",
+          "idf": 0.9808
+        },
+        {
+          "term": "market",
+          "idf": 0.47
+        }
+      ],
+      "excluded_by": [],
+      "weights": {
+        "bm25": 6.5055,
+        "keyword_boost": 1.1494,
+        "exclusion_penalty": 0.0,
+        "final": 7.6549
+      },
+      "rationale": "Matched competitors, current, evidence, market, research; rare clues: competitors, current, evidence."
+    },
+    {
+      "agent_id": "finance-agent",
+      "name": "Finance Agent",
+      "score": 0.9685,
+      "matched_terms": [
+        {
+          "term": "market",
+          "idf": 0.47,
+          "tf": 3
+        }
+      ],
+      "rare_terms": [
+        {
+          "term": "market",
+          "idf": 0.47
+        }
+      ],
+      "excluded_by": [],
+      "weights": {
+        "bm25": 0.804,
+        "keyword_boost": 0.1645,
+        "exclusion_penalty": 0.0,
+        "final": 0.9685
+      },
+      "rationale": "Matched market; rare clues: market."
+    },
+    {
+      "agent_id": "coding-agent",
+      "name": "Coding Agent",
+      "score": -1.5,
+      "matched_terms": [],
+      "rare_terms": [],
+      "excluded_by": [
+        "market"
+      ],
+      "weights": {
+        "bm25": 0.0,
+        "keyword_boost": 0.0,
+        "exclusion_penalty": 1.5,
+        "final": -1.5
+      },
+      "rationale": "Penalized because the request contains exclusion terms: market."
+    }
+  ],
+  "routing_plan": {
+    "selected_agent_ids": [
+      "research-agent",
+      "finance-agent"
+    ],
+    "decomposed_subqueries": [
+      {
+        "id": "q1",
+        "text": "Research competitors",
+        "terms": [
+          "competitors",
+          "research"
+        ],
+        "candidate_agent_ids": [
+          "research-agent"
+        ]
+      },
+      {
+        "id": "q2",
+        "text": "summarize current market evidence",
+        "terms": [
+          "current",
+          "evidence",
+          "market",
+          "summarize"
+        ],
+        "candidate_agent_ids": [
+          "research-agent",
+          "finance-agent"
+        ]
+      }
+    ],
+    "excluded_agents": [
+      {
+        "agent_id": "coding-agent",
+        "terms": [
+          "market"
+        ]
+      }
+    ]
+  }
+}
