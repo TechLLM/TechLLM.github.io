@@ -1,0 +1,143 @@
+{
+  "pass": true,
+  "score": 1.0,
+  "earned_points": 13,
+  "max_score": 13,
+  "summary": {
+    "passed": 13,
+    "failed": 0,
+    "warnings": 0
+  },
+  "checks": [
+    {
+      "id": "required_files:report.md",
+      "kind": "required_files",
+      "target": "report.md",
+      "status": "pass",
+      "detail": "File exists in after snapshot."
+    },
+    {
+      "id": "created_files:report.md",
+      "kind": "created_files",
+      "target": "report.md",
+      "status": "pass",
+      "detail": "File was created.",
+      "expected": "absent before and present after",
+      "observed": true
+    },
+    {
+      "id": "created_files:logs/task.log",
+      "kind": "created_files",
+      "target": "logs/task.log",
+      "status": "pass",
+      "detail": "File was created.",
+      "expected": "absent before and present after",
+      "observed": true
+    },
+    {
+      "id": "deleted_files:draft.txt",
+      "kind": "deleted_files",
+      "target": "draft.txt",
+      "status": "pass",
+      "detail": "File was deleted.",
+      "expected": "present before and absent after",
+      "observed": true
+    },
+    {
+      "id": "modified_files:data.json",
+      "kind": "modified_files",
+      "target": "data.json",
+      "status": "pass",
+      "detail": "File content changed.",
+      "expected": true,
+      "observed": true
+    },
+    {
+      "id": "forbidden_changes:notes.md",
+      "kind": "forbidden_changes",
+      "target": "notes.md",
+      "status": "pass",
+      "detail": "File did not change.",
+      "expected": false,
+      "observed": false
+    },
+    {
+      "id": "content_contains:report.md contains 'Summary: Work completed.'",
+      "kind": "content_contains",
+      "target": "report.md contains 'Summary: Work completed.'",
+      "status": "pass",
+      "detail": "Required string found.",
+      "expected": "Summary: Work completed."
+    },
+    {
+      "id": "content_contains:report.md contains '[source:A]'",
+      "kind": "content_contains",
+      "target": "report.md contains '[source:A]'",
+      "status": "pass",
+      "detail": "Required string found.",
+      "expected": "[source:A]"
+    },
+    {
+      "id": "task_log:logs/task.log",
+      "kind": "task_log",
+      "target": "logs/task.log",
+      "status": "pass",
+      "detail": "Task log exists."
+    },
+    {
+      "id": "task_log:logs/task.log contains 'updated report.md'",
+      "kind": "task_log",
+      "target": "logs/task.log contains 'updated report.md'",
+      "status": "pass",
+      "detail": "Task log string found.",
+      "expected": "updated report.md"
+    },
+    {
+      "id": "task_log:logs/task.log contains 'set data.json status'",
+      "kind": "task_log",
+      "target": "logs/task.log contains 'set data.json status'",
+      "status": "pass",
+      "detail": "Task log string found.",
+      "expected": "set data.json status"
+    },
+    {
+      "id": "json_assertions:data.json:status",
+      "kind": "json_assertions",
+      "target": "data.json:status",
+      "status": "pass",
+      "detail": "JSON assertion passed.",
+      "expected": {
+        "before_equals": "draft",
+        "equals": "complete"
+      },
+      "observed": {
+        "before": "draft",
+        "after": "complete"
+      }
+    },
+    {
+      "id": "json_assertions:data.json:citations.0",
+      "kind": "json_assertions",
+      "target": "data.json:citations.0",
+      "status": "pass",
+      "detail": "JSON assertion passed.",
+      "expected": {
+        "added": true,
+        "equals": "source:A"
+      },
+      "observed": {
+        "before": "<missing>",
+        "after": "source:A"
+      }
+    }
+  ],
+  "warnings": [],
+  "metadata": {
+    "schema_version": "1.0",
+    "threshold": 1.0,
+    "created_count": 2,
+    "deleted_count": 1,
+    "modified_count": 1,
+    "unchanged_count": 1
+  }
+}
