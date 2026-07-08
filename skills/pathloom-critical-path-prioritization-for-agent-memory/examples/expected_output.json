@@ -1,0 +1,241 @@
+{
+  "summary": {
+    "item_count": 8,
+    "edge_count": 8,
+    "next_action": "Run tests for patch t2 using evidence o1 and constraint c1.",
+    "weights": {
+      "recency": 0.2,
+      "dependency": 0.45,
+      "explicit": 0.25,
+      "type": 0.1
+    },
+    "thresholds": {
+      "prefetch": 0.72,
+      "prune": 0.28
+    }
+  },
+  "items": [
+    {
+      "id": "t2",
+      "type": "tool_call",
+      "critical_path_priority": 0.955,
+      "recommendation": "prefetch",
+      "depends_on": [
+        "o1",
+        "c1"
+      ],
+      "referenced_by": [
+        "next"
+      ],
+      "reasons": [
+        "directly referenced by next action",
+        "seed item for critical path",
+        "referenced by 1 item(s)",
+        "recent trace item",
+        "type score 0.80 for tool_call"
+      ]
+    },
+    {
+      "id": "o1",
+      "type": "observation",
+      "critical_path_priority": 0.885,
+      "recommendation": "prefetch",
+      "depends_on": [
+        "t1"
+      ],
+      "referenced_by": [
+        "t2",
+        "next"
+      ],
+      "reasons": [
+        "directly referenced by next action",
+        "seed item for critical path",
+        "referenced by 2 item(s)",
+        "type score 0.85 for observation"
+      ]
+    },
+    {
+      "id": "c1",
+      "type": "constraint",
+      "critical_path_priority": 0.845,
+      "recommendation": "prefetch",
+      "depends_on": [],
+      "referenced_by": [
+        "t1",
+        "t2",
+        "next"
+      ],
+      "reasons": [
+        "directly referenced by next action",
+        "seed item for critical path",
+        "referenced by 3 item(s)",
+        "type score 0.95 for constraint"
+      ]
+    },
+    {
+      "id": "t1",
+      "type": "tool_call",
+      "critical_path_priority": 0.505,
+      "recommendation": "keep",
+      "depends_on": [
+        "u1",
+        "c1"
+      ],
+      "referenced_by": [
+        "o1"
+      ],
+      "reasons": [
+        "dependency path distance 1 from next action",
+        "referenced by 1 item(s)",
+        "type score 0.80 for tool_call"
+      ]
+    },
+    {
+      "id": "u1",
+      "type": "message",
+      "critical_path_priority": 0.355,
+      "recommendation": "delay",
+      "depends_on": [],
+      "referenced_by": [
+        "t1"
+      ],
+      "reasons": [
+        "dependency path distance 2 from next action",
+        "referenced by 1 item(s)",
+        "type score 0.55 for message"
+      ]
+    },
+    {
+      "id": "next",
+      "type": "next_action",
+      "critical_path_priority": 0.3,
+      "recommendation": "delay",
+      "depends_on": [
+        "t2",
+        "o1",
+        "c1"
+      ],
+      "referenced_by": [],
+      "reasons": [
+        "recent trace item",
+        "type score 1.00 for next_action"
+      ]
+    },
+    {
+      "id": "m2",
+      "type": "note",
+      "critical_path_priority": 0.185,
+      "recommendation": "prune",
+      "depends_on": [],
+      "referenced_by": [],
+      "reasons": [
+        "recent trace item",
+        "type score 0.35 for note",
+        "duplicate content of m1"
+      ]
+    },
+    {
+      "id": "m1",
+      "type": "memory",
+      "critical_path_priority": 0.17,
+      "recommendation": "prune",
+      "depends_on": [],
+      "referenced_by": [],
+      "reasons": [
+        "type score 0.45 for memory"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "t1",
+      "to": "u1",
+      "reason": "depends_on"
+    },
+    {
+      "from": "t1",
+      "to": "c1",
+      "reason": "depends_on"
+    },
+    {
+      "from": "o1",
+      "to": "t1",
+      "reason": "depends_on"
+    },
+    {
+      "from": "t2",
+      "to": "o1",
+      "reason": "depends_on"
+    },
+    {
+      "from": "t2",
+      "to": "c1",
+      "reason": "depends_on"
+    },
+    {
+      "from": "next",
+      "to": "t2",
+      "reason": "references"
+    },
+    {
+      "from": "next",
+      "to": "o1",
+      "reason": "references"
+    },
+    {
+      "from": "next",
+      "to": "c1",
+      "reason": "references"
+    }
+  ],
+  "recommendations": {
+    "prefetch": [
+      {
+        "id": "t2",
+        "priority": 0.955,
+        "why": "directly referenced by next action"
+      },
+      {
+        "id": "o1",
+        "priority": 0.885,
+        "why": "directly referenced by next action"
+      },
+      {
+        "id": "c1",
+        "priority": 0.845,
+        "why": "directly referenced by next action"
+      }
+    ],
+    "keep": [
+      {
+        "id": "t1",
+        "priority": 0.505,
+        "why": "dependency path distance 1 from next action"
+      }
+    ],
+    "delay": [
+      {
+        "id": "u1",
+        "priority": 0.355,
+        "why": "dependency path distance 2 from next action"
+      },
+      {
+        "id": "next",
+        "priority": 0.3,
+        "why": "recent trace item"
+      }
+    ],
+    "prune": [
+      {
+        "id": "m2",
+        "priority": 0.185,
+        "why": "recent trace item"
+      },
+      {
+        "id": "m1",
+        "priority": 0.17,
+        "why": "type score 0.45 for memory"
+      }
+    ]
+  }
+}
