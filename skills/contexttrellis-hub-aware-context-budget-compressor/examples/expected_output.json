@@ -1,0 +1,113 @@
+{
+  "bundle_version": "0.1",
+  "mode": "vault",
+  "input": "examples/vault",
+  "budget": {
+    "requested_tokens": 620,
+    "reserve_tokens": 80,
+    "available_tokens": 540,
+    "used_tokens": 269
+  },
+  "graph": {
+    "notes": 5,
+    "edges": 4,
+    "hubs": [
+      "Architecture.md"
+    ],
+    "long_tail": [
+      "API Polling.md",
+      "CLI Commands.md",
+      "Dry Run Log.md",
+      "Error Handling.md"
+    ]
+  },
+  "items": [
+    {
+      "id": "Architecture.md",
+      "path": "Architecture.md",
+      "role": "hub_summary",
+      "tokens": 39,
+      "centrality": 1.0,
+      "execution_score": 2.55,
+      "reason": "high-centrality orientation note; compressed",
+      "content": "# Architecture Hub\nPurpose: ContextTrellis builds prompt bundles from [[API Polling]], [[CLI Commands]], and [[Dry Run Log]].\nLinks: API Polling.md, CLI Commands.md, Dry Run Log.md, Error Handling.md\nTags: architecture, index"
+    },
+    {
+      "id": "API Polling.md",
+      "path": "API Polling.md",
+      "role": "preserved_detail",
+      "tokens": 65,
+      "centrality": 0.25,
+      "execution_score": 12.7,
+      "reason": "execution-heavy long-tail note; preserved",
+      "content": "# API Polling\n\nTags: #api #execution\n\nUse this when a job returns `queued` or `running`.\nPoll `GET /v1/jobs/{job_id}` every 5 seconds until status becomes `succeeded` or `failed`.\nDo not poll faster than once per second.\n\n```bash\ncurl -s \"$BASE_URL/v1/jobs/$JOB_ID\"\n```\n\nIf the API returns 429, wait 30 seconds before retrying."
+    },
+    {
+      "id": "CLI Commands.md",
+      "path": "CLI Commands.md",
+      "role": "preserved_detail",
+      "tokens": 47,
+      "centrality": 0.25,
+      "execution_score": 6.05,
+      "reason": "execution-heavy long-tail note; preserved",
+      "content": "# CLI Commands\n\nTags: #cli #execution\n\nRun the compressor locally before calling an LLM:\n\n```bash\npython scripts/run.py --input examples/vault --budget 620 --reserve 80\n```\n\nUse `--format markdown` only when the next step expects plain prompt text."
+    },
+    {
+      "id": "Error Handling.md",
+      "path": "Error Handling.md",
+      "role": "preserved_detail",
+      "tokens": 62,
+      "centrality": 0.25,
+      "execution_score": 4.3,
+      "reason": "execution-heavy long-tail note; preserved",
+      "content": "# Error Handling\n\nTags: #errors #execution\n\nIf a note cannot be read, report the path and continue with other readable Markdown files.\nIf the available budget is zero or negative, exit with a clear error.\nFor transient command failures, retry once after checking the exact error message."
+    },
+    {
+      "id": "Dry Run Log.md",
+      "path": "Dry Run Log.md",
+      "role": "preserved_detail",
+      "tokens": 56,
+      "centrality": 0.25,
+      "execution_score": 4.1,
+      "reason": "execution-heavy long-tail note; preserved",
+      "content": "# Dry Run Log\n\nTags: #dry-run #execution\n\nDry run observed that the hub note was initially selected first and consumed too much budget.\nAfter hub compression, the API polling note and CLI command note both fit.\nStatus transition: planned -> packed -> verified."
+    }
+  ],
+  "decisions": [
+    {
+      "id": "Architecture.md",
+      "role": "hub_summary",
+      "action": "included",
+      "tokens": 39,
+      "reason": "high-centrality orientation note; compressed"
+    },
+    {
+      "id": "API Polling.md",
+      "role": "preserved_detail",
+      "action": "included",
+      "tokens": 65,
+      "reason": "execution-heavy long-tail note; preserved"
+    },
+    {
+      "id": "CLI Commands.md",
+      "role": "preserved_detail",
+      "action": "included",
+      "tokens": 47,
+      "reason": "execution-heavy long-tail note; preserved"
+    },
+    {
+      "id": "Error Handling.md",
+      "role": "preserved_detail",
+      "action": "included",
+      "tokens": 62,
+      "reason": "execution-heavy long-tail note; preserved"
+    },
+    {
+      "id": "Dry Run Log.md",
+      "role": "preserved_detail",
+      "action": "included",
+      "tokens": 56,
+      "reason": "execution-heavy long-tail note; preserved"
+    }
+  ]
+}
