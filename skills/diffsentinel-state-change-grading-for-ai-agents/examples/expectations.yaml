@@ -1,0 +1,28 @@
+required_files:
+  - report.md
+created_files:
+  - report.md
+  - logs/task.log
+deleted_files:
+  - draft.txt
+modified_files:
+  - data.json
+forbidden_changes:
+  - notes.md
+content_contains:
+  report.md:
+    - "Summary: Work completed."
+    - "[source:A]"
+task_log:
+  file: logs/task.log
+  required_strings:
+    - "updated report.md"
+    - "set data.json status"
+json_assertions:
+  data.json:
+    - path: status
+      before_equals: draft
+      equals: complete
+    - path: citations.0
+      added: true
+      equals: "source:A"
