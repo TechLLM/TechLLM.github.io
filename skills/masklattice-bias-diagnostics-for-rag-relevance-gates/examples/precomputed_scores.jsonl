@@ -1,0 +1,8 @@
+{"case_id":"q1|rag_gate_eval|original","score":0.82}
+{"case_id":"q1|rag_gate_eval|mask_title","score":0.76}
+{"case_id":"q1|rag_gate_eval|mask_metadata","score":0.65}
+{"case_id":"q1|rag_gate_eval|mask_headers","score":0.78}
+{"case_id":"q1|rag_gate_eval|mask_summary","score":0.59}
+{"case_id":"q1|rag_gate_eval|mask_leading_window","score":0.66}
+{"case_id":"q1|rag_gate_eval|mask_trailing_window","score":0.72}
+{"case_id":"q1|rag_gate_eval|mask_neighbor_window","score":0.61}
