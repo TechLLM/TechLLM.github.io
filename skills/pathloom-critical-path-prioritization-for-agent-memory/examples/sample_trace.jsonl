@@ -1,0 +1,8 @@
+{"id":"u1","type":"message","timestamp":"2026-01-01T10:00:00Z","content":"User asks to fix the export bug."}
+{"id":"c1","type":"constraint","timestamp":"2026-01-01T10:01:00Z","content":"Do not change the public API."}
+{"id":"t1","type":"tool_call","timestamp":"2026-01-01T10:02:00Z","content":"Inspect exporter module.","depends_on":["u1","c1"]}
+{"id":"o1","type":"observation","timestamp":"2026-01-01T10:03:00Z","content":"export_csv fails when rows are empty.","depends_on":["t1"]}
+{"id":"m1","type":"memory","timestamp":"2026-01-01T10:04:00Z","content":"Old design discussion about report colors."}
+{"id":"m2","type":"note","timestamp":"2026-01-01T10:05:00Z","content":"Old design discussion about report colors."}
+{"id":"t2","type":"tool_call","timestamp":"2026-01-01T10:06:00Z","content":"Patch exporter using observation @o1 and constraint @c1.","depends_on":["o1","c1"]}
+{"id":"next","type":"next_action","timestamp":"2026-01-01T10:07:00Z","content":"Run tests for patch t2 using evidence o1 and constraint c1.","references":["t2","o1","c1"]}
