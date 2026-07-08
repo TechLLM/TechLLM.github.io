@@ -1,0 +1,4 @@
+{"timestamp":"2026-01-15T09:00:00Z","type":"task_created","source":"[[Research Plan]]","target":"[[Crawler Prototype]]","message":"Started crawler prototype from the research plan."}
+{"timestamp":"2026-01-15T09:13:00Z","type":"failure","source":"[[Research Plan]]","target":"[[Crawler Prototype]]","message":"The crawler timed out while following the plan."}
+{"timestamp":"2026-01-15T09:20:00Z","type":"recovery","source":"[[Crawler Prototype]]","target":"[[Patch Notes]]","message":"Patch notes describe the timeout guard that recovered the prototype."}
+{"timestamp":"2026-01-15T09:40:00Z","type":"artifact","source":"[[Patch Notes]]","target":"[[Demo Artifact]]","message":"Generated a small demo artifact after the patch."}
