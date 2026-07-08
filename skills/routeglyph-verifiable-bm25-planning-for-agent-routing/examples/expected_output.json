@@ -1,0 +1,562 @@
+{
+  "plan_version": "routeglyph.v1",
+  "tokenizer": "routeglyph-tokenizer.v1",
+  "query": "Route an agent request to build a local regression-testable BM25 router with no API key.",
+  "query_terms": [
+    "route",
+    "agent",
+    "request",
+    "build",
+    "local",
+    "regression",
+    "testable",
+    "bm25",
+    "router",
+    "no",
+    "api",
+    "key"
+  ],
+  "required_constraints": [
+    "code_required",
+    "local_only",
+    "regression_testable"
+  ],
+  "candidates": [
+    {
+      "rank": 1,
+      "tool_id": "route_planner",
+      "tool_name": "Route Planner",
+      "score": 11.0619,
+      "rare_terms": [
+        "bm25",
+        "route",
+        "router",
+        "routing",
+        "tool"
+      ],
+      "matched_terms": [
+        {
+          "term": "agent",
+          "query_weight": 1.0,
+          "tool_tf": 2,
+          "idf": 0.3567,
+          "contribution": 0.4648
+        },
+        {
+          "term": "bm25",
+          "query_weight": 1.0,
+          "tool_tf": 2,
+          "idf": 1.204,
+          "contribution": 1.5689
+        },
+        {
+          "term": "idf",
+          "query_weight": 0.65,
+          "tool_tf": 1,
+          "idf": 1.204,
+          "contribution": 0.7244
+        },
+        {
+          "term": "local",
+          "query_weight": 1.0,
+          "tool_tf": 1,
+          "idf": 0.6931,
+          "contribution": 0.6416
+        },
+        {
+          "term": "orchestrator",
+          "query_weight": 0.65,
+          "tool_tf": 1,
+          "idf": 1.204,
+          "contribution": 0.7244
+        },
+        {
+          "term": "regression",
+          "query_weight": 1.0,
+          "tool_tf": 2,
+          "idf": 0.6931,
+          "contribution": 0.9032
+        },
+        {
+          "term": "route",
+          "query_weight": 1.0,
+          "tool_tf": 1,
+          "idf": 1.204,
+          "contribution": 1.1145
+        },
+        {
+          "term": "router",
+          "query_weight": 1.0,
+          "tool_tf": 1,
+          "idf": 1.204,
+          "contribution": 1.1145
+        },
+        {
+          "term": "routing",
+          "query_weight": 0.65,
+          "tool_tf": 2,
+          "idf": 1.204,
+          "contribution": 1.0198
+        },
+        {
+          "term": "sparse",
+          "query_weight": 0.65,
+          "tool_tf": 1,
+          "idf": 1.204,
+          "contribution": 0.7244
+        },
+        {
+          "term": "testable",
+          "query_weight": 1.0,
+          "tool_tf": 1,
+          "idf": 0.6931,
+          "contribution": 0.6416
+        },
+        {
+          "term": "tool",
+          "query_weight": 0.65,
+          "tool_tf": 2,
+          "idf": 1.204,
+          "contribution": 1.0198
+        }
+      ],
+      "synonyms": [
+        {
+          "source": "route",
+          "expanded": [
+            "orchestrator",
+            "router",
+            "routing",
+            "tool"
+          ]
+        },
+        {
+          "source": "agent",
+          "expanded": [
+            "assistant",
+            "connector",
+            "function",
+            "tool",
+            "worker"
+          ]
+        },
+        {
+          "source": "build",
+          "expanded": [
+            "create",
+            "implement",
+            "write"
+          ]
+        },
+        {
+          "source": "local",
+          "expanded": [
+            "deterministic",
+            "offline"
+          ]
+        },
+        {
+          "source": "regression",
+          "expanded": [
+            "evaluate",
+            "test",
+            "verify"
+          ]
+        },
+        {
+          "source": "bm25",
+          "expanded": [
+            "idf",
+            "retrieval",
+            "sparse"
+          ]
+        },
+        {
+          "source": "router",
+          "expanded": [
+            "orchestrator",
+            "route",
+            "routing",
+            "tool"
+          ]
+        }
+      ],
+      "exclusions": {
+        "configured": [
+          "image generation"
+        ],
+        "triggered": []
+      },
+      "constraints": {
+        "required": [
+          "code_required",
+          "local_only",
+          "regression_testable"
+        ],
+        "matched": [
+          "local_only",
+          "regression_testable"
+        ],
+        "missing": [
+          "code_required"
+        ]
+      },
+      "rationales": [
+        "Matched high-value terms: bm25, route, router.",
+        "Satisfied required constraints: local_only, regression_testable.",
+        "Missing required constraints: code_required."
+      ]
+    },
+    {
+      "rank": 2,
+      "tool_id": "code_agent",
+      "tool_name": "Code Agent",
+      "score": 6.1059,
+      "rare_terms": [
+        "build",
+        "deterministic",
+        "test",
+        "local",
+        "regression"
+      ],
+      "matched_terms": [
+        {
+          "term": "agent",
+          "query_weight": 1.0,
+          "tool_tf": 1,
+          "idf": 0.3567,
+          "contribution": 0.35
+        },
+        {
+          "term": "build",
+          "query_weight": 1.0,
+          "tool_tf": 1,
+          "idf": 1.204,
+          "contribution": 1.1814
+        },
+        {
+          "term": "deterministic",
+          "query_weight": 0.65,
+          "tool_tf": 1,
+          "idf": 1.204,
+          "contribution": 0.7679
+        },
+        {
+          "term": "local",
+          "query_weight": 1.0,
+          "tool_tf": 3,
+          "idf": 0.6931,
+          "contribution": 1.0784
+        },
+        {
+          "term": "regression",
+          "query_weight": 1.0,
+          "tool_tf": 1,
+          "idf": 0.6931,
+          "contribution": 0.6801
+        },
+        {
+          "term": "test",
+          "query_weight": 0.65,
+          "tool_tf": 1,
+          "idf": 1.204,
+          "contribution": 0.7679
+        },
+        {
+          "term": "testable",
+          "query_weight": 1.0,
+          "tool_tf": 1,
+          "idf": 0.6931,
+          "contribution": 0.6801
+        }
+      ],
+      "synonyms": [
+        {
+          "source": "route",
+          "expanded": [
+            "orchestrator",
+            "router",
+            "routing",
+            "tool"
+          ]
+        },
+        {
+          "source": "agent",
+          "expanded": [
+            "assistant",
+            "connector",
+            "function",
+            "tool",
+            "worker"
+          ]
+        },
+        {
+          "source": "build",
+          "expanded": [
+            "create",
+            "implement",
+            "write"
+          ]
+        },
+        {
+          "source": "local",
+          "expanded": [
+            "deterministic",
+            "offline"
+          ]
+        },
+        {
+          "source": "regression",
+          "expanded": [
+            "evaluate",
+            "test",
+            "verify"
+          ]
+        },
+        {
+          "source": "bm25",
+          "expanded": [
+            "idf",
+            "retrieval",
+            "sparse"
+          ]
+        },
+        {
+          "source": "router",
+          "expanded": [
+            "orchestrator",
+            "route",
+            "routing",
+            "tool"
+          ]
+        }
+      ],
+      "exclusions": {
+        "configured": [
+          "marketing",
+          "image"
+        ],
+        "triggered": []
+      },
+      "constraints": {
+        "required": [
+          "code_required",
+          "local_only",
+          "regression_testable"
+        ],
+        "matched": [
+          "code_required",
+          "local_only",
+          "regression_testable"
+        ],
+        "missing": []
+      },
+      "rationales": [
+        "Matched high-value terms: build, local, deterministic.",
+        "Satisfied required constraints: code_required, local_only, regression_testable."
+      ]
+    },
+    {
+      "rank": 3,
+      "tool_id": "image_designer",
+      "tool_name": "Image Designer",
+      "score": 0.0,
+      "rare_terms": [],
+      "matched_terms": [],
+      "synonyms": [
+        {
+          "source": "route",
+          "expanded": [
+            "orchestrator",
+            "router",
+            "routing",
+            "tool"
+          ]
+        },
+        {
+          "source": "agent",
+          "expanded": [
+            "assistant",
+            "connector",
+            "function",
+            "tool",
+            "worker"
+          ]
+        },
+        {
+          "source": "build",
+          "expanded": [
+            "create",
+            "implement",
+            "write"
+          ]
+        },
+        {
+          "source": "local",
+          "expanded": [
+            "deterministic",
+            "offline"
+          ]
+        },
+        {
+          "source": "regression",
+          "expanded": [
+            "evaluate",
+            "test",
+            "verify"
+          ]
+        },
+        {
+          "source": "bm25",
+          "expanded": [
+            "idf",
+            "retrieval",
+            "sparse"
+          ]
+        },
+        {
+          "source": "router",
+          "expanded": [
+            "orchestrator",
+            "route",
+            "routing",
+            "tool"
+          ]
+        }
+      ],
+      "exclusions": {
+        "configured": [
+          "local router",
+          "bm25"
+        ],
+        "triggered": [
+          "bm25"
+        ]
+      },
+      "constraints": {
+        "required": [
+          "code_required",
+          "local_only",
+          "regression_testable"
+        ],
+        "matched": [],
+        "missing": [
+          "code_required",
+          "local_only",
+          "regression_testable"
+        ]
+      },
+      "rationales": [
+        "Missing required constraints: code_required, local_only, regression_testable.",
+        "Penalized by exclusions: bm25."
+      ]
+    },
+    {
+      "rank": 4,
+      "tool_id": "web_research",
+      "tool_name": "Web Research Agent",
+      "score": 0.0,
+      "rare_terms": [
+        "agent"
+      ],
+      "matched_terms": [
+        {
+          "term": "agent",
+          "query_weight": 1.0,
+          "tool_tf": 1,
+          "idf": 0.3567,
+          "contribution": 0.3665
+        }
+      ],
+      "synonyms": [
+        {
+          "source": "route",
+          "expanded": [
+            "orchestrator",
+            "router",
+            "routing",
+            "tool"
+          ]
+        },
+        {
+          "source": "agent",
+          "expanded": [
+            "assistant",
+            "connector",
+            "function",
+            "tool",
+            "worker"
+          ]
+        },
+        {
+          "source": "build",
+          "expanded": [
+            "create",
+            "implement",
+            "write"
+          ]
+        },
+        {
+          "source": "local",
+          "expanded": [
+            "deterministic",
+            "offline"
+          ]
+        },
+        {
+          "source": "regression",
+          "expanded": [
+            "evaluate",
+            "test",
+            "verify"
+          ]
+        },
+        {
+          "source": "bm25",
+          "expanded": [
+            "idf",
+            "retrieval",
+            "sparse"
+          ]
+        },
+        {
+          "source": "router",
+          "expanded": [
+            "orchestrator",
+            "route",
+            "routing",
+            "tool"
+          ]
+        }
+      ],
+      "exclusions": {
+        "configured": [
+          "offline",
+          "no internet",
+          "no api key"
+        ],
+        "triggered": [
+          "no api key"
+        ]
+      },
+      "constraints": {
+        "required": [
+          "code_required",
+          "local_only",
+          "regression_testable"
+        ],
+        "matched": [],
+        "missing": [
+          "code_required",
+          "local_only",
+          "regression_testable"
+        ]
+      },
+      "rationales": [
+        "Matched high-value terms: agent.",
+        "Missing required constraints: code_required, local_only, regression_testable.",
+        "Penalized by exclusions: no api key."
+      ]
+    }
+  ]
+}
