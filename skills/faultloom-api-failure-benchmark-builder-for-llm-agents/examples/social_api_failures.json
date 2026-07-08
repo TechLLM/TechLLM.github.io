@@ -1,0 +1,38 @@
+{
+  "suite_name": "social-publishing-failures-demo",
+  "events": [
+    {
+      "id": "auth-token-expired",
+      "provider": "threads",
+      "operation": "publish_text_post",
+      "status_code": 401,
+      "raw_error": {
+        "access_token": "EAAB_SAMPLE_TOKEN",
+        "error": {
+          "type": "OAuthException",
+          "code": 190,
+          "message": "Invalid OAuth access token"
+        }
+      }
+    },
+    {
+      "id": "instagram-rate-limit",
+      "provider": "instagram",
+      "operation": "publish_media",
+      "status_code": 429,
+      "raw_error": "Rate limit exceeded. Retry after 60 seconds."
+    },
+    {
+      "id": "facebook-media-invalid",
+      "provider": "facebook",
+      "operation": "upload_media",
+      "status_code": 400,
+      "raw_error": {
+        "error": {
+          "code": 36003,
+          "message": "Image aspect ratio is invalid. Minimum width is 320 pixels."
+        }
+      }
+    }
+  ]
+}

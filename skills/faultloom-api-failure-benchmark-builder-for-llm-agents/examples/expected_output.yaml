@@ -1,0 +1,86 @@
+benchmark_suite:
+  name: "social-publishing-failures-demo"
+  version: "0.1"
+  generated_by: "faultloom-minimal-rule-engine"
+  cases:
+    -
+      id: "auth-token-expired"
+      provider: "threads"
+      operation: "publish_text_post"
+      source:
+        status_code: 401
+        error_excerpt: "{\"access_token\":\"[REDACTED]\",\"error\":{\"code\":190,\"message\":\"Invalid OAuth access token\",\"type\":\"OAuthException\"}}"
+      classification:
+        category: "authentication"
+        retryable: false
+        user_action_required: true
+        severity: "high"
+        confidence: 0.94
+      expected_recovery:
+        summary: "Stop automatic retry and request credential refresh or reauthorization."
+        actions:
+          - "Mark the publishing attempt failed with an authentication cause."
+          - "Ask the user or operator to reconnect the provider account."
+          - "Retry only after a new credential is available."
+      evaluation:
+        should_retry: false
+        agent_should:
+          - "Preserve the provider error code and status code in the diagnosis."
+          - "State that human or operator action is required before retry."
+        agent_must_not:
+          - "Claim the post content caused the failure without evidence."
+          - "Loop retries with the same credential."
+    -
+      id: "instagram-rate-limit"
+      provider: "instagram"
+      operation: "publish_media"
+      source:
+        status_code: 429
+        error_excerpt: "Rate limit exceeded. Retry after 60 seconds."
+      classification:
+        category: "rate_limit"
+        retryable: true
+        user_action_required: false
+        severity: "medium"
+        confidence: 0.92
+      expected_recovery:
+        summary: "Schedule a retry using provider-aware backoff."
+        actions:
+          - "Respect retry-after or rate-limit reset timing when available."
+          - "Queue the publish attempt instead of retrying immediately."
+          - "Surface a concise delay reason to the user or operator."
+      evaluation:
+        should_retry: true
+        agent_should:
+          - "Use bounded exponential backoff or the provider retry-after value."
+          - "Avoid changing content or credentials because the error is quota-related."
+        agent_must_not:
+          - "Retry in a tight loop."
+          - "Ask the user to reconnect the account without supporting evidence."
+    -
+      id: "facebook-media-invalid"
+      provider: "facebook"
+      operation: "upload_media"
+      source:
+        status_code: 400
+        error_excerpt: "{\"error\":{\"code\":36003,\"message\":\"Image aspect ratio is invalid. Minimum width is 320 pixels.\"}}"
+      classification:
+        category: "media_validation"
+        retryable: false
+        user_action_required: true
+        severity: "medium"
+        confidence: 0.88
+      expected_recovery:
+        summary: "Request a corrected media asset before retrying."
+        actions:
+          - "Identify the provider media constraint that failed."
+          - "Tell the user or upstream system exactly which asset property must change."
+          - "Retry only after the asset is transformed or replaced."
+      evaluation:
+        should_retry: false
+        agent_should:
+          - "Connect the failure to media validation rather than service availability."
+          - "Give a concrete remediation for the invalid media."
+        agent_must_not:
+          - "Retry the identical upload repeatedly."
+          - "Mislabel the failure as authentication or rate limiting."
