@@ -1,0 +1,1 @@
+Route an agent request to build a local regression-testable BM25 router with no API key.

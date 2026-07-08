@@ -1,0 +1,40 @@
+{
+  "tools": [
+    {
+      "id": "code_agent",
+      "name": "Code Agent",
+      "description": "Builds and debugs local scripts, command line tools, tests, and deterministic reference implementations.",
+      "keywords": ["python", "implementation", "test", "local", "script"],
+      "synonyms": ["code", "build", "debug", "programming"],
+      "exclusions": ["marketing", "image"],
+      "constraints": ["local_only", "code_required", "regression_testable"]
+    },
+    {
+      "id": "web_research",
+      "name": "Web Research Agent",
+      "description": "Searches the public web for current facts, sources, news, prices, and recent changes.",
+      "keywords": ["search", "web", "latest", "sources"],
+      "synonyms": ["lookup", "find", "fresh", "current"],
+      "exclusions": ["offline", "no internet", "no api key"],
+      "constraints": ["freshness_required", "internet_required"]
+    },
+    {
+      "id": "route_planner",
+      "name": "Route Planner",
+      "description": "Plans tool and agent routing using BM25 style sparse matching, rare terms, constraints, score rationales, and regression snapshots.",
+      "keywords": ["routing", "bm25", "agent", "tool", "plan", "constraints", "idf"],
+      "synonyms": ["router", "orchestrator", "planning"],
+      "exclusions": ["image generation"],
+      "constraints": ["regression_testable", "local_only"]
+    },
+    {
+      "id": "image_designer",
+      "name": "Image Designer",
+      "description": "Creates visual concepts, image prompts, graphics, and design directions for creative assets.",
+      "keywords": ["image", "visual", "prompt", "design", "creative"],
+      "synonyms": ["picture", "graphic", "art"],
+      "exclusions": ["local router", "bm25"],
+      "constraints": ["visual_output"]
+    }
+  ]
+}
