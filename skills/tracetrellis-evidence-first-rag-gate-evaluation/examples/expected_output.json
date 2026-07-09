@@ -1,0 +1,76 @@
+{
+  "tool": "rag-evidence-grader",
+  "version": "0.1.0",
+  "summary": {
+    "cases": 1,
+    "passed": 1,
+    "failed": 0,
+    "pass_rate": 1.0,
+    "average_scores": {
+      "retrieval": 1.0,
+      "action": 1.0,
+      "data_accuracy": 1.0,
+      "overall": 1.0
+    }
+  },
+  "cases": [
+    {
+      "run_id": "refund-window",
+      "passed": true,
+      "scores": {
+        "retrieval": 1.0,
+        "action": 1.0,
+        "data_accuracy": 1.0,
+        "overall": 1.0
+      },
+      "documents": {
+        "selected": [
+          "policy/refunds-2026",
+          "faq/refunds"
+        ],
+        "required_found": [
+          "policy/refunds-2026"
+        ],
+        "required_missing": [],
+        "optional_found": [
+          "faq/refunds"
+        ],
+        "forbidden_found": []
+      },
+      "actions": {
+        "observed": [
+          {
+            "type": "retrieve",
+            "target": "policy/refunds-2026"
+          },
+          {
+            "type": "cite",
+            "target": "policy/refunds-2026"
+          }
+        ],
+        "required_found": [
+          {
+            "type": "retrieve",
+            "target": "policy/refunds-2026"
+          },
+          {
+            "type": "cite",
+            "target": "policy/refunds-2026"
+          }
+        ],
+        "required_missing": []
+      },
+      "facts": {
+        "matched": {
+          "refund_window_days": 30,
+          "region": "US"
+        },
+        "mismatched": {},
+        "missing": []
+      },
+      "answer": null,
+      "llm_judge": null,
+      "failures": []
+    }
+  ]
+}

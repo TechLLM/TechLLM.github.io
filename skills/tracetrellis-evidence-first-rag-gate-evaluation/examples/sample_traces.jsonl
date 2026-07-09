@@ -1,0 +1,1 @@
+{"run_id":"refund-window","query":"How long does a US customer have to request a refund?","selected_documents":[{"id":"policy/refunds-2026","score":0.94},{"id":"faq/refunds","score":0.81}],"actions":[{"type":"retrieve","target":"policy/refunds-2026"},{"type":"cite","target":"policy/refunds-2026"}],"artifacts":{"facts":{"refund_window_days":30,"region":"US"}}}
