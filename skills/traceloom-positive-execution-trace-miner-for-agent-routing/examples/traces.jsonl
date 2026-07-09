@@ -1,0 +1,6 @@
+{"task_id":"task-alpha","run_id":"run-001","event":"retrieval","step":1,"source":"docs/router-policy.md","query":"router selection checklist"}
+{"task_id":"task-alpha","run_id":"run-001","event":"tool_call","step":2,"tool":"File Read","args":{"path":"src/router.py"}}
+{"task_id":"task-alpha","run_id":"run-001","event":"tool_call","step":3,"tool":"search/query","args":{"query":"routing policy examples","top_k":3}}
+{"task_id":"task-alpha","run_id":"run-001","event":"tool_call","step":4,"tool":"file.write","args":{"path":"src/router.py","content":"private patch contents omitted"}}
+{"task_id":"task-alpha","run_id":"run-001","event":"tool_call","step":5,"tool":"test.run","args":{"command":"python -m pytest tests/test_router.py"}}
+{"task_id":"task-beta","run_id":"run-002","event":"tool_call","step":1,"tool":"file.read","args":{"path":"src/legacy.py"}}
