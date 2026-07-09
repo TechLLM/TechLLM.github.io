@@ -1,0 +1,506 @@
+{
+  "schema_version": "maskloom.report.v1",
+  "probe": {
+    "trials_requested": 6,
+    "trials_completed": 6,
+    "mask_probability": 0.2,
+    "seed": 11,
+    "selector": "builtin"
+  },
+  "input_summary": {
+    "prompt_token_count": 5,
+    "candidate_count": 3
+  },
+  "baseline": {
+    "selected_id": "billing",
+    "scores": {
+      "billing": 3.0,
+      "support": 2.0,
+      "sales": 2.0
+    }
+  },
+  "selection_distribution": [
+    {
+      "id": "billing",
+      "count": 5,
+      "rate": 0.8333
+    },
+    {
+      "id": "support",
+      "count": 0,
+      "rate": 0.0
+    },
+    {
+      "id": "sales",
+      "count": 1,
+      "rate": 0.1667
+    }
+  ],
+  "sensitive_spans": [
+    {
+      "source": "candidate:billing",
+      "token": "billing",
+      "masked_count": 1,
+      "changed_count": 1,
+      "change_rate": 1.0
+    },
+    {
+      "source": "candidate:billing",
+      "token": "handle",
+      "masked_count": 1,
+      "changed_count": 1,
+      "change_rate": 1.0
+    },
+    {
+      "source": "candidate:support",
+      "token": "handle",
+      "masked_count": 2,
+      "changed_count": 1,
+      "change_rate": 0.5
+    },
+    {
+      "source": "candidate:support",
+      "token": "support",
+      "masked_count": 2,
+      "changed_count": 1,
+      "change_rate": 0.5
+    },
+    {
+      "source": "prompt",
+      "token": "invoice",
+      "masked_count": 2,
+      "changed_count": 1,
+      "change_rate": 0.5
+    },
+    {
+      "source": "prompt",
+      "token": "request",
+      "masked_count": 3,
+      "changed_count": 1,
+      "change_rate": 0.3333
+    },
+    {
+      "source": "candidate:support",
+      "token": "troubleshooting",
+      "masked_count": 3,
+      "changed_count": 0,
+      "change_rate": 0.0
+    },
+    {
+      "source": "candidate:billing",
+      "token": "invoice",
+      "masked_count": 2,
+      "changed_count": 0,
+      "change_rate": 0.0
+    },
+    {
+      "source": "candidate:billing",
+      "token": "tool",
+      "masked_count": 2,
+      "changed_count": 0,
+      "change_rate": 0.0
+    },
+    {
+      "source": "candidate:sales",
+      "token": "handle",
+      "masked_count": 2,
+      "changed_count": 0,
+      "change_rate": 0.0
+    },
+    {
+      "source": "candidate:sales",
+      "token": "pricing",
+      "masked_count": 2,
+      "changed_count": 0,
+      "change_rate": 0.0
+    },
+    {
+      "source": "candidate:support",
+      "token": "account",
+      "masked_count": 2,
+      "changed_count": 0,
+      "change_rate": 0.0
+    },
+    {
+      "source": "candidate:billing",
+      "token": "receipt",
+      "masked_count": 1,
+      "changed_count": 0,
+      "change_rate": 0.0
+    },
+    {
+      "source": "candidate:sales",
+      "token": "demo",
+      "masked_count": 1,
+      "changed_count": 0,
+      "change_rate": 0.0
+    },
+    {
+      "source": "candidate:sales",
+      "token": "route",
+      "masked_count": 1,
+      "changed_count": 0,
+      "change_rate": 0.0
+    },
+    {
+      "source": "candidate:sales",
+      "token": "sale",
+      "masked_count": 1,
+      "changed_count": 0,
+      "change_rate": 0.0
+    },
+    {
+      "source": "candidate:sales",
+      "token": "upgrade",
+      "masked_count": 1,
+      "changed_count": 0,
+      "change_rate": 0.0
+    },
+    {
+      "source": "candidate:support",
+      "token": "issue",
+      "masked_count": 1,
+      "changed_count": 0,
+      "change_rate": 0.0
+    },
+    {
+      "source": "candidate:support",
+      "token": "login",
+      "masked_count": 1,
+      "changed_count": 0,
+      "change_rate": 0.0
+    },
+    {
+      "source": "candidate:support",
+      "token": "route",
+      "masked_count": 1,
+      "changed_count": 0,
+      "change_rate": 0.0
+    }
+  ],
+  "bias_suspects": [
+    {
+      "id": "billing",
+      "selection_rate": 0.8333,
+      "reason": "dominant_selection_under_masking"
+    }
+  ],
+  "trials": [
+    {
+      "trial": 0,
+      "masked_prompt": "Which route should handle invoice refund [MASK]?",
+      "masked_candidates": [
+        {
+          "id": "billing",
+          "text": "Billing tool handles [MASK], refunds, [MASK] receipts."
+        },
+        {
+          "id": "support",
+          "text": "Support [MASK] handles login issues and [MASK] [MASK]."
+        },
+        {
+          "id": "sales",
+          "text": "Sales [MASK] [MASK] upgrades, [MASK] questions, and demos."
+        }
+      ],
+      "masked_spans": [
+        {
+          "source": "prompt",
+          "token": "requests"
+        },
+        {
+          "source": "candidate:billing",
+          "token": "invoices"
+        },
+        {
+          "source": "candidate:billing",
+          "token": "and"
+        },
+        {
+          "source": "candidate:support",
+          "token": "route"
+        },
+        {
+          "source": "candidate:support",
+          "token": "account"
+        },
+        {
+          "source": "candidate:support",
+          "token": "troubleshooting"
+        },
+        {
+          "source": "candidate:sales",
+          "token": "route"
+        },
+        {
+          "source": "candidate:sales",
+          "token": "handles"
+        },
+        {
+          "source": "candidate:sales",
+          "token": "pricing"
+        }
+      ],
+      "selected_id": "billing",
+      "scores": {
+        "billing": 2.0,
+        "support": 1.0,
+        "sales": 0.0
+      }
+    },
+    {
+      "trial": 1,
+      "masked_prompt": "Which route should handle invoice refund requests?",
+      "masked_candidates": [
+        {
+          "id": "billing",
+          "text": "Billing tool handles invoices, refunds, and [MASK]."
+        },
+        {
+          "id": "support",
+          "text": "Support route handles login issues and [MASK] troubleshooting."
+        },
+        {
+          "id": "sales",
+          "text": "Sales route handles upgrades, [MASK] questions, and demos."
+        }
+      ],
+      "masked_spans": [
+        {
+          "source": "candidate:billing",
+          "token": "receipts"
+        },
+        {
+          "source": "candidate:support",
+          "token": "account"
+        },
+        {
+          "source": "candidate:sales",
+          "token": "pricing"
+        }
+      ],
+      "selected_id": "billing",
+      "scores": {
+        "billing": 3.0,
+        "support": 2.0,
+        "sales": 2.0
+      }
+    },
+    {
+      "trial": 2,
+      "masked_prompt": "[MASK] route should handle [MASK] refund [MASK]?",
+      "masked_candidates": [
+        {
+          "id": "billing",
+          "text": "[MASK] tool [MASK] invoices, refunds, [MASK] receipts."
+        },
+        {
+          "id": "support",
+          "text": "[MASK] route [MASK] login issues and account troubleshooting."
+        },
+        {
+          "id": "sales",
+          "text": "Sales route handles upgrades, pricing questions, [MASK] demos."
+        }
+      ],
+      "masked_spans": [
+        {
+          "source": "prompt",
+          "token": "Which"
+        },
+        {
+          "source": "prompt",
+          "token": "invoice"
+        },
+        {
+          "source": "prompt",
+          "token": "requests"
+        },
+        {
+          "source": "candidate:billing",
+          "token": "Billing"
+        },
+        {
+          "source": "candidate:billing",
+          "token": "handles"
+        },
+        {
+          "source": "candidate:billing",
+          "token": "and"
+        },
+        {
+          "source": "candidate:support",
+          "token": "Support"
+        },
+        {
+          "source": "candidate:support",
+          "token": "handles"
+        },
+        {
+          "source": "candidate:sales",
+          "token": "and"
+        }
+      ],
+      "selected_id": "sales",
+      "scores": {
+        "billing": 1.0,
+        "support": 1.0,
+        "sales": 2.0
+      }
+    },
+    {
+      "trial": 3,
+      "masked_prompt": "Which route should handle invoice [MASK] [MASK]?",
+      "masked_candidates": [
+        {
+          "id": "billing",
+          "text": "Billing tool handles invoices, refunds, and receipts."
+        },
+        {
+          "id": "support",
+          "text": "Support route [MASK] [MASK] issues and account [MASK]."
+        },
+        {
+          "id": "sales",
+          "text": "Sales route [MASK] upgrades, pricing questions, and [MASK]."
+        }
+      ],
+      "masked_spans": [
+        {
+          "source": "prompt",
+          "token": "refund"
+        },
+        {
+          "source": "prompt",
+          "token": "requests"
+        },
+        {
+          "source": "candidate:support",
+          "token": "handles"
+        },
+        {
+          "source": "candidate:support",
+          "token": "login"
+        },
+        {
+          "source": "candidate:support",
+          "token": "troubleshooting"
+        },
+        {
+          "source": "candidate:sales",
+          "token": "handles"
+        },
+        {
+          "source": "candidate:sales",
+          "token": "demos"
+        }
+      ],
+      "selected_id": "billing",
+      "scores": {
+        "billing": 2.0,
+        "support": 1.0,
+        "sales": 1.0
+      }
+    },
+    {
+      "trial": 4,
+      "masked_prompt": "[MASK] route should handle invoice refund requests?",
+      "masked_candidates": [
+        {
+          "id": "billing",
+          "text": "Billing [MASK] handles [MASK], refunds, and receipts."
+        },
+        {
+          "id": "support",
+          "text": "Support route handles login [MASK] and account [MASK]."
+        },
+        {
+          "id": "sales",
+          "text": "[MASK] route handles [MASK], pricing questions, and demos."
+        }
+      ],
+      "masked_spans": [
+        {
+          "source": "prompt",
+          "token": "Which"
+        },
+        {
+          "source": "candidate:billing",
+          "token": "tool"
+        },
+        {
+          "source": "candidate:billing",
+          "token": "invoices"
+        },
+        {
+          "source": "candidate:support",
+          "token": "issues"
+        },
+        {
+          "source": "candidate:support",
+          "token": "troubleshooting"
+        },
+        {
+          "source": "candidate:sales",
+          "token": "Sales"
+        },
+        {
+          "source": "candidate:sales",
+          "token": "upgrades"
+        }
+      ],
+      "selected_id": "billing",
+      "scores": {
+        "billing": 2.0,
+        "support": 2.0,
+        "sales": 2.0
+      }
+    },
+    {
+      "trial": 5,
+      "masked_prompt": "Which route [MASK] [MASK] [MASK] refund requests?",
+      "masked_candidates": [
+        {
+          "id": "billing",
+          "text": "Billing [MASK] handles invoices, refunds, and receipts."
+        },
+        {
+          "id": "support",
+          "text": "[MASK] route handles login issues and account troubleshooting."
+        },
+        {
+          "id": "sales",
+          "text": "Sales route handles upgrades, pricing questions, and demos."
+        }
+      ],
+      "masked_spans": [
+        {
+          "source": "prompt",
+          "token": "should"
+        },
+        {
+          "source": "prompt",
+          "token": "handle"
+        },
+        {
+          "source": "prompt",
+          "token": "invoice"
+        },
+        {
+          "source": "candidate:billing",
+          "token": "tool"
+        },
+        {
+          "source": "candidate:support",
+          "token": "Support"
+        }
+      ],
+      "selected_id": "billing",
+      "scores": {
+        "billing": 1.0,
+        "support": 1.0,
+        "sales": 1.0
+      }
+    }
+  ]
+}

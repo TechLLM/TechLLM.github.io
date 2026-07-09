@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "contextmender-agent-context-ablation-benchmark",
+    "name": "contextmender-agent-context-ablation-benchmark",
+    "version": "",
+    "description": "",
+    "verified": false
+  },
+  {
+    "slug": "diffsentinel-state-change-grading-for-ai-agents",
+    "name": "diffsentinel-state-change-grading-for-ai-agents",
+    "version": "",
+    "description": "",
+    "verified": false
+  },
+  {
+    "slug": "failwise-worst-case-token-budget-tuning-for-llm-agents",
+    "name": "failwise-worst-case-token-budget-tuning-for-llm-agents",
+    "version": "",
+    "description": "Tune LLM agent token budgets, retrieval depth, and retry policies against worst-case failure slices; use for Failwise, token budget tuning, agent regression analysis, Pareto policy ranking, and worst-slice reliability reviews.",
+    "verified": false
+  },
+  {
+    "slug": "maskloom-distributional-bias-probing-for-llm-and-agent-failu",
+    "name": "maskloom-distributional-bias-probing-for-llm-and-agent-failu",
+    "version": "0.1.0",
+    "description": "Run MaskLoom distributional masking probes for prompts, RAG contexts, candidate answers, or agent tools when debugging LLM/agent failures, bias, instability, RAG selection, tool routing, or mask-probe regressions.",
+    "verified": true
+  }
+]
