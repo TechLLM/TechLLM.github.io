@@ -1,0 +1,454 @@
+{
+  "document_slices": {
+    "doc_type": {
+      "blog": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 0.0,
+        "gate_f1": 0.0,
+        "gate_pass_rate": 0.0,
+        "gate_precision": 0.0,
+        "gate_recall": 0.0,
+        "relevant_retrieved_count": 0,
+        "retrieved_document_count": 1
+      },
+      "chat": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 1.0,
+        "gate_f1": 0.0,
+        "gate_pass_rate": 1.0,
+        "gate_precision": 0.0,
+        "gate_recall": 0.0,
+        "relevant_retrieved_count": 0,
+        "retrieved_document_count": 1
+      },
+      "faq": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 1.0,
+        "gate_f1": 0.0,
+        "gate_pass_rate": 1.0,
+        "gate_precision": 0.0,
+        "gate_recall": 0.0,
+        "relevant_retrieved_count": 0,
+        "retrieved_document_count": 1
+      },
+      "guideline": {
+        "false_block_rate": 1.0,
+        "false_pass_rate": 0.0,
+        "gate_f1": 0.0,
+        "gate_pass_rate": 0.0,
+        "gate_precision": 0.0,
+        "gate_recall": 0.0,
+        "relevant_retrieved_count": 1,
+        "retrieved_document_count": 1
+      },
+      "incident_report": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 0.0,
+        "gate_f1": 1.0,
+        "gate_pass_rate": 1.0,
+        "gate_precision": 1.0,
+        "gate_recall": 1.0,
+        "relevant_retrieved_count": 1,
+        "retrieved_document_count": 1
+      },
+      "manual": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 0.0,
+        "gate_f1": 1.0,
+        "gate_pass_rate": 1.0,
+        "gate_precision": 1.0,
+        "gate_recall": 1.0,
+        "relevant_retrieved_count": 1,
+        "retrieved_document_count": 1
+      },
+      "memo": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 0.0,
+        "gate_f1": 0.0,
+        "gate_pass_rate": 0.0,
+        "gate_precision": 0.0,
+        "gate_recall": 0.0,
+        "relevant_retrieved_count": 0,
+        "retrieved_document_count": 1
+      },
+      "schematic": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 0.0,
+        "gate_f1": 1.0,
+        "gate_pass_rate": 1.0,
+        "gate_precision": 1.0,
+        "gate_recall": 1.0,
+        "relevant_retrieved_count": 1,
+        "retrieved_document_count": 1
+      },
+      "statute": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 0.0,
+        "gate_f1": 1.0,
+        "gate_pass_rate": 1.0,
+        "gate_precision": 1.0,
+        "gate_recall": 1.0,
+        "relevant_retrieved_count": 1,
+        "retrieved_document_count": 1
+      }
+    },
+    "evidence_density": {
+      "high": {
+        "false_block_rate": 0.3333,
+        "false_pass_rate": 0.0,
+        "gate_f1": 0.8,
+        "gate_pass_rate": 0.6667,
+        "gate_precision": 1.0,
+        "gate_recall": 0.6667,
+        "relevant_retrieved_count": 3,
+        "retrieved_document_count": 3
+      },
+      "low": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 0.5,
+        "gate_f1": 0.0,
+        "gate_pass_rate": 0.5,
+        "gate_precision": 0.0,
+        "gate_recall": 0.0,
+        "relevant_retrieved_count": 0,
+        "retrieved_document_count": 4
+      },
+      "medium": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 0.0,
+        "gate_f1": 1.0,
+        "gate_pass_rate": 1.0,
+        "gate_precision": 1.0,
+        "gate_recall": 1.0,
+        "relevant_retrieved_count": 2,
+        "retrieved_document_count": 2
+      }
+    },
+    "source_family": {
+      "corpus": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 0.0,
+        "gate_f1": 1.0,
+        "gate_pass_rate": 1.0,
+        "gate_precision": 1.0,
+        "gate_recall": 1.0,
+        "relevant_retrieved_count": 1,
+        "retrieved_document_count": 1
+      },
+      "drive": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 0.0,
+        "gate_f1": 0.0,
+        "gate_pass_rate": 0.0,
+        "gate_precision": 0.0,
+        "gate_recall": 0.0,
+        "relevant_retrieved_count": 0,
+        "retrieved_document_count": 1
+      },
+      "engineering": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 0.0,
+        "gate_f1": 1.0,
+        "gate_pass_rate": 1.0,
+        "gate_precision": 1.0,
+        "gate_recall": 1.0,
+        "relevant_retrieved_count": 1,
+        "retrieved_document_count": 1
+      },
+      "forum": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 1.0,
+        "gate_f1": 0.0,
+        "gate_pass_rate": 1.0,
+        "gate_precision": 0.0,
+        "gate_recall": 0.0,
+        "relevant_retrieved_count": 0,
+        "retrieved_document_count": 1
+      },
+      "knowledge_base": {
+        "false_block_rate": 0.5,
+        "false_pass_rate": 0.0,
+        "gate_f1": 0.6667,
+        "gate_pass_rate": 0.5,
+        "gate_precision": 1.0,
+        "gate_recall": 0.5,
+        "relevant_retrieved_count": 2,
+        "retrieved_document_count": 2
+      },
+      "slack": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 1.0,
+        "gate_f1": 0.0,
+        "gate_pass_rate": 1.0,
+        "gate_precision": 0.0,
+        "gate_recall": 0.0,
+        "relevant_retrieved_count": 0,
+        "retrieved_document_count": 1
+      },
+      "tickets": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 0.0,
+        "gate_f1": 1.0,
+        "gate_pass_rate": 1.0,
+        "gate_precision": 1.0,
+        "gate_recall": 1.0,
+        "relevant_retrieved_count": 1,
+        "retrieved_document_count": 1
+      },
+      "web": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 0.0,
+        "gate_f1": 0.0,
+        "gate_pass_rate": 0.0,
+        "gate_precision": 0.0,
+        "gate_recall": 0.0,
+        "relevant_retrieved_count": 0,
+        "retrieved_document_count": 1
+      }
+    }
+  },
+  "false_blocks": [
+    {
+      "doc_id": "med-2",
+      "doc_type": "guideline",
+      "evidence_density": "high",
+      "query_id": "q2",
+      "reason": "gate_blocked_relevant_document",
+      "source_family": "knowledge_base"
+    }
+  ],
+  "false_passes": [
+    {
+      "doc_id": "fin-9",
+      "doc_type": "faq",
+      "evidence_density": "low",
+      "query_id": "q1",
+      "reason": "gate_passed_irrelevant_document",
+      "source_family": "forum"
+    },
+    {
+      "doc_id": "aero-3",
+      "doc_type": "chat",
+      "evidence_density": "low",
+      "query_id": "q4",
+      "reason": "gate_passed_irrelevant_document",
+      "source_family": "slack"
+    }
+  ],
+  "missing_evidence": [
+    {
+      "domain_tags": [
+        "legal"
+      ],
+      "missing_doc_ids": [
+        "law-2"
+      ],
+      "query_id": "q3",
+      "question_type": "comparison"
+    }
+  ],
+  "ood_queries": [
+    {
+      "domain_tags": [
+        "finance"
+      ],
+      "matched_tags": [
+        "rare_terms"
+      ],
+      "query_id": "q1",
+      "question_type": "definition"
+    },
+    {
+      "domain_tags": [
+        "aerospace"
+      ],
+      "matched_tags": [
+        "long_tail_intent"
+      ],
+      "query_id": "q4",
+      "question_type": "diagnostic"
+    }
+  ],
+  "overall": {
+    "false_block_rate": 0.2,
+    "false_pass_rate": 0.5,
+    "gate_f1": 0.7273,
+    "gate_pass_rate": 0.6667,
+    "gate_precision": 0.6667,
+    "gate_recall": 0.8,
+    "relevant_retrieved_count": 5,
+    "required_evidence_count": 5,
+    "required_evidence_retrieved_count": 4,
+    "retrieval_f1": 0.6558,
+    "retrieval_precision": 0.5556,
+    "retrieval_recall": 0.8,
+    "retrieved_document_count": 9
+  },
+  "query_slices": {
+    "domain_tag": {
+      "aerospace": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 1.0,
+        "gate_f1": 0.8,
+        "gate_pass_rate": 1.0,
+        "gate_precision": 0.6667,
+        "gate_recall": 1.0,
+        "relevant_retrieved_count": 2,
+        "required_evidence_count": 1,
+        "required_evidence_retrieved_count": 1,
+        "retrieval_f1": 0.8,
+        "retrieval_precision": 0.6667,
+        "retrieval_recall": 1.0,
+        "retrieved_document_count": 3
+      },
+      "finance": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 1.0,
+        "gate_f1": 0.6667,
+        "gate_pass_rate": 1.0,
+        "gate_precision": 0.5,
+        "gate_recall": 1.0,
+        "relevant_retrieved_count": 1,
+        "required_evidence_count": 1,
+        "required_evidence_retrieved_count": 1,
+        "retrieval_f1": 0.6667,
+        "retrieval_precision": 0.5,
+        "retrieval_recall": 1.0,
+        "retrieved_document_count": 2
+      },
+      "healthcare": {
+        "false_block_rate": 1.0,
+        "false_pass_rate": 0.0,
+        "gate_f1": 0.0,
+        "gate_pass_rate": 0.0,
+        "gate_precision": 0.0,
+        "gate_recall": 0.0,
+        "relevant_retrieved_count": 1,
+        "required_evidence_count": 1,
+        "required_evidence_retrieved_count": 1,
+        "retrieval_f1": 0.6667,
+        "retrieval_precision": 0.5,
+        "retrieval_recall": 1.0,
+        "retrieved_document_count": 2
+      },
+      "legal": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 0.0,
+        "gate_f1": 1.0,
+        "gate_pass_rate": 0.5,
+        "gate_precision": 1.0,
+        "gate_recall": 1.0,
+        "relevant_retrieved_count": 1,
+        "required_evidence_count": 2,
+        "required_evidence_retrieved_count": 1,
+        "retrieval_f1": 0.5,
+        "retrieval_precision": 0.5,
+        "retrieval_recall": 0.5,
+        "retrieved_document_count": 2
+      }
+    },
+    "ood_tag": {
+      "long_tail_intent": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 1.0,
+        "gate_f1": 0.8,
+        "gate_pass_rate": 1.0,
+        "gate_precision": 0.6667,
+        "gate_recall": 1.0,
+        "relevant_retrieved_count": 2,
+        "required_evidence_count": 1,
+        "required_evidence_retrieved_count": 1,
+        "retrieval_f1": 0.8,
+        "retrieval_precision": 0.6667,
+        "retrieval_recall": 1.0,
+        "retrieved_document_count": 3
+      },
+      "rare_terms": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 1.0,
+        "gate_f1": 0.6667,
+        "gate_pass_rate": 1.0,
+        "gate_precision": 0.5,
+        "gate_recall": 1.0,
+        "relevant_retrieved_count": 1,
+        "required_evidence_count": 1,
+        "required_evidence_retrieved_count": 1,
+        "retrieval_f1": 0.6667,
+        "retrieval_precision": 0.5,
+        "retrieval_recall": 1.0,
+        "retrieved_document_count": 2
+      }
+    },
+    "question_type": {
+      "comparison": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 0.0,
+        "gate_f1": 1.0,
+        "gate_pass_rate": 0.5,
+        "gate_precision": 1.0,
+        "gate_recall": 1.0,
+        "relevant_retrieved_count": 1,
+        "required_evidence_count": 2,
+        "required_evidence_retrieved_count": 1,
+        "retrieval_f1": 0.5,
+        "retrieval_precision": 0.5,
+        "retrieval_recall": 0.5,
+        "retrieved_document_count": 2
+      },
+      "definition": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 1.0,
+        "gate_f1": 0.6667,
+        "gate_pass_rate": 1.0,
+        "gate_precision": 0.5,
+        "gate_recall": 1.0,
+        "relevant_retrieved_count": 1,
+        "required_evidence_count": 1,
+        "required_evidence_retrieved_count": 1,
+        "retrieval_f1": 0.6667,
+        "retrieval_precision": 0.5,
+        "retrieval_recall": 1.0,
+        "retrieved_document_count": 2
+      },
+      "diagnostic": {
+        "false_block_rate": 0.0,
+        "false_pass_rate": 1.0,
+        "gate_f1": 0.8,
+        "gate_pass_rate": 1.0,
+        "gate_precision": 0.6667,
+        "gate_recall": 1.0,
+        "relevant_retrieved_count": 2,
+        "required_evidence_count": 1,
+        "required_evidence_retrieved_count": 1,
+        "retrieval_f1": 0.8,
+        "retrieval_precision": 0.6667,
+        "retrieval_recall": 1.0,
+        "retrieved_document_count": 3
+      },
+      "procedural": {
+        "false_block_rate": 1.0,
+        "false_pass_rate": 0.0,
+        "gate_f1": 0.0,
+        "gate_pass_rate": 0.0,
+        "gate_precision": 0.0,
+        "gate_recall": 0.0,
+        "relevant_retrieved_count": 1,
+        "required_evidence_count": 1,
+        "required_evidence_retrieved_count": 1,
+        "retrieval_f1": 0.6667,
+        "retrieval_precision": 0.5,
+        "retrieval_recall": 1.0,
+        "retrieved_document_count": 2
+      }
+    }
+  },
+  "summary": {
+    "document_count": 9,
+    "false_block_count": 1,
+    "false_pass_count": 2,
+    "missing_evidence_query_count": 1,
+    "ood_query_count": 2,
+    "query_count": 4,
+    "required_evidence_count": 5
+  }
+}
