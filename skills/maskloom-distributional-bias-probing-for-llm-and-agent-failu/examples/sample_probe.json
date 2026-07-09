@@ -1,0 +1,17 @@
+{
+  "prompt": "Which route should handle invoice refund requests?",
+  "candidates": [
+    {
+      "id": "billing",
+      "text": "Billing tool handles invoices, refunds, and receipts."
+    },
+    {
+      "id": "support",
+      "text": "Support route handles login issues and account troubleshooting."
+    },
+    {
+      "id": "sales",
+      "text": "Sales route handles upgrades, pricing questions, and demos."
+    }
+  ]
+}
