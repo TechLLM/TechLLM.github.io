@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "contextmender-agent-context-ablation-benchmark",
+    "name": "contextmender-agent-context-ablation-benchmark",
+    "version": "",
+    "description": "",
+    "verified": false
+  },
+  {
+    "slug": "diffsentinel-state-change-grading-for-ai-agents",
+    "name": "diffsentinel-state-change-grading-for-ai-agents",
+    "version": "",
+    "description": "",
+    "verified": false
+  },
+  {
+    "slug": "failwise-worst-case-token-budget-tuning-for-llm-agents",
+    "name": "failwise-worst-case-token-budget-tuning-for-llm-agents",
+    "version": "",
+    "description": "Tune LLM agent token budgets, retrieval depth, and retry policies against worst-case failure slices; use for Failwise, token budget tuning, agent regression analysis, Pareto policy ranking, and worst-slice reliability reviews.",
+    "verified": false
+  },
+  {
+    "slug": "traceloom-positive-execution-trace-miner-for-agent-routing",
+    "name": "traceloom-positive-execution-trace-miner-for-agent-routing",
+    "version": "0.1.0",
+    "description": "TraceLoom mines verified successful LLM agent execution traces into positive routing datasets; use for triggers like traceloom, positive trace mining, agent routing data, verifier logs, JSONL traces, and prompt selector training.",
+    "verified": true
+  }
+]
