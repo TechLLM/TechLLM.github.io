@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "contextmender-agent-context-ablation-benchmark",
+    "name": "contextmender-agent-context-ablation-benchmark",
+    "version": "",
+    "description": "",
+    "verified": false
+  },
+  {
+    "slug": "diffsentinel-state-change-grading-for-ai-agents",
+    "name": "diffsentinel-state-change-grading-for-ai-agents",
+    "version": "",
+    "description": "",
+    "verified": false
+  },
+  {
+    "slug": "failwise-worst-case-token-budget-tuning-for-llm-agents",
+    "name": "failwise-worst-case-token-budget-tuning-for-llm-agents",
+    "version": "",
+    "description": "Tune LLM agent token budgets, retrieval depth, and retry policies against worst-case failure slices; use for Failwise, token budget tuning, agent regression analysis, Pareto policy ranking, and worst-slice reliability reviews.",
+    "verified": false
+  },
+  {
+    "slug": "gatetrace-domain-aware-rag-gate-benchmark",
+    "name": "gatetrace-domain-aware-rag-gate-benchmark",
+    "version": "0.1.0",
+    "description": "Evaluates RAG relevance gates and retrieval systems with domain-sliced metrics; use for GateTrace, RAG gate benchmark, retrieval eval, domain-aware RAG, false-pass, false-block, and missing-evidence analysis.",
+    "verified": true
+  }
+]
