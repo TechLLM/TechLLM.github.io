@@ -1,0 +1,9 @@
+qid,doc_id,label,domain,doc_type,evidence_field,region
+q1,d1,1,support,faq,body,us
+q2,d2,0,support,faq,body,us
+q3,d3,1,legal,policy,metadata,eu
+q4,d4,0,legal,policy,metadata,eu
+q5,d5,1,sales,case_study,summary,us
+q6,d6,0,sales,case_study,summary,us
+q7,d7,1,support,faq,,apac
+q8,d8,0,legal,policy,,apac
