@@ -1,0 +1,30 @@
+{
+  "cases": [
+    {
+      "run_id": "refund-window",
+      "required_documents": [
+        "policy/refunds-2026"
+      ],
+      "optional_documents": [
+        "faq/refunds"
+      ],
+      "forbidden_documents": [
+        "policy/refunds-2021"
+      ],
+      "required_actions": [
+        {
+          "type": "retrieve",
+          "target": "policy/refunds-2026"
+        },
+        {
+          "type": "cite",
+          "target": "policy/refunds-2026"
+        }
+      ],
+      "expected_facts": {
+        "refund_window_days": 30,
+        "region": "US"
+      }
+    }
+  ]
+}
