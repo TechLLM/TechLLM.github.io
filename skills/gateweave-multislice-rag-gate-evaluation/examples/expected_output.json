@@ -1,0 +1,435 @@
+{
+  "protocol": "gateweave-v0",
+  "threshold": 0.5,
+  "slice_columns": [
+    "domain",
+    "doc_type",
+    "evidence_field"
+  ],
+  "missing_field_columns": [
+    "evidence_field"
+  ],
+  "labels": {
+    "rows": 8,
+    "source": "examples/labels.csv"
+  },
+  "scorers": [
+    {
+      "name": "baseline",
+      "rows_evaluated": 8,
+      "missing_predictions": 0,
+      "extra_predictions": 0,
+      "aggregate": {
+        "count": 8,
+        "tp": 2,
+        "fp": 1,
+        "fn": 2,
+        "tn": 3,
+        "precision": 0.666667,
+        "recall": 0.5,
+        "f1": 0.571429,
+        "accuracy": 0.625
+      },
+      "slices": {
+        "domain": [
+          {
+            "value": "legal",
+            "metrics": {
+              "count": 3,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "tn": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0
+            }
+          },
+          {
+            "value": "sales",
+            "metrics": {
+              "count": 2,
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 1,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "accuracy": 0.5
+            }
+          },
+          {
+            "value": "support",
+            "metrics": {
+              "count": 3,
+              "tp": 1,
+              "fp": 1,
+              "fn": 1,
+              "tn": 0,
+              "precision": 0.5,
+              "recall": 0.5,
+              "f1": 0.5,
+              "accuracy": 0.333333
+            }
+          }
+        ],
+        "doc_type": [
+          {
+            "value": "case_study",
+            "metrics": {
+              "count": 2,
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 1,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "accuracy": 0.5
+            }
+          },
+          {
+            "value": "faq",
+            "metrics": {
+              "count": 3,
+              "tp": 1,
+              "fp": 1,
+              "fn": 1,
+              "tn": 0,
+              "precision": 0.5,
+              "recall": 0.5,
+              "f1": 0.5,
+              "accuracy": 0.333333
+            }
+          },
+          {
+            "value": "policy",
+            "metrics": {
+              "count": 3,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "tn": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0
+            }
+          }
+        ],
+        "evidence_field": [
+          {
+            "value": "__MISSING__",
+            "metrics": {
+              "count": 2,
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 1,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "accuracy": 0.5
+            }
+          },
+          {
+            "value": "body",
+            "metrics": {
+              "count": 2,
+              "tp": 1,
+              "fp": 1,
+              "fn": 0,
+              "tn": 0,
+              "precision": 0.5,
+              "recall": 1.0,
+              "f1": 0.666667,
+              "accuracy": 0.5
+            }
+          },
+          {
+            "value": "metadata",
+            "metrics": {
+              "count": 2,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "tn": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0
+            }
+          },
+          {
+            "value": "summary",
+            "metrics": {
+              "count": 2,
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 1,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "accuracy": 0.5
+            }
+          }
+        ]
+      },
+      "missing_field_stress": [
+        {
+          "column": "evidence_field",
+          "missing_count": 2,
+          "present_count": 6,
+          "missing_f1": 0.0,
+          "present_f1": 0.666667,
+          "stress_score": 0.0,
+          "stress_delta": -0.666667
+        }
+      ],
+      "worst_slice": {
+        "column": "domain",
+        "value": "sales",
+        "metrics": {
+          "count": 2,
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "accuracy": 0.5
+        }
+      },
+      "worst_slice_score": 0.0
+    },
+    {
+      "name": "candidate",
+      "rows_evaluated": 8,
+      "missing_predictions": 0,
+      "extra_predictions": 0,
+      "aggregate": {
+        "count": 8,
+        "tp": 3,
+        "fp": 1,
+        "fn": 1,
+        "tn": 3,
+        "precision": 0.75,
+        "recall": 0.75,
+        "f1": 0.75,
+        "accuracy": 0.75
+      },
+      "slices": {
+        "domain": [
+          {
+            "value": "legal",
+            "metrics": {
+              "count": 3,
+              "tp": 0,
+              "fp": 1,
+              "fn": 1,
+              "tn": 1,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "accuracy": 0.333333
+            }
+          },
+          {
+            "value": "sales",
+            "metrics": {
+              "count": 2,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "tn": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0
+            }
+          },
+          {
+            "value": "support",
+            "metrics": {
+              "count": 3,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "tn": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0
+            }
+          }
+        ],
+        "doc_type": [
+          {
+            "value": "case_study",
+            "metrics": {
+              "count": 2,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "tn": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0
+            }
+          },
+          {
+            "value": "faq",
+            "metrics": {
+              "count": 3,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "tn": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0
+            }
+          },
+          {
+            "value": "policy",
+            "metrics": {
+              "count": 3,
+              "tp": 0,
+              "fp": 1,
+              "fn": 1,
+              "tn": 1,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "accuracy": 0.333333
+            }
+          }
+        ],
+        "evidence_field": [
+          {
+            "value": "__MISSING__",
+            "metrics": {
+              "count": 2,
+              "tp": 1,
+              "fp": 1,
+              "fn": 0,
+              "tn": 0,
+              "precision": 0.5,
+              "recall": 1.0,
+              "f1": 0.666667,
+              "accuracy": 0.5
+            }
+          },
+          {
+            "value": "body",
+            "metrics": {
+              "count": 2,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "tn": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0
+            }
+          },
+          {
+            "value": "metadata",
+            "metrics": {
+              "count": 2,
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 1,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "accuracy": 0.5
+            }
+          },
+          {
+            "value": "summary",
+            "metrics": {
+              "count": 2,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "tn": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0
+            }
+          }
+        ]
+      },
+      "missing_field_stress": [
+        {
+          "column": "evidence_field",
+          "missing_count": 2,
+          "present_count": 6,
+          "missing_f1": 0.666667,
+          "present_f1": 0.8,
+          "stress_score": 0.666667,
+          "stress_delta": -0.133333
+        }
+      ],
+      "worst_slice": {
+        "column": "domain",
+        "value": "legal",
+        "metrics": {
+          "count": 3,
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "tn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "accuracy": 0.333333
+        }
+      },
+      "worst_slice_score": 0.0
+    }
+  ],
+  "comparisons": [
+    {
+      "metric": "aggregate_f1",
+      "best": [
+        "candidate"
+      ],
+      "scores": {
+        "baseline": 0.571429,
+        "candidate": 0.75
+      }
+    },
+    {
+      "metric": "worst_slice_score",
+      "best": [
+        "baseline",
+        "candidate"
+      ],
+      "scores": {
+        "baseline": 0.0,
+        "candidate": 0.0
+      }
+    },
+    {
+      "metric": "missing_field_stress_score:evidence_field",
+      "best": [
+        "candidate"
+      ],
+      "scores": {
+        "baseline": 0.0,
+        "candidate": 0.666667
+      }
+    }
+  ]
+}

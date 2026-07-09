@@ -1,0 +1,9 @@
+qid,doc_id,score,scorer
+q1,d1,0.9,candidate
+q2,d2,0.4,candidate
+q3,d3,0.3,candidate
+q4,d4,0.2,candidate
+q5,d5,0.8,candidate
+q6,d6,0.4,candidate
+q7,d7,0.7,candidate
+q8,d8,0.6,candidate
