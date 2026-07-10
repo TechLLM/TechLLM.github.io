@@ -1,0 +1,176 @@
+{
+  "ledger_version": "0.1.0",
+  "run": {
+    "id": "local-run",
+    "actor": "unknown-agent",
+    "source": "ledgerspan"
+  },
+  "workspace": {
+    "before_file_count": 4,
+    "after_file_count": 4
+  },
+  "changes": {
+    "created": [
+      {
+        "path": "docs/evidence.md",
+        "size": 26,
+        "mtime": 1700000100,
+        "sha256": "1c88c3ca1b8a3337bbf11ab80797a154530c7f12bf283bb23d63e74718898572"
+      }
+    ],
+    "modified": [
+      {
+        "path": "src/agent.py",
+        "before": {
+          "size": 23,
+          "mtime": 1700000000,
+          "sha256": "12b465bcd95c54a6c888bb9d250e43a5a8a78e90c12b9e68f73ab3fc2707811d"
+        },
+        "after": {
+          "size": 23,
+          "mtime": 1700000100,
+          "sha256": "3bb809bd55ff7d0602c15c6ae6ee76196a61334f3b29365003588d32159cc855"
+        }
+      }
+    ],
+    "deleted": [
+      {
+        "path": "notes/draft.txt",
+        "size": 19,
+        "mtime": 1700000000,
+        "sha256": "be62c47c6360f6a2a13395034587fd995854a970f8b62078a3031717715f8723"
+      }
+    ],
+    "renamed": [
+      {
+        "from": "data/input.csv",
+        "to": "data/source.csv",
+        "size": 17,
+        "sha256": "3900f57e02c84c96eb4fe5f296f9f0427670d822c7dcf5a5bd76e4877c7a117f"
+      }
+    ],
+    "unchanged_count": 1
+  },
+  "commands": {
+    "summary": {
+      "total": 1,
+      "succeeded": 1,
+      "failed": 0,
+      "duration_ms": 1240
+    },
+    "entries": [
+      {
+        "command": "python -m pytest",
+        "exit_code": 0,
+        "duration_ms": 1240,
+        "cwd": ".",
+        "stdout_ref": "logs/pytest.stdout.txt",
+        "stderr_ref": "logs/pytest.stderr.txt"
+      }
+    ]
+  },
+  "tool_calls": {
+    "summary": {
+      "total": 3,
+      "by_kind": {
+        "api_call": 1,
+        "file_operation": 1,
+        "search": 1
+      },
+      "resources_touched": [
+        "README.md",
+        "docs/evidence.md",
+        "local/mock-model"
+      ]
+    },
+    "entries": [
+      {
+        "id": "tool-001",
+        "kind": "search",
+        "tool": "local_search",
+        "action": "query",
+        "resource": "README.md",
+        "status": "ok"
+      },
+      {
+        "id": "tool-002",
+        "kind": "file_operation",
+        "tool": "editor",
+        "action": "write",
+        "resource": "docs/evidence.md",
+        "status": "ok"
+      },
+      {
+        "id": "tool-003",
+        "kind": "api_call",
+        "tool": "mock_llm",
+        "action": "complete",
+        "resource": "local/mock-model",
+        "status": "ok"
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "path": "docs/evidence.md",
+      "status": "present",
+      "size": 26,
+      "sha256": "1c88c3ca1b8a3337bbf11ab80797a154530c7f12bf283bb23d63e74718898572"
+    }
+  ],
+  "verification": {
+    "status": "pass",
+    "passed": 8,
+    "failed": 0,
+    "checks": [
+      {
+        "name": "required file exists: docs/evidence.md",
+        "type": "required_file",
+        "status": "pass",
+        "evidence": "docs/evidence.md"
+      },
+      {
+        "name": "required file exists: src/agent.py",
+        "type": "required_file",
+        "status": "pass",
+        "evidence": "src/agent.py"
+      },
+      {
+        "name": "evidence document created",
+        "type": "file_created",
+        "status": "pass",
+        "evidence": "docs/evidence.md"
+      },
+      {
+        "name": "agent source changed",
+        "type": "file_modified",
+        "status": "pass",
+        "evidence": "src/agent.py"
+      },
+      {
+        "name": "draft notes removed",
+        "type": "file_deleted",
+        "status": "pass",
+        "evidence": "notes/draft.txt"
+      },
+      {
+        "name": "test command passed",
+        "type": "command_exit_zero",
+        "status": "pass",
+        "evidence": "python -m pytest"
+      },
+      {
+        "name": "search trace recorded",
+        "type": "tool_kind_seen",
+        "status": "pass",
+        "evidence": "search"
+      },
+      {
+        "name": "artifact hash recorded",
+        "type": "artifact_hashed",
+        "status": "pass",
+        "evidence": "docs/evidence.md"
+      }
+    ]
+  }
+}

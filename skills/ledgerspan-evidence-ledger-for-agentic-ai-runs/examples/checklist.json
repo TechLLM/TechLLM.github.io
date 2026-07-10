@@ -1,0 +1,41 @@
+{
+  "required_files": [
+    "docs/evidence.md",
+    "src/agent.py"
+  ],
+  "artifacts": [
+    "docs/evidence.md"
+  ],
+  "assertions": [
+    {
+      "name": "evidence document created",
+      "type": "file_created",
+      "path": "docs/evidence.md"
+    },
+    {
+      "name": "agent source changed",
+      "type": "file_modified",
+      "path": "src/agent.py"
+    },
+    {
+      "name": "draft notes removed",
+      "type": "file_deleted",
+      "path": "notes/draft.txt"
+    },
+    {
+      "name": "test command passed",
+      "type": "command_exit_zero",
+      "command_contains": "pytest"
+    },
+    {
+      "name": "search trace recorded",
+      "type": "tool_kind_seen",
+      "kind": "search"
+    },
+    {
+      "name": "artifact hash recorded",
+      "type": "artifact_hashed",
+      "path": "docs/evidence.md"
+    }
+  ]
+}
