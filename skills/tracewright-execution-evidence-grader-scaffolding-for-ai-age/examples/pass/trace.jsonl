@@ -1,0 +1,3 @@
+{"type": "read", "path": "src/feature.py"}
+{"type": "write", "path": "src/feature.py"}
+{"type": "command", "command": "python scripts/test.py"}

@@ -1,0 +1,6 @@
+diff --git a/src/feature.py b/src/feature.py
+--- a/src/feature.py
++++ b/src/feature.py
+@@
++def calculate_total(items):
++    return sum(items)
