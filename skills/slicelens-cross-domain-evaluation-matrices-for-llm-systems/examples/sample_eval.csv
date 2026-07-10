@@ -1,0 +1,13 @@
+id,source_domain,target_domain,question_type,document_type,modality,condition,score
+1,legal,legal,fact,pdf,text,clean,0.90
+2,legal,finance,comparison,pdf,text,clean,0.62
+3,legal,medical,ambiguous,pdf,text,missing_metadata,0.44
+4,finance,finance,fact,html,text,clean,0.88
+5,finance,legal,comparison,csv,text,format_shift,0.58
+6,finance,medical,ambiguous,csv,text,missing_metadata,0.39
+7,medical,medical,fact,pdf,text,clean,0.86
+8,medical,legal,comparison,pdf,text,format_shift,0.55
+9,medical,finance,ambiguous,,text,missing_metadata,0.41
+10,legal,legal,comparison,pdf,text,format_shift,0.70
+11,finance,finance,fact,csv,text,clean,0.91
+12,medical,medical,ambiguous,pdf,image,clean,0.60
