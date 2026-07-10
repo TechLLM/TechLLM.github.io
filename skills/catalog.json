@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "contextmender-agent-context-ablation-benchmark",
+    "name": "contextmender-agent-context-ablation-benchmark",
+    "version": "",
+    "description": "",
+    "verified": false
+  },
+  {
+    "slug": "diffsentinel-state-change-grading-for-ai-agents",
+    "name": "diffsentinel-state-change-grading-for-ai-agents",
+    "version": "",
+    "description": "",
+    "verified": false
+  },
+  {
+    "slug": "failwise-worst-case-token-budget-tuning-for-llm-agents",
+    "name": "failwise-worst-case-token-budget-tuning-for-llm-agents",
+    "version": "",
+    "description": "Tune LLM agent token budgets, retrieval depth, and retry policies against worst-case failure slices; use for Failwise, token budget tuning, agent regression analysis, Pareto policy ranking, and worst-slice reliability reviews.",
+    "verified": false
+  },
+  {
+    "slug": "ledgerspan-evidence-ledger-for-agentic-ai-runs",
+    "name": "ledgerspan-evidence-ledger-for-agentic-ai-runs",
+    "version": "0.1.0",
+    "description": "Builds a durable evidence ledger for agentic AI runs; use when you need LedgerSpan, evidence ledger, agent benchmark, tool trace, workspace diff, artifact hash, or verification checklist outputs.",
+    "verified": true
+  }
+]

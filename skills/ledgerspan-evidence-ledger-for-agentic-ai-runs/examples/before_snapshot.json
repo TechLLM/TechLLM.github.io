@@ -1,0 +1,28 @@
+{
+  "files": [
+    {
+      "path": "README.md",
+      "size": 18,
+      "mtime": 1700000000,
+      "sha256": "e33e2152a256bfec245a33309ec503440d856148c31a849242e96d343d3dab78"
+    },
+    {
+      "path": "data/input.csv",
+      "size": 17,
+      "mtime": 1700000000,
+      "sha256": "3900f57e02c84c96eb4fe5f296f9f0427670d822c7dcf5a5bd76e4877c7a117f"
+    },
+    {
+      "path": "notes/draft.txt",
+      "size": 19,
+      "mtime": 1700000000,
+      "sha256": "be62c47c6360f6a2a13395034587fd995854a970f8b62078a3031717715f8723"
+    },
+    {
+      "path": "src/agent.py",
+      "size": 23,
+      "mtime": 1700000000,
+      "sha256": "12b465bcd95c54a6c888bb9d250e43a5a8a78e90c12b9e68f73ab3fc2707811d"
+    }
+  ]
+}

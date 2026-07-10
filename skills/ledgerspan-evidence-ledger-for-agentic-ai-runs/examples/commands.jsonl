@@ -1,0 +1,1 @@
+{"command":"python -m pytest","exit_code":0,"duration_ms":1240,"cwd":".","stdout_ref":"logs/pytest.stdout.txt","stderr_ref":"logs/pytest.stderr.txt"}

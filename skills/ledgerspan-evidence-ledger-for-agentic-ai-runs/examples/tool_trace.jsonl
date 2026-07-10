@@ -1,0 +1,3 @@
+{"id":"tool-001","kind":"search","tool":"local_search","action":"query","resource":"README.md","status":"ok"}
+{"id":"tool-002","kind":"file_operation","tool":"editor","action":"write","resource":"docs/evidence.md","status":"ok"}
+{"id":"tool-003","kind":"api_call","tool":"mock_llm","action":"complete","resource":"local/mock-model","status":"ok"}

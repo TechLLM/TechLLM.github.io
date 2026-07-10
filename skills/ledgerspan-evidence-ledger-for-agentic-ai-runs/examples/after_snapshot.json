@@ -1,0 +1,28 @@
+{
+  "files": [
+    {
+      "path": "README.md",
+      "size": 18,
+      "mtime": 1700000000,
+      "sha256": "e33e2152a256bfec245a33309ec503440d856148c31a849242e96d343d3dab78"
+    },
+    {
+      "path": "data/source.csv",
+      "size": 17,
+      "mtime": 1700000100,
+      "sha256": "3900f57e02c84c96eb4fe5f296f9f0427670d822c7dcf5a5bd76e4877c7a117f"
+    },
+    {
+      "path": "docs/evidence.md",
+      "size": 26,
+      "mtime": 1700000100,
+      "sha256": "1c88c3ca1b8a3337bbf11ab80797a154530c7f12bf283bb23d63e74718898572"
+    },
+    {
+      "path": "src/agent.py",
+      "size": 23,
+      "mtime": 1700000100,
+      "sha256": "3bb809bd55ff7d0602c15c6ae6ee76196a61334f3b29365003588d32159cc855"
+    }
+  ]
+}
