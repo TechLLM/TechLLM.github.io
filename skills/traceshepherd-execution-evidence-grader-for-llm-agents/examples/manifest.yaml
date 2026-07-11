@@ -1,0 +1,22 @@
+version: 1
+rules:
+  required_events:
+    - type: search
+      pattern: project plan
+    - type: read
+      path: sources/project-plan.md
+    - type: write
+      path: docs/agent-report.md
+  allowed_paths:
+    - docs/**
+  forbidden_paths:
+    - secrets/**
+  files:
+    - path: docs/agent-report.md
+      must_exist: true
+      min_size: 40
+      contains:
+        - TraceShepherd demo report
+        - "Evidence: project plan was read."
+      regex:
+        - "Result: docs updated\\."
