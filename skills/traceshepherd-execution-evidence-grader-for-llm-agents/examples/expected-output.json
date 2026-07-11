@@ -1,0 +1,83 @@
+{
+  "errors": [],
+  "evidence": {
+    "missing_events": [],
+    "required_events": [
+      {
+        "matched": true,
+        "matched_event_index": 0,
+        "rule": {
+          "pattern": "project plan",
+          "type": "search"
+        }
+      },
+      {
+        "matched": true,
+        "matched_event_index": 1,
+        "rule": {
+          "path": "sources/project-plan.md",
+          "type": "read"
+        }
+      },
+      {
+        "matched": true,
+        "matched_event_index": 2,
+        "rule": {
+          "path": "docs/agent-report.md",
+          "type": "write"
+        }
+      }
+    ]
+  },
+  "files": [
+    {
+      "checks": [
+        {
+          "expected": true,
+          "name": "exists",
+          "pass": true
+        },
+        {
+          "expected": 40,
+          "name": "min_size",
+          "pass": true
+        },
+        {
+          "expected": "TraceShepherd demo report",
+          "name": "contains",
+          "pass": true
+        },
+        {
+          "expected": "Evidence: project plan was read.",
+          "name": "contains",
+          "pass": true
+        },
+        {
+          "expected": "Result: docs updated\\.",
+          "name": "regex",
+          "pass": true
+        }
+      ],
+      "exists": true,
+      "pass": true,
+      "path": "docs/agent-report.md",
+      "sha256": "52885658e8b360e25bcdb8f9d14195cc03469363ac7bdbc302630305dc9fabf0",
+      "size_bytes": 82
+    }
+  ],
+  "policy": {
+    "changed_paths": [
+      "docs/agent-report.md"
+    ],
+    "forbidden_modified_files": [],
+    "unexpected_modified_files": []
+  },
+  "status": "pass",
+  "summary": {
+    "checks": 10,
+    "failed": 0,
+    "passed": 10
+  },
+  "tool": "traceshepherd",
+  "version": "0.1.0"
+}
