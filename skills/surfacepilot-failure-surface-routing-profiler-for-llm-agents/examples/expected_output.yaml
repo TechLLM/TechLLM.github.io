@@ -1,0 +1,198 @@
+summary:
+  events: 5
+  passed: 1
+  failed: 4
+  failure_rate: 0.8
+  surfaces:
+    api_call:
+      events: 1
+      passed: 0
+      failed: 1
+      fail_rate: 1.0
+    citation:
+      events: 1
+      passed: 0
+      failed: 1
+      fail_rate: 1.0
+    file_edit:
+      events: 1
+      passed: 0
+      failed: 1
+      fail_rate: 1.0
+    retrieval:
+      events: 2
+      passed: 1
+      failed: 1
+      fail_rate: 0.5
+matrix:
+  - task_type: "code_edit"
+    model: "small-router"
+    route: "edit_direct"
+    tool: "filesystem"
+    surface: "file_edit"
+    signal: "unsafe_edit"
+    events: 1
+    passed: 0
+    failed: 1
+    fail_rate: 1.0
+  - task_type: "ops"
+    model: "small-router"
+    route: "api_direct"
+    tool: "billing_api"
+    surface: "api_call"
+    signal: "malformed_api_call"
+    events: 1
+    passed: 0
+    failed: 1
+    fail_rate: 1.0
+  - task_type: "support_qa"
+    model: "large-router"
+    route: "rag_verified"
+    tool: "retriever"
+    surface: "retrieval"
+    signal: "fresh_retrieval"
+    events: 1
+    passed: 1
+    failed: 0
+    fail_rate: 0.0
+  - task_type: "support_qa"
+    model: "small-router"
+    route: "rag_fast"
+    tool: "citation_checker"
+    surface: "citation"
+    signal: "unsupported_citation"
+    events: 1
+    passed: 0
+    failed: 1
+    fail_rate: 1.0
+  - task_type: "support_qa"
+    model: "small-router"
+    route: "rag_fast"
+    tool: "retriever"
+    surface: "retrieval"
+    signal: "stale_retrieval"
+    events: 1
+    passed: 0
+    failed: 1
+    fail_rate: 1.0
+patterns:
+  - signal: "malformed_api_call"
+    surface: "api_call"
+    count: 1
+    task_ids:
+      - "task-004"
+    routes:
+      - "api_direct"
+    tools:
+      - "billing_api"
+  - signal: "unsupported_citation"
+    surface: "citation"
+    count: 1
+    task_ids:
+      - "task-001"
+    routes:
+      - "rag_fast"
+    tools:
+      - "citation_checker"
+  - signal: "unsafe_edit"
+    surface: "file_edit"
+    count: 1
+    task_ids:
+      - "task-003"
+    routes:
+      - "edit_direct"
+    tools:
+      - "filesystem"
+  - signal: "stale_retrieval"
+    surface: "retrieval"
+    count: 1
+    task_ids:
+      - "task-001"
+    routes:
+      - "rag_fast"
+    tools:
+      - "retriever"
+routing_policy:
+  version: "surfacepilot.policy.v1"
+  thresholds:
+    failure_threshold: 0.34
+    min_failures: 1
+  rules:
+    - id: "surface-rule-001"
+      match:
+        task_type: "code_edit"
+        surface: "file_edit"
+      when: "fail_rate >= 0.34 and failures >= 1"
+      action:
+        - "require diff validation before final answer"
+        - "prefer guarded edit routes with tests or dry-run checks"
+        - "escalate when edits touch unrelated files"
+      evidence:
+        events: 1
+        failures: 1
+        fail_rate: 1.0
+        top_signals:
+          - "unsafe_edit"
+        routes:
+          - "edit_direct"
+        models:
+          - "small-router"
+    - id: "surface-rule-002"
+      match:
+        task_type: "ops"
+        surface: "api_call"
+      when: "fail_rate >= 0.34 and failures >= 1"
+      action:
+        - "validate request schema before execution"
+        - "prefer routes with dry-run or idempotency safeguards"
+        - "verify external state after the call"
+      evidence:
+        events: 1
+        failures: 1
+        fail_rate: 1.0
+        top_signals:
+          - "malformed_api_call"
+        routes:
+          - "api_direct"
+        models:
+          - "small-router"
+    - id: "surface-rule-003"
+      match:
+        task_type: "support_qa"
+        surface: "citation"
+      when: "fail_rate >= 0.34 and failures >= 1"
+      action:
+        - "require citation support checks before final answer"
+        - "block claims that cannot be tied to retrieved evidence"
+        - "fallback to a model route with stricter attribution prompts"
+      evidence:
+        events: 1
+        failures: 1
+        fail_rate: 1.0
+        top_signals:
+          - "unsupported_citation"
+        routes:
+          - "rag_fast"
+        models:
+          - "small-router"
+    - id: "surface-rule-004"
+      match:
+        task_type: "support_qa"
+        surface: "retrieval"
+      when: "fail_rate >= 0.34 and failures >= 1"
+      action:
+        - "prefer verified retrieval routes for this task type"
+        - "require freshness and coverage checks before answering"
+        - "fallback to an uncertainty response when evidence is weak"
+      evidence:
+        events: 2
+        failures: 1
+        fail_rate: 0.5
+        top_signals:
+          - "stale_retrieval"
+        routes:
+          - "rag_fast"
+          - "rag_verified"
+        models:
+          - "large-router"
+          - "small-router"

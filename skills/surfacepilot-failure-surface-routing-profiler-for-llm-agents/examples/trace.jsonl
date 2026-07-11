@@ -1,0 +1,5 @@
+{"task_id":"task-001","task_type":"support_qa","model":"small-router","route":"rag_fast","tool":"retriever","surface":"retrieval","success":false,"signal":"stale_retrieval","message":"retrieved outdated policy text"}
+{"task_id":"task-001","task_type":"support_qa","model":"small-router","route":"rag_fast","tool":"citation_checker","surface":"citation","success":false,"signal":"unsupported_citation","message":"answer cited a source that was not present"}
+{"task_id":"task-002","task_type":"support_qa","model":"large-router","route":"rag_verified","tool":"retriever","surface":"retrieval","success":true,"signal":"fresh_retrieval","message":"retrieved current policy text"}
+{"task_id":"task-003","task_type":"code_edit","model":"small-router","route":"edit_direct","tool":"filesystem","surface":"file_edit","success":false,"signal":"unsafe_edit","message":"patch touched an unrelated file"}
+{"task_id":"task-004","task_type":"ops","model":"small-router","route":"api_direct","tool":"billing_api","surface":"api_call","success":false,"signal":"malformed_api_call","message":"request body missed a required field"}
