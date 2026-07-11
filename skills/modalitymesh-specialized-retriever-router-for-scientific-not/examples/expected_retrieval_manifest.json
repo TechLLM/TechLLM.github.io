@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "generator": "modalitymesh",
+  "policy": "balanced",
+  "source_count": 1,
+  "modalities": [
+    "table",
+    "formula",
+    "code",
+    "citation",
+    "timeline",
+    "benchmark"
+  ],
+  "files": [
+    {
+      "path": "scientific_notes.md",
+      "tags": [
+        "table",
+        "formula",
+        "code",
+        "citation",
+        "timeline",
+        "benchmark"
+      ],
+      "recommended_scorers": [
+        "bm25",
+        "dense-semantic",
+        "numeric-range",
+        "table-structure",
+        "symbolic-formula",
+        "code-semantic",
+        "citation-graph",
+        "temporal-date",
+        "benchmark-reranker"
+      ],
+      "evidence": [
+        {
+          "modality": "timeline",
+          "block_type": "line",
+          "line_start": 3,
+          "line_end": 3,
+          "reason": "Explicit calendar date",
+          "snippet": "Observed on 2024-03-12 during instrument sweep."
+        },
+        {
+          "modality": "formula",
+          "block_type": "line",
+          "line_start": 5,
+          "line_end": 5,
+          "reason": "Inline or display math marker",
+          "snippet": "The transition estimate follows $T_c = 92K$ for sample A."
+        },
+        {
+          "modality": "table",
+          "block_type": "table",
+          "line_start": 7,
+          "line_end": 10,
+          "reason": "Markdown table with header separator",
+          "snippet": "| sample | Tc_K | resistance_ohm | | --- | ---: | ---: | | A | 92 | 0.02 | | B | 88 | 0.05 |"
+        },
+        {
+          "modality": "code",
+          "block_type": "code_fence",
+          "line_start": 12,
+          "line_end": 15,
+          "reason": "Fenced code block (python)",
+          "snippet": "```python def normalize(x): return x / max(x) ```"
+        },
+        {
+          "modality": "citation",
+          "block_type": "line",
+          "line_start": 17,
+          "line_end": 17,
+          "reason": "Citation marker or DOI",
+          "snippet": "Smith et al. [Smith 2021] reported a comparable curve. DOI:10.1000/example"
+        },
+        {
+          "modality": "benchmark",
+          "block_type": "line",
+          "line_start": 19,
+          "line_end": 19,
+          "reason": "Benchmark or metric keyword",
+          "snippet": "Benchmark: recall@10 improved from 0.71 to 0.83 with table-aware scoring."
+        }
+      ]
+    }
+  ]
+}
