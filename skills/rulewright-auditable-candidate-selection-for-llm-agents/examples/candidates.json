@@ -1,0 +1,35 @@
+{
+  "query": "Select the best candidate for auditable LLM retrieval reranking with explicit rules and reproducible decision traces.",
+  "max_selected": 1,
+  "candidates": [
+    {
+      "id": "doc-rules-first",
+      "title": "Rule-first retrieval reranking",
+      "text": "Defines explicit comparison rules before scoring retrieval candidates. Produces rules.yaml, decision_matrix.json, selected_ids, and reproducible audit traces for LLM agents.",
+      "tags": [
+        "retrieval",
+        "reranking",
+        "audit",
+        "llm"
+      ]
+    },
+    {
+      "id": "doc-fast-summary",
+      "title": "Fast summary generation",
+      "text": "Summarizes long documents quickly and returns a concise answer, but does not preserve per-candidate selection evidence or deterministic replay artifacts.",
+      "tags": [
+        "summarization",
+        "latency"
+      ]
+    },
+    {
+      "id": "doc-secret-cache",
+      "title": "Private cache shortcut",
+      "text": "Uses a private token and secret cache to choose an answer without exposing rules or auditable scoring details.",
+      "tags": [
+        "shortcut",
+        "private"
+      ]
+    }
+  ]
+}
