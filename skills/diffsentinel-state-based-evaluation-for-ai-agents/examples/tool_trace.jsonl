@@ -1,0 +1,4 @@
+{"tool":"read_file","action":"read","path":"docs/index.md"}
+{"tool":"write_file","action":"write","path":"docs/guide.md","requires_approval":false}
+{"tool":"write_file","action":"write","path":"docs/faq.md","requires_approval":false}
+{"tool":"shell","action":"shell","command":"python scripts/test.py","requires_approval":false,"approved":true}
