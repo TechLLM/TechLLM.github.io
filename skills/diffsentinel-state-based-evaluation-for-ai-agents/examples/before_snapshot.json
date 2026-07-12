@@ -1,0 +1,10 @@
+{
+  "files": {
+    "docs/guide.md": {
+      "content": "# Guide\n\nInitial setup steps.\n"
+    },
+    "docs/index.md": {
+      "content": "# Project Docs\n\nSee [Guide](guide.md).\n"
+    }
+  }
+}

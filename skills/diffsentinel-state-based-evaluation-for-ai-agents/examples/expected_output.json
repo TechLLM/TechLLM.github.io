@@ -1,0 +1,84 @@
+{
+  "evidence": {
+    "changed_paths": [
+      "docs/faq.md",
+      "docs/guide.md"
+    ],
+    "policy": {
+      "allow_shell_without_approval": true,
+      "fail_below_score": 80,
+      "forbidden_path_patterns": [
+        "../",
+        "~",
+        ".env",
+        "secrets/",
+        "private/"
+      ],
+      "protected_paths": []
+    }
+  },
+  "findings": [],
+  "graph": {
+    "added_links": [
+      {
+        "source": "docs/faq.md",
+        "target": "docs/guide.md"
+      }
+    ],
+    "orphaned_nodes": [],
+    "removed_links": [],
+    "unresolved_references": []
+  },
+  "schema_version": "diffsentinel-report-v1",
+  "state_diff": {
+    "created": [
+      "docs/faq.md"
+    ],
+    "deleted": [],
+    "modified": [
+      "docs/guide.md"
+    ],
+    "renamed": [],
+    "unchanged": [
+      "docs/index.md"
+    ]
+  },
+  "summary": {
+    "counts": {
+      "created": 1,
+      "deleted": 0,
+      "modified": 1,
+      "renamed": 0,
+      "unchanged": 1,
+      "violations": 0
+    },
+    "graph_score": 100,
+    "overall_score": 100,
+    "state_score": 100,
+    "status": "pass",
+    "trace_score": 100
+  },
+  "trace": {
+    "actions": {
+      "read": 1,
+      "shell": 1,
+      "write": 2
+    },
+    "events": 4,
+    "external_accesses": [],
+    "paths_accessed": [
+      "docs/faq.md",
+      "docs/guide.md",
+      "docs/index.md"
+    ],
+    "shell_commands": [
+      "python scripts/test.py"
+    ],
+    "tools": {
+      "read_file": 1,
+      "shell": 1,
+      "write_file": 2
+    }
+  },
+  "violations": []
+}

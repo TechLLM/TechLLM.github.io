@@ -1,0 +1,13 @@
+{
+  "files": {
+    "docs/faq.md": {
+      "content": "# FAQ\n\nSee [[guide]].\n"
+    },
+    "docs/guide.md": {
+      "content": "# Guide\n\nInitial setup steps.\n\nRun the self-test before review.\n"
+    },
+    "docs/index.md": {
+      "content": "# Project Docs\n\nSee [Guide](guide.md).\n"
+    }
+  }
+}
