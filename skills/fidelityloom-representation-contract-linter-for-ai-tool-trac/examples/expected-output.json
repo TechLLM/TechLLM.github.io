@@ -1,0 +1,208 @@
+{
+  "fidelity_report": {
+    "schema_version": "1.0",
+    "status": "fail",
+    "trace_count": 1,
+    "finding_count": 13,
+    "severity_counts": {
+      "error": 7,
+      "warning": 6,
+      "info": 0
+    },
+    "findings": [
+      {
+        "trace_id": "weather-array-001",
+        "field": "missing_reading",
+        "transition": "source->tool_args",
+        "code": "zero_substitution",
+        "severity": "error",
+        "confidence": 1.0,
+        "message": "Missing value was replaced with numeric zero."
+      },
+      {
+        "trace_id": "weather-array-001",
+        "field": "sample_id",
+        "transition": "source->tool_args",
+        "code": "overflow_risk",
+        "severity": "warning",
+        "confidence": 0.95,
+        "message": "Integer 9007199254740993 exceeds the IEEE-754 safe integer range."
+      },
+      {
+        "trace_id": "weather-array-001",
+        "field": "sample_id",
+        "transition": "tool_args->tool_result",
+        "code": "overflow_risk",
+        "severity": "warning",
+        "confidence": 0.95,
+        "message": "Integer 9007199254740993 exceeds the IEEE-754 safe integer range."
+      },
+      {
+        "trace_id": "weather-array-001",
+        "field": "sample_id",
+        "transition": "tool_args->tool_result",
+        "code": "numeric_type_coercion",
+        "severity": "warning",
+        "confidence": 1.0,
+        "message": "Numeric value changed type from int to string."
+      },
+      {
+        "trace_id": "weather-array-001",
+        "field": "signal",
+        "transition": "source->tool_args",
+        "code": "flattened_array",
+        "severity": "error",
+        "confidence": 1.0,
+        "message": "Array shape changed from [2, 2] to [4] by flattening."
+      },
+      {
+        "trace_id": "weather-array-001",
+        "field": "signal",
+        "transition": "source->tool_args",
+        "code": "reordered_dimensions",
+        "severity": "error",
+        "confidence": 1.0,
+        "message": "Axis order changed from [\"time\",\"channel\"] to [\"channel\",\"time\"]."
+      },
+      {
+        "trace_id": "weather-array-001",
+        "field": "signal",
+        "transition": "source->tool_args",
+        "code": "dimension_metadata_changed",
+        "severity": "error",
+        "confidence": 1.0,
+        "message": "Dimension metadata changed from [2,2] to [4]."
+      },
+      {
+        "trace_id": "weather-array-001",
+        "field": "temperature",
+        "transition": "source->tool_args",
+        "code": "numeric_rounding",
+        "severity": "warning",
+        "confidence": 0.99,
+        "message": "Numeric value changed from 21.375 to 21.4."
+      },
+      {
+        "trace_id": "weather-array-001",
+        "field": "temperature",
+        "transition": "source->tool_args",
+        "code": "significant_digit_loss",
+        "severity": "warning",
+        "confidence": 0.99,
+        "message": "Significant digits decreased from 5 to 3."
+      },
+      {
+        "trace_id": "weather-array-001",
+        "field": "temperature",
+        "transition": "source->tool_args",
+        "code": "precision_contract_violated",
+        "severity": "error",
+        "confidence": 0.99,
+        "message": "Observed value has 3 significant digits; contract requires at least 5."
+      },
+      {
+        "trace_id": "weather-array-001",
+        "field": "temperature",
+        "transition": "source->tool_args",
+        "code": "dropped_unit",
+        "severity": "error",
+        "confidence": 1.0,
+        "message": "Expected unit 'C' is missing."
+      },
+      {
+        "trace_id": "weather-array-001",
+        "field": "temperature",
+        "transition": "tool_args->tool_result",
+        "code": "numeric_type_coercion",
+        "severity": "warning",
+        "confidence": 1.0,
+        "message": "Numeric value changed type from float to string."
+      },
+      {
+        "trace_id": "weather-array-001",
+        "field": "temperature",
+        "transition": "tool_args->tool_result",
+        "code": "precision_contract_violated",
+        "severity": "error",
+        "confidence": 0.99,
+        "message": "Observed value has 3 significant digits; contract requires at least 5."
+      }
+    ]
+  },
+  "adapter_recommendation": {
+    "schema_version": "1.0",
+    "fields": [
+      {
+        "field": "missing_reading",
+        "source_path": "missing_reading",
+        "tool_path": "missing_reading",
+        "result_path": "missing_reading",
+        "required": true,
+        "unit": null,
+        "dimensions": null,
+        "nullable": true,
+        "precision": null,
+        "coercion": "number",
+        "coercion_rules": [
+          "preserve-number-type",
+          "preserve-missing-value-semantics"
+        ]
+      },
+      {
+        "field": "sample_id",
+        "source_path": "sample_id",
+        "tool_path": "sample_id",
+        "result_path": "sample_id",
+        "required": true,
+        "unit": null,
+        "dimensions": null,
+        "nullable": false,
+        "precision": 16,
+        "coercion": "integer",
+        "coercion_rules": [
+          "preserve-integer-type",
+          "minimum-significant-digits:16",
+          "reject-null"
+        ]
+      },
+      {
+        "field": "signal",
+        "source_path": "signal.values",
+        "tool_path": "signal.values",
+        "result_path": "signal.values",
+        "required": true,
+        "unit": null,
+        "dimensions": [
+          "time",
+          "channel"
+        ],
+        "nullable": true,
+        "precision": null,
+        "coercion": "array",
+        "coercion_rules": [
+          "preserve-array-type",
+          "preserve-dimension-order:time,channel",
+          "preserve-missing-value-semantics"
+        ]
+      },
+      {
+        "field": "temperature",
+        "source_path": "temperature.value",
+        "tool_path": "temperature.value",
+        "result_path": "temperature.value",
+        "required": true,
+        "unit": "C",
+        "dimensions": null,
+        "nullable": false,
+        "precision": 5,
+        "coercion": "number",
+        "coercion_rules": [
+          "preserve-number-type",
+          "preserve-unit:C",
+          "minimum-significant-digits:5",
+          "reject-null"
+        ]
+      }
+    ]
+  }
+}

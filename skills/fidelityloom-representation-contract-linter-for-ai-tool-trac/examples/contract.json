@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "fields": {
+    "missing_reading": {
+      "source_path": "missing_reading",
+      "tool_path": "missing_reading",
+      "result_path": "missing_reading",
+      "required": true,
+      "nullable": true,
+      "coercion": "number",
+      "missing_values": [null, -9999, "NaN"]
+    },
+    "sample_id": {
+      "source_path": "sample_id",
+      "tool_path": "sample_id",
+      "result_path": "sample_id",
+      "required": true,
+      "nullable": false,
+      "precision": 16,
+      "coercion": "integer"
+    },
+    "signal": {
+      "source_path": "signal.values",
+      "tool_path": "signal.values",
+      "result_path": "signal.values",
+      "source_axes_path": "signal.axes",
+      "tool_axes_path": "signal.axes",
+      "result_axes_path": "signal.axes",
+      "source_dimensions_path": "signal.shape",
+      "tool_dimensions_path": "signal.shape",
+      "result_dimensions_path": "signal.shape",
+      "required": true,
+      "dimensions": ["time", "channel"],
+      "nullable": true,
+      "coercion": "array",
+      "missing_values": [null, -9999, "NaN"]
+    },
+    "temperature": {
+      "source_path": "temperature.value",
+      "tool_path": "temperature.value",
+      "result_path": "temperature.value",
+      "source_unit_path": "temperature.unit",
+      "tool_unit_path": "temperature.unit",
+      "result_unit_path": "temperature.unit",
+      "required": true,
+      "unit": "C",
+      "nullable": false,
+      "precision": 5,
+      "coercion": "number"
+    }
+  }
+}
