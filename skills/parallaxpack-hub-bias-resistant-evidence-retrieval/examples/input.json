@@ -1,0 +1,126 @@
+{
+  "query": "What recent checkout failures, rollback actions, and customer impact evidence should operators review?",
+  "as_of": "2026-01-15",
+  "graph": {
+    "nodes": [
+      "architecture-overview",
+      "checkout-incident",
+      "customer-impact",
+      "general-platform",
+      "rollback-runbook",
+      "security-advisory"
+    ],
+    "edges": [
+      ["general-platform", "architecture-overview"],
+      ["general-platform", "checkout-incident"],
+      ["general-platform", "customer-impact"],
+      ["general-platform", "rollback-runbook"],
+      ["general-platform", "security-advisory"]
+    ]
+  },
+  "notes": [
+    {
+      "id": "general-platform",
+      "title": "General platform overview",
+      "text": "Broad background on services, deployment, checkout, and operations.",
+      "community": "foundation",
+      "updated_at": "2021-06-01",
+      "sources": [],
+      "tags": [],
+      "semantic_score": 0.98
+    },
+    {
+      "id": "architecture-overview",
+      "title": "Checkout architecture overview",
+      "text": "Background description of the checkout API and service dependencies.",
+      "community": "foundation",
+      "updated_at": "2022-02-10",
+      "sources": [
+        {
+          "title": "Architecture record",
+          "uri": "kb://adr/checkout-architecture"
+        }
+      ],
+      "tags": ["architecture"],
+      "semantic_score": 0.92
+    },
+    {
+      "id": "checkout-incident",
+      "title": "Checkout API timeout incident",
+      "text": "A recent payment dependency timeout caused checkout failures and operator alerts.",
+      "community": "operations",
+      "updated_at": "2026-01-12",
+      "sources": [
+        {
+          "title": "Incident timeline",
+          "uri": "kb://incidents/inc-204"
+        },
+        {
+          "title": "Metrics snapshot",
+          "uri": "kb://metrics/checkout-204"
+        }
+      ],
+      "tags": ["incident", "checkout"],
+      "semantic_score": 0.88
+    },
+    {
+      "id": "rollback-runbook",
+      "title": "Checkout rollback action log",
+      "text": "Operators rolled back the payment adapter and verified checkout recovery.",
+      "community": "operations",
+      "updated_at": "2026-01-14",
+      "sources": [
+        {
+          "title": "Rollback log",
+          "uri": "kb://runs/rollback-88"
+        },
+        {
+          "title": "Recovery check",
+          "uri": "kb://checks/recovery-88"
+        }
+      ],
+      "tags": ["rollback", "operations"],
+      "semantic_score": 0.84
+    },
+    {
+      "id": "customer-impact",
+      "title": "Customer reports during checkout degradation",
+      "text": "Support recorded failed checkout attempts and the affected customer segments.",
+      "community": "support",
+      "updated_at": "2026-01-10",
+      "sources": [
+        {
+          "title": "Anonymized support digest",
+          "uri": "kb://support/digest-51"
+        }
+      ],
+      "tags": ["customer-impact", "checkout"],
+      "semantic_score": 0.81
+    },
+    {
+      "id": "security-advisory",
+      "title": "Payment dependency security advisory",
+      "text": "A recent advisory describes a dependency condition relevant to failure triage.",
+      "community": "security",
+      "updated_at": "2026-01-08",
+      "sources": [
+        {
+          "title": "Vendor advisory",
+          "uri": "kb://vendors/advisory-17"
+        },
+        {
+          "title": "Internal assessment",
+          "uri": "kb://security/assessment-17"
+        }
+      ],
+      "tags": ["security", "dependency"],
+      "semantic_score": 0.78
+    }
+  ],
+  "settings": {
+    "top_k": 4,
+    "per_community_cap": 2,
+    "min_communities": 3,
+    "redundancy_weight": 0.08
+  }
+}

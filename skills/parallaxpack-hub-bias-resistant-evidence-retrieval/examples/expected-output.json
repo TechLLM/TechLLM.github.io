@@ -1,0 +1,268 @@
+{
+  "query": "What recent checkout failures, rollback actions, and customer impact evidence should operators review?",
+  "as_of": "2026-01-15",
+  "configuration": {
+    "top_k": 4,
+    "per_community_cap": 2,
+    "min_communities": 3,
+    "effective_min_communities": 3,
+    "redundancy_weight": 0.08,
+    "weights": {
+      "semantic_relevance": 0.45,
+      "inverse_degree": 0.2,
+      "recency": 0.15,
+      "source_completeness": 0.1,
+      "metadata_quality": 0.1
+    }
+  },
+  "summary": {
+    "candidate_count": 6,
+    "selected_count": 4,
+    "excluded_count": 2
+  },
+  "baseline_comparison": {
+    "baseline_policy": "semantic relevance descending, note ID tie-break",
+    "hub_degree_threshold": 3.157379,
+    "baseline": {
+      "selected_ids": [
+        "general-platform",
+        "architecture-overview",
+        "checkout-incident",
+        "rollback-runbook"
+      ],
+      "metrics": {
+        "community_count": 2,
+        "community_coverage": 0.5,
+        "hub_concentration": 0.25,
+        "average_degree": 2.0,
+        "average_freshness": 0.592399,
+        "provenance_coverage": 0.75
+      }
+    },
+    "parallaxpack": {
+      "selected_ids": [
+        "checkout-incident",
+        "security-advisory",
+        "customer-impact",
+        "rollback-runbook"
+      ],
+      "metrics": {
+        "community_count": 3,
+        "community_coverage": 0.75,
+        "hub_concentration": 0.0,
+        "average_degree": 1.0,
+        "average_freshness": 0.989196,
+        "provenance_coverage": 1.0
+      }
+    },
+    "delta": {
+      "community_count": 1,
+      "community_coverage": 0.25,
+      "hub_concentration": -0.25,
+      "average_degree": -1.0,
+      "average_freshness": 0.396797,
+      "provenance_coverage": 0.25
+    }
+  },
+  "results": [
+    {
+      "rank": 1,
+      "id": "checkout-incident",
+      "title": "Checkout API timeout incident",
+      "community": "operations",
+      "updated_at": "2026-01-12",
+      "degree": 1,
+      "score": 0.870963,
+      "score_components": {
+        "semantic_relevance": 0.88,
+        "inverse_degree": 0.63093,
+        "recency": 0.991848,
+        "source_completeness": 1.0,
+        "metadata_quality": 1.0,
+        "redundancy_penalty": 0.0
+      },
+      "weighted_contributions": {
+        "semantic_relevance": 0.396,
+        "inverse_degree": 0.126186,
+        "recency": 0.148777,
+        "source_completeness": 0.1,
+        "metadata_quality": 0.1,
+        "redundancy_penalty": -0.0
+      },
+      "provenance": [
+        {
+          "title": "Incident timeline",
+          "uri": "kb://incidents/inc-204"
+        },
+        {
+          "title": "Metrics snapshot",
+          "uri": "kb://metrics/checkout-204"
+        }
+      ],
+      "rationale": "Selected during community coverage; base=0.870963; redundancy_penalty=0.000000; degree=1; community=operations."
+    },
+    {
+      "rank": 2,
+      "id": "security-advisory",
+      "title": "Payment dependency security advisory",
+      "community": "security",
+      "updated_at": "2026-01-08",
+      "degree": 1,
+      "score": 0.809125,
+      "score_components": {
+        "semantic_relevance": 0.78,
+        "inverse_degree": 0.63093,
+        "recency": 0.981183,
+        "source_completeness": 1.0,
+        "metadata_quality": 1.0,
+        "redundancy_penalty": 0.015238
+      },
+      "weighted_contributions": {
+        "semantic_relevance": 0.351,
+        "inverse_degree": 0.126186,
+        "recency": 0.147177,
+        "source_completeness": 0.1,
+        "metadata_quality": 0.1,
+        "redundancy_penalty": -0.015238
+      },
+      "provenance": [
+        {
+          "title": "Vendor advisory",
+          "uri": "kb://vendors/advisory-17"
+        },
+        {
+          "title": "Internal assessment",
+          "uri": "kb://security/assessment-17"
+        }
+      ],
+      "rationale": "Selected during community coverage; base=0.824363; redundancy_penalty=0.015238; degree=1; community=security."
+    },
+    {
+      "rank": 3,
+      "id": "customer-impact",
+      "title": "Customer reports during checkout degradation",
+      "community": "support",
+      "updated_at": "2026-01-10",
+      "degree": 1,
+      "score": 0.781992,
+      "score_components": {
+        "semantic_relevance": 0.81,
+        "inverse_degree": 0.63093,
+        "recency": 0.986486,
+        "source_completeness": 0.5,
+        "metadata_quality": 1.0,
+        "redundancy_penalty": 0.006667
+      },
+      "weighted_contributions": {
+        "semantic_relevance": 0.3645,
+        "inverse_degree": 0.126186,
+        "recency": 0.147973,
+        "source_completeness": 0.05,
+        "metadata_quality": 0.1,
+        "redundancy_penalty": -0.006667
+      },
+      "provenance": [
+        {
+          "title": "Anonymized support digest",
+          "uri": "kb://support/digest-51"
+        }
+      ],
+      "rationale": "Selected during community coverage; base=0.788659; redundancy_penalty=0.006667; degree=1; community=support."
+    },
+    {
+      "rank": 4,
+      "id": "rollback-runbook",
+      "title": "Checkout rollback action log",
+      "community": "operations",
+      "updated_at": "2026-01-14",
+      "degree": 1,
+      "score": 0.843341,
+      "score_components": {
+        "semantic_relevance": 0.84,
+        "inverse_degree": 0.63093,
+        "recency": 0.997268,
+        "source_completeness": 1.0,
+        "metadata_quality": 1.0,
+        "redundancy_penalty": 0.010435
+      },
+      "weighted_contributions": {
+        "semantic_relevance": 0.378,
+        "inverse_degree": 0.126186,
+        "recency": 0.14959,
+        "source_completeness": 0.1,
+        "metadata_quality": 0.1,
+        "redundancy_penalty": -0.010435
+      },
+      "provenance": [
+        {
+          "title": "Rollback log",
+          "uri": "kb://runs/rollback-88"
+        },
+        {
+          "title": "Recovery check",
+          "uri": "kb://checks/recovery-88"
+        }
+      ],
+      "rationale": "Selected during score fill; base=0.853776; redundancy_penalty=0.010435; degree=1; community=operations."
+    }
+  ],
+  "excluded": [
+    {
+      "id": "architecture-overview",
+      "title": "Checkout architecture overview",
+      "community": "foundation",
+      "updated_at": "2022-02-10",
+      "degree": 1,
+      "score": 0.709174,
+      "score_components": {
+        "semantic_relevance": 0.92,
+        "inverse_degree": 0.63093,
+        "recency": 0.202778,
+        "source_completeness": 0.5,
+        "metadata_quality": 1.0,
+        "redundancy_penalty": 0.011429
+      },
+      "weighted_contributions": {
+        "semantic_relevance": 0.414,
+        "inverse_degree": 0.126186,
+        "recency": 0.030417,
+        "source_completeness": 0.05,
+        "metadata_quality": 0.1,
+        "redundancy_penalty": -0.011429
+      },
+      "provenance": [
+        {
+          "title": "Architecture record",
+          "uri": "kb://adr/checkout-architecture"
+        }
+      ],
+      "rationale": "Excluded: below the top-k adjusted-score cutoff; base=0.720603; redundancy_penalty=0.011429."
+    },
+    {
+      "id": "general-platform",
+      "title": "General platform overview",
+      "community": "foundation",
+      "updated_at": "2021-06-01",
+      "degree": 5,
+      "score": 0.598291,
+      "score_components": {
+        "semantic_relevance": 0.98,
+        "inverse_degree": 0.356207,
+        "recency": 0.177702,
+        "source_completeness": 0.0,
+        "metadata_quality": 0.666667,
+        "redundancy_penalty": 0.007273
+      },
+      "weighted_contributions": {
+        "semantic_relevance": 0.441,
+        "inverse_degree": 0.071241,
+        "recency": 0.026655,
+        "source_completeness": 0.0,
+        "metadata_quality": 0.066667,
+        "redundancy_penalty": -0.007273
+      },
+      "provenance": [],
+      "rationale": "Excluded: below the top-k adjusted-score cutoff; base=0.605563; redundancy_penalty=0.007273."
+    }
+  ]
+}
