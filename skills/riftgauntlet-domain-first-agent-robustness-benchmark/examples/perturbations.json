@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "scenarios": [
+    {
+      "name": "missing-result",
+      "match_domains": ["finance"],
+      "operations": [{"type": "missing", "observation_id": "result"}]
+    },
+    {
+      "name": "truncated-result",
+      "match_domains": ["travel"],
+      "operations": [{"type": "truncate", "observation_id": "result", "max_chars": 14}]
+    },
+    {
+      "name": "malformed-result",
+      "match_domains": ["support"],
+      "operations": [{"type": "malformed", "observation_id": "result", "replacement": "{invalid"}]
+    },
+    {
+      "name": "delayed-result",
+      "match_domains": ["travel"],
+      "operations": [{"type": "delay", "observation_id": "result", "milliseconds": 100}]
+    },
+    {
+      "name": "duplicated-result",
+      "match_domains": ["finance"],
+      "operations": [{"type": "duplicate", "observation_id": "result"}]
+    },
+    {
+      "name": "reordered-observations",
+      "match_domains": ["support"],
+      "operations": [{"type": "reorder", "mode": "reverse"}]
+    },
+    {
+      "name": "unknown-domain-shift",
+      "match_domains": ["finance"],
+      "operations": [{"type": "domain_shift", "domain": "unknown"}]
+    }
+  ]
+}

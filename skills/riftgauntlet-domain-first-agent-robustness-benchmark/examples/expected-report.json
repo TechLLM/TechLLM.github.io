@@ -1,0 +1,270 @@
+{
+  "domains": [
+    {
+      "baseline_samples": 1,
+      "baseline_success_rate": 1.0,
+      "baseline_successes": 1,
+      "domain": "finance",
+      "matched_baseline_success_rate": 1.0,
+      "perturbed_samples": 2,
+      "perturbed_success_rate": 0.0,
+      "perturbed_successes": 0,
+      "robustness_delta": -1.0,
+      "source_domains": [
+        "finance"
+      ]
+    },
+    {
+      "baseline_samples": 1,
+      "baseline_success_rate": 1.0,
+      "baseline_successes": 1,
+      "domain": "support",
+      "matched_baseline_success_rate": 1.0,
+      "perturbed_samples": 2,
+      "perturbed_success_rate": 0.0,
+      "perturbed_successes": 0,
+      "robustness_delta": -1.0,
+      "source_domains": [
+        "support"
+      ]
+    },
+    {
+      "baseline_samples": 1,
+      "baseline_success_rate": 1.0,
+      "baseline_successes": 1,
+      "domain": "travel",
+      "matched_baseline_success_rate": 1.0,
+      "perturbed_samples": 2,
+      "perturbed_success_rate": 0.0,
+      "perturbed_successes": 0,
+      "robustness_delta": -1.0,
+      "source_domains": [
+        "travel"
+      ]
+    },
+    {
+      "baseline_samples": 0,
+      "baseline_success_rate": null,
+      "baseline_successes": 0,
+      "domain": "unknown",
+      "matched_baseline_success_rate": 1.0,
+      "perturbed_samples": 1,
+      "perturbed_success_rate": 1.0,
+      "perturbed_successes": 1,
+      "robustness_delta": 0.0,
+      "source_domains": [
+        "finance"
+      ]
+    }
+  ],
+  "failure_detection": {
+    "auroc_proxy": 0.5,
+    "failure_cases": 6,
+    "scorable_cases": 7,
+    "score_sources": {
+      "abstention": 2,
+      "confidence": 3,
+      "risk_score": 2
+    },
+    "success_cases": 1
+  },
+  "schema_version": "1.0",
+  "slices": [
+    {
+      "baseline_success_rate": 1.0,
+      "domain": "travel",
+      "perturbations": [
+        "delay"
+      ],
+      "robustness_delta": -1.0,
+      "samples": 1,
+      "scenario": "delayed-result",
+      "source_domains": [
+        "travel"
+      ],
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    {
+      "baseline_success_rate": 1.0,
+      "domain": "finance",
+      "perturbations": [
+        "duplicate"
+      ],
+      "robustness_delta": -1.0,
+      "samples": 1,
+      "scenario": "duplicated-result",
+      "source_domains": [
+        "finance"
+      ],
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    {
+      "baseline_success_rate": 1.0,
+      "domain": "support",
+      "perturbations": [
+        "malformed"
+      ],
+      "robustness_delta": -1.0,
+      "samples": 1,
+      "scenario": "malformed-result",
+      "source_domains": [
+        "support"
+      ],
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    {
+      "baseline_success_rate": 1.0,
+      "domain": "finance",
+      "perturbations": [
+        "missing"
+      ],
+      "robustness_delta": -1.0,
+      "samples": 1,
+      "scenario": "missing-result",
+      "source_domains": [
+        "finance"
+      ],
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    {
+      "baseline_success_rate": 1.0,
+      "domain": "support",
+      "perturbations": [
+        "reorder"
+      ],
+      "robustness_delta": -1.0,
+      "samples": 1,
+      "scenario": "reordered-observations",
+      "source_domains": [
+        "support"
+      ],
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    {
+      "baseline_success_rate": 1.0,
+      "domain": "travel",
+      "perturbations": [
+        "truncate"
+      ],
+      "robustness_delta": -1.0,
+      "samples": 1,
+      "scenario": "truncated-result",
+      "source_domains": [
+        "travel"
+      ],
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    {
+      "baseline_success_rate": 1.0,
+      "domain": "unknown",
+      "perturbations": [
+        "domain_shift"
+      ],
+      "robustness_delta": 0.0,
+      "samples": 1,
+      "scenario": "unknown-domain-shift",
+      "source_domains": [
+        "finance"
+      ],
+      "success_rate": 1.0,
+      "successes": 1
+    }
+  ],
+  "summary": {
+    "baseline_success_rate": 1.0,
+    "matched_baseline_success_rate": 1.0,
+    "perturbed_cases": 7,
+    "perturbed_success_rate": 0.142857,
+    "robustness_delta": -0.857143,
+    "total_traces": 3,
+    "worst_slice_success_rate": 0.0
+  },
+  "worst_slices": [
+    {
+      "baseline_success_rate": 1.0,
+      "domain": "travel",
+      "perturbations": [
+        "delay"
+      ],
+      "rank": 1,
+      "robustness_delta": -1.0,
+      "samples": 1,
+      "scenario": "delayed-result",
+      "source_domains": [
+        "travel"
+      ],
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    {
+      "baseline_success_rate": 1.0,
+      "domain": "finance",
+      "perturbations": [
+        "duplicate"
+      ],
+      "rank": 2,
+      "robustness_delta": -1.0,
+      "samples": 1,
+      "scenario": "duplicated-result",
+      "source_domains": [
+        "finance"
+      ],
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    {
+      "baseline_success_rate": 1.0,
+      "domain": "support",
+      "perturbations": [
+        "malformed"
+      ],
+      "rank": 3,
+      "robustness_delta": -1.0,
+      "samples": 1,
+      "scenario": "malformed-result",
+      "source_domains": [
+        "support"
+      ],
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    {
+      "baseline_success_rate": 1.0,
+      "domain": "finance",
+      "perturbations": [
+        "missing"
+      ],
+      "rank": 4,
+      "robustness_delta": -1.0,
+      "samples": 1,
+      "scenario": "missing-result",
+      "source_domains": [
+        "finance"
+      ],
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    {
+      "baseline_success_rate": 1.0,
+      "domain": "support",
+      "perturbations": [
+        "reorder"
+      ],
+      "rank": 5,
+      "robustness_delta": -1.0,
+      "samples": 1,
+      "scenario": "reordered-observations",
+      "source_domains": [
+        "support"
+      ],
+      "success_rate": 0.0,
+      "successes": 0
+    }
+  ]
+}
