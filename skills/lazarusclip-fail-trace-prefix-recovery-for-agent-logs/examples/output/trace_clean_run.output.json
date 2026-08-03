@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "trace_id": "agent-run-4418",
+  "step_count": 5,
+  "fatal_step_index": null,
+  "confidence": 1.0,
+  "suggested_label": "clean",
+  "pre_failure_subgraph": {
+    "step_count": 5,
+    "steps": [
+      {
+        "index": 0,
+        "role": "user",
+        "type": "message",
+        "name": null,
+        "status": null,
+        "content": "How many deprecated decorators are left in the parser package?"
+      },
+      {
+        "index": 1,
+        "role": "assistant",
+        "type": "thought",
+        "name": null,
+        "status": null,
+        "content": "A recursive grep over src/parser is enough; I only need the count."
+      },
+      {
+        "index": 2,
+        "role": "assistant",
+        "type": "tool_call",
+        "name": "bash",
+        "status": null,
+        "content": "{\"command\": \"grep -rc @deprecated src/parser | awk -F: '{s+=$2} END {print s}'\"}"
+      },
+      {
+        "index": 3,
+        "role": "tool",
+        "type": "tool_result",
+        "name": "bash",
+        "status": "ok",
+        "content": "7"
+      },
+      {
+        "index": 4,
+        "role": "assistant",
+        "type": "message",
+        "name": null,
+        "status": null,
+        "content": "There are 7 deprecated decorators left in src/parser."
+      }
+    ]
+  },
+  "masked_tail": {
+    "step_count": 0,
+    "steps": []
+  },
+  "mask_hints": {
+    "advantage_clamp": "one_sided",
+    "keep_step_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "mask_step_indices": []
+  },
+  "signals": [],
+  "judge": {
+    "backend": "offline",
+    "passes": 3,
+    "agreement": 1.0
+  }
+}
