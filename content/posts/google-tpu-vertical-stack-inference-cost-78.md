@@ -5,7 +5,7 @@ draft: false
 description: "AI 비용의 본체는 학습이 아니라 매일 나가는 추론입니다. 구글이 제미나이 서빙 단가를 78% 낮추고 클라우드 매출 248억 달러에 백로그 5,140억 달러를 쌓은 과정을, 40만 칩 아이언우드 클러스터와 분기 449억 달러 설비투자로 짚었습니다."
 cover:
   image: "/images/google-tpu-vertical-stack-inference-cost-78/google-tpu-vertical-stack-inference-cost-78-cover.png"
-  alt: "거대한 데이터센터 홀에 늘어선 TPU 랙과 그 사이를 걷는 엔지니어를 그린 삽화"
+  alt: "구글의 40만 AI 칩 랙과 추론 비용 절감, 클라우드 실적을 여섯 개 패널로 정리한 도표"
   caption: "Generated illustration"
 tags:
   - AI인프라
