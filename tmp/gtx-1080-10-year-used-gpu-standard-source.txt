@@ -1,0 +1,5 @@
+Title: Legends Never Die
+Channel: Linus Tech Tips
+Source URL: https://www.youtube.com/watch?v=ea3EvwkW_28
+
+GTX 1080 Ti averages 60 FPS and GTX 1080 averages 45 FPS at 1080p ultra in the discussed baseline. Newer CPU, 3D V-Cache, and DDR5 do not remove the GPU bottleneck. Games that require ray tracing may refuse to run. Pascal lacks tensor cores and DLSS support, while GTX 1080 Ti is limited for FP16 AI inference compared with RTX 3060. The video suggests used-price ceilings of 150 dollars for GTX 1080 Ti and 75 dollars for GTX 1080, and warns against listings above 200 dollars.
