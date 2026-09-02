@@ -1,6 +1,6 @@
 ---
 title: "검사해 본 곳에서만 '이상 없음'이라고 말할 수 있는데, 정작 위험은 검사가 한 번도 닿지 않은 곳에 숨어 있을 수 있다."
-date: 2026-09-02T12:27:48+09:00
+date: 2026-09-02T12:40:49+09:00
 draft: false
 description: "샘플링 게이트로 인증한 code world model은 게이트가 질의할 수 있는 영역(reachable query set R) 위에서는 정확할 수 있지만 그 바깥에서는 임의로 틀릴 수 있다. 이 논문은 그 사실을 게이트 몫정리(Proposition 1)로 정식화한다 — 확률 1 수용은 모델을 R 위에서만 결정하고, 나머지 G=(S×A)\\R은 게이지다."
 tags: ["Code World Model / Certified AI Planning", "논문 분석", "논문 리뷰", "Code World Model", "샘플링 게이트", "게이트 몫"]
