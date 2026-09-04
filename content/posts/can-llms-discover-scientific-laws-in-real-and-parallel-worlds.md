@@ -1,6 +1,6 @@
 ---
 title: "AI가 실제 과학 데이터를 보고 자연 법칙을 찾아낼 수 있는지, 이미 외운 공식을 말하는 것과 구분해서 평가하는 새 시험지를 만들었다."
-date: 2026-09-04T23:22:42+09:00
+date: 2026-09-04T23:35:42+09:00
 draft: false
 description: "본 논문은 실제 과학 논문에서 추출한 118개 과제와 약 800만 개의 실측 데이터 포인트를 활용해 LLM의 과학 법칙 발견 능력을 평가하는 SCILAWS-BENCH를 제안한다. 고정 관측 기반 SCILAWS-REAL과 능동 쿼리 기반 SCILAWS-PARALLEL의 이중 설계를 통해, 예측 적합도(SN), 과학적 타당성(SV), 구조 복원도(SS)를 분리 측정하고 암기와 진짜 발견을 구분한다."
 tags: ["AI for Science / Benchmark", "논문 분석", "논문 리뷰", "Symbolic Regression", "ReAct", "Cold Recall"]
