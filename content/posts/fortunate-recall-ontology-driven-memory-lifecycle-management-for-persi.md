@@ -1,41 +1,41 @@
 ---
-title: "AI가 사람에 대해 기억한 내용을 종류별로 다르게 보관하고 지우게 만드는 방법이다."
-date: 2026-09-18T07:32:21+09:00
+title: "사용자의 정보를 11가지 종류로 나누고, 각 종류마다 다르게 적용되는 '잊는 규칙'을 만들어 챗봇이 옛 정보나 바뀐 정보를 답하지 않게 하는 시스템이다."
+date: 2026-09-23T07:35:01+09:00
 draft: false
-description: "Fortunate Recall은 LLM 메모리 시스템이 모든 개인 사실을 균일하게 취급해 outdated 정보가 retrieval을 오염시키는 문제를, 10+1 행동 온톨로지와 결정론적 수명주기 정책 계층으로 해결한다. FR-Bank는 LifecycleBench에서 76.9%, LongMemEval-S에서 75.2%, BEAM의 4개 binary-scorable lifecycle-relevant ability에서 46.8%(Mem0 32.9%)를 기록했다."
-tags: ["Large Language Model / Agent Memory", "논문 분석", "논문 리뷰", "Lifecycle management", "Behavioral ontology", "Supersession"]
+description: "Fortunate Recall은 LLM 메모리 시스템이 모든 개인 사실을 균일하게 취급해 발생하는 일관성 붕괴 문제를, 11개 행동 카테고리별 결정론적 수명주기 정책으로 해결한다. LifecycleBench에서 76.9% pass rate를 기록하며 Mem0 대비 confabulation을 절반 이하(전체 쿼리 13.0% vs 32.2%)로 줄이고, BEAM 외부 벤치마크에서도 46.8%로 Mem0 32.9%를 13.9pp 앞질렀다."
+tags: ["Large Language Model / Agent Memory", "논문 분석", "논문 리뷰", "행동 온톨로지", "슬롯 키 교체", "사건 시각 유효성"]
 categories: ["논문분석"]
 ---
 
 
-AI가 사람에 대해 기억한 내용을 종류별로 다르게 보관하고 지우게 만드는 방법이다.
+사용자의 정보를 11가지 종류로 나누고, 각 종류마다 다르게 적용되는 '잊는 규칙'을 만들어 챗봇이 옛 정보나 바뀐 정보를 답하지 않게 하는 시스템이다.
 
-**무엇이 문제였나** — 기존 AI 메모리는 오래된 취향, 끝난 일정, 아직 중요한 신상 정보를 비슷하게 다뤄서 헷갈릴 수 있다.
-**어떻게 풀었나** — 이 논문은 기억을 신원, 관계, 건강, 취향, 약속, 일정 같은 10+1가지 종류로 나누고, 종류마다 보관 기간과 교체 규칙을 다르게 둔다.
-**그래서 뭐가 좋아졌나** — 그 결과 새로 만든 시험인 LifecycleBench에서 76.9%를 기록했고, 잘못된 옛 정보를 바탕으로 답하는 비율도 Mem0보다 크게 줄였다.
+**무엇이 문제였나** — 챗봇이 사용자의 모든 정보를 똑같이 다루면서 옛날 취향이나 끝난 약속을 계속 기억하고 답해, 대화가 길어질수록 어긋났어요.
+**어떻게 풀었나** — 각 정보를 11가지 행동 카테고리(신상, 관계, 취향, 약속, 취미 등)로 분류하고, 카테고리마다 다르게 망각·교체·만료 규칙을 명확한 수식으로 자동 적용했어요.
+**그래서 뭐가 좋아졌나** — 거짓 정보를 만들어내는 비율이 절반으로 줄었고(전체 쿼리 기준 13.0% vs Mem0 32.2%), 맞는 답변 비율은 31.2%로 12.6%p 늘었어요.
 
-> 책상 위 메모를 정리하는 것과 비슷하다. 주민등록증 같은 정보는 오래 보관하고, 좋아하는 음식은 새 취향이 생기면 바꾸고, 어제 회의 일정은 회의가 끝나면 치운다. 이 논문은 AI 기억에도 이런 정리 규칙을 붙인다.
+> 비서에게 '직장 정보는 자주 바뀌니까 새 소식으로 자동 갱신해줘, 생일은 절대 안 바뀌니까 그대로 둬줘, 다음 주 화요일 병원 약속은 그날까지만 기억하고 지나면 잊어줘'라고 미리 지시한 것과 같아요. 모든 정보를 똑같이 다루는 게 아니라, 정보의 성격에 따라 다르게 기억하고 잊는 거죠.
 
 ## 논문 정보
 
-Ansuman Mullick, Eray Tüzün · Bilkent University · Under review (arXiv preprint) · 2026
+Ansuman Mullick, Eray Tüzün · Bilkent University · arXiv preprint (under review) · 2026
 
 ## 왜 중요한가
 
-AI 비서가 사람과 오래 대화할수록 예전 정보를 현재 정보처럼 말하는 문제가 생긴다. 이 방법은 기억마다 라벨과 유효기간을 붙여, 지금도 맞는 정보와 더 이상 맞지 않는 정보를 구분하게 한다. 오래 쓰는 개인 비서, 고객 지원 챗봇, 건강 관리 도우미처럼 사용자 정보를 계속 다루는 시스템에 중요하다.
+사용자가 '피자 좋아해요'라고 했다가 나중에 '초밥이 좋아요'라고 바꾸면, 챗봇은 더 이상 피자를 계속 추천하면 안 됩니다. 그런데 대부분의 메모리 시스템은 옛 정보를 그대로 가지고 있어, 시간이 지날수록 사용자에게 맞지 않는 말을 하게 됩니다. 이 논문은 이 '기억의 청소'를 자동화하는 방법을 보여줍니다.
 
 ## 핵심 지표
 
 | 지표 | 값 | 설명 |
 |---|---|---|
-| LifecycleBench Pass Rate | **76.9%** | FR-Bank vs MemoryOS 70.5% / Memory-R1 66.9% / Mem0(default) 61% |
-| LongMemEval-S Pass@10 | **75.2%** | full 500-question LongMemEval-S, Wu et al. (ICLR 2025) judge protocol |
-| All-Queries Confabulation | **13.0%** | FR-Bank vs Mem0(default) 32.2% over all 516 LifecycleBench queries |
-| BEAM Correct | **46.8%** | FR-full 131/280 vs Mem0 92/280 (32.9%) on four binary-scorable abilities |
+| LifecycleBench Pass Rate | **76.9%** | Mem0 61% 대비 +15.9pp (95% CI [73.3, 80.6]) |
+| E2E Correct Rate | **31.2%** | Mem0 18.6% 대비 +12.6pp (516 LifecycleBench 전체 쿼리 기준) |
+| Confabulation (all 516 queries) | **13.0%** | Mem0 32.2% 대비 -19.2pp (어블레이션 p<0.001 유의미) |
+| BEAM Transfer (외부 검증) | **46.8%** | Mem0 32.9% 대비 +13.9pp, 280문항 중 131 정답 |
 
 ## 어떻게 동작하나
 
-Fortunate Recall은 추출된 각 사실에 behavioral category c, slot key κ, lifecycle state ξ, event-time anchor h, ingest time t, confidence v 같은 메타데이터를 붙인다. Ingestion에서는 gpt-4.1-mini 한 번으로 추출과 분류를 수행하고, retrieval에서는 cosine top-60, BM25 top-20, category-forced top-20 후보를 병합한 뒤 작은 모델 호출로 top-20을 고른다. 이후 deterministic lifecycle layer가 category-conditioned decay, slot-key supersession, event-time validity, lifecycle-state mask, category-aware routing을 Eq. (2)의 log-score로 적용한다. 이 계층은 k=20에서 median 47μs, empirically O(k)로 동작한다. 이론적으로는 metadata basis (c, κ, ξ, h)의 sufficiency, minimality, individual necessity를 보이고, category-specific parameterization 없이는 calibration feasible region을 만족하기 어렵다는 점을 Theorem 4로 설명한다.
+Fortunate Recall은 LLM 메모리 시스템의 모든 사실이 동일하게 취급되는 문제를 정면으로 다룹니다. 각 추출된 사실을 11개 행동 카테고리(Identity, Relational, Preferences, Obligations 등)로 분류하고, 카테고리마다 다른 결정론적 수명주기 정책(감쇠율, supersession, 사건시각 유효성, 카테고리 인식 라우팅)을 적용합니다. LLM은 ingestion 시 분류·추출과 retrieval 시 후보 distillation 한 번에만 사용되며, lifecycle 정책 자체는 47마이크로초 안에 끝나는 순수 수식입니다. 516문항의 LifecycleBench에서 76.9% pass rate, 500문항의 LongMemEval-S에서 75.2% pass@10을 기록하고, BEAM 외부 벤치마크에서 46.8% 정답률로 32.9% Mem0을 앞질렀습니다. 핵심 발견은 generic metadata(슬롯 키, lifecycle state, event-time anchor)가 정확도 이점을 가져가고, behavioral ontology는 카테고리별 parameter화를 가능케 해 confabulation을 절반으로 줄인다는 분리입니다.
 
 핵심 수식:
 
@@ -43,71 +43,63 @@ Fortunate Recall은 추출된 각 사실에 behavioral category c, slot key κ, 
 ℓ(e, q, t) = β·σ(e, q) + log ρ(c_e|q) − λ_{c_e}·Δt_e + log V_{c_e}(t, h_e) + log Ω(e) + log M_q(ξ_e)
 ```
 
-βσ는 semantic similarity, ρ(c_e|q)는 query-category prior, −λ_{c_e}Δt_e는 category survival S_c(d)=exp(−λ_c d)의 로그값, V는 event-time validity kernel, Ω는 같은 slot key의 later edge들이 만드는 supersession survival factor, M_q는 query-conditioned lifecycle-state compatibility mask이며 log 0 = −∞로 둔다.
+β·σ(e,q) 의미적 유사도 / ρ(c_e|q) 쿼리-카테고리 사전 / -λ_{c_e}·Δt_e 카테고리 감쇠 / V_{c_e}(t,h_e) 사건시각 유효성 커널 / Ω(e) 슬롯 키 대체 인자 / M_q(ξ_e) lifecycle state 마스크
 
 ## 한계와 주의할 점
 
-- 휴먼 검증 부재: 모든 verdict는 LLM judge 기반이며, six-model cross-family panel과 pinned judge의 일치도는 κ=0.715로 보고되어 절대 수치는 judge-relative하다.
-- 벤치마크-방법 공동 설계 위험: LifecycleBench attack vector가 baseline 실패 모드에서 정의되었고, BEAM transfer로 완화했지만 완전히 제거되지는 않는다.
-- 경쟁 시스템 공정성 한계: 경쟁 시스템은 shipped default로 실행되었고 maximally tuned competitor는 만들지 않았다.
-- 멀티 프레임워크/멀티 에이전트 미검증: 두 substrate와 하나의 agent loop에서만 검증되어 concurrent writer 환경은 미측정이다.
-- 정확도-회피 trade-off: FR-Bank는 42.1% abstain rate를 보이며, 반드시 답해야 하는 배포 환경에서는 이득이 줄어들 수 있다.
-- 고확약 생성기에서 soft supersession 실패: Kimi K2.5 AV9에서 두 후보 값이 함께 남을 때 abstention 대신 commitment가 발생할 수 있다.
-- Slot key의 over-broad matching: BEAM knowledge update에서 lifecycle-off가 더 높게 나온 discordant case 중 다수가 ingest-time supersession이 current value를 비활성화한 데서 왔다.
-- Retraction extraction recall 부족: 40개 scripted retraction 중 detector는 19개에만 반응했고 metadata level에서 clean suppression은 2개뿐이었다.
-- Classifier 경계 사례: classifier audit은 κ=+0.67이며 disagreement는 정책이 비슷한 category pair에 집중된다.
+- 절대 수치는 LLM judge에 의존해 judge-relative이다. 100-verdict stratified human slice가 계획만 되고 미실행 상태로, 사람 검증 부재가 명시적인 한계다.
+- LifecycleBench의 attack vector가 Mem0·Graphiti의 실패 모드에서 도출되어 benchmark-method co-design 위험이 존재. BEAM 외부 검증은 bound만 잡고 fully eliminate하지는 못한다.
+- 경쟁 시스템은 shipped default로 동작하고 FR은 정교하게 튜닝된 stack으로, 비교 공정성 한계가 있다(untyped-arm ablation으로 내부 분해는 했지만 maximally tuned competitor는 부재).
+- 두 substrate(Graphiti, flat bank)와 한 agent loop에서만 테스트되어 multi-framework·concurrent writer 환경에서 동작은 미측정이다.
+- FR-Bank는 57.9% 쿼리만 답변하며 correctness-abstention trade-off가 존재. 추가 abstention은 오답에서 비롯되지만 '반드시 답해야 하는' 배포 환경에는 그대로 적용하기 어렵다.
+- AV7 선택적 망각: FR-Bank의 5% 검색 통과율은 철회된 사실을 노출하지 않았다는 의도된 결과이나, retraction detector가 40개 중 19개만 탐지하고 단 2개만 메타데이터 레벨에서 깨끗하게 차단(suppress)하여 정보 추출 재현율(extraction recall)이 한계점으로 작용한다.
+- Long-term regime(Δt > 2000hr)에서 activation이 3.3×10⁻¹⁰까지 underflow하며, score가 의미유사도로 collapse해 결정성이 사라진다.
+- Slot key over-matching 시 over-broad slot key가 ingest-time supersession을 over-fire해 BEAM knowledge update 12건 중 10건(10/12 사례)에서 현재 값을 deactivate한다.
+- Soft supersession이 high-commitment generator(Kimi K2.5 AV9)에서는 두 후보 모두 유지해 abstention 대신 commitment를 만들어낸다.
 
 ## 시스템 적용 아이디어
 
 논문의 기법을 비슷한 구조를 가진 시스템에 옮길 때의 적용 지점이다.
 
-### RAG retrieval 결과에 slot-key supersession 필터 추가
+### 장기 기억 시스템에 카테고리별 감쇠율과 슬롯 키 교체 도입
 
-Hybrid semantic search 결과가 들어온 직후 후보 memory의 normalized slot key를 비교한다. 같은 slot 안에 더 최근의 high-confidence contradictory edge가 있으면 old edge의 Ω(e)를 낮추거나 current-state query에서 제외한다. 이 아이디어는 §3.3의 slot-key supersession과 Eq. (2)의 log Ω(e)에 해당하며, LifecycleBench AV1과 AV4의 큰 개선이 이 기능의 중요성을 뒷받침한다.
+장기 기억을 가진 에이전트의 ingestion 단계에서 LLM이 각 사실을 11개 카테고리 중 하나로 분류하고 slot key, lifecycle state, event-time anchor를 부착하도록 한다. retrieval 단계에서는 논문의 Model 1과 Equation 2의 결정론적 log-score로 후보를 재정렬한다. 이 적용이 '기억의 청소'를 자동화하는 핵심 메커니즘이다.
 
-**적용 지점** — RAG 재순위 단계
+**적용 지점** — 장기 기억 에이전트의 retrieval 재정렬 단계
 
-**기대 효과** — superseded preference와 multi-version fact에서 stale retrieval 감소
+**기대 효과** — confabulation 45.1% → 22.4% (answered), 32.2% → 13.0% (all queries), correct rate 18.6% → 31.2%
 
-### 이벤트 시점 기반 anticipation/expiry를 retrieval 점수에 결합
+### RAG 파이프라인에 카테고리 인식 라우팅을 추가해 어휘 격차 해소
 
-일정, 마감, 비행편 같은 기억에는 event-time anchor h를 저장하고, retrieval score에 V_c(t,h)를 추가한다. 다가오는 event는 더 중요해지고, 지난 event는 current-state query에서 낮아지거나 제외된다. 원문은 AV2에서 FR-Bank 88% vs Mem0 65%를 보고하며, Theorem 3′는 event-time-invariant system의 구조적 한계를 설명한다.
+RAG 파이프라인의 retrieval 후보 생성 단계에서, 쿼리를 행동 카테고리로 분류하고 해당 카테고리의 모든 후보를 강제 검색(top-20)한다. 일반 의미 검색과 BM25 후보와 merge한 뒤 단일 distillation call로 top-20을 선정한다. 이 레이어는 기존 vector store 위에 얇은 wrapper로 얹을 수 있으며, 논문의 category-aware routing과 category-forced retrieval을 그대로 옮긴다.
 
-**적용 지점** — 시간 민감 사실의 retrieval ranking
+**적용 지점** — RAG 파이프라인의 retrieval 후보 생성 단계
 
-**기대 효과** — 만료된 일정과 다가오는 의무를 더 잘 구분
+**기대 효과** — routing만으로 +6pp pass rate (Table 3 ablation), scale-emergent 효과
 
-### Lifecycle state mask로 철회된 기억을 current-state query에서 제외
+### 이중 시간 메타데이터로 다가오는 일정의 anticipatory activation 구현
 
-단순 삭제는 나중에 사용자가 무엇을 취소했는지 물을 때 답할 수 없고, 단순 보존은 현재 상태 질문에서 틀린 답을 만든다. ξ를 active, superseded, expired, retracted로 두고 M_q(ξ)를 query intent별로 다르게 적용하면 두 요구를 동시에 만족할 수 있다. 원문은 AV7에서 FR-Bank의 E2E correct 37.5%가 가장 높았다고 보고하지만, metadata-level retraction suppression recall은 아직 약하다고도 밝힌다.
+장기 기억 시스템의 Obligations/Logistics 카테고리에서 creation time 외에 event-time anchor(ℎ)를 별도로 저장한다. retrieval 시 거리 기반 validity kernel Vc(t,h)로 activation을 재계산해 deadline이 가까워질수록 점수가 증가하고, 지나면 즉시 expired 상태로 전환된다. paper의 Vc 항을 분리된 시간 차원으로 구현하는 변경이며, 4-state lifecycle state machine의 expired 전이를 event-time 기반으로 자동 발생시킨다.
 
-**적용 지점** — 철회와 취소가 있는 장기 기억 처리
+**적용 지점** — 일정·약속·마감일 저장 단계 및 retrieval 단계
 
-**기대 효과** — 철회된 계획에 대한 confabulation 감소와 이력 질의 보존
+**기대 효과** — AV2 expired logistics +20pp over Mem0 (FR-Bank 88% vs Mem0 65%)
 
-### 행동 온톨로지로 retrieval 라우팅: category-forced 후보 풀
+### 명시적 4-state lifecycle mask로 철회·만료 사실 노출을 차단해 환각을 억제
 
-추상적인 질문과 구체적인 저장 문장 사이에는 vocabulary gap이 생길 수 있다. query category classifier가 질문을 예컨대 Preferences나 Obligations로 분류하면, 해당 category의 edge를 top-20 후보 풀에 포함시켜 semantic search만으로 놓치는 정보를 보완한다. §6.2의 FR-Graphiti ablation에서 routing 제거 시 73%에서 67%로 하락해 +6pp 기여가 보고된다.
+장기 기억 시스템의 메타데이터 단계에서 각 사실에 lifecycle state를 명시적으로 부여하고, retrieval 시 Mq(ξ) 호환 마스크를 적용해 current-state 쿼리에서는 retracted·expired를 차단하며, change-aware 쿼리에서는 superseded만 노출한다. paper의 Mq(ξ) 항과 4-state machine을 그대로 옮긴다. 기존에 단일 deletion으로 처리하던 철회 요청을 'retained but masked'로 모델링하는 것이 핵심이며, 이를 통해 Mem0의 UPDATE로는 구현 불가한 (0,1) relevance pattern을 구현한다.
 
-**적용 지점** — RAG candidate generation 단계
+**적용 지점** — 장기 기억의 메타데이터 단계 및 retrieval gating
 
-**기대 효과** — category-level 질문의 recall 개선
-
-### 47μs deterministic lifecycle layer를 retrieval middleware로 삽입
-
-후보 edge에 c, κ, ξ, h 메타데이터가 있으면 Eq. (2)의 ℓ(e,q,t)를 계산해 rerank 직전에 적용할 수 있다. 논문은 k=20, single-threaded Python 3.13, AMD Zen 3에서 median 47μs overhead와 O(k) scaling을 보고한다. 이 방식은 기존 retrieval stack을 크게 바꾸지 않고 stale context를 줄이는 middleware로 도입하기 좋다.
-
-**적용 지점** — retrieval 후처리 / rerank 단계
-
-**기대 효과** — 낮은 latency overhead로 lifecycle-aware reranking 추가
+**기대 효과** — AV7 end-to-end correct 37.5% (FR-Bank) vs 2.5% (Mem0·Memory-R1), downstream 환각 90% 이상 발생 방지
 
 ## 단계별 도입 로드맵
 
 | 단계 | 목표 | 액션 | 기대 효과 |
 |---|---|---|---|
-| Phase 1 | 단일 도메인 파일럿 | 가장 가치가 분명한 Preferences와 Obligations부터 slot-key supersession, lifecycle-state mask, event-time validity를 부분 도입한다. 기존 RAG retrieval 위에 deterministic lifecycle layer를 얹고 stale context와 abstention을 함께 측정한다. | 운영 데이터에서 오래된 정보가 답변에 섞이는 비율이 줄어드는지 확인하고, retrieval 정확도와 회피율의 균형을 점검한다. |
-| Phase 2 | 온톨로지 확장 + category-aware routing | Identity, Relational, Health, Logistical Context를 추가하고 실제 데이터로 fact-level classifier를 검증한다. query classification으로 category-forced 후보 풀을 만들고 semantic 후보와 병합한다. supersede/retract 신호에는 사용자 확인 UI를 붙인다. | LifecycleBench에서 관찰된 routing과 behavioral decay의 이득이 실제 서비스 로그에서도 재현되는지 확인한다. |
-| Phase 3 | 전체 스택 배포 + 지속적 calibration | FR-Bank식 lifecycle metadata를 production memory store에 통합하고, retrieval 단계의 deterministic score를 SLO 안에서 운영한다. 분기마다 stratified human-labeled slice를 만들어 judge drift와 category calibration을 점검한다. | 장기 메모리의 최신성, 설명 가능성, 회피-정답 균형을 지속적으로 관리하는 운영 체계를 만든다. |
+| Phase 1 | Ingestion 단계에 행동 카테고리 분류 + slot key 추출 + lifecycle state 결정 통합 | LLM extractor에 11개 카테고리 분류, (subject, attribute) slot key, event-time anchor, 4-state lifecycle(active/superseded/expired/retracted) 추출을 추가한다. 3-judge classifier agreement audit(목표 κ ≥ 0.7)로 분류기 품질을 모니터링한다. | generic metadata 토대 구축. 논문 결과에 따르면 generic metadata만으로도 +12pp pass rate가 generic lifecycle stack에서 나온다. |
+| Phase 2 | 결정론적 lifecycle 수식 레이어 구현 (Eq. 2 기반) | 카테고리별 감쇠율 λc, supersession factor Ω(e), event-time validity kernel Vc(t,h), query-conditioned mask Mq(ξ)를 closed-form log-score로 통합한다. bi-temporal 메타데이터(transit time + event time)를 분리 저장하고, slot key over-matching을 방지하는 negative-constraint 룰을 둔다. | LifecycleBench +12pp over uniform baseline, AV2 expired logistics +20pp, AV4 multi-version +22pp. 47μs median latency 추가. |
+| Phase 3 | 카테고리 인식 retrieval routing + 평가 안정화 | category-aware routing과 category-forced retrieval로 추상 쿼리-구체 사실 어휘 격차를 해소한다. hybrid BM25+semantic+category 후보를 merge하고 단일 distillation call로 top-20을 선정한다. 두 judge 패널(Fleiss κ=0.834 기준)로 judge noise를 5% 이내에서 안정화한다. | routing만으로 +6pp pass rate, contradiction resolution +10~13 of 70. AV6 retrieval pass vs E2E correct decoupling을 막아 retrieval-metric paradox를 회피. |
 
 ---
 
