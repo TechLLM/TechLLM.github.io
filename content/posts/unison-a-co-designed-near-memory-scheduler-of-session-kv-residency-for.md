@@ -1,105 +1,117 @@
 ---
-title: "여러 AI 에이전트가 같은 메모리를 나눠 쓸 때, 곧 다시 돌아올 작업은 빠른 메모리에 남기고 한동안 안 쓸 작업은 밀어내는 작은 전용 스케줄러다."
-date: 2026-09-14T02:01:24+09:00
+title: "AI 에이전트가 잠시 툴을 쓰러 가도, 다음에 다시 쓸 대화 기록을 더 잘 남겨두는 메모리 관리 장치를 제안한 연구."
+date: 2026-10-07T07:32:31+09:00
 draft: false
-description: "LLM 에이전트가 도구 호출 사이에도 점점 커지는 KV 캐시를 유지하며 여러 세션이 SRAM/HBM 풀을 공유하는 상황에서, 기존 LRU/TTL/ETA 정책이 도구 대기 중인 살아 있는 세션을 cold로 오인해 evict하는 문제를 다룬다. UNISON은 메모리 계층 옆에 놓이는 이벤트 기반 near-memory 스케줄러로, SPEAR(갭 EMA + 턴별 hazard 기반 evictor)와 TIDE(idle 구간을 DMA 예산으로 쓰는 tier 배치기)가 하나의 라이브 랭킹을 공유한다."
-tags: ["Computer Architecture / LLM Inference", "논문 분석", "논문 리뷰", "KV 캐시", "에이전트 루프", "evict"]
+description: "LLM 에이전트 루프는 툴 대기 동안 세션 KV 캐시를 유지해야 하므로, 기존의 recency·timeout 정책은 살아 있는 대기를 cold로 잘못 취급한다. UNISON은 메모리 계층 옆에 배치된 이벤트 기반 근메모리 스케줄러로, SPEAR(eviction)와 TIDE(tier placement)가 단일 랭킹 상태를 공유하며 gap EMA와 turn-indexed hazard로 다음 참조 거리를 근사한다."
+tags: ["Computer Architecture / LLM Inference", "논문 분석", "논문 리뷰", "KV cache", "session", "SRAM / HBM"]
 categories: ["논문분석"]
 ---
 
 
-여러 AI 에이전트가 같은 메모리를 나눠 쓸 때, 곧 다시 돌아올 작업은 빠른 메모리에 남기고 한동안 안 쓸 작업은 밀어내는 작은 전용 스케줄러다.
+AI 에이전트가 잠시 툴을 쓰러 가도, 다음에 다시 쓸 대화 기록을 더 잘 남겨두는 메모리 관리 장치를 제안한 연구.
 
-**무엇이 문제였나** — AI 에이전트는 검색이나 코드 실행 같은 도구를 기다리는 동안에도 이전 대화 내용을 빠르게 다시 쓰기 위한 메모리를 붙잡고 있다.
-**어떻게 풀었나** — 기존 방식은 오래 안 쓴 순서로 치우기 때문에, 잠깐 도구를 기다리는 작업까지 버려서 다시 계산하는 비용이 생긴다.
-**그래서 뭐가 좋아졌나** — UNISON은 각 작업이 보통 얼마나 쉬었다가 돌아오는지와 지금 몇 번째 단계인지 보고 점수를 매겨, 누구를 남길지와 어디에 둘지를 동시에 정한다.
+**무엇이 문제였나** — 문제: 에이전트는 툴 결과를 기다리다가 같은 작업으로 돌아오는데, 기존 캐시 정책은 그 기다림을 '오래 안 쓴 데이터'로 보고 버리기 쉽다.
+**어떻게 풀었나** — 해결: 각 작업이 보통 얼마나 있다가 돌아오는지와 지금 몇 번째 단계인지 보고, 버릴 작업과 빠른 메모리에 둘 작업을 같은 점수로 고른다.
+**그래서 뭐가 좋아졌나** — 결과: 6개 실제 에이전트 트레이스에서 적중률은 0.3~23.1%p 높아지고, 평균 메모리 접근 시간은 22~51% 줄었으며, 긴 작업에서는 첫 토큰 지연도 58~89% 줄었다.
 
-> 도서관에서 여러 사람이 책을 읽다가 잠깐 자리를 비운 상황과 비슷하다. 단순한 LRU는 가장 오래 자리를 비운 사람의 책부터 치우지만, UNISON은 이 사람이 보통 금방 돌아오는지, 책을 거의 다 읽었는지 같은 단서를 보고 책을 빠른 서가에 둘지, 보관대로 옮길지, 아예 치울지 결정한다.
+> 공용 사물함을 관리하는 담당자에 비유할 수 있다. 누가 곧 돌아와 물건을 다시 찾을지, 누가 거의 일을 끝냈는지를 보고 가장 가까운 사물함과 먼 창고를 배정한다. UNISON은 AI 에이전트의 대화 기록에 대해 이 판단을 매우 빠르게 하는 담당자다.
 
 ## 논문 정보
 
-Fan He, Yan Li, Xiaoyang Zeng · State Key Laboratory of Integrated Chips and Systems, Fudan University · arXiv preprint (arXiv:2609.09643) · 2026
+Fan He, Yan Li, Xiaoyang Zeng · Fudan University, State Key Laboratory of Integrated Chips and Systems · arXiv preprint (arXiv:2609.09643v1) · 2026
 
 ## 왜 중요한가
 
-에이전트형 AI가 길고 복잡한 일을 맡을수록 GPU 주변 메모리는 쉽게 부족해진다. 한 번 버린 KV 캐시를 다시 채우면 첫 응답이 늦어지므로, 이 논문은 메모리 옆의 작은 하드웨어가 캐시 보존과 위치 배치를 빠르게 결정해 응답 지연을 줄이는 방법을 제시한다.
+에이전트 서비스에서는 모델 계산만 빠르게 하는 것만으로 부족하다. 여러 작업이 툴을 기다리며 같은 메모리 풀을 공유하므로, 다음에 곧 돌아올 작업의 기록을 어디에 둘지가 응답 시간을 크게 바꾼다. 이 논문은 그 결정을 소프트웨어 추측이 아니라 메모리 가까이의 작은 하드웨어가 정확한 이벤트를 보고 처리하게 만든다.
 
 ## 핵심 지표
 
 | 지표 | 값 | 설명 |
 |---|---|---|
-| Hit rate gain over LRU | **0.3–23.1pp** | 6개 트레이스에서 UNISON이 LRU 대비 올린 캐시 적중률 폭 |
-| AMAT reduction | **22–51%** | 6개 트레이스에서 평균 메모리 접근시간이 줄어든 폭. Table II 기준 전체 AMAT/LRU geomean은 0.65, 0.78, 0.55, 0.49, 0.72, 0.52다. |
-| TTFT reduction (long-horizon) | **58–89%** | extra prefill이 critical path에 놓이는 장기 트레이스에서 보고된 첫 토큰 지연 감소 폭. 별도 vLLM 검증의 cache-bound 사례는 mean TTFT −35%, p99 e2e −72%다. |
-| Bélády ratio (BR) | **0.93** | 미래를 아는 offline oracle 대비 UNISON의 hit rate 비율. 1.00이 oracle 기준이다. |
+| Hit rate gain (per-trace range) | **+0.3 to +23.1pp** | 6개 트레이스 모두에서 LRU 대비 |
+| AMAT reduction (per-trace range) | **-22 to -51%** | 6개 트레이스 모두에서 LRU 대비 |
+| TTFT reduction (long-horizon traces) | **-58 to -89%** | extra prefill이 critical path인 긴 horizon 트레이스 |
+| Bélády ratio (BR) | **0.93** | Bélády oracle 대비 online 정책의 hit rate 비율 |
 
 ## 어떻게 동작하나
 
-UNISON은 LLM 에이전트 세션의 KV 캐시가 도구 대기 중에도 메모리에 머무는 사실에 주목한다. 세션 s의 도착 간격 g_{s,k}=a_{s,k}-c_{s,k-1}를 EMA 계수 α=3/10으로 평활화해 평균 도구 대기 길이를 추정하고, 턴 t별 완료 hazard h(t)=d(t)/n(t)에서 σ(t)=max(ε, 1−h(min(t,50)))를 조회한다. SPEAR는 score(s)=g_s/σ(t)+(1−σ(t))P로 모든 resident 세션을 정렬하며, 완료된 세션은 Smax를 받아 즉시 높은 evict 우선순위를 갖는다. TIDE는 gap_start에서 관측 또는 추정된 idle 길이 Δ를 DMA 예산 B=Δ·B_DMA로 바꾸고, 낮은 score의 HBM 세션을 SRAM으로 승격하고 높은 score의 SRAM 세션을 HBM으로 강등한다. 두 결정은 같은 session register file과 같은 ranking을 읽으며, 28nm CMOS에서 N=64 세션 기준 0.169 mm² / 13.6 mW / 150 MHz로 구현된다.
+에이전트 루프는 툴 호출마다 cs,k−1 → as,k 사이의 예약된 복귀 간격인 gap gs,k를 만들고, KV prefix는 턴이 진행될수록 커져 두 계층 풀을 채운다. UNISON은 gap EMA ĝs와 turn-indexed survival σ(t)=max(ε,1−h(min(t,50)))를 한 점수 score(s)=ĝs/σ(t)+(1−σ(t))P로 합성해 누구를 내보낼지(SPEAR) 정하고, 같은 점수의 반대 순위로 누구를 SRAM에 둘지(TIDE) 정한다. TIDE는 gap 시간 ∆을 DMA 예산 budget=∆·BW로 바꿔 빈 시간 동안 저비용 마이그레이션을 수행하고, 둘은 단일 session register file과 event FIFO로 묶여 cycle 단위 갱신을 보장한다. 마지막으로 28nm CMOS로 합성 가능한 5단 파이프라인으로 구현하고, 64 세션 설계점에서 (bh, bg, bs, τ, PZ)=(12, 32, 64, 10³, 5×10⁸) 포맷이 Kendall τ > 0.998 랭킹 충실도를 낸다.
 
 핵심 수식:
 
 ```
-score(s) = Smax if completed, otherwise g_s / σ(t) + (1 − σ(t)) · P;   h(t)=d(t)/n(t);   σ(t)=max(ε, 1−h(min(t,50)));   B_mig = Δ · B_DMA
+score(s) = Smax, if s completed
+score(s) = ĝ_s / σ(t) + (1 − σ(t)) · P, otherwise
+ĝ_s ← (3·g_{s,k} + 7·ĝ_s) / 10
+σ(t) = max(ε, 1 − h(min(t, 50))), ε = 0.01
+budget = ∆ · BW
 ```
 
-g_s는 세션의 평활화된 도구 대기 길이, h(t)는 t번째 턴에서 완료되는 세션 비율, σ(t)는 누적 생존확률이 아니라 논문 식 (6)의 hazard local complement, P는 완료에 가까운 세션의 eviction 우선순위를 높이는 programmable penalty, B_DMA는 논리 DMA 대역폭이다. score가 높을수록 evict 또는 느린 티어 강등 우선순위가 높고, score가 낮을수록 빠른 티어 승격 대상이다.
+ĝ_s: 세션 s의 gap 지수이동평균, σ(t): turn t에서의 local survival mass, P: 완료에 가까운 세션의 eviction 우선순위를 높이는 programmable penalty, Smax: 완료 세션에 부여하는 최대 eviction 점수, ∆: 관측된 idle window, BW: 논리 DMA 대역폭, budget: gap 동안 옮길 수 있는 토큰 예산.
 
 ## 한계와 주의할 점
 
-- 소프트웨어 timestamp만으로 SPEAR를 구현하면, 도구 대기가 decode window보다 짧은 경우 gap 신호가 뒤집혀 hit rate가 떨어질 수 있다(Section V-G: GAIA/Devstral tight schedule에서 −6.6pp).
-- GPU가 prefill로 이미 포화 상태라면(SWE/Qwen3 등), 캐시 적중을 올려도 queuing 지연이 지배해 TTFT 개선이 작거나 사라진다.
-- hazard LUT가 안정화되려면 충분한 세션 수가 필요하다. GAIA/Gemma4처럼 128세션 규모의 작은 코퍼스에서는 분산이 커져 SPEAR advantage가 묻힐 수 있다.
-- 평가 코퍼스는 SWE-bench와 GAIA 기반 단일 에이전트 replay이며, 실제 동시 다중 에이전트 워크플로의 상호작용은 직접 측정하지 않는다.
-- 하드웨어 이벤트 FIFO와 unified register file에 의존하는 설계라, 기존 추론 스택에 소프트웨어 패치만 얹으면 full SPEAR+TIDE 효과를 얻기 어렵다.
-- Gap inversion: 도구 대기가 decode window보다 짧으면 소프트웨어 block-cache timestamp가 실제 gap 시작을 거칠게 잡아 score가 잘못 정렬될 수 있다.
-- GPU-bound saturation: 캐시 적중이 늘어도 queuing이 지배하는 구간에서는 TTFT가 개선되지 않는다.
-- Noisy hazard LUT: 세션 수가 적을 때 hazard 분포가 들쭉날쭉해 evictor가 baseline과 비슷해질 수 있다.
-- Stale dual-IP views: eviction과 tiering을 독립 IP로 나누고 동기화를 늦추면, interleaved 에이전트 부하에서 hit rate가 최대 5.4pp 떨어지고 AMAT 변화 방향도 일관되지 않다.
+- 오프라인 oracle에는 7% 격차(BR=0.93)가 남아, 인과 신호만으로는 닫을 수 없는 손실이 존재한다.
+- 툴 gap이 decode 윈도우보다 짧아지면 vLLM 같은 블록 캐시 timestamp로는 신호가 뒤집혀 HR이 6.6pp 떨어지며, cycle 단위 event 인터페이스 없이는 일반화가 어렵다.
+- Hazard LUT가 작은 트레이스(예: GAIA/Gemma4 128 세션)에서는 노이즈가 커서 advantage를 가릴 수 있다.
+- 추가 prefill이 GPU 큐를 saturate하는 SWE/Qwen3·SWE/Devstral 같은 GPU-bound regime에서는 hit rate 이득이 TTFT로 환산되지 않는다.
+- 듀얼 IP로 분리하고 동기화 주기를 늘리면 HR 5.4pp 감소, AMAT 부호 비일관 등 documented failure mode가 재발한다.
+- 단주기 툴 대기: gap < decode latency일 때 software timestamp가 idle 시작을 못 잡아 ranking이 뒤집힘
+- 소규모 트레이스: hazard 표 분산이 커서 SPEAR 이득이 가려짐
+- GPU-bound 부하: prefill이 큐 지배이므로 hit 이득이 first-token latency에 전파되지 않음
+- 동기화 지연 듀얼 엔진: gap/요청 인터리빙이 빽빽할 때 stale register로 victim/placement 결정이 어긋남
 
 ## 시스템 적용 아이디어
 
 논문의 기법을 비슷한 구조를 가진 시스템에 옮길 때의 적용 지점이다.
 
-### RAG 재순위에 gap-EMA 점수를 더하는 메모리 회수기
+### SPEAR 점수로 멀티세션 RAG 컨텍스트 eviction 재설계
 
-장기 기억을 쓰는 에이전트의 RAG 검색 파이프라인에서, LRU/LFU로 문서 청크를 캐시에서 밀어내는 단계를 SPEAR식 점수로 바꾼다. 사용자 또는 작업 세션별 쿼리 간격 EMA를 g_s로, 누적 턴 수 기반 완료 가능성을 σ(t)로 근사해, 짧게 쉬고 곧 돌아오는 세션의 청크는 보존하고 길게 쉬거나 완료에 가까운 세션의 청크부터 회수한다. 적용 지점은 retrieval 이후 re-ranker 직전 캐시 evict 결정 모듈이다.
+장기 기억을 들고 있는 RAG 에이전트라면, 각 retrieval 세션의 마지막 사용 이후 경과 시간을 보는 LRU는 '툴 응답을 기다리는 동안 다음 turn을 위해 다시 쓸 컨텍스트'도 cold로 잘라낸다. UNISON의 SPEAR 점수 score(s)=ĝs/σ(t)+(1−σ(t))P를 retrieval session 단위로 적용해, gap이 길고 자주 반복되는 세션은 살리고, σ(t) 즉 turn hazard가 낮은 곧 끝날 세션은 먼저 비운다. 이 점수를 retrieval 결과 재순위 단계 직전에 끼워 넣어 같은 ranking으로 검색 후보를 다시 정렬하고, eviction을 그 ranking의 arg max로 결정한다. 논문에서 6개 트레이스 모두에서 LRU 대비 hit rate이 0.3~23.1pp, AMAT이 22~51% 개선된 결과를 RAG 캐시에 옮겨 검증할 수 있다.
 
-**적용 지점** — RAG 문서 캐시 evict 단계 / 에이전트 세션 단위 메모리 회수
+**적용 지점** — 에이전트 다중 RAG 세션 eviction 및 검색 재순위 단계
 
-**기대 효과** — 논문에서 UNISON 전체 정책은 LRU 대비 hit rate 0.3–23.1pp, AMAT 22–51% 개선을 보였다. RAG에는 같은 방향의 세션 단위 캐시 효율 개선을 기대할 수 있으나, 논문이 직접 RAG 문서 캐시를 평가하지는 않았다.
+**기대 효과** — LRU 대비 hit rate +0.3~23.1pp, AMAT -22~51% (논문 6-trace 결과 인용)
 
-### 툴 idle 구간을 데이터 마이그레이션 예산으로 쓰는 티어링기
+### TIDE 스타일 idle-window tier migration을 일반 세션 스토어로 이식
 
-장기 기억을 두 단계(예: GPU HBM과 CPU RAM, 또는 로컬 SSD)에 보관하는 에이전트라면, TIDE의 B_mig=Δ·B_DMA 공식을 적용할 수 있다. 도구 요청 직후 예상 대기 시간 Δ를 두 티어 간 대역폭으로 곱해 옮길 수 있는 토큰 또는 청크 예산으로 쓰고, score가 낮은 느린 티어 resident를 빠른 티어로 승격하며 score가 높은 빠른 티어 resident를 느린 티어로 강등한다. 적용 지점은 tool-call outbound 이벤트 직후의 background migration dispatcher다.
+장기 기억과 tool call이 섞인 에이전트라면, 툴 응답이 늦게 올수록 next-turn prefill이 커진다. UNISON의 TIDE 예산 budget=∆·BW를 일반화해, 현재 gap 추정치 ∆와 fast/slow 저장소 간 전송 대역폭 BW를 곱해 이번 idle 동안 옮길 수 있는 토큰 또는 객체 budget을 산정한다. 같은 SPEAR ranking의 arg min/arg max로 promote/demote 후보를 뽑고, dual-engine 동기화 없이 단일 ranking state에서 결정한다. retrieval 인덱스 업데이트, 임베딩 캐시, vector store hot shard rebalance 등 fast/slow 분리가 있는 저장 계층에 적용할 수 있다. 논문은 N=64에서 평균 scan latency 2.00µs로 TIDE 결정이 툴 대기보다 충분히 빠름을 보였다.
 
-**적용 지점** — 에이전트 메모리 계층 간 자동 마이그레이션 / GPU↔CPU KV 이동
+**적용 지점** — 에이전트 컨텍스트의 fast/slow 저장소 promote/demote 단계
 
-**기대 효과** — 논문 Fig. 5는 SPEAR와 TIDE가 대체재가 아니라 보완재임을 보이며, TIDE with LRU는 prefetch accuracy가 낮고 UNISON 결합에서 hit rate·AMAT·prefill reduction이 함께 개선된다.
+**기대 효과** — idle 동안 migration 완료로 next-turn latency 절감, TIDE-with-LRU 단독은 prefetch accuracy 1.1%에 그치므로 SPEAR와 결합 필요
 
-### 에이전트 종료 가능성을 작업 완료 검문에 사용
+### 사이드밴드 event bus로 툴 gap onset/closure를 cycle 단위로 계측
 
-장기 작업을 끝까지 완주해야 하는 에이전트라면 SPEAR의 hazard h(t)=d(t)/n(t)를 종료 검문 신호로 사용할 수 있다. 특정 턴에서 완료 hazard가 높아지는 구간에 self-check 또는 answer summarization 루틴을 호출해, 캐시가 밀려나기 전에 중간 결과를 정리한다. 다만 논문에서 hazard는 캐시 랭킹 신호로만 검증됐으므로, 작업 종료 정책에는 별도 안전장치와 평가가 필요하다.
+에이전트 하네스라면, 툴 호출이 시작되는 순간과 끝나는 순간을 OS 타이머나 cache timestamp 대신 전용 사이드밴드 버스로 찍는다. UNISON의 event FIFO와 동일하게 cycle 단위로 stamped event를 흘려보내면, 단주기 툴 대기에서도 gap 신호가 뒤집히지 않는다. vLLM 실험에서 tool gap이 decode latency보다 짧아지면 software timestamp가 신호를 invert하여 HR -6.6pp로 무너진 케이스가 있었다. 결정 latency는 worst case 3.14µs이고 GAIA median tool gap 3.7~7.2s 대비 충분한 headroom이 있어 에이전트 runtime을 흔들지 않는다.
 
-**적용 지점** — 에이전트 자기검증·작업 종료 결정 단계 / long-horizon 작업 완주 보장
+**적용 지점** — 에이전트 툴 호출/응답 이벤트 계측과 ranking 스케줄러 입력 인터페이스
 
-**기대 효과** — 논문 Fig. 6은 hazard 제거가 hit rate와 AMAT를 악화시켜 hazard가 유효한 완료 진행 신호임을 보인다. 직접적인 작업 성공률 개선은 논문에서 측정하지 않았다.
+**기대 효과** — 짧은 툴 대기에서 신호 역전 회피, vLLM cache-bound 케이스 TTFT -35%, p99 e2e -72% (논문 Tab. V 인용)
 
-### 공유 자원 풀을 위한 unified ranking 스케줄러 일반화
+### Eviction과 placement가 공유하는 단일 ranking state로 통합
 
-다중 에이전트가 도구 핸들, API rate-limit 슬롯, DB connection 같은 공유 자원을 두고 경쟁하는 시스템이라면, UNISON의 제어평면 원칙을 일반화할 수 있다. 각 자원에 gap-like interval과 완료 가능성 기반 점수를 매기고, 낮은 점수는 빠른/우선 자원에, 높은 점수는 회수 또는 느린 자원에 배치한다. 독립 모듈로 나누고 주기적으로 sync하는 구조는 상태가 stale해질 수 있으므로 allocation과 reclamation이 같은 ranking을 읽도록 설계한다.
+에이전트 하네스나 retrieval 서빙 파이프라인에서 eviction과 prefetch/migration을 별도 컴포넌트로 두고 주기적으로 sync하는 패턴은 흔하지만, agent workload처럼 request와 gap이 빽빽하게 인터리빙되면 stale view 때문에 victim이 어긋난다. UNISON의 단일 register file Ru에 SPEAR 점수를 매 이벤트마다 갱신하고, eviction은 arg max, migration은 arg min/arg max로 같은 ranking에서 즉시 읽도록 한다. 논문 Tab. I은 dual IP + 8-request sync에서 HR -5.4pp, AMAT 부호 비일관 등 failure mode를 측정했다. 같은 ranking을 공유하는 컴포넌트로 묶으면 이 손실을 피할 수 있다.
 
-**적용 지점** — 에이전트 하네스의 자원 스케줄러 / 다중 결정이 한 상태를 공유해야 하는 컨트롤 플레인
+**적용 지점** — eviction + tier-placement 이중 엔진의 단일 ranking 통합
 
-**기대 효과** — 논문 Table I에서 dual-IP 구조는 sync granularity에 따라 hit-rate drop이 최대 5.4pp까지 발생하고 AMAT 변화 부호도 일관되지 않았다. unified register file은 이 failure mode를 피한다.
+**기대 효과** — dual IP + 8-request sync 대비 HR 손실 최대 5.4pp 제거 (논문 Tab. I 인용)
+
+### Turn-indexed hazard로 '곧 끝날 세션' 우선 eviction
+
+장기 기억을 다루는 에이전트라면, 어떤 세션이 평균적으로 turn t에서 완료되는지 d(t)/n(t) 비율로 hazard h(t)를 누적하고, σ(t)=max(ε,1−h(min(t,50)))를 룩업한다. 그 세션의 score에 (1−σ(t))·P 항을 더해 '곧 끝날 세션'이 먼저 evict되도록 한다. 논문은 SWE/Qwen3에서 5-fold cross-validation을 수행해 held-out LUT와 all-session LUT의 차이가 최대 0.85pp, 평균 0.17pp임을 보였고, online으로도 관측 세션이 쌓이면 offline 수준에 도달함을 보였다. 따라서 종료 확률을 미리 알 수 없는 도메인이라도 운영 중 누적 데이터로 비슷한 신호를 만들 수 있다.
+
+**적용 지점** — 세션 종료 예측 기반 eviction 우선순위 산정
+
+**기대 효과** — SWE/Qwen3 5-fold CV에서 hazard LUT held-out vs all-session ∆ max 0.85pp, online 관측 후 A(n)=1 수렴
 
 ## 단계별 도입 로드맵
 
 | 단계 | 목표 | 액션 | 기대 효과 |
 |---|---|---|---|
-| Phase 1 | SPEAR 랭킹을 기존 추론 스택(vLLM prefix cache)에 소프트웨어 패치로 이식 | 런타임에서 관측 가능한 gap/turn 메타데이터만으로 점수를 계산하는 모듈을 vLLM v1 prefix cache에 통합하고, 트레이스 리플레이로 hit rate/TTFT를 측정 | cache-bound 워크로드에서는 논문 vLLM 검증처럼 mean TTFT 35%·p99 e2e 72% 개선 가능성을 확인할 수 있다. |
-| Phase 2 | TIDE 배치기까지 포함한 near-memory 스케줄러 IP를 FPGA에서 검증 | Zynq-7020 등 FPGA에 64세션 용량의 결정 파이프라인을 합성하고, 실제 에이전트 트레이스를 event FIFO로 주입해 latency·충실도를 측정한다. hazard LUT는 완료 세션 누적으로 online 갱신한다. | gap_start 이벤트에서 DMA descriptor가 나오는 하드웨어 결정 지연이 마이크로초 단위에 머무는지 확인하고, ASIC 진입 전 RTL 검증을 마친다. |
-| Phase 3 | 추론 SoC에 통합 가능한 28nm CMOS IP로 마무리 | Design Compiler로 150 MHz timing closure, APB·CSR·event FIFO 인터페이스 확정, 메모리 계층 옆 sideband event bus 연결을 설계하고 GAIA·SWE 워크로드 end-to-end 측정을 수행한다. | 논문이 보고한 hit rate 0.3–23.1pp 상승, AMAT 22–51% 절감, 장기 트레이스 TTFT 58–89% 절감을 실제 통합 환경에서 재현하는 것이 목표다. |
+| Phase 1 | 소프트웨어 단계에서 SPEAR 점수만 도입하여 eviction 결정 교체 | 기존 prefix cache(예: vLLM prefix cache, radix tree)의 LRU victim 선택을 score(s)=ĝs/σ(t)+(1−σ(t))P로 대체. gap EMA와 turn-indexed hazard를 request/gap 이벤트에서 채우고, 통합된 단일 ranking을 eviction 전용으로 사용. 논문 vLLM 검증처럼 cache-bound 조건에서 TTFT -35%, p99 e2e -72% 수준의 즉시 이득을 노린다. | 소프트웨어 패치만으로 cache-bound 운영 환경의 응답 지연 단축, 무하드웨어 변경 |
+| Phase 2 | TIDE의 idle-window migration을 같은 ranking으로 결합 | 동일 score 함수를 재사용해 SRAM↔HBM swap 후보를 선정. 툴 호출 응답을 기다리는 동안 ∆·BW 토큰 budget을 산정하고, dual-IP 대신 단일 ranking state로 eviction과 migration을 묶어 동기화 지연으로 인한 5.4pp HR 손실을 회피. 두 메커니즘을 event log 단일 FIFO에서 업데이트한다. | HR gain을 0.3~23.1pp 전체 구간으로 끌어올리고 두 계층 풀 활용도 극대화 |
+| Phase 3 | 근메모리 전용 컨트롤러 IP 통합 | 64 세션, 5단 파이프라인 SPEAR+TIDE 코어를 28nm CMOS 0.169mm² / 13.6mW / 150MHz로 합성. APB+CSR+Event FIFO 인터페이스로 메모리 컨트롤러 옆에 배치, 사이드밴드 이벤트 버스로 gap onset/closure를 cycle 단위로 수신. floating-point 참조에 대해 Kendall τ > 0.998 충실도 검증. | 소프트웨어가 놓치기 쉬운 짧은 툴 대기를 cycle 단위로 관찰해 failure mode를 줄이고, KV 계층이 커지는 추론 가속기에서 작은 제어기 비용으로 큰 메모리 효율을 얻음 |
 
 ---
 
