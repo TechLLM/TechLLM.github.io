@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "contextmender-agent-context-ablation-benchmark",
+    "name": "contextmender-agent-context-ablation-benchmark",
+    "version": "",
+    "description": "",
+    "verified": false
+  },
+  {
+    "slug": "diffsentinel-state-change-grading-for-ai-agents",
+    "name": "diffsentinel-state-change-grading-for-ai-agents",
+    "version": "",
+    "description": "",
+    "verified": false
+  },
+  {
+    "slug": "failwise-worst-case-token-budget-tuning-for-llm-agents",
+    "name": "failwise-worst-case-token-budget-tuning-for-llm-agents",
+    "version": "",
+    "description": "Tune LLM agent token budgets, retrieval depth, and retry policies against worst-case failure slices; use for Failwise, token budget tuning, agent regression analysis, Pareto policy ranking, and worst-slice reliability reviews.",
+    "verified": false
+  },
+  {
+    "slug": "lazarusclip-fail-trace-prefix-recovery-for-agent-logs",
+    "name": "lazarusclip-fail-trace-prefix-recovery-for-agent-logs",
+    "version": "0.1.0",
+    "description": "Salvage the trustworthy pre-failure prefix of a failed agent trace by locating the fatal step and masking everything after it; use when triaging agent logs, replay buffers, rollout dumps, or postmortem directories for RLHF/GRPO/RFT training data, or when asked to recover, rescue, or filter failed traces instead of discarding them.",
+    "verified": true
+  }
+]
