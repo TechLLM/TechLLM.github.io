@@ -1,122 +1,117 @@
 ---
-title: "언어모델을 키우는 새로운 방법을 오래된 방법과 비교해, 더 다양한 풀이 길을 유지하면서 실력을 늘릴 수 있음을 보인 연구."
-date: 2026-08-31T07:40:30+09:00
+title: "여러 풀이 방식을 시험해, 한 번의 정답률과 여러 번 시도했을 때의 성공 가능성을 함께 높이는 학습법을 연구했다."
+date: 2026-10-27T07:34:28+09:00
 draft: false
-description: "본 논문은 Evolution Strategies(ES)와 GRPO의 사후 학습 거동을 체계적으로 비교하여, ES가 GRPO의 엔트로피 붕괴 없이 Pass@1을 개선하면서도 더 넓은 Pass@K 추론 범위를 유지함을 이론적·실험적으로 입증한다. 또한 ES의 파라미터 변화는 기능적으로 희소하며, 대규모 모델일수록 더 작은 population size로 안정적 학습이 가능함을 보인다."
-cover:
-  image: "/images/understanding-evolution-strategies-for-llm-reasoning-broader-reasoning/_page_0_Figure_8.jpeg"
-  alt: "세 가지 연구 질문(RQ1~3)과 주요 발견을 한눈에 보여주는 전체 구조도"
-  caption: "논문 원문 발췌"
-tags: ["Large Language Model / Post-Training", "논문 분석", "논문 리뷰", "Evolution Strategies", "GRPO", "Pass@K"]
+description: "이 논문은 매개변수에 작은 변화를 준 모델들을 평가해 학습 방향을 정하는 Evolution Strategies(ES)를 GRPO와 비교한다. 두 방법 모두 실험에서 Pass@1을 높였지만, ES는 GRPO보다 큰 K에서 평균 Pass@K가 높았고, GRPO는 일부 실험에서 학습 뒤 Pass@16·Pass@32가 기준 모델보다 낮았다. ES의 큰 매개변수 변화는 소수의 큰 변화에 성능 향상이 집중되는 현상과 함께 나타났으며, 평가한 설정에서는 기존 능력이 대체로 유지됐다."
+tags: ["Large Language Model / Reasoning Post-Training", "논문 분석", "논문 리뷰", "Evolution Strategies", "Group Relative Policy Optimization", "Pass@K"]
 categories: ["논문분석"]
 ---
 
 
-언어모델을 키우는 새로운 방법을 오래된 방법과 비교해, 더 다양한 풀이 길을 유지하면서 실력을 늘릴 수 있음을 보인 연구.
+여러 풀이 방식을 시험해, 한 번의 정답률과 여러 번 시도했을 때의 성공 가능성을 함께 높이는 학습법을 연구했다.
 
-**무엇이 문제였나** — 기존 강화학습 방식(GRPO)은 한 번에 한 길로만 정답을 맞추려다 보니 다양한 사고방식을 잃어버리는 문제가 있었다.
-**어떻게 풀었나** — 진화전략(ES)이라는 무작위 방향 탐색 방식을 써서, 여러 갈래의 풀이를 동시에 시험하고 좋은 방향만 모아 학습시켰다.
-**그래서 뭐가 좋아졌나** — 그 결과, 단발 정답률도 오르면서 여러 번 시도했을 때 정답을 찾을 확률도 더 좋아졌다.
+**무엇이 문제였나** — GRPO는 한 번 뽑은 답의 정답률을 높일 수 있지만, 일부 실험에서는 여러 번 시도했을 때의 성공률이 기준 모델보다 낮아졌다.
+**어떻게 풀었나** — ES는 매개변수를 조금씩 다르게 바꾼 여러 모델을 시험하고, 점수가 높은 변화 방향을 모아 학습한다.
+**그래서 뭐가 좋아졌나** — 논문 실험에서 ES는 한 번의 정답률을 높이면서 여러 번 시도했을 때의 평균 성공률도 GRPO보다 높았다.
 
-> 여러 학생이 같은 문제에 각자 다른 풀이법으로 답안을 쓰고, 선생님이 점수가 높은 답안의 특징만 모아 다음 학습에 반영하는 것과 같다. 모든 답안이 비슷한 한 가지 스타일로 수렴하지 않기 때문에, 시험 문제가 살짝 달라져도 대응할 수 있는 다양한 실력이 유지된다.
+> 여러 학생이 조금씩 다른 풀이를 시도하고, 채점 결과를 보고 다음 풀이에 반영하는 것과 비슷하다. 서로 다른 접근을 시험하면 한 가지 풀이만 반복할 때 놓치는 정답을 찾을 수 있다.
 
 ## 논문 정보
 
-Yunpeng Ba, Zhi Zheng, Yue Xie, Jiaqing Li et al. · Southern University of Science and Technology, NUS, Huawei Noah's Ark Lab, CityU HK, HIT Weihai · ICML 2026 (preprint) · 2026
+Yunpeng Ba, Zhi Zheng, Yue Xie, Jiaqing Li et al. · Southern University of Science and Technology; National University of Singapore; Huawei Noah’s Ark Lab; City University of Hong Kong; Harbin Institute of Technology, Weihai · arXiv preprint (arXiv:2608.27351v1 [cs.LG]) · 2026
 
 ## 왜 중요한가
 
-AI가 한 번에 답을 맞히는 능력만 좋아지면, 결국 한 가지 패턴만 달달 외우는 학생이 된다. 여러 번 시도해 정답을 찾을 능력까지 유지하면, 실제 시험이나 코딩처럼 여러 시도가 허용되는 상황에서 훨씬 유리하다. 또한 학습 과정에서 원래 알고 있던 지식을 까먹지 않는지도 중요한데, 이 연구는 그 균형점을 잘 잡았다.
+수학 문제처럼 답을 여러 번 만들어 볼 수 있는 상황에서는 첫 답이 맞을 가능성과 여러 답 가운데 하나가 맞을 가능성이 모두 중요하다. 이 연구는 두 목표를 비교하고, 학습한 뒤 다른 문제 유형에서 성능이 유지되는지도 평가한다.
 
 ## 핵심 지표
 
 | 지표 | 값 | 설명 |
 |---|---|---|
-| Pass@32 평균 개선폭 (Hard Setting) | **+1.5%p** | Base Model(77.4) 대비 ES(78.9)의 평균 Pass@32 차이 (AIME24/25, AMC23, MATH500) |
-| GRPO의 Pass@K 열화 빈도 | **83.3% (15/18)** | Easy Setting에서 GRPO가 Base Model 대비 Pass@16과 Pass@32에서 모두 열화한 비율 |
-| ES 파라미터 드리프트 비율 | **40.7~44.1× (vs GRPO)** | 4개 모델에서 Full ES의 상대적 L2 거리가 GRPO 대비 몇 배인지를 나타냄 |
-| Population size 절감 (1.5B+ 모델) | **4× (N=16 vs N** | Qwen2.5-1.5B/3B-Instruct에서 N=16이 N=64 대비 0.01 이내 보상 도달 (Table 6, update 300) |
+| Easy Setting에서 GRPO의 Pass@16·Pass@32 저하 | **15/18비교** | 논문은 Easy Setting의 18개 비교 중 15개에서 GRPO의 Pass@16과 Pass@32가 모두 Base Model보다 낮았다고 보고한다. |
+| ES의 상대적 파라미터 이동 | **40.7–44.1×** | 네 모델에서 Full ES의 상대적 전체 모델 L2 거리는 GRPO 대비 40.7–44.1배였다. |
+| N=16과 N=64의 평균 보상 차이 | **0.0352→0.0030보상 차이** | update 300의 N=16과 N=64 보상 차이는 Qwen2.5-0.5B에서 0.0352, Qwen2.5-3B에서 0.0030이었다. |
+| Hard Setting 수학 평균 Pass@32 | **79.2%** | ES→GRPO의 네 수학 벤치마크 평균이다. GRPO는 78.0%, ES는 78.9%였다. |
 
 ## 어떻게 동작하나
 
-본 연구는 LLM 추론 능력 사후 학습 패러다임으로 떠오른 Evolution Strategies(ES)와 주류 방법인 GRPO를 세 가지 질문으로 비교한다. 먼저 ES의 파라미터 perturbation이 Jensen-Shannon 다양도를 통해 Pass@K를 개선할 수 있음을 수학적으로 증명하고(Proposition 1), GSM8K(Easy) 및 DeepScaleR(Hard) 환경에서 4개 모델로 실증한다. 다음으로 ES의 전체 파라미터 드리프트가 GRPO 대비 40배 이상 크지만, 이는 작은 magnitude의 노이즈 이동이 누적된 결과이며 성능 기여는 큰 magnitude 업데이트의 sparse 부분집합에 집중됨을 보인다. 마지막으로 z-score 보상 정규화, 1-point estimator, 그리고 모델 스케일에 따른 population size 축소(N=16이면 1.5B+에서 N=64과 동등)라는 실전 가이드라인을 제시한다.
-
-![세 가지 연구 질문(RQ1~3)과 주요 발견을 한눈에 보여주는 전체 구조도](/images/understanding-evolution-strategies-for-llm-reasoning-broader-reasoning/_page_0_Figure_8.jpeg)
-*세 가지 연구 질문(RQ1~3)과 주요 발견을 한눈에 보여주는 전체 구조도*
-
-ES vs GRPO 거동 비교, 파라미터 드리프트 vs 기능적 희소성, 정규화·population·estimator 선택의 세 축이 한 프레임에 정리되어 있다.
+ES와 GRPO는 모두 자동 채점 점수를 최적화한다. GRPO는 한 정책에서 뽑은 답들을 비교해 역전파로 학습하고, ES는 전체 매개변수에 여러 방향의 변화를 주어 각 후보의 보상을 평가한 뒤 표준화된 보상으로 변화 방향을 합친다. 논문은 ES의 집단별 Jensen–Shannon 다양성이 성공 여부로 투영될 때 반복 시도 성공률을 높일 수 있다는 조건부 이론을 제시한다. 다만 보상 가중 정책 혼합은 분석용 비교 대상이며 실제 ES 업데이트가 아니다. 실험에서는 GSM8K를 이용한 Easy Setting(세 모델, 2 epoch)과 DeepScaleR를 이용한 Hard Setting(DeepSeek-R1-Distill-Qwen-1.5B, 1 epoch)을 비교했다. 파라미터 변화량을 분석하고 작은 변화들을 제거한 체크포인트의 성능도 확인했다. 하이퍼파라미터 실험은 보상 정규화, 섭동 크기, population 크기, 추정법을 다뤘다. 본문에 보고된 실험 결과는 주로 기술 통계이며 p값이나 신뢰구간은 제시되지 않는다.
 
 핵심 수식:
 
 ```
-\hat{d}_{ES} = \frac{1}{N} \sum_{i=1}^{N} z_i \epsilon_i, \quad \theta^+ = \theta + \alpha \hat{d}_{ES}
+d̂_ES = (1/N) Σᵢ zᵢεᵢ,  θ⁺ = θ + αd̂_ES
+Eε₁:ₙ[JSᴾᵒˡ_N(x)] = (σ²/2)(1−1/N) tr Iₓ(θ) + O(σ⁴)
+J_K(π) = Eₓ[1−(1−p_π(x))ᴷ]
 ```
 
-\epsilon_i: 표준 정규 분포에서 추출한 i번째 perturbation 방향, z_i: 표준화된 보상(z-score), N: population 크기, \alpha: 업데이트 스케일, \theta/\theta^+: 업데이트 전/후 모델 파라미터
+d̂_ES: 표준화 보상으로 가중한 섭동 방향의 평균; N: 후보 수, zᵢ: 후보 i의 보상 z-score, εᵢ: 가우시안 섭동, α: 업데이트 크기
+JSᴾᵒˡ_N(x): prompt x에서 후보 정책들의 정책 분포 다양성; σ: 섭동 크기, Iₓ(θ): prompt 조건부 Fisher 정보 행렬. 식은 본문 조건 아래 σ→0일 때의 국소 근사다.
+J_K(π): 정책 π의 기대 Pass@K; p_π(x): prompt x에서 정답을 낼 확률
 
 ## 한계와 주의할 점
 
-- ES는 한 업데이트당 N개의 forward pass가 필요하여 동일 연산 예산 대비 wall-clock 시간이 길어질 수 있다.
-- Perturbation scale σ에 민감하며, 너무 작으면 지역 최적에 갇히고 너무 크면 발산한다.
-- 본 연구는 1~2 에폭 단기 학습만 평가하여, 수 개월에 걸친 continual learning에서의 catastrophic forgetting 거동은 충분히 규명되지 않았다.
-- 검증 가능한 보상(verifier reward)이 있는 추론 과제 위주로 평가되어, 보상이 희소하거나 연속적인 다른 도메인(예: 대화 생성)에는 일반화가 검증되지 않았다.
-- Abdi et al.(2026)이 보고한 catastrophic forgetting과의 모순은 학습 데이터셋 크기와 과제 구성의 차이로 설명되지만, 어떤 조건에서 어느 결과가 나오는지에 대한 정량적 경계는 제시되지 않았다.
-- 작은 모델(0.5B) + 작은 population(N=8, 16) 조합에서는 후기 업데이트에서 보상이 하락하여 안정적 개선이 어렵다(Table 6).
-- z-score 정규화를 생략하면 reward-guided 최적화 효율이 떨어져 학습이 정체된다(Figure 1c, item 1).
-- GSM8K와 같이 regenerated rollout이 필요한 환경에서 2-point ES는 paired evaluation의 공분산이 약해 분산 감소 이점이 사라진다(Appendix E, Table 13).
-- 학습 분포와 다른 분포의 평가 프롬프트가 들어오면, ES의 population diversity 이점이 그대로 전달되지 않을 수 있다.
+- 이론적 결과에는 유한한 엔트로피와 Fisher 정보, 공통 국소 지지집합, 충분한 매끄러움 등의 조건이 필요하다. 보상 가중 정책 혼합은 실제 ES 업데이트가 아닌 분석용 비교 대상이며, 중심 모델로 이점이 전달되려면 추가 조건이 필요하다.
+- 본문에는 p값, 신뢰구간, 반복 실행 간 불확실성 또는 유의성 검정이 보고되지 않는다. 평균 차이와 순차 혼합의 우위는 보고된 실험 결과의 기술적 비교로 해석해야 한다.
+- ES는 역전파용 상태를 유지하지 않지만, 매 업데이트에서 여러 섭동 모델을 평가하고 응답을 생성해야 한다. 실험은 A100-SXM4-80GB GPU를 사용했으며 총 GPU 시간과 end-to-end latency는 보고하지 않는다.
+- 평가는 Qwen2.5-0.5B·1.5B·3B·7B-Instruct와 DeepSeek-R1-Distill-Qwen-1.5B에 한정된다. 더 큰 모델에서 더 작은 population으로 충분하다는 주장은 제한된 규모 비교에 근거한다.
+- 기존 능력 보존 결과는 평가된 두 epoch 또는 한 epoch의 작업 전환에 해당한다. 여러 작업을 거치는 장기 continual learning에서 성능이 어떻게 변하는지는 향후 과제로 남는다.
+- 섭동 크기 σ가 너무 작으면 좁은 범위만 탐색해 관측 보상에 과적합하거나 지역 최적점에 갇힐 수 있다. 너무 크면 탐색이 과도해져 학습이 불안정해지고 성능이 무너질 수 있다.
+- 후보들이 서로 다른 오답만 내고 정답 성공률은 비슷하면 정책의 차이는 커져도 정답 탐색에 도움이 되지 않을 수 있다. 이 경우 Pass@K 향상도 기대하기 어렵다.
+- 보상 점수와 실제 정답 성공률이 양의 관계가 아니면, 높은 보상 후보에 가중치를 두는 것이 후보들을 고르게 쓰는 것보다 낫지 않을 수 있다. 채점기의 오류가 이 관계를 깨뜨릴 수 있다.
+- 후보 집단에서 찾은 성공률 향상이 중심 모델 업데이트 뒤에도 유지된다는 보장은 없다. 논문의 명제는 후보와 업데이트된 중심 모델 사이의 성공률 차이가 충분히 작다는 조건을 요구한다.
 
 ## 시스템 적용 아이디어
 
 논문의 기법을 비슷한 구조를 가진 시스템에 옮길 때의 적용 지점이다.
 
-### 추론 fine-tuning 파이프라인에 ES→GRPO 순차 조합 도입
+### 목표에 따른 ES·GRPO 순차 학습 비교
 
-1단계에서 1-point ES를 1 epoch 적용해 population diversity를 확보하고(AIME24 Pass@16 60.3 → 70.6 같은 large-K 이점 유지), 2단계에서 GRPO로 Pass@1을 끌어올린다(Table 3 기준 ES→GRPO가 Hard Setting 평균 Pass@32 79.2로 최고치 도달). 적용 지점은 추론 모델 후속 학습 단계의 마지막 30~50% 구간이다. 동일 총 업데이트 예산 내에서 Pareto 전선을 확장할 수 있다.
+수학·추론 후학습에서 두 학습 순서를 후보로 만들고 Pass@1·Pass@16·Pass@32 및 held-out 성능을 비교한다. 한 번의 답이 중요한 서비스와 여러 후보를 쓰는 서비스에서 순서별 결과가 어떻게 다른지 평가한다.
 
-**적용 지점** — 추론 LLM 후속 학습 파이프라인의 마지막 fine-tuning 단계
+**적용 지점** — LLM reasoning post-training
 
-**기대 효과** — Hard Setting Pass@32 78.9(ES) → 79.2(ES→GRPO), Pass@1 49.9(ES) → 52.3(ES→GRPO) 동시 달성(Table 3 평균)
+**기대 효과** — 논문의 Hard Setting 수학 평균에서 ES→GRPO는 Pass@32 79.2%, GRPO는 78.0%, ES는 78.9%였다. 평균 Pass@1은 GRPO가 52.9%, ES→GRPO가 52.3%였다.
 
-### z-score 보상 정규화를 GRPO/REINFORCE 계열 보상 가중치에 적용
+### 보상 표준화와 모델 규모별 population 비교
 
-논문 Section 5.1의 핵심 발견은 z-score 정규화 없이는 matched 1-point ES에서도 보상 가이드 최적화가 일관되게 저하된다는 점이다(RQ3, Figure 1c item 1). 적용 지점은 population 단위 보상 집계 직후, 가중치 계산 직전이다. 이는 GRPO의 group advantage 계산과 동일한 형태이며, reward 신호의 스케일 의존성을 제거해 학습 안정성을 개선한다.
+population 보상을 z-score로 바꾸고 N=8, 16, 32, 64를 비교한다. 논문은 update 300에서 N=16이 1.5B 및 3B 모델의 N=64 보상과 0.01 이내였고, 0.5B에서는 N=32가 기준을 충족했다고 보고한다.
 
-**적용 지점** — verifier reward 기반 fine-tuning의 reward 가중 단계
+**적용 지점** — ES 후학습 최적화
 
-**기대 효과** — matched single-point ES에서 정규화 미적용 대비 더 높은 training reward를 일관되게 달성(RQ3 Takeaway 1)
+**기대 효과** — N=16과 N=64의 보상 차이는 0.5B에서 0.0352, 1.5B에서 0.0051, 3B에서 0.0030이었다.
 
-### 모델 스케일 기반 population size 자동 축소 규칙 도입
+### 작은 업데이트를 제거한 체크포인트 평가
 
-논문 Table 6은 Qwen2.5-0.5B는 N=32, 1.5B/3B는 N=16만 해도 N=64 대비 0.01 이내 보상을 얻음을 보인다. 적용 지점은 ES fine-tuning job의 population size 설정 단계이며, 4배의 forward pass 절감으로 wall-clock을 단축한다. "larger models contain more effective structures"(Section 5.1) 가설을 실전 운영 규칙으로 구체화한다.
+학습 뒤 |Δθᵢ|가 작은 좌표의 변화를 0으로 돌린 체크포인트들을 만들고 Pass@1을 평가한다. 논문은 업데이트 희소도가 약 78%인 비교점에서 네 모델의 Full ES 대비 Pass@1 변화가 각각 −0.351, −0.130, +0.488, +0.169 percentage point였다고 보고한다. 이는 체크포인트 후보를 평가하는 방법으로 검증할 수 있다.
 
-**적용 지점** — ES 기반 fine-tuning job의 population size 설정
+**적용 지점** — ES 체크포인트 평가
 
-**기대 효과** — 1.5B+ 모델에서 N=64 → N=16으로 4배 forward pass 절감, reward 손실 0.01 이내(Table 6 update 300)
+**기대 효과** — 약 78% 업데이트 희소도 비교점에서 목표 작업 Pass@1은 네 모델 모두 Full ES 결과에 가까웠다.
 
-### 큰 magnitude 업데이트 subset만 모니터링하는 품질 게이트
+### held-out Pass@32와 Maj@32로 적응 결과 점검
 
-논문 Section 4.2는 ES의 성능 기여가 7~22%의 큰 magnitude 업데이트에 집중됨을 보인다(0<(0,τ] 범위 s_τ=77.6~93.0%). 적용 지점은 학습 루프의 매 N step checkpoint 평가 단계로, top-K magnitude 파라미터의 위치(LayerNorm, attention projection)와 누적량을 별도 로깅한다. catastrophic forgetting 조기 감지와 ES/GRPO 진단 자동화의 기준으로 사용한다.
+Base Model과 학습 후보를 같은 held-out 평가 세트에서 비교하고 Pass@32 및 Maj@32 변화를 기록한다. 논문은 Easy Setting의 held-out 평균 ΔPass@32가 세 모델에서 ES +0.8, +2.2, +0.2 percentage point였고 GRPO −0.1, −1.6, −1.6였다고 보고한다. 이 결과는 해당 설정의 평균이며 이후 작업에서도 같은 결과가 보장되지는 않는다.
 
-**적용 지점** — fine-tuning 체크포인트 평가 파이프라인의 drift 진단 단계
+**적용 지점** — 추론 모델 적응 평가
 
-**기대 효과** — target-task Pass@1이 sparsity 92.47~98.11%까지도 base model 이상을 유지(Table 4, Figure 4) — 작은 업데이트는 모니터링 비용만 늘리고 정보가 적음
+**기대 효과** — 평가한 Easy Setting의 held-out 평균 Pass@32 변화는 ES에서 세 모델 모두 양수였다.
 
-### 메모리 제약 환경용 1-point ES 추론 fine-tuner 공개
+### 응답을 새로 생성하는 평가에서 one-point 추정 검토
 
-논문 Appendix E는 regenerated rollout이 필요한 추론 과제에서는 2-point ES의 paired subtraction이 분산 감소 이점을 잃음을 보인다(Table 13, GSM8K κ_pair=1.9870). 즉 추론 fine-tuning에서는 1-point가 2-point 대비 우위다. 적용 지점은 memory-efficient fine-tuning 옵션 선택 단계이며, ES를 GRPO의 대안(메모리 효율)뿐 아니라 동등한 대안(검증된 Pass@K 보존)으로 포지셔닝한다.
+one-point 방식은 방향당 한 번, antithetic two-point 방식은 양·음 방향을 평가하므로 방향 N개에 각각 N회와 2N회의 섭동 평가가 필요하다. 논문은 생성 응답의 정답 보상에서 양·음 방향 점수의 짝지음이 일관된 분산 감소를 보이지 않았고, matched GSM8K 실험에서 two-point가 학습 보상이나 held-out 성능 이점을 보이지 않았다고 보고한다.
 
-**적용 지점** — memory-constrained 환경의 LLM fine-tuning 도구 선택 단계
+**적용 지점** — ES 보상 평가 및 업데이트
 
-**기대 효과** — 1-point ES는 GRPO 대비 backprop state 미저장으로 activation memory 절감, GSM8K에서 2-point 대비 보상/성능 우위(RQ3 Takeaway 3)
+**기대 효과** — 평가한 GSM8K 설정에서 one-point는 two-point보다 적은 섭동 평가를 요구했고, two-point 성능 이점은 관찰되지 않았다.
 
 ## 단계별 도입 로드맵
 
 | 단계 | 목표 | 액션 | 기대 효과 |
 |---|---|---|---|
-| Phase 1 (파일럿, 2~4주) | ES 기본 파이프라인 재현 및 baseline 비교 | Qwen2.5-1.5B-Instruct + GSM8K 1 epoch로 1-point ES(z-score 정규화, N=32) vs GRPO 학습을 동일 연산 예산으로 수행, Pass@1/16/32과 entropy trajectory 측정 | GRPO의 entropy collapse와 Pass@32 baseline 미달 여부를 자체 환경에서 확인, ES 도입 정당성 확보 |
-| Phase 2 (스케일 검증, 1~2개월) | 모델 크기·population size·순차 조합 최적화 | 1.5B/3B/7B 모델에서 N∈{8,16,32,64} sweep, ES→GRPO 및 GRPO→ES 순차 조합으로 Pareto 전선 확장, held-out 태스크(MBPP, CSQA 등) 보존율 검증 | GPU당 처리 가능한 perturbation 수 도출, 메모리·시간 제약 하 최적 구성 확정 |
-| Phase 3 (운영 배포, 2~3개월) | 프로덕션 추론 서비스에 ES 후속 학습 통합 | 검증된 하이퍼파라미터 세트를 학습 파이프라인에 자동화, 평가 세트에 Pass@K 모니터링 추가, catastrophic forgetting 조기 경보용 held-out 체크포인트 평가 체계 구축 | 단발 정확도와 재시도 성공률 모두 개선된 모델 버전 출시, 사용자당 과제 완수율 상승 |
+| Phase 1 | ES와 GRPO의 비교 기준 및 측정 방법을 재현한다. | GSM8K와 DeepScaleR 설정에서 Base·GRPO·ES를 같은 업데이트 예산으로 학습한다. 보상 정규화, one-point·two-point 추정법, N∈{8,16,32,64}를 비교하고 Pass@1·Pass@16·Pass@32와 held-out 변화를 기록한다. 반복 실행과 결과 변동도 측정한다. | 한 번의 정답률과 여러 번 시도했을 때의 성능을 구분해 비교할 수 있다. |
+| Phase 2 | ES와 GRPO의 순차 학습이 정답률과 후보 범위에 미치는 영향을 비교한다. | 같은 전체 업데이트 예산을 둘로 나눠 ES→GRPO와 GRPO→ES를 학습한다. 작업별 Pass@1·Pass@16·Pass@32와 held-out 결과를 비교한다. | 서비스의 답 생성 방식에 따라 두 학습 순서의 성능을 비교할 수 있다. |
+| Phase 3 | 새 작업에 적응한 체크포인트의 기존 능력을 점검한다. | Base Model, 현재 운영 모델, 새 후보를 같은 held-out 평가 세트에서 비교한다. 매개변수 변화가 작은 좌표를 제거한 체크포인트도 평가하고, 주요 지표의 변화를 기록한다. | 새 작업 성능과 기존 문제 유형 성능을 함께 살펴보고 후보 체크포인트를 고를 수 있다. |
 
 ---
 
